@@ -176,7 +176,12 @@ byte_177 equ $177
 byte_178 equ $178
 byte_179 equ $179
 byte_17A equ $17A
+
+; $17D [6 bytes] : Score  (BCD encoded)
 byte_181 equ $181
+
+; $183 [6 bytes] : Top Score  (BCD encoded)
+
 byte_199 equ $199
 byte_19A equ $19A
 byte_19B equ $19B
