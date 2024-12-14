@@ -24,6 +24,13 @@ Developers (COMPILE):
 
 Thank you guys!
 
+## Progress
+
+Project development happens sporadically when I am bored. In the evening I sit down, launch IDA and in parallel the Mesen debugger and play the game trying to understand the purpose of all procedures.
+At the moment there are 422 procedures marked, but about 20 procedures are identified (more or less clear what they do).
+
+More details here: [map.md](map.md)
+
 ## References
 
 - https://strategywiki.org/wiki/Zanac
