@@ -184,7 +184,7 @@ byte_200 equ $200
 byte_201 equ $201
 byte_202 equ $202
 byte_203 equ $203
-byte_210 equ $204
+byte_210 equ $210
 byte_211 equ $211
 byte_212 equ $212
 byte_213 equ $213
