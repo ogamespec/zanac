@@ -1,5 +1,5 @@
     processor 6502
-	org $8000,255
+    org $8000,255
 
     include "../src/vars.asm"
     include "../src/bank7_api.asm"

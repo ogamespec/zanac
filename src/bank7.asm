@@ -1,9 +1,9 @@
     processor 6502
-	org $c000,255
+    org $c000,255
 
-	include "../src/nesregs.asm"
-	include "../src/vars.asm"
-	include "../src/bank6_api.asm"
+    include "../src/nesregs.asm"
+    include "../src/vars.asm"
+    include "../src/bank6_api.asm"
 
 ; Segment type: Pure code
                 ;.segment ROM
