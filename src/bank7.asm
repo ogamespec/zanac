@@ -2,7 +2,7 @@
 	org $c000,255
 
 	include "../src/nesregs.asm"
-	include "../src/zp.asm"
+	include "../src/vars.asm"
 	include "../src/bank6_api.asm"
 
 ; Segment type: Pure code
@@ -2771,14 +2771,14 @@ loc_C9CB:                               ; CODE XREF: sub_C985+4F↓j
 loc_C9E8:                               ; CODE XREF: sub_C985+5F↑j
                 LDA     $462,X
                 TAX
-                LDA     $44,X
+                .BYTE $BD, $44, $00   ; LDA     !$44,X  -- Force non Zero Page [!]
                 AND     byte_D7DB,Y
                 STA     byte_11
                 LDA     byte_D7DF,Y
                 LDY     byte_10
                 AND     $16E,Y
                 ORA     byte_11
-                STA     $44,X
+				.BYTE $9D, $44, $00  ; STA !$44,X  -- Force non Zero Page [!]
                 LDX     byte_21
                 STA     $467,X
                 PLA
@@ -2839,13 +2839,13 @@ loc_CA56:                               ; CODE XREF: sub_CA0F+43↑j
                 BNE     loc_CA7C
                 LDA     $466,X
                 TAX
-                LDA     $44,X
+				.BYTE $BD, $44, $00    ; LDA     $44,X    -- Force non Zero Page [!]
                 AND     byte_D7DB,Y
                 STA     byte_11
                 LDA     byte_D7DF,Y
                 AND     byte_63
                 ORA     byte_11
-                STA     $44,X
+				.BYTE $9D, $44, $00  	; STA     $44,X   -- Force non Zero Page [!]
                 LDX     byte_21
                 STA     $467,X
                 PLA
@@ -3014,18 +3014,18 @@ sub_CB01:                               ; CODE XREF: sub_C015↑j
 sub_CB0A:                               ; CODE XREF: sub_C01E↑j
                                         ; sub_D0BF+2F↓p ...
                 LDA     #1
-                STA     byte_4016
+                STA     JOYPAD_PORT1
                 LDA     #0
-                STA     byte_4016
+                STA     JOYPAD_PORT1
                 LDX     #8
 
 loc_CB16:                               ; CODE XREF: sub_CB0A+1F↓j
-                LDA     byte_4016
+                LDA     JOYPAD_PORT1
                 LSR
                 ROL     byte_F5
                 LSR
                 ROL     byte_0
-                LDA     byte_4017
+                LDA     JOYPAD_PORT2
                 LSR
                 ROL     byte_F6
                 LSR
@@ -3687,7 +3687,7 @@ nmi_handler:                            ; DATA XREF: ROM:FFFA↓o
                 LDA     #0
                 STA     PPU_SPR_ADDR
                 LDA     #2
-                STA     byte_4014
+                STA     PPU_SPR_DMA
                 JSR     sub_CEC5
                 JSR     ppu_cram_update ; Update CRAM (palette)
                 JSR     sub_C7A3
@@ -8142,7 +8142,7 @@ sub_E76C:                               ; CODE XREF: sub_D3FF↑p
                 AND     #$F8
                 STA     byte_FB
                 ORA     #5
-                STA     byte_4016
+                STA     JOYPAD_PORT1
                 NOP
                 NOP
                 NOP
@@ -8154,7 +8154,7 @@ sub_E76C:                               ; CODE XREF: sub_D3FF↑p
 loc_E77F:                               ; CODE XREF: sub_E76C+49↓j
                 LDA     byte_FB
                 ORA     #4
-                STA     byte_4016
+                STA     JOYPAD_PORT1
                 LDY     #$A
 
 loc_E788:                               ; CODE XREF: sub_E76C+1D↓j
@@ -8162,14 +8162,14 @@ loc_E788:                               ; CODE XREF: sub_E76C+1D↓j
                 BNE     loc_E788
                 NOP
                 LDY     byte_FB
-                LDA     byte_4017
+                LDA     JOYPAD_PORT2
                 LSR
                 AND     #$F
                 BEQ     loc_E7BB
                 STA     0,X
                 LDA     byte_FB
                 ORA     #6
-                STA     byte_4016
+                STA     JOYPAD_PORT1
                 LDY     #$A
 
 loc_E7A1:                               ; CODE XREF: sub_E76C+36↓j
@@ -8177,7 +8177,7 @@ loc_E7A1:                               ; CODE XREF: sub_E76C+36↓j
                 BNE     loc_E7A1
                 NOP
                 NOP
-                LDA     byte_4017
+                LDA     JOYPAD_PORT2
                 ROL
                 ROL
                 ROL
@@ -8191,7 +8191,7 @@ loc_E7A1:                               ; CODE XREF: sub_E76C+36↓j
                 ORA     #$FF
 
 loc_E7BB:                               ; CODE XREF: sub_E76C+28↑j
-                STY     byte_4016
+                STY     JOYPAD_PORT1
                 RTS
 ; End of function sub_E76C
 
@@ -8221,9 +8221,9 @@ loc_E7DA:                               ; CODE XREF: reset+1E↓j
                 DEX
                 BNE     loc_E7DA
                 LDA     #$C0
-                STA     byte_4017
+                STA     JOYPAD_PORT2
                 LDA     #0
-                STA     byte_4010
+                STA     APU_DELTA_REG
                 JSR     sub_DF68
                 LDA     byte_7D
                 PHA
@@ -8855,20 +8855,20 @@ loc_EB17:                               ; CODE XREF: sub_EA52+55↑j
 loc_EB25:                               ; CODE XREF: sub_EA52+C8↑j
                                         ; sub_EA52+CE↑j
                 LDA     byte_307
-                STA     byte_4015
+                STA     APU_MASTERCTRL_REG
                 LDX     #$F
 
 loc_EB2D:                               ; CODE XREF: sub_EA52+103↓j
                 LDA     $309,X
                 CMP     #$FF
                 BCS     loc_EB37
-                STA     apu_regs,X
+                STA     APU_REG_BASE,X
 
 loc_EB37:                               ; CODE XREF: sub_EA52+E0↑j
                 DEX
                 BCS     loc_EB40
                 LDA     $309,X
-                STA     apu_regs,X
+                STA     APU_REG_BASE,X
 
 loc_EB40:                               ; CODE XREF: sub_EA52+E6↑j
                 DEX
@@ -8878,12 +8878,12 @@ loc_EB40:                               ; CODE XREF: sub_EA52+E6↑j
                 LDA     #8
 
 loc_EB4A:                               ; CODE XREF: sub_EA52+F4↑j
-                STA     apu_regs,X
+                STA     APU_REG_BASE,X
 
 loc_EB4D:                               ; CODE XREF: sub_EA52+EF↑j
                 DEX
                 LDA     $309,X
-                STA     apu_regs,X
+                STA     APU_REG_BASE,X
                 DEX
                 BPL     loc_EB2D
                 RTS
@@ -9760,8 +9760,8 @@ loc_EF7D:                               ; CODE XREF: sub_EF79+A↓j
                 PLA
                 TAX
                 LDA     #0
-                STA     byte_4015
-                STA     byte_4010
+                STA     APU_MASTERCTRL_REG
+                STA     APU_DELTA_REG
                 RTS
 ; End of function sub_EF79
 

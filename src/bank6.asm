@@ -1,7 +1,7 @@
     processor 6502
 	org $8000,255
 
-    include "../src/zp.asm"
+    include "../src/vars.asm"
     include "../src/bank7_api.asm"
 
 ; Segment type: Pure code
