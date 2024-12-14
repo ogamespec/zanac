@@ -1,0 +1,1 @@
+IDA 7.0 database (Zanac decompile project).

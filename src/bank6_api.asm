@@ -1,0 +1,12 @@
+sub_18000 equ $8000
+sub_18003 equ $8003
+sub_18006 equ $8006
+sub_18009 equ $8009
+sub_1800C equ $800c
+sub_1800F equ $800f
+sub_18012 equ $8012
+j_set_default_weapon equ $8015
+sub_18018 equ $8018
+sub_1801B equ $801b
+sub_1801E equ $801e
+j_check_enemy_overflow equ $8021
