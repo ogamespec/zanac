@@ -221,21 +221,21 @@ sub_1BDC9	seg002	0000BDC9	0000002C			R	.	.	.	.	.	.
 sub_1BE08	seg002	0000BE08	00000039			R	.	.	.	.	.	.
 j_reset	ROM	0000C000	00000003			R	.	.	.	.	.	.
 j_switch_bank	ROM	0000C003	00000003			R	.	.	.	.	.	.
-sub_C006	ROM	0000C006	00000003			R	.	.	.	.	.	.
+j_far_call	ROM	0000C006	00000003			R	.	.	.	.	.	.
 j_ppu_nmi_disable	ROM	0000C009	00000003			R	.	.	.	.	.	.
 j_ppu_nmi_enable	ROM	0000C00C	00000003			R	.	.	.	.	.	.
 j_ppu_disable_all	ROM	0000C00F	00000003			R	.	.	.	.	.	.
 j_ppu_enable_all	ROM	0000C012	00000003			R	.	.	.	.	.	.
 sub_C015	ROM	0000C015	00000003			R	.	.	.	.	.	.
-sub_C018	ROM	0000C018	00000003			R	.	.	.	.	.	.
+j_clear_screen	ROM	0000C018	00000003			R	.	.	.	.	.	.
 sub_C01B	ROM	0000C01B	00000003			R	.	.	.	.	.	.
-sub_C01E	ROM	0000C01E	00000003			R	.	.	.	.	.	.
+j_pad_read	ROM	0000C01E	00000003			R	.	.	.	.	.	.
 j_all_enemies_destroyed	ROM	0000C021	00000003			R	.	.	.	.	.	.
 sub_C024	ROM	0000C024	00000003			R	.	.	.	.	.	.
 sub_C027	ROM	0000C027	00000003			R	.	.	.	.	.	.
 sub_C02A	ROM	0000C02A	00000003			R	.	.	.	.	.	.
 sub_C02D	ROM	0000C02D	00000003			R	.	.	.	.	.	.
-sub_C030	ROM	0000C030	00000003			R	.	.	.	.	.	.
+j_apu_play	ROM	0000C030	00000003			R	.	.	.	.	.	.
 sub_C033	ROM	0000C033	00000003			R	.	.	.	.	.	.
 sub_C036	ROM	0000C036	00000003			R	.	.	.	.	.	.
 sub_C039	ROM	0000C039	00000003			R	.	.	.	.	.	.
@@ -253,8 +253,8 @@ sub_C05A	ROM	0000C05A	00000003			R	.	.	.	.	.	.
 sub_C05D	ROM	0000C05D	00000003			R	.	.	.	.	.	.
 sub_C060	ROM	0000C060	00000003			R	.	.	.	.	.	.
 sub_C063	ROM	0000C063	00000003			R	.	.	.	.	.	.
-sub_C066	ROM	0000C066	00000003			R	.	.	.	.	.	.
-sub_C069	ROM	0000C069	00000003			R	.	.	.	.	.	.
+j_apu_play_0	ROM	0000C066	00000003			R	.	.	.	.	.	.
+j_apu_update	ROM	0000C069	00000003			R	.	.	.	.	.	.
 sub_C06C	ROM	0000C06C	00000003			R	.	.	.	.	.	.
 sub_C06F	ROM	0000C06F	00000003			R	.	.	.	.	.	.
 sub_C072	ROM	0000C072	00000003			R	.	.	.	.	.	.
@@ -275,7 +275,7 @@ stack_call_return	ROM	0000C6D3	00000007			R	.	.	.	.	.	.
 print_string	ROM	0000C6DA	00000010			R	.	.	.	.	.	.
 sub_C6EA	ROM	0000C6EA	0000003B			R	.	.	.	.	.	.
 sub_C725	ROM	0000C725	00000043			R	.	.	.	.	.	.
-sub_C768	ROM	0000C768	0000003B			R	.	.	.	.	.	.
+clear_screen	ROM	0000C768	0000003B			R	.	.	.	.	.	.
 ppu_update_scroll_regs	ROM	0000C7A3	00000010			R	.	.	.	.	.	.
 sub_C7B3	ROM	0000C7B3	00000013			R	.	.	.	.	.	.
 switch_case	ROM	0000C7C6	00000012			R	.	.	.	.	.	.
@@ -291,9 +291,9 @@ switch_bank_3_unused	ROM	0000C84B	0000000D			R	.	.	.	.	.	.
 switch_bank_4	ROM	0000C858	0000000D			R	.	.	.	.	.	.
 switch_bank_5	ROM	0000C865	0000000D			R	.	.	.	.	.	.
 switch_bank_6	ROM	0000C872	0000000D			R	.	.	.	.	.	.
-sub_C87F	ROM	0000C87F	00000021			R	.	.	.	.	.	.
-sub_C8A0	ROM	0000C8A0	0000000C			R	.	.	.	.	.	.
-sub_C8AC	ROM	0000C8AC	0000000E			R	.	.	.	.	.	.
+far_call	ROM	0000C87F	00000021			R	.	.	.	.	.	.
+far_call_prepare	ROM	0000C8A0	0000000C			R	.	.	.	.	.	.
+far_call_restore	ROM	0000C8AC	0000000E			R	.	.	.	.	.	.
 sub_C8BA	ROM	0000C8BA	00000025			R	.	.	.	.	.	.
 sub_C8DF	ROM	0000C8DF	00000049			R	.	.	.	.	.	.
 sub_C938	ROM	0000C938	00000024			R	.	.	.	.	.	.
@@ -310,10 +310,12 @@ ppu_set_control1	ROM	0000CAEB	00000006			R	.	.	.	.	.	.
 ppu_enable_all	ROM	0000CAF1	00000006			R	.	.	.	.	.	.
 ppu_nmi_enable	ROM	0000CAF7	0000000A			R	.	.	.	.	.	.
 sub_CB01	ROM	0000CB01	00000009			R	.	.	.	.	.	.
-sub_CB0A	ROM	0000CB0A	00000036			R	.	.	.	.	.	.
+pad_read	ROM	0000CB0A	00000036			R	.	.	.	.	.	.
 sub_CB40	ROM	0000CB40	0000000B			R	.	.	.	.	.	.
 sub_CB4B	ROM	0000CB4B	0000010C			R	.	.	.	.	.	.
 sub_CC57	ROM	0000CC57	00000056			R	.	.	.	.	.	.
+sub_CCD4	ROM	0000CCD4	00000004			R	.	.	.	.	.	.
+sub_CCD8	ROM	0000CCD8	0000000B			R	.	.	.	.	.	.
 sub_CCE3	ROM	0000CCE3	00000013			R	.	.	.	.	.	.
 sub_CCF6	ROM	0000CCF6	00000045			R	.	.	.	.	.	.
 sub_CD6B	ROM	0000CD6B	00000107			R	.	.	.	.	.	.
@@ -349,6 +351,7 @@ sub_D5AB	ROM	0000D5AB	00000016			R	.	.	.	.	.	.
 sub_D5C1	ROM	0000D5C1	00000016			R	.	.	.	.	.	.
 sub_D5D7	ROM	0000D5D7	00000048			R	.	.	.	.	.	.
 sub_D69B	ROM	0000D69B	00000004			R	.	.	.	.	.	.
+sub_D69F	ROM	0000D69F	00000010			R	.	.	.	.	.	.
 sub_D6AF	ROM	0000D6AF	00000030			R	.	.	.	.	.	.
 sub_D6DF	ROM	0000D6DF	0000006C			R	.	.	.	.	.	.
 sub_D753	ROM	0000D753	00000028			R	.	.	.	.	.	.
@@ -356,7 +359,17 @@ sub_D77B	ROM	0000D77B	00000014			R	.	.	.	.	.	.
 sub_D78F	ROM	0000D78F	00000016			R	.	.	.	.	.	.
 set_nametable_addr_after_scroll	ROM	0000D7A5	00000018			R	.	.	.	.	.	.
 sub_D7E3	ROM	0000D7E3	00000041			R	.	.	.	.	.	.
-sub_D824	ROM	0000D824	000003A1			R	.	.	.	.	.	.
+sub_D824	ROM	0000D824	00000050	00000000	00000000	R	.	.	.	.	.	.
+sub_D886	ROM	0000D886	0000000E			R	.	.	.	.	.	.
+sub_D894	ROM	0000D894	0000000D			R	.	.	.	.	.	.
+sub_D8A1	ROM	0000D8A1	0000001E			R	.	.	.	.	.	.
+sub_D8BF	ROM	0000D8BF	0000001D			R	.	.	.	.	.	.
+sub_D8DC	ROM	0000D8DC	00000044			R	.	.	.	.	.	.
+sub_D920	ROM	0000D920	00000018			R	.	.	.	.	.	.
+sub_D938	ROM	0000D938	000000A8			R	.	.	.	.	.	.
+sub_D9E0	ROM	0000D9E0	00000036			R	.	.	.	.	.	.
+sub_DA16	ROM	0000DA16	00000020			R	.	.	.	.	.	.
+sub_DA36	ROM	0000DA36	0000018F			R	.	.	.	.	.	.
 sub_DCC5	ROM	0000DCC5	00000019			R	.	.	.	.	.	.
 sub_DD26	ROM	0000DD26	00000078			R	.	.	.	.	.	.
 sub_DD9E	ROM	0000DD9E	00000055			R	.	.	.	.	.	.
@@ -373,14 +386,15 @@ sub_E229	ROM	0000E229	0000002B			R	.	.	.	.	.	.
 sub_E266	ROM	0000E266	0000002A			R	.	.	.	.	.	.
 sub_E399	ROM	0000E399	0000001F			R	.	.	.	.	.	.
 sub_E3F4	ROM	0000E3F4	00000045			R	.	.	.	.	.	.
-sub_E439	ROM	0000E439	00000029			R	.	.	.	.	.	.
+sound_test_menu	ROM	0000E439	00000029			R	.	.	.	.	.	.
 sub_E462	ROM	0000E462	0000006D			R	.	.	.	.	.	.
-sub_E4CF	ROM	0000E4CF	00000140	00000000	00000000	R	.	.	.	.	.	.
+show_ending_screen	ROM	0000E4CF	00000140	00000000	00000000	R	.	.	.	.	.	.
 sub_E60F	ROM	0000E60F	00000044			R	.	.	.	.	.	.
 sub_E653	ROM	0000E653	0000001E			R	.	.	.	.	.	.
 sub_E767	ROM	0000E767	00000005			R	.	.	.	.	.	.
 sub_E76C	ROM	0000E76C	00000053			R	.	.	.	.	.	.
-reset	ROM	0000E7BF	000000EB			R	.	.	.	.	.	.
+reset	ROM	0000E7BF	00000047	00000000	00000000	R	.	.	.	.	.	.
+sub_E806	ROM	0000E806	000000A4			R	.	.	.	.	.	.
 sub_E8AA	ROM	0000E8AA	0000001F			R	.	.	.	.	.	.
 sub_E8C9	ROM	0000E8C9	000000CC			R	.	.	.	.	.	.
 sub_E995	ROM	0000E995	0000000D			R	.	.	.	.	.	.
@@ -391,42 +405,48 @@ sub_EA0B	ROM	0000EA0B	0000002B			R	.	.	.	.	.	.
 all_enemies_destroyed	ROM	0000EA36	00000007			R	.	.	.	.	.	.
 sub_EA3D	ROM	0000EA3D	00000003			R	.	.	.	.	.	.
 sub_EA40	ROM	0000EA40	00000003			R	.	.	.	.	.	.
-sub_EA43	ROM	0000EA43	00000003			R	.	.	.	.	.	.
-sub_EA46	ROM	0000EA46	00000003			R	.	.	.	.	.	.
+j_apu_play_1	ROM	0000EA43	00000003			R	.	.	.	.	.	.
+j_apu_update_0	ROM	0000EA46	00000003			R	.	.	.	.	.	.
 sub_EA49	ROM	0000EA49	00000003			R	.	.	.	.	.	.
 sub_EA4C	ROM	0000EA4C	00000003			R	.	.	.	.	.	.
 sub_EA4F	ROM	0000EA4F	00000003			R	.	.	.	.	.	.
-sub_EA52	ROM	0000EA52	00000106			R	.	.	.	.	.	.
+apu_update	ROM	0000EA52	00000106			R	.	.	.	.	.	.
 sub_EB58	ROM	0000EB58	00000022			R	.	.	.	.	.	.
 sub_EB7A	ROM	0000EB7A	00000035			R	.	.	.	.	.	.
-sub_EBEB	ROM	0000EBEB	0000000B			R	.	.	.	.	.	.
-sub_EBF6	ROM	0000EBF6	0000000F			R	.	.	.	.	.	.
-sub_EC05	ROM	0000EC05	00000012			R	.	.	.	.	.	.
-sub_EC17	ROM	0000EC17	00000004			R	.	.	.	.	.	.
-sub_EC1B	ROM	0000EC1B	00000004			R	.	.	.	.	.	.
-sub_EC1F	ROM	0000EC1F	00000016			R	.	.	.	.	.	.
-sub_EC35	ROM	0000EC35	0000000A			R	.	.	.	.	.	.
-sub_EC3F	ROM	0000EC3F	0000000C			R	.	.	.	.	.	.
-sub_EC4B	ROM	0000EC4B	00000004			R	.	.	.	.	.	.
-sub_EC4F	ROM	0000EC4F	0000001C			R	.	.	.	.	.	.
-sub_EC6B	ROM	0000EC6B	0000000D			R	.	.	.	.	.	.
-sub_EC78	ROM	0000EC78	00000007			R	.	.	.	.	.	.
-sub_EC7F	ROM	0000EC7F	00000025			R	.	.	.	.	.	.
-sub_ECA4	ROM	0000ECA4	0000000C			R	.	.	.	.	.	.
+apu_fx_0	ROM	0000EBEB	0000000B			R	.	.	.	.	.	.
+apu_fx_1	ROM	0000EBF6	0000000F			R	.	.	.	.	.	.
+apu_fx_6	ROM	0000EC05	00000006	00000000	00000000	R	.	.	.	.	.	.
+apu_fx_2	ROM	0000EC0B	00000005	00000000	00000000	R	.	.	.	.	.	.
+apu_fx_5	ROM	0000EC10	00000007			R	.	.	.	.	.	.
+apu_fx_3	ROM	0000EC17	00000004			R	.	.	.	.	.	.
+apu_fx_8	ROM	0000EC1B	00000004			R	.	.	.	.	.	.
+apu_fx_4	ROM	0000EC1F	00000009	00000000	00000000	R	.	.	.	.	.	.
+apu_fx_29	ROM	0000EC28	00000007	00000000	00000000	R	.	.	.	.	.	.
+sub_EC2F	ROM	0000EC2F	00000006			R	.	.	.	.	.	.
+apu_fx_9	ROM	0000EC35	0000000A			R	.	.	.	.	.	.
+apu_fx_13	ROM	0000EC3F	0000000C			R	.	.	.	.	.	.
+apu_fx_16	ROM	0000EC4B	00000004			R	.	.	.	.	.	.
+apu_fx_10	ROM	0000EC4F	0000001C			R	.	.	.	.	.	.
+sub_EC6B	ROM	0000EC6B	00000009	00000000	00000000	R	.	.	.	.	.	.
+apu_fx_7	ROM	0000EC74	00000004			R	.	.	.	.	.	.
+apu_fx_17	ROM	0000EC78	00000007			R	.	.	.	.	.	.
+apu_fx_19	ROM	0000EC7F	00000025			R	.	.	.	.	.	.
+apu_fx_21	ROM	0000ECA4	0000000C			R	.	.	.	.	.	.
 sub_ECB0	ROM	0000ECB0	00000002			R	.	.	.	.	.	.
-sub_ECB2	ROM	0000ECB2	00000025			R	.	.	.	.	.	.
-sub_ECD7	ROM	0000ECD7	0000001E			R	.	.	.	.	.	.
-sub_ECF5	ROM	0000ECF5	00000013			R	.	.	.	.	.	.
+apu_fx_18	ROM	0000ECB2	00000025			R	.	.	.	.	.	.
+apu_fx_22	ROM	0000ECD7	0000001E			R	.	.	.	.	.	.
+apu_fx_14_15	ROM	0000ECF5	00000013			R	.	.	.	.	.	.
 sub_ED08	ROM	0000ED08	00000004			R	.	.	.	.	.	.
 sub_ED0C	ROM	0000ED0C	00000004			R	.	.	.	.	.	.
 sub_ED10	ROM	0000ED10	00000005			R	.	.	.	.	.	.
-sub_ED15	ROM	0000ED15	00000010			R	.	.	.	.	.	.
+apu_fx_20	ROM	0000ED15	00000010			R	.	.	.	.	.	.
 sub_ED25	ROM	0000ED25	0000000A			R	.	.	.	.	.	.
 sub_ED2F	ROM	0000ED2F	00000004			R	.	.	.	.	.	.
 sub_ED33	ROM	0000ED33	00000009			R	.	.	.	.	.	.
-sub_ED3C	ROM	0000ED3C	0000000A			R	.	.	.	.	.	.
-sub_ED46	ROM	0000ED46	0000000A			R	.	.	.	.	.	.
-sub_ED50	ROM	0000ED50	00000069			R	.	.	.	.	.	.
+apu_fx_23_24_25	ROM	0000ED3C	00000008	00000000	00000000	R	.	.	.	.	.	.
+apu_fx_12	ROM	0000ED44	00000002			R	.	.	.	.	.	.
+apu_fx_28	ROM	0000ED46	0000000A			R	.	.	.	.	.	.
+apu_fx_26_27	ROM	0000ED50	00000069			R	.	.	.	.	.	.
 sub_EDB9	ROM	0000EDB9	00000043			R	.	.	.	.	.	.
 sub_EDFC	ROM	0000EDFC	00000047			R	.	.	.	.	.	.
 sub_EE43	ROM	0000EE43	0000002E			R	.	.	.	.	.	.
@@ -436,7 +456,7 @@ sub_EEAA	ROM	0000EEAA	00000098			R	.	.	.	.	.	.
 sub_EF4A	ROM	0000EF4A	00000027			R	.	.	.	.	.	.
 sub_EF71	ROM	0000EF71	00000008			R	.	.	.	.	.	.
 sub_EF79	ROM	0000EF79	00000017			R	.	.	.	.	.	.
-sub_EF90	ROM	0000EF90	00000016			R	.	.	.	.	.	.
+apu_play	ROM	0000EF90	00000016			R	.	.	.	.	.	.
 sub_EFA6	ROM	0000EFA6	00000076			R	.	.	.	.	.	.
 sub_F0F4	ROM	0000F0F4	00000006			R	.	.	.	.	.	.
 sub_F0FA	ROM	0000F0FA	00000004			R	.	.	.	.	.	.
