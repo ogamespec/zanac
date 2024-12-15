@@ -6,6 +6,7 @@
 
 ; Segment type: Pure code
                 ;.segment seg002
+                ;* =  $8000
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -21,7 +22,7 @@ sub_18000:                              ; CODE XREF: sub_D0BF+32↑P
 
 ; Attributes: thunk
 
-sub_18003:                              ; CODE XREF: sub_DFBF+CC↑P
+sub_18003:                              ; CODE XREF: show_main_menu+CC↑P
                                         ; reset+95↑P
                 JMP     sub_18835
 ; End of function sub_18003
@@ -31,7 +32,8 @@ sub_18003:                              ; CODE XREF: sub_DFBF+CC↑P
 
 ; Attributes: thunk
 
-sub_18006:                              ; CODE XREF: reset+68↑P
+sub_18006:                              ; CODE XREF: show_main_menu+AA↑P
+                                        ; reset+68↑P
                 JMP     sub_183DD
 ; End of function sub_18006
 
@@ -40,7 +42,7 @@ sub_18006:                              ; CODE XREF: reset+68↑P
 
 ; Attributes: thunk
 
-sub_18009:                              ; CODE XREF: sub_DFBF+C9↑P
+sub_18009:                              ; CODE XREF: show_main_menu+C9↑P
                                         ; reset+92↑P
                 JMP     sub_183EF
 ; End of function sub_18009
@@ -50,7 +52,7 @@ sub_18009:                              ; CODE XREF: sub_DFBF+C9↑P
 
 ; Attributes: thunk
 
-sub_1800C:                              ; CODE XREF: sub_DFBF+CF↑P
+sub_1800C:                              ; CODE XREF: show_main_menu+CF↑P
                                         ; reset+98↑P
                 JMP     sub_184A7
 ; End of function sub_1800C
@@ -87,9 +89,9 @@ j_set_default_weapon:                   ; CODE XREF: sub_CB4B+82↑P
 
 ; Attributes: thunk
 
-sub_18018:                              ; CODE XREF: reset+6B↑P
-                JMP     sub_1852A
-; End of function sub_18018
+j_clear_main_menu_sprites:              ; CODE XREF: reset+6B↑P
+                JMP     clear_main_menu_sprites ; Called from reset. Apparently it clears the main menu sprites (PONY logo). Does not clear OAM, but only OAM cache ($200)
+; End of function j_clear_main_menu_sprites
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -124,10 +126,10 @@ j_check_enemy_overflow:                 ; CODE XREF: sub_D463↑P
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_18024:                              ; CODE XREF: sub_19AF7+38↓p
+sub_18024:                              ; CODE XREF: enemy_type_15+38↓p
                                         ; sub_1A05E+C↓p ...
                 JSR     sub_1802A
-                JMP     sub_18097
+                JMP     prng_lfsr_based ; PRNG variant using ASL/ROL instructions and array with parameters
 ; End of function sub_18024
 
 
@@ -209,21 +211,22 @@ loc_1808D:                              ; CODE XREF: sub_1802A+5E↑j
 
 ; =============== S U B R O U T I N E =======================================
 
+; PRNG variant using ASL/ROL instructions and array with parameters
 
-sub_18097:                              ; CODE XREF: sub_18024+3↑j
-                                        ; sub_18CA4+4B↓p ...
+prng_lfsr_based:                        ; CODE XREF: sub_18024+3↑j
+                                        ; enemy_type_1+87↓p ...
                 AND     #$F
                 STY     $65
                 ASL
                 ASL
                 TAY
-                LDA     $8144,Y
+                LDA     tab_18144,Y
                 STA     $12
-                LDA     $8145,Y
+                LDA     tab_18144+1,Y
                 STA     $10
-                LDA     $8146,Y
+                LDA     tab_18144+2,Y
                 STA     $13
-                LDA     $8147,Y
+                LDA     tab_18144+3,Y
                 STA     $11
                 LDA     $74A,X
                 BPL     loc_180CF
@@ -240,7 +243,7 @@ sub_18097:                              ; CODE XREF: sub_18024+3↑j
                 ASL     $13
                 ROL     $11
 
-loc_180CF:                              ; CODE XREF: sub_18097+1E↑j
+loc_180CF:                              ; CODE XREF: prng_lfsr_based+1E↑j
                 AND     #$40 ; '@'
                 BEQ     loc_180E3
                 ASL     $12
@@ -252,7 +255,7 @@ loc_180CF:                              ; CODE XREF: sub_18097+1E↑j
                 ASL     $13
                 ROL     $11
 
-loc_180E3:                              ; CODE XREF: sub_18097+3A↑j
+loc_180E3:                              ; CODE XREF: prng_lfsr_based+3A↑j
                 LDA     $74A,X
                 AND     #$3F ; '?'
                 BEQ     loc_1811E
@@ -262,13 +265,8 @@ loc_180E3:                              ; CODE XREF: sub_18097+3A↑j
                 STA     $612,X
                 STA     $62C,X
                 STA     $646,X
-; End of function sub_18097
 
-
-; =============== S U B R O U T I N E =======================================
-
-
-sub_180F9:                              ; CODE XREF: sub_180F9+23↓j
+loc_180F9:                              ; CODE XREF: prng_lfsr_based+85↓j
                 LDA     $12
                 CLC
                 ADC     $5F8,X
@@ -284,15 +282,15 @@ sub_180F9:                              ; CODE XREF: sub_180F9+23↓j
                 ADC     $646,X
                 STA     $646,X
                 DEY
-                BNE     sub_180F9
+                BNE     loc_180F9
 
-loc_1811E:                              ; CODE XREF: sub_18097+51↑j
+loc_1811E:                              ; CODE XREF: prng_lfsr_based+51↑j
                 LDY     $65
                 RTS
-; End of function sub_180F9
+; End of function prng_lfsr_based
 
 ; ---------------------------------------------------------------------------
-                .BYTE $AB
+tab_18121:      .BYTE $AB
                 .BYTE $6A ; j
                 .BYTE $32 ; 2
                 .BYTE   2
@@ -327,78 +325,24 @@ loc_1811E:                              ; CODE XREF: sub_18097+51↑j
                 .BYTE   9
                 .BYTE   9
                 .BYTE   8
-                .BYTE   0
-                .BYTE   0
-                .BYTE $78 ; x
-                .BYTE   0
-                .BYTE $2D ; -
-                .BYTE   0
-                .BYTE $6E ; n
-                .BYTE   0
-                .BYTE $54 ; T
-                .BYTE   0
-                .BYTE $54 ; T
-                .BYTE   0
-                .BYTE $6E ; n
-                .BYTE   0
-                .BYTE $2D ; -
-                .BYTE   0
-                .BYTE $78 ; x
-                .BYTE   0
-                .BYTE   0
-                .BYTE   0
-                .BYTE $6E ; n
-                .BYTE   0
-                .BYTE $D3
-                .BYTE $FF
-                .BYTE $54 ; T
-                .BYTE   0
-                .BYTE $AC
-                .BYTE $FF
-                .BYTE $2D ; -
-                .BYTE   0
-                .BYTE $92
-                .BYTE $FF
-                .BYTE   0
-                .BYTE   0
-                .BYTE $88
-                .BYTE $FF
-                .BYTE $D3
-                .BYTE $FF
-                .BYTE $92
-                .BYTE $FF
-                .BYTE $AC
-                .BYTE $FF
-                .BYTE $AC
-                .BYTE $FF
-                .BYTE $92
-                .BYTE $FF
-                .BYTE $D3
-                .BYTE $FF
-                .BYTE $88
-                .BYTE $FF
-                .BYTE   0
-                .BYTE   0
-                .BYTE $92
-                .BYTE $FF
-                .BYTE $2D ; -
-                .BYTE   0
-                .BYTE $AC
-                .BYTE $FF
-                .BYTE $54 ; T
-                .BYTE   0
-                .BYTE $D3
-                .BYTE $FF
-                .BYTE $6E ; n
-                .BYTE   0
-                .BYTE $85
-                .BYTE $10
-                .BYTE $84
-                .BYTE $11
-                .BYTE $A9
-                .BYTE   0
-                .BYTE $F0
-                .BYTE   7
+tab_18144:      .BYTE 0, 0, $78, 0
+                .BYTE $2D, 0, $6E, 0
+                .BYTE $54, 0, $54, 0
+                .BYTE $6E, 0, $2D, 0
+                .BYTE $78, 0, 0, 0
+                .BYTE $6E, 0, $D3, $FF
+                .BYTE $54, 0, $AC, $FF
+                .BYTE $2D, 0, $92, $FF
+                .BYTE 0, 0, $88, $FF
+                .BYTE $D3, $FF, $92, $FF
+                .BYTE $AC, $FF, $AC, $FF
+                .BYTE $92, $FF, $D3, $FF
+                .BYTE $88, $FF, 0, 0
+                .BYTE $92, $FF, $2D, 0
+                .BYTE $AC, $FF, $54, 0
+                .BYTE $D3, $FF, $6E, 0
+                .BYTE $85, $10, $84, $11
+                .BYTE $A9, 0, $F0, 7
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -436,7 +380,7 @@ sub_181A7:                              ; CODE XREF: sub_181E4↓p
                 TAY
                 LDA     $542,X
                 CLC
-                ADC     unk_C0FF,Y
+                ADC     bank_remap_table+7,Y
                 BCC     loc_181B6
                 LDA     #$FF
 
@@ -444,7 +388,7 @@ loc_181B6:                              ; CODE XREF: sub_181A7+B↑j
                 STA     $7CC,X
                 LDA     $542,X
                 SEC
-                SBC     unk_C0FF,Y
+                SBC     bank_remap_table+7,Y
                 BCS     loc_181C4
                 LDA     #0
 
@@ -474,7 +418,7 @@ loc_181E0:                              ; CODE XREF: sub_181A7+35↑j
 
 
 sub_181E4:                              ; CODE XREF: sub_1AA67+22↓j
-                                        ; sub_1AAA8+BF↓j ...
+                                        ; enemy_type_41+BF↓j ...
                 JSR     sub_181A7
                 JSR     sub_18230
                 BCS     loc_1820C
@@ -485,8 +429,8 @@ sub_181E4:                              ; CODE XREF: sub_1AA67+22↓j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_181ED:                              ; CODE XREF: sub_1961B+D0↓p
-                                        ; sub_1AD36+46↓p ...
+sub_181ED:                              ; CODE XREF: enemy_type_63+3↓p
+                                        ; enemy_type_55+46↓p ...
                 JSR     sub_181A7
                 JSR     loc_18244
                 BCS     loc_1820C
@@ -497,8 +441,8 @@ sub_181ED:                              ; CODE XREF: sub_1961B+D0↓p
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_181F6:                              ; CODE XREF: sub_1961B+59↓p
-                                        ; sub_1973F+78↓j ...
+sub_181F6:                              ; CODE XREF: enemy_type_4_5_6+59↓p
+                                        ; enemy_type_7+78↓j ...
                 JSR     sub_181A7
                 JSR     sub_18230
                 BCS     loc_1820C
@@ -515,8 +459,8 @@ locret_18203:                           ; CODE XREF: sub_18204+6↓j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_18204:                              ; CODE XREF: sub_1ACDE:loc_1AD05↓p
-                                        ; sub_1AD25:loc_1AD2F↓p ...
+sub_18204:                              ; CODE XREF: enemy_type_53:loc_1AD05↓p
+                                        ; enemy_type_54:loc_1AD2F↓p ...
 
 ; FUNCTION CHUNK AT 8203 SIZE 00000001 BYTES
 
@@ -624,17 +568,17 @@ locret_1828F:                           ; CODE XREF: sub_18230+12↑j
 
 sub_18290:                              ; CODE XREF: sub_18230+F↑p
                                         ; sub_18230+1D↑j ...
-                LDA     $798,Y
-                CMP     $77E,X
+                LDA     byte_798,Y
+                CMP     byte_77E,X
                 BCC     locret_1828F
-                LDA     $798,X
-                CMP     $77E,Y
+                LDA     byte_798,X
+                CMP     byte_77E,Y
                 BCC     locret_1828F
-                LDA     $7CC,Y
-                CMP     $7B2,X
+                LDA     byte_7CC,Y
+                CMP     byte_7B2,X
                 BCC     locret_1828F
-                LDA     $7CC,X
-                CMP     $7B2,Y
+                LDA     byte_7CC,X
+                CMP     byte_7B2,Y
                 BCC     locret_1828F
                 RTS
 ; End of function sub_18290
@@ -643,8 +587,8 @@ sub_18290:                              ; CODE XREF: sub_18230+F↑p
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_182B1:                              ; CODE XREF: sub_18ECA+4F↓p
-                                        ; sub_19039:loc_19068↓p ...
+sub_182B1:                              ; CODE XREF: warp_sequence+4F↓p
+                                        ; enemy_type_2:loc_19068↓p ...
                 LDA     $660,X
                 AND     #8
                 BEQ     loc_182BB
@@ -674,7 +618,7 @@ loc_182CF:                              ; CODE XREF: sub_182B1+19↑j
 
 
 sub_182D9:                              ; CODE XREF: sub_182B1+23↑j
-                                        ; sub_18CA4+14A↓p ...
+                                        ; enemy_type_1+186↓p ...
                 LDA     $576,X
                 BEQ     locret_182F9
                 TAY
@@ -714,23 +658,24 @@ loc_182FA:                              ; CODE XREF: sub_18322+15↓j
 
 ; =============== S U B R O U T I N E =======================================
 
+; A generic piece of code for some types as well as type 40 always goes here.
 
-sub_182FE:                              ; CODE XREF: sub_1876A+11↓j
-                                        ; sub_19372+23↓j ...
+enemy_common:                           ; CODE XREF: sub_1876A+11↓j
+                                        ; special_weapon_type_5+23↓j ...
                 LDA     #0
-                STA     $528,X
-                STA     $542,X
-                STA     $5C4,X
-                STA     $5DE,X
-                STA     $5F8,X
-                STA     $62C,X
-                STA     $612,X
-                STA     $646,X
-                STA     $5AA,X
-                STA     $6E2,X
-                STA     $6FC,X
+                STA     byte_528,X
+                STA     byte_542,X
+                STA     byte_5C4,X
+                STA     byte_5DE,X
+                STA     byte_5F8,X
+                STA     byte_62C,X
+                STA     byte_612,X
+                STA     byte_646,X
+                STA     byte_5AA,X
+                STA     byte_6E2,X
+                STA     byte_6FC,X
                 RTS
-; End of function sub_182FE
+; End of function enemy_common
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -859,8 +804,8 @@ locret_183BB:                           ; CODE XREF: sub_18392+24↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_183BC:                              ; CODE XREF: sub_18F78:loc_18FF6↓p
-                                        ; sub_19FD6:loc_1A033↓p ...
+sub_183BC:                              ; CODE XREF: enemy_type_60:loc_18FF6↓p
+                                        ; enemy_type_22:loc_1A033↓p ...
                 LDA     $67A,X
                 CLC
                 ADC     $694,X
@@ -1156,11 +1101,12 @@ loc_18523:                              ; CODE XREF: sub_184A7+49↑j
 
 ; =============== S U B R O U T I N E =======================================
 
+; Called from reset. Apparently it clears the main menu sprites (PONY logo). Does not clear OAM, but only OAM cache ($200)
 
-sub_1852A:                              ; CODE XREF: sub_18018↑j
+clear_main_menu_sprites:                ; CODE XREF: j_clear_main_menu_sprites↑j
                 LDY     #$10
 
-loc_1852C:                              ; CODE XREF: sub_1852A+E↓j
+loc_1852C:                              ; CODE XREF: clear_main_menu_sprites+E↓j
                 DEY
                 DEY
                 LDA     #0
@@ -1170,7 +1116,7 @@ loc_1852C:                              ; CODE XREF: sub_1852A+E↓j
                 DEY
                 BNE     loc_1852C
                 RTS
-; End of function sub_1852A
+; End of function clear_main_menu_sprites
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -1278,17 +1224,18 @@ loc_185C1:                              ; CODE XREF: sub_1858B+2C↑j
                 JMP     sub_185D8
 ; End of function sub_1858B
 
-; ---------------------------------------------------------------------------
-                .BYTE $A9
-                .BYTE $84
-                .BYTE $85
-                .BYTE $18
-                .BYTE $A9
-                .BYTE   0
-                .BYTE $85
-                .BYTE $19
-                .BYTE $A0
-                .BYTE   0
+
+; =============== S U B R O U T I N E =======================================
+
+
+sub_185CE:
+                LDA     #$84
+                STA     $18
+                LDA     #0
+                STA     $19
+                LDY     #0
+; End of function sub_185CE
+
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -1340,12 +1287,12 @@ loc_18604:                              ; CODE XREF: sub_185FF+A↓j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1860C:                              ; CODE XREF: sub_1A779+7E↓p
-                                        ; sub_1AE99+1C↓p ...
+sub_1860C:                              ; CODE XREF: enemy_type_61+7E↓p
+                                        ; enemy_type_82_weapon_distro+1C↓p ...
                 LDA     #0
-                STA     $19
+                STA     byte_19
                 LDA     #$84
-                STA     $18
+                STA     byte_18
                 LDY     #0
 
 loc_18616:
@@ -1353,7 +1300,7 @@ loc_18616:
 ; End of function sub_1860C
 
 ; ---------------------------------------------------------------------------
-unk_18619:      .BYTE $67 ; g
+tab_18619_lo:   .BYTE $67 ; g
                 .BYTE $38 ; 8
                 .BYTE $7E ; ~
                 .BYTE $1A
@@ -1443,99 +1390,99 @@ unk_18619:      .BYTE $67 ; g
                 .BYTE $C0
                 .BYTE $C0
                 .BYTE $B7
-unk_18673:      .BYTE $84
-                .BYTE $8C
-                .BYTE $90
-                .BYTE $90
-                .BYTE $96
-                .BYTE $96
-                .BYTE $96
-                .BYTE $97
-                .BYTE $97
-                .BYTE $97
-                .BYTE $98
-                .BYTE $98
-                .BYTE $99
-                .BYTE $99
-                .BYTE $99
-                .BYTE $9A
-                .BYTE $9E
-                .BYTE $9F
-                .BYTE $9F
-                .BYTE $94
-                .BYTE $AC
-                .BYTE $AC
-                .BYTE $9F
-                .BYTE $A0
-                .BYTE $9D
-                .BYTE $9E
-                .BYTE $A0
-                .BYTE $A1
-                .BYTE $A1
-                .BYTE $A1
-                .BYTE $A2
-                .BYTE $A3
-                .BYTE $A2
-                .BYTE $A3
-                .BYTE $A3
-                .BYTE $A8
-                .BYTE $A6
-                .BYTE $AA
-                .BYTE $AA
-                .BYTE $AA
-                .BYTE $82
-                .BYTE $AA
-                .BYTE $AB
-                .BYTE $AB
-                .BYTE $A7
-                .BYTE $AB
-                .BYTE $A5
-                .BYTE $A5
-                .BYTE $9B
-                .BYTE $9C
-                .BYTE $9C
-                .BYTE $9C
-                .BYTE $9C
-                .BYTE $AC
-                .BYTE $AD
-                .BYTE $AD
-                .BYTE $A6
-                .BYTE $A6
-                .BYTE $A6
-                .BYTE $A6
-                .BYTE $8F
-                .BYTE $A7
-                .BYTE $AE
-                .BYTE $96
-                .BYTE $A6
-                .BYTE $A3
-                .BYTE $A3
-                .BYTE $A8
-                .BYTE $95
-                .BYTE $98
-                .BYTE $AE
-                .BYTE $AE
-                .BYTE $B2
-                .BYTE $B3
-                .BYTE $B3
-                .BYTE $B3
-                .BYTE $B3
-                .BYTE $B3
-                .BYTE $B3
-                .BYTE $B3
-                .BYTE $B6
-                .BYTE $AE
-                .BYTE $AE
-                .BYTE $B6
-                .BYTE $B7
-                .BYTE $B7
-                .BYTE $B7
-                .BYTE $B7
-                .BYTE $AE
-                .BYTE $AE
-                .BYTE $B7
-                .BYTE $A9
-                .BYTE   0
+                .BYTE $84
+tab_18674_hi:   .BYTE $8C               ; $8C67 - type 1
+                .BYTE $90               ; $9038 - type 2
+                .BYTE $90               ; $907E - type 3
+                .BYTE $96               ; $961A - type 4
+                .BYTE $96               ; $961A - type 5
+                .BYTE $96               ; $961A - type 6
+                .BYTE $97               ; $973E - type 7
+                .BYTE $97               ; $97C6 - type 8
+                .BYTE $97               ; $97FC - type 9
+                .BYTE $98               ; $9828 - type 10
+                .BYTE $98               ; $98C5 - type 11
+                .BYTE $99               ; $993B - type 12
+                .BYTE $99               ; $993B - type 13
+                .BYTE $99               ; $99F5 - type 14
+                .BYTE $9A               ; $9AF6 - type 15
+                .BYTE $9E               ; $9E98 - type 16
+                .BYTE $9F               ; $9F48 - type 17
+                .BYTE $9F               ; $9F6B - type 18
+                .BYTE $94               ; $9434 - type 19
+                .BYTE $AC               ; $ACA2 - type 20
+                .BYTE $AC               ; $AC47 - type 21
+                .BYTE $9F               ; $9FD5 - type 22
+                .BYTE $A0               ; $A089 - type 23
+                .BYTE $9D               ; $9D79 - type 24
+                .BYTE $9E               ; $9E37 - type 25
+                .BYTE $A0               ; $A0BA - type 26
+                .BYTE $A1               ; $A16A - type 27
+                .BYTE $A1               ; $A19F - type 28
+                .BYTE $A1               ; $A1C8 - type 29
+                .BYTE $A2               ; $A2DA - type 30
+                .BYTE $A3               ; $A3CA - type 31
+                .BYTE $A2               ; $A2DA - type 32
+                .BYTE $A3               ; $A3CA - type 33
+                .BYTE $A3               ; $A3EB - type 34
+                .BYTE $A8               ; $A8E9 - type 35
+                .BYTE $A6               ; $A6F0 - type 36
+                .BYTE $AA               ; $AA61 - type 37
+                .BYTE $AA               ; $AA8B - type 38
+                .BYTE $AA               ; $AA9E - type 39
+                .BYTE $82               ; $82FD - type 40
+                .BYTE $AA               ; $AAA7 - type 41
+                .BYTE $AB               ; $ABA1 - type 42
+                .BYTE $AB               ; $ABA9 - type 43
+                .BYTE $A7               ; $A74B - type 44
+                .BYTE $AB               ; $ABE7 - type 45
+                .BYTE $A5               ; $A508 - type 46
+                .BYTE $A5               ; $A508 - type 47
+                .BYTE $9B               ; $9B89 - type 48
+                .BYTE $9C               ; $9C36 - type 49
+                .BYTE $9C               ; $9C36 - type 50
+                .BYTE $9C               ; $9C2A - type 51
+                .BYTE $9C               ; $9C36 - type 52
+                .BYTE $AC               ; $ACDD - type 53
+                .BYTE $AD               ; $AD24 - type 54
+                .BYTE $AD               ; $AD35 - type 55
+                .BYTE $A6               ; $A608 - type 56
+                .BYTE $A6               ; $A644 - type 57
+                .BYTE $A6               ; $A6A4 - type 58
+                .BYTE $A6               ; $A6C0 - type 59
+                .BYTE $8F               ; $8F77 - type 60
+                .BYTE $A7               ; $A778 - type 61
+                .BYTE $AE               ; $AE19 - type 62
+                .BYTE $96               ; $96E7 - type 63
+                .BYTE $A6               ; $A6CE - type 64
+                .BYTE $A3               ; $A3EB - type 65
+                .BYTE $A3               ; $A3EB - type 66
+                .BYTE $A8               ; $A835 - type 67
+                .BYTE $95               ; $958D - type 68
+                .BYTE $98               ; $985F - type 69
+                .BYTE $AE               ; $AEC0 - type 70
+                .BYTE $AE               ; $AEC0 - type 71
+                .BYTE $B2               ; $B267 - type 72
+                .BYTE $B3               ; $B341 - type 73
+                .BYTE $B3               ; $B341 - type 74
+                .BYTE $B3               ; $B341 - type 75
+                .BYTE $B3               ; $B341 - type 76
+                .BYTE $B3               ; $B341 - type 77
+                .BYTE $B3               ; $B341 - type 78
+                .BYTE $B3               ; $B336 - type 79
+                .BYTE $B6               ; $B69A - type 80
+                .BYTE $AE               ; $AEC0 - type 81
+                .BYTE $AE               ; $AE98 - type 82 (Weapon Distro)
+                .BYTE $B6               ; $B6B5 - type 83
+                .BYTE $B7               ; $B72B - type 84
+                .BYTE $B7               ; $B72B - type 85
+                .BYTE $B7               ; $B72B - type 86
+                .BYTE $B7               ; $B72B - type 87
+                .BYTE $AE               ; $AEC0 - type 88
+                .BYTE $AE               ; $AEC0 - type 89
+                .BYTE $B7               ; $B7B7 - type 90
+                .BYTE $A9               ; $A984 - type 91
+tab_186CF:      .BYTE   0
                 .BYTE $3C ; <
                 .BYTE $28 ; (
                 .BYTE $13
@@ -1630,14 +1577,15 @@ unk_18673:      .BYTE $84
 
 ; =============== S U B R O U T I N E =======================================
 
+; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
 
-sub_1872B:                              ; CODE XREF: sub_18746↓p
-                                        ; sub_18F78+38↓p ...
+enemy_prng:                             ; CODE XREF: sub_18746↓p
+                                        ; enemy_type_60+38↓p ...
                 STX     $10
                 LDX     $7E
                 SEC
                 ROL
-                EOR     unk_18619,X
+                EOR     tab_18619_lo,X  ; Enemy jump table is also used as entropy to generate pseudo-random numbers in this procedure
                 ADC     $10,X
                 STA     $7E
                 TSX
@@ -1648,21 +1596,21 @@ sub_1872B:                              ; CODE XREF: sub_18746↓p
                 ADC     $A2
                 STA     $7E
                 RTS
-; End of function sub_1872B
+; End of function enemy_prng
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_18746:                              ; CODE XREF: sub_19829+A↓p
-                                        ; sub_19860+F↓p ...
-                JSR     sub_1872B
+sub_18746:                              ; CODE XREF: enemy_type_10_duster+A↓p
+                                        ; enemy_type_69+F↓p ...
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 STY     $10
                 AND     #$7F
                 STA     $55C,X
                 ROR
                 TAY
-                ADC     unk_18619,Y
+                ADC     tab_18619_lo,Y
                 STA     $7E
                 AND     #$3F ; '?'
                 CLC
@@ -1679,8 +1627,8 @@ sub_18746:                              ; CODE XREF: sub_19829+A↓p
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1876A:                              ; CODE XREF: sub_1A2DB+D↓p
-                                        ; sub_1A645+5↓p ...
+sub_1876A:                              ; CODE XREF: enemy_type_30_32+D↓p
+                                        ; enemy_type_57+5↓p ...
                 JSR     check_enemy_overflow ; Checks that the enemy list is complete. If overflowed, sets Carry flag.
                 BCS     loc_18779
                 TYA
@@ -1693,14 +1641,14 @@ sub_1876A:                              ; CODE XREF: sub_1A2DB+D↓p
 loc_18779:                              ; CODE XREF: sub_1876A+3↑j
                 PLA
                 PLA
-                JMP     sub_182FE
+                JMP     enemy_common    ; A generic piece of code for some types as well as type 40 always goes here.
 ; End of function sub_1876A
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1877E:                              ; CODE XREF: sub_1A645:loc_1A659↓p
+sub_1877E:                              ; CODE XREF: enemy_type_57:loc_1A659↓p
                 LDA     $764,X
                 TAY
                 LDA     #2
@@ -1712,8 +1660,8 @@ sub_1877E:                              ; CODE XREF: sub_1A645:loc_1A659↓p
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_18788:                              ; CODE XREF: sub_18CA4+CE↓p
-                                        ; sub_1A8EA+13↓p ...
+sub_18788:                              ; CODE XREF: enemy_type_1+10A↓p
+                                        ; enemy_type_35+13↓p ...
                 INC     $47
                 BNE     loc_1878F
                 DEC     $47
@@ -1734,8 +1682,8 @@ loc_1878F:                              ; CODE XREF: sub_18788+2↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_18796:                              ; CODE XREF: sub_1A779:loc_1A803↓p
-                                        ; sub_1A779+8D↓p ...
+sub_18796:                              ; CODE XREF: enemy_type_61:loc_1A803↓p
+                                        ; enemy_type_61+8D↓p ...
                 LDA     $47
                 BEQ     locret_1878E
                 DEC     $47
@@ -1746,8 +1694,8 @@ sub_18796:                              ; CODE XREF: sub_1A779:loc_1A803↓p
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1879F:                              ; CODE XREF: sub_18CA4+D9↓p
-                                        ; sub_1A8EA+2B↓p ...
+sub_1879F:                              ; CODE XREF: enemy_type_1+115↓p
+                                        ; enemy_type_35+2B↓p ...
                 INC     $49
                 BNE     locret_187A5
                 DEC     $49
@@ -1832,13 +1780,13 @@ loc_187EE:                              ; CODE XREF: sub_187C7+21↑j
                 BEQ     loc_18807
                 AND     #$7F
                 TAY
-                LDA     #$88
+                LDA     #$88            ; Push $8806 (return address)
                 PHA
                 LDA     #6
                 PHA
-                LDA     unk_18673,Y
+                LDA     $8673,Y         ; Switch Case occurs at this point, but 2 Jump tables are used. One stores the low address, the other stores the high address
                 PHA
-                LDA     loc_18616+2,Y
+                LDA     $8618,Y
                 PHA
                 RTS
 ; ---------------------------------------------------------------------------
@@ -2869,77 +2817,45 @@ unk_189B4:      .BYTE $88
                 .BYTE   0
                 .BYTE $AA
                 .BYTE $AA
-                .BYTE $AD
-                .BYTE $28 ; (
-                .BYTE   5
-                .BYTE $30 ; 0
-                .BYTE $37 ; 7
-                .BYTE   9
-                .BYTE $80
-                .BYTE $8D
-                .BYTE $28 ; (
-                .BYTE   5
-                .BYTE $A9
-                .BYTE $A0
-                .BYTE $8D
-                .BYTE $42 ; B
-                .BYTE   5
-                .BYTE $A9
-                .BYTE $80
-                .BYTE $8D
-                .BYTE $5C ; \
-                .BYTE   5
-                .BYTE $A9
-                .BYTE   0
-                .BYTE $8D
-                .BYTE $90
-                .BYTE   5
-                .BYTE $A9
-                .BYTE   5
-                .BYTE $8D
-                .BYTE $7A ; z
-                .BYTE   6
-                .BYTE $A9
-                .BYTE 5
-                .BYTE $8D
-                .BYTE $4A ; J
-                .BYTE   7
-                .BYTE $A9
-                .BYTE $40
-                .BYTE $8D
-                .BYTE $64 ; d
-                .BYTE   7
-                .BYTE $A9
-                .BYTE $80
-                .BYTE $8D
-                .BYTE $AA
-                .BYTE   5
-                .BYTE $A5
-                .BYTE $5C ; \
-                .BYTE $C9
-                .BYTE   2
-                .BYTE $90
-                .BYTE   9
-                .BYTE $C9
-                .BYTE   4
-                .BYTE $B0
-                .BYTE   5
-                .BYTE $A9
-                .BYTE   3
-                .BYTE $8D
-                .BYTE $2C ; ,
-                .BYTE   5
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_18CA4:                              ; CODE XREF: sub_18F78+14↓j
+enemy_type_1:
+                LDA     $528
+                BMI     loc_18CA4
+                ORA     #$80
+                STA     $528
+                LDA     #$A0
+                STA     $542
+                LDA     #$80
+                STA     $55C
+                LDA     #0
+                STA     $590
+                LDA     #5
+                STA     $67A
+                LDA     #5
+                STA     $74A
+                LDA     #$40 ; '@'
+                STA     $764
+                LDA     #$80
+                STA     $5AA
+                LDA     $5C
+                CMP     #2
+                BCC     loc_18CA4
+                CMP     #4
+                BCS     loc_18CA4
+                LDA     #3
+                STA     $52C
+
+loc_18CA4:                              ; CODE XREF: enemy_type_1+3↑j
+                                        ; enemy_type_1+31↑j ...
                 LDA     $31
                 BEQ     loc_18CAB
-                JMP     sub_18ECA
+                JMP     warp_sequence   ; When warp is activated, this piece of code works
 ; ---------------------------------------------------------------------------
 
-loc_18CAB:                              ; CODE XREF: sub_18CA4+2↑j
+loc_18CAB:                              ; CODE XREF: enemy_type_1+3E↑j
                 JSR     $C02D
                 LDY     $34
                 LDA     $8E74,Y
@@ -2951,11 +2867,11 @@ loc_18CAB:                              ; CODE XREF: sub_18CA4+2↑j
                 INC     $67A
                 BPL     loc_18CDD
 
-loc_18CC3:                              ; CODE XREF: sub_18CA4+18↑j
+loc_18CC3:                              ; CODE XREF: enemy_type_1+54↑j
                 DEC     $67A
                 BPL     loc_18CDD
 
-loc_18CC8:                              ; CODE XREF: sub_18CA4+F↑j
+loc_18CC8:                              ; CODE XREF: enemy_type_1+4B↑j
                 CLC
                 ADC     $67A
                 STA     $67A
@@ -2963,21 +2879,21 @@ loc_18CC8:                              ; CODE XREF: sub_18CA4+F↑j
                 INC     $67A
                 BPL     loc_18CDD
 
-loc_18CD6:                              ; CODE XREF: sub_18CA4+2B↑j
+loc_18CD6:                              ; CODE XREF: enemy_type_1+67↑j
                 CMP     #$B
                 BNE     loc_18CDD
                 DEC     $67A
 
-loc_18CDD:                              ; CODE XREF: sub_18CA4+16↑j
-                                        ; sub_18CA4+1D↑j ...
+loc_18CDD:                              ; CODE XREF: enemy_type_1+52↑j
+                                        ; enemy_type_1+59↑j ...
                 LDY     $67A
-                LDA     unk_18E86,Y
+                LDA     $8E86,Y
                 STA     $576
                 LDY     $34
                 CPY     #4
                 BEQ     loc_18D3E
                 LDA     $8E7D,Y
-                JSR     sub_18097
+                JSR     prng_lfsr_based ; PRNG variant using ASL/ROL instructions and array with parameters
                 LDA     $5F8
                 CLC
                 ADC     $5C4
@@ -2990,14 +2906,14 @@ loc_18CDD:                              ; CODE XREF: sub_18CA4+16↑j
                 LDY     #0
                 BEQ     loc_18D12
 
-loc_18D0A:                              ; CODE XREF: sub_18CA4+5E↑j
+loc_18D0A:                              ; CODE XREF: enemy_type_1+9A↑j
                 CMP     #$D8
                 BCC     loc_18D12
                 LDA     #$D8
                 LDY     #0
 
-loc_18D12:                              ; CODE XREF: sub_18CA4+64↑j
-                                        ; sub_18CA4+68↑j
+loc_18D12:                              ; CODE XREF: enemy_type_1+A0↑j
+                                        ; enemy_type_1+A4↑j
                 STA     $542
                 STY     $5C4
                 LDA     $62C
@@ -3012,23 +2928,23 @@ loc_18D12:                              ; CODE XREF: sub_18CA4+64↑j
                 LDY     #0
                 BEQ     loc_18D38
 
-loc_18D30:                              ; CODE XREF: sub_18CA4+84↑j
+loc_18D30:                              ; CODE XREF: enemy_type_1+C0↑j
                 CMP     #$F0
                 BCC     loc_18D38
                 LDA     #$F0
                 LDY     #0
 
-loc_18D38:                              ; CODE XREF: sub_18CA4+8A↑j
-                                        ; sub_18CA4+8E↑j
+loc_18D38:                              ; CODE XREF: enemy_type_1+C6↑j
+                                        ; enemy_type_1+CA↑j
                 STA     $55C
                 STY     $5DE
 
-loc_18D3E:                              ; CODE XREF: sub_18CA4+46↑j
+loc_18D3E:                              ; CODE XREF: enemy_type_1+82↑j
                 INC     $54
                 BNE     loc_18D44
                 DEC     $54
 
-loc_18D44:                              ; CODE XREF: sub_18CA4+9C↑j
+loc_18D44:                              ; CODE XREF: enemy_type_1+D8↑j
                 LDA     $F7
                 ORA     $F8
                 AND     #$40 ; '@'
@@ -3037,7 +2953,7 @@ loc_18D44:                              ; CODE XREF: sub_18CA4+9C↑j
                 STA     $38
                 BNE     loc_18DAE
 
-loc_18D52:                              ; CODE XREF: sub_18CA4+A6↑j
+loc_18D52:                              ; CODE XREF: enemy_type_1+E2↑j
                 DEC     $38
                 BNE     loc_18DAE
                 LDA     $51
@@ -3048,12 +2964,12 @@ loc_18D52:                              ; CODE XREF: sub_18CA4+A6↑j
                 LDA     #1
                 BNE     loc_18D6A
 
-loc_18D64:                              ; CODE XREF: sub_18CA4+BA↑j
+loc_18D64:                              ; CODE XREF: enemy_type_1+F6↑j
                 SBC     #1
                 TAY
                 LDA     $8E91,Y
 
-loc_18D6A:                              ; CODE XREF: sub_18CA4+BE↑j
+loc_18D6A:                              ; CODE XREF: enemy_type_1+FA↑j
                 PHA
                 CLC
                 ADC     $48
@@ -3061,7 +2977,7 @@ loc_18D6A:                              ; CODE XREF: sub_18CA4+BE↑j
                 BCC     loc_18D75
                 JSR     sub_18788
 
-loc_18D75:                              ; CODE XREF: sub_18CA4+CC↑j
+loc_18D75:                              ; CODE XREF: enemy_type_1+108↑j
                 PLA
                 CLC
                 ADC     $4A
@@ -3069,82 +2985,96 @@ loc_18D75:                              ; CODE XREF: sub_18CA4+CC↑j
                 BCC     loc_18D80
                 JSR     sub_1879F
 
-loc_18D80:                              ; CODE XREF: sub_18CA4+D7↑j
+loc_18D80:                              ; CODE XREF: enemy_type_1+113↑j
                 LDA     #0
                 STA     $54
                 INC     $56
                 BNE     loc_18D8A
                 DEC     $56
 
-loc_18D8A:                              ; CODE XREF: sub_18CA4+E2↑j
+loc_18D8A:                              ; CODE XREF: enemy_type_1+11E↑j
                 LDY     #1
                 LDX     $35
 
-loc_18D8E:                              ; CODE XREF: sub_18CA4+F1↓j
-                LDA     $528,Y
+loc_18D8E:                              ; CODE XREF: enemy_type_1+12D↓j
+                LDA     byte_528,Y
                 BEQ     loc_18D99
                 INY
                 DEX
                 BNE     loc_18D8E
                 BEQ     loc_18DAC
 
-loc_18D99:                              ; CODE XREF: sub_18CA4+ED↑j
+loc_18D99:                              ; CODE XREF: enemy_type_1+129↑j
                 LDA     #2
-                STA     $528,Y
-                LDA     $542
-                STA     $542,Y
-                LDA     $55C
-                STA     $55C,Y
-                INC     $55
+                STA     byte_528,Y
+                LDA     byte_542
+                STA     byte_542,Y
+                LDA     byte_55C
+                STA     byte_55C,Y      ; 0 - All Range Weapon
+                                        ; 1 - Straight Crusher
+                                        ; 2 - Field Shutter
+                                        ; 3 - Circular
+                                        ; 4 - Vibrator
+                                        ; 5 - Rewinder / Laser
+                                        ; 6 - Plasma Flash
+                                        ; 7 - High Speed
+                INC     byte_55
 
-loc_18DAC:                              ; CODE XREF: sub_18CA4+F3↑j
-                LDX     $40
+loc_18DAC:                              ; CODE XREF: enemy_type_1+12F↑j
+                LDX     byte_40
 
-loc_18DAE:                              ; CODE XREF: sub_18CA4+AC↑j
-                                        ; sub_18CA4+B0↑j
-                LDA     $F7
-                ORA     $F8
+loc_18DAE:                              ; CODE XREF: enemy_type_1+E8↑j
+                                        ; enemy_type_1+EC↑j
+                LDA     byte_F7
+                ORA     byte_F8
                 AND     #$80
                 BEQ     loc_18DD1
-                LDA     $52C
+                LDA     byte_52C
                 BNE     loc_18DD1
-                LDA     $34
-                STA     $782
+                LDA     byte_34
+                STA     byte_782
                 LDA     #3
-                STA     $52C
-                LDA     $542
-                STA     $546
-                LDA     $55C
-                STA     $560
+                STA     byte_52C
+                LDA     byte_542
+                STA     byte_546
+                LDA     byte_55C
+                STA     byte_560
 
-loc_18DD1:                              ; CODE XREF: sub_18CA4+110↑j
-                                        ; sub_18CA4+115↑j
-                LDA     $5AA
+loc_18DD1:                              ; CODE XREF: enemy_type_1+14C↑j
+                                        ; enemy_type_1+151↑j
+                LDA     byte_5AA
                 BPL     loc_18DEB
-                LDA     $764
+                LDA     byte_764
                 AND     #3
-                STA     $590
-                DEC     $764
+                STA     byte_590
+                DEC     byte_764
                 BNE     loc_18DEB
                 LDA     #0
-                STA     $590
-                STA     $5AA
+                STA     byte_590
+                STA     byte_5AA
 
-loc_18DEB:                              ; CODE XREF: sub_18CA4+130↑j
-                                        ; sub_18CA4+13D↑j
+loc_18DEB:                              ; CODE XREF: enemy_type_1+16C↑j
+                                        ; enemy_type_1+179↑j
                 JSR     sub_181A7
                 JSR     sub_182D9
-                LDA     $5C
+                LDA     special_weapon_type ; 0 - All Range Weapon
+                                        ; 1 - Straight Crusher
+                                        ; 2 - Field Shutter
+                                        ; 3 - Circular
+                                        ; 4 - Vibrator
+                                        ; 5 - Rewinder / Laser
+                                        ; 6 - Plasma Flash
+                                        ; 7 - High Speed
                 BEQ     locret_18DF9
                 CMP     #5
                 BNE     loc_18DFA
 
-locret_18DF9:                           ; CODE XREF: sub_18CA4+14F↑j
+locret_18DF9:                           ; CODE XREF: enemy_type_1+18B↑j
                 RTS
 ; ---------------------------------------------------------------------------
 
-loc_18DFA:                              ; CODE XREF: sub_18CA4+153↑j
-                LDY     $52C
+loc_18DFA:                              ; CODE XREF: enemy_type_1+18F↑j
+                LDY     byte_52C
                 BMI     loc_18E17
                 CPY     #$13
                 BEQ     loc_18E17
@@ -3153,30 +3083,30 @@ loc_18DFA:                              ; CODE XREF: sub_18CA4+153↑j
                 RTS
 ; ---------------------------------------------------------------------------
 
-loc_18E08:                              ; CODE XREF: sub_18CA4+161↑j
+loc_18E08:                              ; CODE XREF: enemy_type_1+19D↑j
                 CMP     #1
                 BEQ     loc_18E10
                 CMP     #6
                 BNE     loc_18E17
 
-loc_18E10:                              ; CODE XREF: sub_18CA4+166↑j
-                LDA     $5E
+loc_18E10:                              ; CODE XREF: enemy_type_1+1A2↑j
+                LDA     byte_5E
                 BNE     loc_18E17
                 JMP     sub_1948B
 ; ---------------------------------------------------------------------------
 
-loc_18E17:                              ; CODE XREF: sub_18CA4+159↑j
-                                        ; sub_18CA4+15D↑j ...
+loc_18E17:                              ; CODE XREF: enemy_type_1+195↑j
+                                        ; enemy_type_1+199↑j ...
                 LDA     #$84
-                STA     $18
+                STA     byte_18
                 LDA     #0
-                STA     $19
+                STA     byte_19
                 LDA     #$BC
-                STA     $84
+                STA     byte_84
                 LDA     #$D6
-                STA     $87
-                LDA     $5E
-; End of function sub_18CA4
+                STA     byte_87
+                LDA     byte_5E
+; End of function enemy_type_1
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -3185,8 +3115,8 @@ loc_18E17:                              ; CODE XREF: sub_18CA4+159↑j
 sub_18E29:                              ; CODE XREF: sub_1858B+33↑j
                                         ; sub_18835+E5↑j
                 LDY     #0
-                STY     $86
-                STA     $15
+                STY     byte_86
+                STA     byte_15
                 SEC
                 SBC     #$64 ; 'd'
                 BCC     loc_18E47
@@ -3197,18 +3127,18 @@ sub_18E29:                              ; CODE XREF: sub_1858B+33↑j
                 LDY     #4
 
 loc_18E3E:                              ; CODE XREF: sub_18E29+F↑j
-                STY     $85
-                STA     $15
+                STY     byte_85
+                STA     byte_15
                 LDY     #0
                 JSR     sub_185D8
 
 loc_18E47:                              ; CODE XREF: sub_18E29+9↑j
-                LDA     $87
+                LDA     byte_87
                 CLC
                 ADC     #9
-                STA     $87
+                STA     byte_87
                 LDY     #0
-                LDA     $15
+                LDA     byte_15
 
 loc_18E52:                              ; CODE XREF: sub_18E29+31↓j
                 CMP     #$A
@@ -3219,23 +3149,23 @@ loc_18E52:                              ; CODE XREF: sub_18E29+31↓j
                 BCS     loc_18E52
 
 loc_18E5C:                              ; CODE XREF: sub_18E29+2B↑j
-                STY     $85
+                STY     byte_85
                 PHA
                 LDY     #0
                 JSR     sub_185D8
                 PLA
                 ASL
-                STA     $85
-                LDA     $87
+                STA     byte_85
+                LDA     byte_87
                 CLC
                 ADC     #9
-                STA     $87
+                STA     byte_87
                 LDY     #0
                 JMP     sub_185D8
 ; End of function sub_18E29
 
 ; ---------------------------------------------------------------------------
-                .BYTE $FF
+unk_18E74:      .BYTE $FF
                 .BYTE $FF
                 .BYTE $FF
                 .BYTE   0
@@ -3244,7 +3174,7 @@ loc_18E5C:                              ; CODE XREF: sub_18E29+2B↑j
                 .BYTE   1
                 .BYTE   1
                 .BYTE   1
-                .BYTE   6
+unk_18E7D:      .BYTE   6
                 .BYTE   8
                 .BYTE  $A
                 .BYTE   4
@@ -3264,7 +3194,7 @@ unk_18E86:      .BYTE $30 ; 0
                 .BYTE $33 ; 3
                 .BYTE $33 ; 3
                 .BYTE $34 ; 4
-                .BYTE $20
+unk_18E91:      .BYTE $20
                 .BYTE $10
                 .BYTE  $A
                 .BYTE   8
@@ -3286,7 +3216,7 @@ unk_18E86:      .BYTE $30 ; 0
 ; Takes three numbers from the array (addressed by the variable $33) and places them in $37,$35,$36
 
 set_default_weapon:                     ; CODE XREF: j_set_default_weapon↑j
-                                        ; sub_18F78+A6↓j ...
+                                        ; enemy_type_60+A6↓j ...
                 LDA     $33
                 ASL
                 CLC
@@ -3311,8 +3241,9 @@ byte_18EB8:     .BYTE $FB, 2, 1
 
 ; =============== S U B R O U T I N E =======================================
 
+; When warp is activated, this piece of code works
 
-sub_18ECA:                              ; CODE XREF: sub_18CA4+4↑j
+warp_sequence:                          ; CODE XREF: enemy_type_1+40↑j
                 BMI     loc_18EDA
                 ORA     #$80
                 STA     $31
@@ -3321,7 +3252,7 @@ sub_18ECA:                              ; CODE XREF: sub_18CA4+4↑j
                 LDA     #$32 ; '2'
                 STA     $576
 
-loc_18EDA:                              ; CODE XREF: sub_18ECA↑j
+loc_18EDA:                              ; CODE XREF: warp_sequence↑j
                 LDA     $31
                 CMP     #$82
                 BEQ     loc_18F16
@@ -3338,7 +3269,7 @@ loc_18EDA:                              ; CODE XREF: sub_18ECA↑j
                 JMP     loc_18F10
 ; ---------------------------------------------------------------------------
 
-loc_18EF7:                              ; CODE XREF: sub_18ECA+25↑j
+loc_18EF7:                              ; CODE XREF: warp_sequence+25↑j
                 INC     $31
                 LDA     #0
                 STA     $5F8
@@ -3350,13 +3281,13 @@ loc_18EF7:                              ; CODE XREF: sub_18ECA+25↑j
                 STA     $716
                 BNE     loc_18F16
 
-loc_18F10:                              ; CODE XREF: sub_18ECA+2A↑j
+loc_18F10:                              ; CODE XREF: warp_sequence+2A↑j
                 JSR     sub_181A7
                 JMP     sub_182D9
 ; ---------------------------------------------------------------------------
 
-loc_18F16:                              ; CODE XREF: sub_18ECA+14↑j
-                                        ; sub_18ECA+44↑j
+loc_18F16:                              ; CODE XREF: warp_sequence+14↑j
+                                        ; warp_sequence+44↑j
                 JSR     sub_181A7
                 JSR     sub_182B1
                 LDA     $5F8
@@ -3379,7 +3310,7 @@ loc_18F16:                              ; CODE XREF: sub_18ECA+14↑j
                 LDA     #0
                 STA     $19
 
-loc_18F45:                              ; CODE XREF: sub_18ECA+AB↓j
+loc_18F45:                              ; CODE XREF: warp_sequence+AB↓j
                 LDA     $15
                 CLC
                 ADC     $16
@@ -3405,15 +3336,15 @@ loc_18F45:                              ; CODE XREF: sub_18ECA+AB↓j
                 DEC     $14
                 BNE     loc_18F45
 
-locret_18F77:                           ; CODE XREF: sub_18ECA+88↑j
+locret_18F77:                           ; CODE XREF: warp_sequence+88↑j
                 RTS
-; End of function sub_18ECA
+; End of function warp_sequence
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_18F78:
+enemy_type_60:
                 LDA     $528
                 BMI     loc_18FF6
                 ORA     #$80
@@ -3422,30 +3353,30 @@ sub_18F78:
                 BPL     loc_18F8F
                 LDA     #$81
                 STA     $528
-                JMP     sub_18CA4
+                JMP     loc_18CA4
 ; ---------------------------------------------------------------------------
 
-loc_18F8F:                              ; CODE XREF: sub_18F78+D↑j
+loc_18F8F:                              ; CODE XREF: enemy_type_60+D↑j
                 DEC     $32
                 BNE     loc_18F96
                 JSR     $C063
 
-loc_18F96:                              ; CODE XREF: sub_18F78+19↑j
+loc_18F96:                              ; CODE XREF: enemy_type_60+19↑j
                 JSR     sub_1948B
                 LSR     $4B
                 LSR     $47
                 JSR     $C07B
                 LDA     #$10
-                JSR     $C030
+                JSR     sub_C030
                 LDA     #$38 ; '8'
                 LDY     #$18
                 JSR     sub_1A2CB
                 LDA     #$10
                 STA     $16
-                JSR     sub_1872B
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 STA     $17
 
-loc_18FB5:                              ; CODE XREF: sub_18F78+7C↓j
+loc_18FB5:                              ; CODE XREF: enemy_type_60+7C↓j
                 JSR     check_enemy_overflow ; Checks that the enemy list is complete. If overflowed, sets Carry flag.
                 BCS     loc_18FF6
                 LDA     #$A3
@@ -3461,8 +3392,8 @@ loc_18FB5:                              ; CODE XREF: sub_18F78+7C↓j
                 LDA     #0
                 STA     $7E6,X
                 LDA     $17
-                JSR     sub_18097
-                JSR     sub_1872B
+                JSR     prng_lfsr_based ; PRNG variant using ASL/ROL instructions and array with parameters
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 PHA
                 AND     #3
                 STA     $590,X
@@ -3479,8 +3410,8 @@ loc_18FB5:                              ; CODE XREF: sub_18F78+7C↓j
                 DEC     $16
                 BNE     loc_18FB5
 
-loc_18FF6:                              ; CODE XREF: sub_18F78+3↑j
-                                        ; sub_18F78+40↑j
+loc_18FF6:                              ; CODE XREF: enemy_type_60+3↑j
+                                        ; enemy_type_60+40↑j
                 JSR     sub_183BC
                 BCS     loc_1900F
                 CPY     #$C
@@ -3488,7 +3419,7 @@ loc_18FF6:                              ; CODE XREF: sub_18F78+3↑j
                 RTS
 ; ---------------------------------------------------------------------------
 
-loc_19000:                              ; CODE XREF: sub_18F78+85↑j
+loc_19000:                              ; CODE XREF: enemy_type_60+85↑j
                 LDA     unk_19021,Y
                 STA     $576
                 LDA     unk_1902D,Y
@@ -3496,7 +3427,7 @@ loc_19000:                              ; CODE XREF: sub_18F78+85↑j
                 JMP     sub_182D9
 ; ---------------------------------------------------------------------------
 
-loc_1900F:                              ; CODE XREF: sub_18F78+81↑j
+loc_1900F:                              ; CODE XREF: enemy_type_60+81↑j
                 LDA     $30
                 ORA     #1
                 STA     $30
@@ -3505,7 +3436,7 @@ loc_1900F:                              ; CODE XREF: sub_18F78+81↑j
                 STA     $49
                 STA     $33
                 JMP     set_default_weapon ; Takes three numbers from the array (addressed by the variable $33) and places them in $37,$35,$36
-; End of function sub_18F78
+; End of function enemy_type_60
 
 ; ---------------------------------------------------------------------------
 unk_19021:      .BYTE   5
@@ -3536,7 +3467,7 @@ unk_1902D:      .BYTE   0
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_19039:
+enemy_type_2:
                 LDA     $528,X
                 BMI     loc_19068
                 ORA     #$80
@@ -3558,17 +3489,17 @@ sub_19039:
                 LDA     $37
                 STA     $612,X
 
-loc_19068:                              ; CODE XREF: sub_19039+3↑j
+loc_19068:                              ; CODE XREF: enemy_type_2+3↑j
                 JSR     sub_182B1
                 JMP     sub_181A7
-; End of function sub_19039
+; End of function enemy_type_2
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1906E:                              ; CODE XREF: sub_1916A↓p
-                                        ; sub_191EB+B↓p ...
+sub_1906E:                              ; CODE XREF: special_weapon_type_7↓p
+                                        ; special_weapon_type_2+B↓p ...
                 DEC     $768
                 BNE     locret_1907E
                 LDA     #$3C ; '<'
@@ -3585,31 +3516,52 @@ locret_1907E:                           ; CODE XREF: sub_1906E+3↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1907F:
+enemy_type_3:
                 LDA     $52C
-                BMI     sub_190DD
+                BMI     special_weapon_process ; Works every frame and serves special weapon projectiles
                 ORA     #$80
                 STA     $52C
                 LDA     $60
                 CMP     #5
                 BNE     loc_19099
-                LDA     $5C
+                LDA     special_weapon_type ; 0 - All Range Weapon
+                                        ; 1 - Straight Crusher
+                                        ; 2 - Field Shutter
+                                        ; 3 - Circular
+                                        ; 4 - Vibrator
+                                        ; 5 - Rewinder / Laser
+                                        ; 6 - Plasma Flash
+                                        ; 7 - High Speed
                 CMP     #5
                 BNE     loc_19099
                 LDA     #$18
                 BNE     loc_1909F
 
-loc_19099:                              ; CODE XREF: sub_1907F+E↑j
-                                        ; sub_1907F+14↑j
+loc_19099:                              ; CODE XREF: enemy_type_3+E↑j
+                                        ; enemy_type_3+14↑j
                 LDA     #6
-                CMP     $5C
+                CMP     special_weapon_type ; 0 - All Range Weapon
+                                        ; 1 - Straight Crusher
+                                        ; 2 - Field Shutter
+                                        ; 3 - Circular
+                                        ; 4 - Vibrator
+                                        ; 5 - Rewinder / Laser
+                                        ; 6 - Plasma Flash
+                                        ; 7 - High Speed
                 BEQ     loc_190A2
 
-loc_1909F:                              ; CODE XREF: sub_1907F+18↑j
+loc_1909F:                              ; CODE XREF: enemy_type_3+18↑j
                 JSR     sub_C030
 
-loc_190A2:                              ; CODE XREF: sub_1907F+1E↑j
-                LDA     $5C
+loc_190A2:                              ; CODE XREF: enemy_type_3+1E↑j
+                LDA     special_weapon_type ; 0 - All Range Weapon
+                                        ; 1 - Straight Crusher
+                                        ; 2 - Field Shutter
+                                        ; 3 - Circular
+                                        ; 4 - Vibrator
+                                        ; 5 - Rewinder / Laser
+                                        ; 6 - Plasma Flash
+                                        ; 7 - High Speed
                 ASL
                 ASL
                 ASL
@@ -3627,38 +3579,53 @@ loc_190A2:                              ; CODE XREF: sub_1907F+1E↑j
                 LDA     unk_190F7,Y
                 STA     $616
                 STA     $74E
-                LDA     $5C
+                LDA     special_weapon_type ; 0 - All Range Weapon
+                                        ; 1 - Straight Crusher
+                                        ; 2 - Field Shutter
+                                        ; 3 - Circular
+                                        ; 4 - Vibrator
+                                        ; 5 - Rewinder / Laser
+                                        ; 6 - Plasma Flash
+                                        ; 7 - High Speed
                 JSR     j_switch_case
 ; ---------------------------------------------------------------------------
-                .WORD $9139
-                .WORD $91A0
-                .WORD $91E5
-                .WORD $925B
-                .WORD $92F0
-                .WORD $935B
-                .WORD $940F
-                .WORD $914C
-; End of function sub_1907F
+                .WORD $9139             ; sub_1913A - 1
+                .WORD $91A0             ; sub_191A1 - 1
+                .WORD $91E5             ; sub_191E6 - 1
+                .WORD $925B             ; sub_1925C - 1
+                .WORD $92F0             ; sub_192F1 - 1
+                .WORD $935B             ; sub_1935C - 1
+                .WORD $940F             ; sub_19410 - 1
+                .WORD $914C             ; sub_1914D - 1
+; End of function enemy_type_3
 
 
 ; =============== S U B R O U T I N E =======================================
 
+; Works every frame and serves special weapon projectiles
 
-sub_190DD:                              ; CODE XREF: sub_1907F+3↑j
+special_weapon_process:                 ; CODE XREF: enemy_type_3+3↑j
                                         ; sub_1914D+1A↓j
-                LDA     $5C
+                LDA     special_weapon_type ; 0 - All Range Weapon
+                                        ; 1 - Straight Crusher
+                                        ; 2 - Field Shutter
+                                        ; 3 - Circular
+                                        ; 4 - Vibrator
+                                        ; 5 - Rewinder / Laser
+                                        ; 6 - Plasma Flash
+                                        ; 7 - High Speed
                 JSR     j_switch_case
-; End of function sub_190DD
+; End of function special_weapon_process
 
 ; ---------------------------------------------------------------------------
-                .WORD $919A
-                .WORD $9171
-                .WORD $91EA
-                .WORD $9277
-                .WORD $932E
-                .WORD $9371
-                .WORD $942E
-                .WORD $9169
+                .WORD $919A             ; sub_1919B - 1
+                .WORD $9171             ; sub_19172 - 1
+                .WORD $91EA             ; sub_191EB - 1
+                .WORD $9277             ; sub_19278 - 1
+                .WORD $932E             ; sub_1932F - 1
+                .WORD $9371             ; sub_19372 - 1
+                .WORD $942E             ; sub_1942F - 1
+                .WORD $9169             ; sub_1916A - 1
 byte_190F2:     .BYTE 3
 unk_190F3:      .BYTE   2
 unk_190F4:      .BYTE $36 ; 6
@@ -3763,34 +3730,34 @@ sub_1914D:
 loc_1915D:                              ; CODE XREF: sub_1914D+4↑j
                 LDA     $782
                 TAY
-                LDA     $91DD,Y
+                LDA     unk_191DD,Y
 
 loc_19164:                              ; CODE XREF: sub_1913A+B↑j
                                         ; sub_1913A+11↑j
-                JSR     sub_18097
-                JMP     sub_190DD
+                JSR     prng_lfsr_based ; PRNG variant using ASL/ROL instructions and array with parameters
+                JMP     special_weapon_process ; Works every frame and serves special weapon projectiles
 ; End of function sub_1914D
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1916A:
+special_weapon_type_7:
                 JSR     sub_1906E
-                BNE     sub_1919B
+                BNE     special_weapon_type_0
                 JMP     sub_1948B
-; End of function sub_1916A
+; End of function special_weapon_type_7
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_19172:
+special_weapon_type_1:
                 LDA     $60
                 CMP     #5
                 BNE     loc_1918F
                 LDA     $6B2
-                JSR     sub_18097
+                JSR     prng_lfsr_based ; PRNG variant using ASL/ROL instructions and array with parameters
                 LDA     $5FC
                 CLC
                 ADC     #$80
@@ -3798,26 +3765,26 @@ sub_19172:
                 BCS     loc_1918C
                 DEC     $616
 
-loc_1918C:                              ; CODE XREF: sub_19172+15↑j
+loc_1918C:                              ; CODE XREF: special_weapon_type_1+15↑j
                 DEC     $6B2
 
-loc_1918F:                              ; CODE XREF: sub_19172+4↑j
+loc_1918F:                              ; CODE XREF: special_weapon_type_1+4↑j
                 LDA     $57A
                 CMP     #$40 ; '@'
-                BEQ     sub_1919B
+                BEQ     special_weapon_type_0
                 EOR     #1
                 STA     $57A
-; End of function sub_19172
+; End of function special_weapon_type_1
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1919B:                              ; CODE XREF: sub_1916A+3↑j
-                                        ; sub_19172+22↑j ...
+special_weapon_type_0:                  ; CODE XREF: special_weapon_type_7+3↑j
+                                        ; special_weapon_type_1+22↑j ...
                 JSR     sub_182B1
                 JMP     sub_181A7
-; End of function sub_1919B
+; End of function special_weapon_type_0
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -3827,7 +3794,7 @@ sub_191A1:
                 DEC     $5E
                 LDA     $60
                 CMP     #5
-                BNE     sub_1919B
+                BNE     special_weapon_type_0
                 LDA     $560
                 SEC
                 SBC     #8
@@ -3857,11 +3824,11 @@ loc_191CC:                              ; CODE XREF: sub_191A1+24↑j
                 STA     $6B2
                 LDA     #$C1
                 STA     $74E
-                BNE     sub_1919B
+                BNE     special_weapon_type_0
 ; End of function sub_191A1
 
 ; ---------------------------------------------------------------------------
-                .BYTE  $B
+unk_191DD:      .BYTE  $B
                 .BYTE  $B
                 .BYTE  $B
                 .BYTE  $C
@@ -3883,7 +3850,7 @@ sub_191E6:
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_191EB:                              ; CODE XREF: sub_19410+5C↓j
+special_weapon_type_2:                  ; CODE XREF: sub_19464+8↓j
                 LDA     $60
                 CMP     #5
                 BNE     loc_1921E
@@ -3894,7 +3861,7 @@ sub_191EB:                              ; CODE XREF: sub_19410+5C↓j
                 JMP     sub_1948B
 ; ---------------------------------------------------------------------------
 
-loc_191FE:                              ; CODE XREF: sub_191EB+E↑j
+loc_191FE:                              ; CODE XREF: special_weapon_type_2+E↑j
                 LDA     $768
                 ORA     #$80
                 STA     $764
@@ -3909,7 +3876,7 @@ loc_191FE:                              ; CODE XREF: sub_191EB+E↑j
                 JMP     sub_182D9
 ; ---------------------------------------------------------------------------
 
-loc_1921E:                              ; CODE XREF: sub_191EB+4↑j
+loc_1921E:                              ; CODE XREF: special_weapon_type_2+4↑j
                 LDA     $542
                 SEC
                 SBC     #8
@@ -3926,20 +3893,20 @@ loc_1921E:                              ; CODE XREF: sub_191EB+4↑j
                 BCC     loc_1923C
                 LDA     #7
 
-loc_1923C:                              ; CODE XREF: sub_191EB+4D↑j
+loc_1923C:                              ; CODE XREF: special_weapon_type_2+4D↑j
                 STA     $10
                 LDA     $768
                 AND     #1
                 ADC     $10
                 TAY
-                LDA     $9252,Y
+                LDA     unk_19252,Y
                 STA     $57A
                 JSR     sub_182D9
                 JMP     sub_181A7
-; End of function sub_191EB
+; End of function special_weapon_type_2
 
 ; ---------------------------------------------------------------------------
-                .BYTE $3C ; <
+unk_19252:      .BYTE $3C ; <
                 .BYTE $3C ; <
                 .BYTE $3D ; =
                 .BYTE $3D ; =
@@ -3971,13 +3938,13 @@ sub_1925C:
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_19278:
+special_weapon_type_3:
                 JSR     sub_1906E
                 BNE     loc_19280
                 JMP     sub_1948B
 ; ---------------------------------------------------------------------------
 
-loc_19280:                              ; CODE XREF: sub_19278+3↑j
+loc_19280:                              ; CODE XREF: special_weapon_type_3+3↑j
                 DEC     $6E6
                 BNE     loc_19295
                 LDA     #1
@@ -3985,9 +3952,9 @@ loc_19280:                              ; CODE XREF: sub_19278+3↑j
                 INC     $700
                 LDA     $700
                 AND     #$F
-                JSR     sub_18097
+                JSR     prng_lfsr_based ; PRNG variant using ASL/ROL instructions and array with parameters
 
-loc_19295:                              ; CODE XREF: sub_19278+B↑j
+loc_19295:                              ; CODE XREF: special_weapon_type_3+B↑j
                 LDA     $5FC
                 CLC
                 ADC     $67E
@@ -4001,13 +3968,13 @@ loc_19295:                              ; CODE XREF: sub_19278+B↑j
                 LDA     #$48 ; 'H'
                 BNE     loc_192B9
 
-loc_192B3:                              ; CODE XREF: sub_19278+35↑j
+loc_192B3:                              ; CODE XREF: special_weapon_type_3+35↑j
                 CMP     #$C8
                 BCC     loc_192B9
                 LDA     #$C7
 
-loc_192B9:                              ; CODE XREF: sub_19278+39↑j
-                                        ; sub_19278+3D↑j
+loc_192B9:                              ; CODE XREF: special_weapon_type_3+39↑j
+                                        ; special_weapon_type_3+3D↑j
                 CLC
                 ADC     $698
                 STA     $546
@@ -4024,19 +3991,19 @@ loc_192B9:                              ; CODE XREF: sub_19278+39↑j
                 LDA     #$40 ; '@'
                 BNE     loc_192E4
 
-loc_192DE:                              ; CODE XREF: sub_19278+60↑j
+loc_192DE:                              ; CODE XREF: special_weapon_type_3+60↑j
                 CMP     #$C8
                 BCC     loc_192E4
                 LDA     #$C7
 
-loc_192E4:                              ; CODE XREF: sub_19278+64↑j
-                                        ; sub_19278+68↑j
+loc_192E4:                              ; CODE XREF: special_weapon_type_3+64↑j
+                                        ; special_weapon_type_3+68↑j
                 CLC
                 ADC     $6CC
                 STA     $560
                 JSR     sub_182D9
                 JMP     sub_181A7
-; End of function sub_19278
+; End of function special_weapon_type_3
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -4083,13 +4050,13 @@ loc_19326:                              ; CODE XREF: sub_192F1+2E↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1932F:                              ; CODE XREF: sub_19410:loc_1945E↓j
+special_weapon_type_4:                  ; CODE XREF: sub_1944F:loc_1945E↓j
                 DEC     $74E
                 BNE     loc_19339
                 LDA     #2
                 STA     $664
 
-loc_19339:                              ; CODE XREF: sub_1932F+3↑j
+loc_19339:                              ; CODE XREF: special_weapon_type_4+3↑j
                 LDA     $560
                 CMP     $700
                 BCS     loc_1934D
@@ -4100,16 +4067,16 @@ loc_19339:                              ; CODE XREF: sub_1932F+3↑j
                 JMP     loc_19356
 ; ---------------------------------------------------------------------------
 
-loc_1934D:                              ; CODE XREF: sub_1932F+10↑j
+loc_1934D:                              ; CODE XREF: special_weapon_type_4+10↑j
                 LDA     $64A
                 SEC
                 SBC     #4
                 STA     $64A
 
-loc_19356:                              ; CODE XREF: sub_1932F+1B↑j
+loc_19356:                              ; CODE XREF: special_weapon_type_4+1B↑j
                 JSR     sub_182B1
                 JMP     sub_181A7
-; End of function sub_1932F
+; End of function special_weapon_type_4
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -4131,7 +4098,7 @@ sub_1935C:
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_19372:
+special_weapon_type_5:
                 LDA     $60
                 CMP     #5
                 BCS     loc_193A6
@@ -4141,7 +4108,7 @@ sub_19372:
                 LDA     #$10
                 STA     $546
 
-loc_19384:                              ; CODE XREF: sub_19372+B↑j
+loc_19384:                              ; CODE XREF: special_weapon_type_5+B↑j
                 LDA     $55C
                 STA     $560
                 LDA     $542
@@ -4149,10 +4116,10 @@ loc_19384:                              ; CODE XREF: sub_19372+B↑j
                 ADC     #8
                 CMP     $546
                 BCS     loc_19398
-                JMP     sub_182FE
+                JMP     enemy_common    ; A generic piece of code for some types as well as type 40 always goes here.
 ; ---------------------------------------------------------------------------
 
-loc_19398:                              ; CODE XREF: sub_19372+21↑j
+loc_19398:                              ; CODE XREF: special_weapon_type_5+21↑j
                 LDA     $57A
                 EOR     #1
                 STA     $57A
@@ -4160,7 +4127,7 @@ loc_19398:                              ; CODE XREF: sub_19372+21↑j
                 JMP     sub_181A7
 ; ---------------------------------------------------------------------------
 
-loc_193A6:                              ; CODE XREF: sub_19372+4↑j
+loc_193A6:                              ; CODE XREF: special_weapon_type_5+4↑j
                 LDA     $55C
                 SEC
                 SBC     #8
@@ -4178,21 +4145,21 @@ loc_193A6:                              ; CODE XREF: sub_19372+4↑j
                 CMP     $77
                 BCC     loc_193D4
 
-loc_193C9:                              ; CODE XREF: sub_19372+48↑j
+loc_193C9:                              ; CODE XREF: special_weapon_type_5+48↑j
                 LDA     $7D0
                 SEC
                 SBC     #$C
                 BCC     loc_1940D
                 STA     $7D0
 
-loc_193D4:                              ; CODE XREF: sub_19372+55↑j
+loc_193D4:                              ; CODE XREF: special_weapon_type_5+55↑j
                 LDA     $7B6
                 SEC
                 SBC     #$C
                 BCS     loc_193DE
                 ADC     #$10
 
-loc_193DE:                              ; CODE XREF: sub_19372+68↑j
+loc_193DE:                              ; CODE XREF: special_weapon_type_5+68↑j
                 STA     $7B6
                 STA     $84
                 LDA     $55C
@@ -4208,7 +4175,7 @@ loc_193DE:                              ; CODE XREF: sub_19372+68↑j
                 LDA     #0
                 STA     $19
 
-loc_193FB:                              ; CODE XREF: sub_19372+98↓j
+loc_193FB:                              ; CODE XREF: special_weapon_type_5+98↓j
                 LDY     #0
                 JSR     sub_185D8
                 LDA     $84
@@ -4220,10 +4187,10 @@ loc_193FB:                              ; CODE XREF: sub_19372+98↓j
                 RTS
 ; ---------------------------------------------------------------------------
 
-loc_1940D:                              ; CODE XREF: sub_19372+51↑j
-                                        ; sub_19372+5D↑j
-                JMP     sub_182FE
-; End of function sub_19372
+loc_1940D:                              ; CODE XREF: special_weapon_type_5+51↑j
+                                        ; special_weapon_type_5+5D↑j
+                JMP     enemy_common    ; A generic piece of code for some types as well as type 40 always goes here.
+; End of function special_weapon_type_5
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -4234,7 +4201,7 @@ sub_19410:
                 ORA     $F6
                 AND     #$80
                 BNE     loc_1941B
-                JMP     sub_182FE
+                JMP     enemy_common    ; A generic piece of code for some types as well as type 40 always goes here.
 ; ---------------------------------------------------------------------------
 
 loc_1941B:                              ; CODE XREF: sub_19410+6↑j
@@ -4243,31 +4210,47 @@ loc_1941B:                              ; CODE XREF: sub_19410+6↑j
                 DEC     $5E
                 LDA     $60
                 CMP     #5
-                BEQ     loc_1942F
+                BEQ     special_weapon_type_6
                 CMP     #2
-                BCC     loc_1942F
-                JMP     loc_1946F
-; ---------------------------------------------------------------------------
+                BCC     special_weapon_type_6
+                JMP     sub_1946F
+; End of function sub_19410
 
-loc_1942F:                              ; CODE XREF: sub_19410+16↑j
+
+; =============== S U B R O U T I N E =======================================
+
+
+special_weapon_type_6:                  ; CODE XREF: sub_19410+16↑j
                                         ; sub_19410+1A↑j
                 JSR     sub_182B1
                 JMP     sub_181A7
-; ---------------------------------------------------------------------------
+; End of function special_weapon_type_6
+
+
+; =============== S U B R O U T I N E =======================================
+
+
+enemy_type_19:
                 LDA     #$83
                 STA     $52C
                 LDA     $5C
                 JSR     j_switch_case
+; End of function enemy_type_19
+
 ; ---------------------------------------------------------------------------
-                .WORD $82FD
-                .WORD $9171
-                .WORD $9463
-                .WORD $9277
-                .WORD $944E
-                .WORD $9371
-                .WORD $946E
-                .WORD $9169
-; ---------------------------------------------------------------------------
+                .WORD $82FD             ; sub_182FE - 1
+                .WORD $9171             ; special_weapon_type_1 - 1
+                .WORD $9463             ; sub_19464 - 1
+                .WORD $9277             ; special_weapon_type_3 - 1
+                .WORD $944E             ; sub_1944F - 1
+                .WORD $9371             ; special_weapon_type_5 - 1
+                .WORD $946E             ; sub_1946F - 1
+                .WORD $9169             ; special_weapon_type_7 - 1
+
+; =============== S U B R O U T I N E =======================================
+
+
+sub_1944F:
                 DEC     $5E
                 BEQ     loc_19461
                 LDA     $5E
@@ -4276,21 +4259,31 @@ loc_1942F:                              ; CODE XREF: sub_19410+16↑j
                 LDA     #$3C ; '<'
                 STA     $57A
 
-loc_1945E:                              ; CODE XREF: sub_19410+47↑j
-                JMP     sub_1932F
+loc_1945E:                              ; CODE XREF: sub_1944F+8↑j
+                JMP     special_weapon_type_4
 ; ---------------------------------------------------------------------------
 
-loc_19461:                              ; CODE XREF: sub_19410+41↑j
-                JMP     sub_182FE
-; ---------------------------------------------------------------------------
+loc_19461:                              ; CODE XREF: sub_1944F+2↑j
+                JMP     enemy_common    ; A generic piece of code for some types as well as type 40 always goes here.
+; End of function sub_1944F
+
+
+; =============== S U B R O U T I N E =======================================
+
+
+sub_19464:
                 DEC     $5E
                 LDA     $5E
                 CMP     #$FF
                 BEQ     sub_1948B
-                JMP     sub_191EB
-; ---------------------------------------------------------------------------
+                JMP     special_weapon_type_2
+; End of function sub_19464
 
-loc_1946F:                              ; CODE XREF: sub_19410+1C↑j
+
+; =============== S U B R O U T I N E =======================================
+
+
+sub_1946F:                              ; CODE XREF: sub_19410+1C↑j
                 LDA     $60
                 CMP     #5
                 BCC     loc_19480
@@ -4300,21 +4293,21 @@ loc_1946F:                              ; CODE XREF: sub_19410+1C↑j
                 JMP     loc_19483
 ; ---------------------------------------------------------------------------
 
-loc_19480:                              ; CODE XREF: sub_19410+63↑j
+loc_19480:                              ; CODE XREF: sub_1946F+4↑j
                 JSR     sub_1B2ED
 
-loc_19483:                              ; CODE XREF: sub_19410+6D↑j
+loc_19483:                              ; CODE XREF: sub_1946F+E↑j
                 LDA     #$13
                 JSR     sub_C030
-                JMP     sub_182FE
-; End of function sub_19410
+                JMP     enemy_common    ; A generic piece of code for some types as well as type 40 always goes here.
+; End of function sub_1946F
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
 sub_1948B:                              ; CODE XREF: sub_18012↑j
-                                        ; sub_18CA4+170↑j ...
+                                        ; enemy_type_1+1AC↑j ...
                 LDA     #$FF
                 STA     $5C
                 LDA     #0
@@ -4357,7 +4350,7 @@ loc_194BD:                              ; CODE XREF: sub_19493+10↑j
                 TXA
                 PHA
                 LDX     #4
-                JSR     sub_182FE
+                JSR     enemy_common    ; A generic piece of code for some types as well as type 40 always goes here.
                 PLA
                 TAX
                 CPY     #3
@@ -4377,11 +4370,11 @@ loc_194DC:                              ; CODE XREF: sub_19493+45↑j
                 LDA     $60
                 CMP     #5
                 BCC     loc_19515
-                LDA     $9578,Y
+                LDA     unk_19578,Y
                 AND     $5D
                 BNE     loc_19511
                 LDA     $5D
-                ORA     $9578,Y
+                ORA     unk_19578,Y
                 STA     $5D
                 LDA     #5
                 STA     $60
@@ -4431,7 +4424,7 @@ loc_19515:                              ; CODE XREF: sub_19493+28↑j
                 LDY     #$18
                 CMP     2
                 BCC     loc_1954B
-                JSR     sub_1872B
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 LDY     #$1B
                 LSR
                 BCS     loc_1954B
@@ -4482,7 +4475,7 @@ loc_19574:                              ; CODE XREF: sub_19493:loc_1954B↑j
 ; End of function sub_19493
 
 ; ---------------------------------------------------------------------------
-                .BYTE   0
+unk_19578:      .BYTE   0
                 .BYTE   0
                 .BYTE   1
                 .BYTE   0
@@ -4508,8 +4501,8 @@ unk_19580:      .BYTE $32 ; 2
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1958E:
-                JSR     sub_1872B
+enemy_type_68:
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 AND     #$7F
                 ADC     #$20 ; ' '
                 STA     $14
@@ -4522,7 +4515,7 @@ sub_1958E:
                 LDA     #3
                 STA     $17
 
-loc_195AB:                              ; CODE XREF: sub_1958E+46↓j
+loc_195AB:                              ; CODE XREF: enemy_type_68+46↓j
                 LDY     $15
                 LDA     unk_195D9,Y
                 INC     $15
@@ -4544,11 +4537,11 @@ loc_195AB:                              ; CODE XREF: sub_1958E+46↓j
                 TAX
                 BCC     loc_195AB
 
-loc_195D6:                              ; CODE XREF: sub_1958E+3D↑j
-                                        ; sub_1958E+42↑j
+loc_195D6:                              ; CODE XREF: enemy_type_68+3D↑j
+                                        ; enemy_type_68+42↑j
                 LDX     $40
                 RTS
-; End of function sub_1958E
+; End of function enemy_type_68
 
 ; ---------------------------------------------------------------------------
 unk_195D9:      .BYTE   4
@@ -4615,8 +4608,8 @@ unk_195F7:      .BYTE   1
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_19615:                              ; CODE XREF: sub_1958E+C↑p
-                                        ; sub_1958E+14↑p
+sub_19615:                              ; CODE XREF: enemy_type_68+C↑p
+                                        ; enemy_type_68+14↑p
                 STA     $10
                 ASL
                 ADC     $10
@@ -4627,7 +4620,7 @@ sub_19615:                              ; CODE XREF: sub_1958E+C↑p
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1961B:
+enemy_type_4_5_6:
                 LDA     $528,X
                 BMI     loc_19644
                 DEC     $542,X
@@ -4635,7 +4628,7 @@ sub_1961B:
                 RTS
 ; ---------------------------------------------------------------------------
 
-loc_19626:                              ; CODE XREF: sub_1961B+8↑j
+loc_19626:                              ; CODE XREF: enemy_type_4_5_6+8↑j
                 ORA     #$80
                 STA     $528,X
                 LDA     #$2F ; '/'
@@ -4649,7 +4642,7 @@ loc_19626:                              ; CODE XREF: sub_1961B+8↑j
                 LDA     #1
                 STA     $660,X
 
-loc_19644:                              ; CODE XREF: sub_1961B+3↑j
+loc_19644:                              ; CODE XREF: enemy_type_4_5_6+3↑j
                 LDA     $764,X
                 CMP     #3
                 BCS     loc_1966C
@@ -4669,7 +4662,7 @@ loc_19644:                              ; CODE XREF: sub_1961B+3↑j
                 LDA     $96CD,Y
                 STA     $590,X
 
-loc_1966C:                              ; CODE XREF: sub_1961B+2E↑j
+loc_1966C:                              ; CODE XREF: enemy_type_4_5_6+2E↑j
                 JSR     sub_182B1
                 LDA     #$2F ; '/'
                 STA     $576,X
@@ -4687,7 +4680,7 @@ loc_1966C:                              ; CODE XREF: sub_1961B+2E↑j
                 BCC     loc_1969C
                 LDY     #4
 
-loc_19692:                              ; CODE XREF: sub_1961B+7F↓j
+loc_19692:                              ; CODE XREF: enemy_type_4_5_6+7F↓j
                 TYA
                 PHA
                 JSR     sub_196F3
@@ -4696,13 +4689,13 @@ loc_19692:                              ; CODE XREF: sub_1961B+7F↓j
                 DEY
                 BNE     loc_19692
 
-loc_1969C:                              ; CODE XREF: sub_1961B+73↑j
+loc_1969C:                              ; CODE XREF: enemy_type_4_5_6+73↑j
                 JSR     sub_196F3
-                JMP     sub_182FE
+                JMP     enemy_common    ; A generic piece of code for some types as well as type 40 always goes here.
 ; ---------------------------------------------------------------------------
 
-loc_196A2:                              ; CODE XREF: sub_1961B+61↑j
-                                        ; sub_1961B+67↑j
+loc_196A2:                              ; CODE XREF: enemy_type_4_5_6+61↑j
+                                        ; enemy_type_4_5_6+67↑j
                 LDA     $764,X
                 BNE     locret_196DB
                 LDA     $88
@@ -4716,10 +4709,10 @@ loc_196A2:                              ; CODE XREF: sub_1961B+61↑j
                 STA     $590,X
                 LDA     #$2E ; '.'
                 STA     $576,X
-                JMP     loc_196E8
+                JMP     enemy_type_63
 ; ---------------------------------------------------------------------------
 
-loc_196C3:                              ; CODE XREF: sub_1961B+94↑j
+loc_196C3:                              ; CODE XREF: enemy_type_4_5_6+94↑j
                 LDA     #$26 ; '&'
                 STA     $528,X
                 LDA     #3
@@ -4732,9 +4725,11 @@ loc_196C3:                              ; CODE XREF: sub_1961B+94↑j
                 JMP     sub_1B631
 ; ---------------------------------------------------------------------------
 
-locret_196DB:                           ; CODE XREF: sub_1961B+8A↑j
-                                        ; sub_1961B+90↑j ...
+locret_196DB:                           ; CODE XREF: enemy_type_4_5_6+8A↑j
+                                        ; enemy_type_4_5_6+90↑j ...
                 RTS
+; End of function enemy_type_4_5_6
+
 ; ---------------------------------------------------------------------------
                 .BYTE $2F ; /
                 .BYTE $80
@@ -4748,21 +4743,23 @@ locret_196DB:                           ; CODE XREF: sub_1961B+8A↑j
                 .BYTE   1
                 .BYTE $2F ; /
                 .BYTE   2
-; ---------------------------------------------------------------------------
 
-loc_196E8:                              ; CODE XREF: sub_1961B+A5↑j
+; =============== S U B R O U T I N E =======================================
+
+
+enemy_type_63:                          ; CODE XREF: enemy_type_4_5_6+A5↑j
                 JSR     sub_182B1
                 JSR     sub_181ED
                 LDA     $528,X
                 BMI     locret_196DB
-; End of function sub_1961B
+; End of function enemy_type_63
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_196F3:                              ; CODE XREF: sub_1961B+79↑p
-                                        ; sub_1961B:loc_1969C↑p
+sub_196F3:                              ; CODE XREF: enemy_type_4_5_6+79↑p
+                                        ; enemy_type_4_5_6:loc_1969C↑p
                 JSR     sub_C02A
                 LDA     #$17
                 JSR     sub_C030
@@ -4792,7 +4789,7 @@ loc_19725:                              ; CODE XREF: sub_196F3+2A↑j
                 LDA     $5C
                 BNE     locret_196DB
 
-loc_1972F:                              ; CODE XREF: sub_1ACDE+3F↓j
+loc_1972F:                              ; CODE XREF: enemy_type_53+3F↓j
                 LDA     #4
                 STA     $36
                 LDA     #$F5
@@ -4810,11 +4807,12 @@ loc_1973C:                              ; CODE XREF: sub_196F3+20↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1973F:
+enemy_type_7:
                 LDA     $528,X
                 BMI     loc_19777
 
-loc_19744:                              ; CODE XREF: sub_197FD+5↓j
+loc_19744:                              ; CODE XREF: enemy_type_8+5↓j
+                                        ; enemy_type_9+5↓j
                 ORA     #$80
                 STA     $528,X
                 LDA     #$80
@@ -4836,7 +4834,8 @@ loc_19744:                              ; CODE XREF: sub_197FD+5↓j
                 LDA     #8
                 STA     $6FC,X
 
-loc_19777:                              ; CODE XREF: sub_1973F+3↑j
+loc_19777:                              ; CODE XREF: enemy_type_7+3↑j
+                                        ; enemy_type_8+3↓j
                 LDA     $612,X
                 BEQ     loc_19787
                 CMP     #$FF
@@ -4845,7 +4844,7 @@ loc_19777:                              ; CODE XREF: sub_1973F+3↑j
                 STA     $576,X
                 BNE     loc_197B4
 
-loc_19787:                              ; CODE XREF: sub_1973F+3B↑j
+loc_19787:                              ; CODE XREF: enemy_type_7+3B↑j
                 LDA     #$1A
                 STA     $576,X
                 LDA     $5F8,X
@@ -4853,11 +4852,11 @@ loc_19787:                              ; CODE XREF: sub_1973F+3B↑j
                 BNE     loc_197B4
                 LDA     $528,X
                 CMP     #$88
-                BEQ     loc_197CF
+                BEQ     sub_197CF
                 LDA     #7
                 STA     $15
 
-loc_1979F:                              ; CODE XREF: sub_1973F+73↓j
+loc_1979F:                              ; CODE XREF: enemy_type_7+73↓j
                 LDY     $15
                 LDA     $97B9,Y
                 STA     $14
@@ -4868,10 +4867,12 @@ loc_1979F:                              ; CODE XREF: sub_1973F+73↓j
                 DEC     $15
                 BNE     loc_1979F
 
-loc_197B4:                              ; CODE XREF: sub_1973F+3F↑j
-                                        ; sub_1973F+46↑j ...
+loc_197B4:                              ; CODE XREF: enemy_type_7+3F↑j
+                                        ; enemy_type_7+46↑j ...
                 JSR     sub_182B1
                 JMP     sub_181F6
+; End of function enemy_type_7
+
 ; ---------------------------------------------------------------------------
                 .BYTE   1
                 .BYTE   6
@@ -4886,17 +4887,21 @@ loc_197B4:                              ; CODE XREF: sub_1973F+3F↑j
                 .BYTE   2
                 .BYTE   0
                 .BYTE   3
-                .BYTE $BD
-                .BYTE $28 ; (
-                .BYTE   5
-                .BYTE $30 ; 0
-                .BYTE $AB
-                .BYTE $4C ; L
-                .BYTE $44 ; D
-                .BYTE $97
-; ---------------------------------------------------------------------------
 
-loc_197CF:                              ; CODE XREF: sub_1973F+5A↑j
+; =============== S U B R O U T I N E =======================================
+
+
+enemy_type_8:
+                LDA     $528,X
+                BMI     loc_19777
+                JMP     loc_19744
+; End of function enemy_type_8
+
+
+; =============== S U B R O U T I N E =======================================
+
+
+sub_197CF:                              ; CODE XREF: enemy_type_7+5A↑j
                 JSR     check_enemy_overflow ; Checks that the enemy list is complete. If overflowed, sets Carry flag.
                 BCS     loc_197B4
                 LDA     #$28 ; '('
@@ -4912,14 +4917,14 @@ loc_197CF:                              ; CODE XREF: sub_1973F+5A↑j
                 STA     $14
                 JSR     sub_197F3
                 JMP     loc_197B4
-; End of function sub_1973F
+; End of function sub_197CF
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_197F3:                              ; CODE XREF: sub_1973F+A5↑p
-                                        ; sub_1973F+AE↑p ...
+sub_197F3:                              ; CODE XREF: sub_197CF+15↑p
+                                        ; sub_197CF+1E↑p ...
                 LDA     #0
                 STA     $74A,Y
                 LDA     #$29 ; ')'
@@ -4930,13 +4935,13 @@ sub_197F3:                              ; CODE XREF: sub_1973F+A5↑p
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_197FD:
+enemy_type_9:
                 LDA     $528,X
                 BMI     loc_19805
                 JMP     loc_19744
 ; ---------------------------------------------------------------------------
 
-loc_19805:                              ; CODE XREF: sub_197FD+3↑j
+loc_19805:                              ; CODE XREF: enemy_type_9+3↑j
                 DEC     $6FC,X
                 BNE     loc_197B4
                 LDA     #8
@@ -4946,15 +4951,15 @@ loc_19805:                              ; CODE XREF: sub_197FD+3↑j
                 JSR     sub_1981D
                 JSR     sub_1B631
                 JMP     loc_197B4
-; End of function sub_197FD
+; End of function enemy_type_9
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1981D:                              ; CODE XREF: sub_197FD+17↑p
-                                        ; sub_1A3EC+DD↓p
-                JSR     sub_1872B
+sub_1981D:                              ; CODE XREF: enemy_type_9+17↑p
+                                        ; enemy_type_34_65_66+DD↓p
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 AND     #3
                 SBC     #1
                 STA     $14
@@ -4965,8 +4970,9 @@ sub_1981D:                              ; CODE XREF: sub_197FD+17↑p
 
 ; =============== S U B R O U T I N E =======================================
 
+; Duster is such a boulder (yellow or blue)
 
-sub_19829:
+enemy_type_10_duster:
                 LDA     $528,X
                 BMI     loc_1985D
                 ORA     #$80
@@ -4978,7 +4984,7 @@ sub_19829:
                 BCS     loc_19840
                 DEY
 
-loc_19840:                              ; CODE XREF: sub_19829+14↑j
+loc_19840:                              ; CODE XREF: enemy_type_10_duster+14↑j
                 TYA
                 STA     $6FC,X
                 LDA     #8
@@ -4992,15 +4998,15 @@ loc_19840:                              ; CODE XREF: sub_19829+14↑j
                 LDA     #3
                 STA     $612,X
 
-loc_1985D:                              ; CODE XREF: sub_19829+3↑j
+loc_1985D:                              ; CODE XREF: enemy_type_10_duster+3↑j
                 JMP     loc_197B4
-; End of function sub_19829
+; End of function enemy_type_10_duster
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_19860:                              ; CODE XREF: sub_198C6+1E↓j
+enemy_type_69:                          ; CODE XREF: enemy_type_11+1E↓j
                 LDA     $528,X
                 BMI     loc_19892
                 ORA     #$80
@@ -5022,8 +5028,8 @@ sub_19860:                              ; CODE XREF: sub_198C6+1E↓j
                 LDA     #5
                 STA     $646,X
 
-loc_19892:                              ; CODE XREF: sub_19860+3↑j
-                                        ; sub_19860+26↑j
+loc_19892:                              ; CODE XREF: enemy_type_69+3↑j
+                                        ; enemy_type_69+26↑j
                 LDA     $62
                 AND     #8
                 BNE     locret_198C5
@@ -5039,25 +5045,25 @@ loc_19892:                              ; CODE XREF: sub_19860+3↑j
                 JSR     sub_1B631
                 DEC     $590,X
                 BNE     loc_198BB
-                JMP     sub_182FE
+                JMP     enemy_common    ; A generic piece of code for some types as well as type 40 always goes here.
 ; ---------------------------------------------------------------------------
 
-loc_198BB:                              ; CODE XREF: sub_19860+56↑j
+loc_198BB:                              ; CODE XREF: enemy_type_69+56↑j
                 LDA     $55C,X
                 CLC
                 ADC     $62C,X
                 STA     $55C,X
 
-locret_198C5:                           ; CODE XREF: sub_19860+36↑j
-                                        ; sub_19860+3B↑j ...
+locret_198C5:                           ; CODE XREF: enemy_type_69+36↑j
+                                        ; enemy_type_69+3B↑j ...
                 RTS
-; End of function sub_19860
+; End of function enemy_type_69
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_198C6:
+enemy_type_11:
                 LDA     $49
                 LSR
                 LSR
@@ -5072,8 +5078,8 @@ sub_198C6:
                 STA     $590,X
                 LDA     #$28 ; '('
                 STA     $660,X
-                JMP     sub_19860
-; End of function sub_198C6
+                JMP     enemy_type_69
+; End of function enemy_type_11
 
 ; ---------------------------------------------------------------------------
 word_198E7:     .WORD $1E0A
@@ -5146,14 +5152,14 @@ locret_1993B:                           ; CODE XREF: sub_19918+5↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1993C:
+enemy_type_12_13:
                 LDA     $528,X
                 BMI     loc_1998D
                 ORA     #$80
                 STA     $528,X
                 AND     #$7F
                 PHA
-                JSR     sub_1872B
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 STA     $5AA,X
                 PLA
                 TAY
@@ -5182,8 +5188,8 @@ sub_1993C:
                 ADC     #1
                 STA     $55C,X
 
-loc_1998D:                              ; CODE XREF: sub_1993C+3↑j
-                                        ; sub_1993C+44↑j
+loc_1998D:                              ; CODE XREF: enemy_type_12_13+3↑j
+                                        ; enemy_type_12_13+44↑j
                 INC     $764,X
                 LDA     $764,X
                 LSR
@@ -5202,7 +5208,7 @@ loc_1998D:                              ; CODE XREF: sub_1993C+3↑j
                 BPL     loc_199B2
                 DEC     $6E2,X
 
-loc_199B2:                              ; CODE XREF: sub_1993C+71↑j
+loc_199B2:                              ; CODE XREF: enemy_type_12_13+71↑j
                 TAY
 
 loc_199B3:
@@ -5215,18 +5221,18 @@ loc_199B3:
                 SEC
                 SBC     #7
 
-loc_199C0:                              ; CODE XREF: sub_1993C+7D↑j
+loc_199C0:                              ; CODE XREF: enemy_type_12_13+7D↑j
                 AND     #$F
-                JSR     sub_18097
+                JSR     prng_lfsr_based ; PRNG variant using ASL/ROL instructions and array with parameters
                 PLA
                 LSR
                 LSR
                 AND     #$1C
                 STA     $6FC,X
 
-loc_199CD:                              ; CODE XREF: sub_1993C+65↑j
+loc_199CD:                              ; CODE XREF: enemy_type_12_13+65↑j
                 JMP     loc_197B4
-; End of function sub_1993C
+; End of function enemy_type_12_13
 
 ; ---------------------------------------------------------------------------
                 .BYTE   0
@@ -5271,7 +5277,7 @@ loc_199CD:                              ; CODE XREF: sub_1993C+65↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_199F6:
+enemy_type_14:
                 LDA     $528,X
                 BMI     loc_19A21
                 ORA     #$80
@@ -5290,7 +5296,7 @@ sub_199F6:
                 LDA     #0
                 STA     $5AA,X
 
-loc_19A21:                              ; CODE XREF: sub_199F6+3↑j
+loc_19A21:                              ; CODE XREF: enemy_type_14+3↑j
                 LDA     $5AA,X
                 BNE     loc_19A8C
                 LDA     $542
@@ -5302,8 +5308,8 @@ loc_19A21:                              ; CODE XREF: sub_199F6+3↑j
                 JMP     loc_197B4
 ; ---------------------------------------------------------------------------
 
-loc_19A36:                              ; CODE XREF: sub_199F6+37↑j
-                                        ; sub_199F6+3B↑j
+loc_19A36:                              ; CODE XREF: enemy_type_14+37↑j
+                                        ; enemy_type_14+3B↑j
                 INC     $5AA,X
                 LDA     #$15
                 JSR     $C030
@@ -5340,7 +5346,7 @@ loc_19A36:                              ; CODE XREF: sub_199F6+37↑j
                 LDA     #$3B ; ';'
                 JSR     sub_1B631
 
-loc_19A8C:                              ; CODE XREF: sub_199F6+2E↑j
+loc_19A8C:                              ; CODE XREF: enemy_type_14+2E↑j
                 LDA     $5AA,X
                 CMP     #1
                 BNE     loc_19AC9
@@ -5366,8 +5372,8 @@ loc_19A8C:                              ; CODE XREF: sub_199F6+2E↑j
                 STA     $764,Y
                 BNE     loc_19AE6
 
-loc_19AC9:                              ; CODE XREF: sub_199F6+71↑j
-                                        ; sub_199F6+7F↑j ...
+loc_19AC9:                              ; CODE XREF: enemy_type_14+71↑j
+                                        ; enemy_type_14+7F↑j ...
                 DEC     $6E2,X
                 BNE     loc_19AE6
                 LDA     #6
@@ -5379,10 +5385,10 @@ loc_19AC9:                              ; CODE XREF: sub_199F6+71↑j
                 ADC     $730,X
                 AND     #$F
                 STA     $716,X
-                JSR     sub_18097
+                JSR     prng_lfsr_based ; PRNG variant using ASL/ROL instructions and array with parameters
 
-loc_19AE6:                              ; CODE XREF: sub_199F6+D1↑j
-                                        ; sub_199F6+D6↑j ...
+loc_19AE6:                              ; CODE XREF: enemy_type_14+D1↑j
+                                        ; enemy_type_14+D6↑j ...
                 JSR     sub_182B1
                 JSR     sub_181F6
                 JSR     sub_1A2B1
@@ -5391,15 +5397,15 @@ loc_19AE6:                              ; CODE XREF: sub_199F6+D1↑j
                 JMP     sub_C057
 ; ---------------------------------------------------------------------------
 
-locret_19AF6:                           ; CODE XREF: sub_199F6+F9↑j
+locret_19AF6:                           ; CODE XREF: enemy_type_14+F9↑j
                 RTS
-; End of function sub_199F6
+; End of function enemy_type_14
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_19AF7:
+enemy_type_15:
                 LDA     $528,X
                 BMI     loc_19B25
                 ORA     #$80
@@ -5419,7 +5425,7 @@ sub_19AF7:
                 LDA     #1
                 STA     $6AE,X
 
-loc_19B25:                              ; CODE XREF: sub_19AF7+3↑j
+loc_19B25:                              ; CODE XREF: enemy_type_15+3↑j
                 DEC     $6AE,X
                 BNE     loc_19B53
                 LDA     #$A
@@ -5439,8 +5445,8 @@ loc_19B25:                              ; CODE XREF: sub_19AF7+3↑j
                 LDA     #$82
                 STA     $590,X
 
-loc_19B53:                              ; CODE XREF: sub_19AF7+31↑j
-                                        ; sub_19AF7+50↑j
+loc_19B53:                              ; CODE XREF: enemy_type_15+31↑j
+                                        ; enemy_type_15+50↑j
                 LDA     $55C
                 SEC
                 SBC     $55C,X
@@ -5457,26 +5463,26 @@ loc_19B53:                              ; CODE XREF: sub_19AF7+31↑j
                 BPL     loc_19B74
                 LDY     #$C
 
-loc_19B74:                              ; CODE XREF: sub_19AF7+79↑j
+loc_19B74:                              ; CODE XREF: enemy_type_15+79↑j
                 STY     $14
                 JSR     check_enemy_overflow ; Checks that the enemy list is complete. If overflowed, sets Carry flag.
                 BCS     loc_19B80
                 LDA     #$3B ; ';'
                 JSR     sub_1B631
 
-loc_19B80:                              ; CODE XREF: sub_19AF7+68↑j
-                                        ; sub_19AF7+6D↑j ...
+loc_19B80:                              ; CODE XREF: enemy_type_15+68↑j
+                                        ; enemy_type_15+6D↑j ...
                 JSR     sub_182B1
                 JSR     sub_181F6
                 JSR     sub_1A2B1
                 RTS
-; End of function sub_19AF7
+; End of function enemy_type_15
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_19B8A:
+enemy_type_48:
                 LDA     $528,X
                 BMI     loc_19BA1
                 JSR     sub_19CE6
@@ -5487,7 +5493,7 @@ sub_19B8A:
                 LDA     #8
                 STA     $67A,X
 
-loc_19BA1:                              ; CODE XREF: sub_19B8A+3↑j
+loc_19BA1:                              ; CODE XREF: enemy_type_48+3↑j
                 JSR     sub_19C97
                 JSR     sub_19CAB
                 DEC     $694,X
@@ -5501,12 +5507,12 @@ loc_19BA1:                              ; CODE XREF: sub_19B8A+3↑j
                 BNE     loc_19BCC
                 DEC     $67A,X
                 JSR     sub_18746
-                JSR     sub_1872B
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 AND     #$7F
                 ADC     #$10
                 STA     $542,X
 
-loc_19BCC:                              ; CODE XREF: sub_19B8A+30↑j
+loc_19BCC:                              ; CODE XREF: enemy_type_48+30↑j
                 LDA     byte_19C27,Y
                 STA     $694,X
                 CPY     #2
@@ -5516,11 +5522,11 @@ loc_19BCC:                              ; CODE XREF: sub_19B8A+30↑j
                 INC     $67A,X
                 STA     $694,X
 
-loc_19BE1:                              ; CODE XREF: sub_19B8A+4F↑j
+loc_19BE1:                              ; CODE XREF: enemy_type_48+4F↑j
                 LDA     #$10
                 STA     $74A,X
 
-loc_19BE6:                              ; CODE XREF: sub_19B8A+20↑j
+loc_19BE6:                              ; CODE XREF: enemy_type_48+20↑j
                 LDA     $74A,X
                 BEQ     loc_19C04
                 DEC     $74A,X
@@ -5534,8 +5540,8 @@ loc_19BE6:                              ; CODE XREF: sub_19B8A+20↑j
                 LDA     #$14
                 JSR     sub_1B631
 
-loc_19C04:                              ; CODE XREF: sub_19B8A+4A↑j
-                                        ; sub_19B8A+5F↑j ...
+loc_19C04:                              ; CODE XREF: enemy_type_48+4A↑j
+                                        ; enemy_type_48+5F↑j ...
                 LDA     $660,X
                 BEQ     locret_19C26
                 CMP     #2
@@ -5546,7 +5552,7 @@ loc_19C04:                              ; CODE XREF: sub_19B8A+4A↑j
                 JMP     sub_182D9
 ; ---------------------------------------------------------------------------
 
-loc_19C17:                              ; CODE XREF: sub_19B8A+81↑j
+loc_19C17:                              ; CODE XREF: enemy_type_48+81↑j
                 JSR     sub_182B1
                 JSR     sub_181F6
                 JSR     sub_19D23
@@ -5554,10 +5560,10 @@ loc_19C17:                              ; CODE XREF: sub_19B8A+81↑j
                 JMP     loc_19C85
 ; ---------------------------------------------------------------------------
 
-locret_19C26:                           ; CODE XREF: sub_19B8A+7D↑j
-                                        ; sub_19B8A+88↑j
+locret_19C26:                           ; CODE XREF: enemy_type_48+7D↑j
+                                        ; enemy_type_48+88↑j
                 RTS
-; End of function sub_19B8A
+; End of function enemy_type_48
 
 ; ---------------------------------------------------------------------------
 byte_19C27:     .BYTE $3C
@@ -5568,14 +5574,19 @@ byte_19C27:     .BYTE $3C
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_19C2B:
+enemy_type_51:
                 LDA     $694,X
                 CMP     #$78 ; 'x'
-                BNE     loc_19C37
+                BNE     enemy_type_49_50_52
                 LDA     #$45 ; 'E'
                 STA     $576,X
+; End of function enemy_type_51
 
-loc_19C37:                              ; CODE XREF: sub_19C2B+5↑j
+
+; =============== S U B R O U T I N E =======================================
+
+
+enemy_type_49_50_52:                    ; CODE XREF: enemy_type_51+5↑j
                 LDA     $528,X
                 BMI     loc_19C56
                 JSR     sub_19CE6
@@ -5589,22 +5600,22 @@ loc_19C37:                              ; CODE XREF: sub_19C2B+5↑j
                 LDA     #$64 ; 'd'
                 STA     $6FC,X
 
-loc_19C56:                              ; CODE XREF: sub_19C2B+F↑j
+loc_19C56:                              ; CODE XREF: enemy_type_49_50_52+3↑j
                 JSR     sub_1A8D1
                 BCC     loc_19C65
-                JSR     sub_1872B
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 AND     #$F
                 ADC     #$14
                 STA     $6E2,X
 
-loc_19C65:                              ; CODE XREF: sub_19C2B+2E↑j
+loc_19C65:                              ; CODE XREF: enemy_type_49_50_52+22↑j
                 DEC     $694,X
                 BNE     loc_19C73
                 LDA     $67A,X
                 STA     $694,X
                 JSR     sub_19DAF
 
-loc_19C73:                              ; CODE XREF: sub_19C2B+3D↑j
+loc_19C73:                              ; CODE XREF: enemy_type_49_50_52+31↑j
                 JSR     sub_19C97
                 JSR     sub_182B1
                 JSR     sub_181F6
@@ -5613,8 +5624,8 @@ loc_19C73:                              ; CODE XREF: sub_19C2B+3D↑j
                 JMP     loc_19C85
 ; ---------------------------------------------------------------------------
 
-loc_19C85:                              ; CODE XREF: sub_19B8A+99↑j
-                                        ; sub_19C2B+57↑j
+loc_19C85:                              ; CODE XREF: enemy_type_48+99↑j
+                                        ; enemy_type_49_50_52+4B↑j
                 BNE     locret_19C96
                 LDA     #2
                 STA     $5AA,X
@@ -5623,17 +5634,17 @@ loc_19C85:                              ; CODE XREF: sub_19B8A+99↑j
                 LDA     #$B0
                 STA     $528,X
 
-locret_19C96:                           ; CODE XREF: sub_19C2B:loc_19C85↑j
+locret_19C96:                           ; CODE XREF: enemy_type_49_50_52:loc_19C85↑j
                                         ; sub_19CAB+3↓j ...
                 RTS
-; End of function sub_19C2B
+; End of function enemy_type_49_50_52
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_19C97:                              ; CODE XREF: sub_19B8A:loc_19BA1↑p
-                                        ; sub_19C2B:loc_19C73↑p
+sub_19C97:                              ; CODE XREF: enemy_type_48:loc_19BA1↑p
+                                        ; enemy_type_49_50_52:loc_19C73↑p
                 LDA     $764,X
                 CMP     #$C
                 BCC     loc_19C9F
@@ -5655,7 +5666,7 @@ loc_19CA7:                              ; CODE XREF: sub_19C97+C↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_19CAB:                              ; CODE XREF: sub_19B8A+1A↑p
+sub_19CAB:                              ; CODE XREF: enemy_type_48+1A↑p
                 LDA     $5AA,X
                 BEQ     locret_19C96
                 PLA
@@ -5672,7 +5683,7 @@ sub_19CAB:                              ; CODE XREF: sub_19B8A+1A↑p
 loc_19CC4:                              ; CODE XREF: sub_19CAB+D↑j
                 LDA     #$5B ; '['
                 STA     $528,X
-                JSR     sub_1872B
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 STA     $14
                 LDA     #8
                 STA     $15
@@ -5693,8 +5704,8 @@ loc_19CD2:                              ; CODE XREF: sub_19CAB+37↓j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_19CE6:                              ; CODE XREF: sub_19B8A+5↑p
-                                        ; sub_19C2B+11↑p
+sub_19CE6:                              ; CODE XREF: enemy_type_48+5↑p
+                                        ; enemy_type_49_50_52+5↑p
                 TAY
                 ORA     #$80
                 STA     $528,X
@@ -5737,8 +5748,8 @@ sub_19CE6:                              ; CODE XREF: sub_19B8A+5↑p
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_19D23:                              ; CODE XREF: sub_19B8A+93↑p
-                                        ; sub_19C2B+51↑p
+sub_19D23:                              ; CODE XREF: enemy_type_48+93↑p
+                                        ; enemy_type_49_50_52+45↑p
                 LDA     $528,X
                 BMI     locret_19D79
                 LDA     #3
@@ -5783,7 +5794,7 @@ loc_19D5A:                              ; CODE XREF: sub_19D23+D↑j
                 STA     $716,Y
                 LDA     #$42 ; 'B'
                 STA     $74A,Y
-                JSR     sub_1872B
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 STA     $77E,Y
                 LDA     #0
                 STA     $5AA,Y
@@ -5797,7 +5808,7 @@ locret_19D79:                           ; CODE XREF: sub_19D23+3↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_19D7A:
+enemy_type_24:
                 LDA     $528,X
                 BMI     loc_19D94
                 ORA     #$80
@@ -5807,19 +5818,19 @@ sub_19D7A:
                 LDA     #3
                 STA     $660,X
                 LDA     $77E,X
-                JSR     sub_18097
+                JSR     prng_lfsr_based ; PRNG variant using ASL/ROL instructions and array with parameters
 
-loc_19D94:                              ; CODE XREF: sub_19D7A+3↑j
-                                        ; sub_19D7A+D↑j
+loc_19D94:                              ; CODE XREF: enemy_type_24+3↑j
+                                        ; enemy_type_24+D↑j
                 DEC     $716,X
                 BEQ     loc_19D9D
 
-loc_19D99:                              ; CODE XREF: sub_19D7A+25↓j
+loc_19D99:                              ; CODE XREF: enemy_type_24+25↓j
                 JSR     sub_182B1
                 RTS
 ; ---------------------------------------------------------------------------
 
-loc_19D9D:                              ; CODE XREF: sub_19D7A+1D↑j
+loc_19D9D:                              ; CODE XREF: enemy_type_24+1D↑j
                 CPX     #4
                 BEQ     loc_19D99
                 LDA     $7E6,X
@@ -5827,13 +5838,13 @@ loc_19D9D:                              ; CODE XREF: sub_19D7A+1D↑j
                 STA     $528,X
                 JSR     sub_182B1
                 JMP     sub_181A7
-; End of function sub_19D7A
+; End of function enemy_type_24
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_19DAF:                              ; CODE XREF: sub_19C2B+45↑p
+sub_19DAF:                              ; CODE XREF: enemy_type_49_50_52+39↑p
                 JSR     check_enemy_overflow ; Checks that the enemy list is complete. If overflowed, sets Carry flag.
                 BCC     loc_19DB5
                 RTS
@@ -5860,7 +5871,7 @@ loc_19DCB:                              ; CODE XREF: sub_19DAF+14↑j
                 STA     $764,Y
                 LDA     #3
                 STA     $660,Y
-                JSR     sub_1872B
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 STA     $14
                 LDA     #$24 ; '$'
                 STA     $5AA,Y
@@ -5925,7 +5936,7 @@ locret_19E37:                           ; CODE XREF: sub_19E2A+5↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_19E38:
+enemy_type_25:
                 LDA     $528,X
                 BMI     loc_19E64
                 ORA     #$80
@@ -5944,7 +5955,7 @@ sub_19E38:
                 LDA     #$FF
                 STA     $6FC,X
 
-loc_19E64:                              ; CODE XREF: sub_19E38+3↑j
+loc_19E64:                              ; CODE XREF: enemy_type_25+3↑j
                 JSR     sub_1A8D1
                 JSR     sub_182B1
                 INC     $730,X
@@ -5953,7 +5964,7 @@ loc_19E64:                              ; CODE XREF: sub_19E38+3↑j
                 BEQ     loc_19E76
                 LDA     #1
 
-loc_19E76:                              ; CODE XREF: sub_19E38+3A↑j
+loc_19E76:                              ; CODE XREF: enemy_type_25+3A↑j
                 CLC
                 ADC     #$4C ; 'L'
                 STA     $576,X
@@ -5967,21 +5978,21 @@ loc_19E76:                              ; CODE XREF: sub_19E38+3A↑j
                 RTS
 ; ---------------------------------------------------------------------------
 
-loc_19E8E:                              ; CODE XREF: sub_19E38+4E↑j
+loc_19E8E:                              ; CODE XREF: enemy_type_25+4E↑j
                 LDA     #$28 ; '('
                 STA     $528,Y
                 LDA     #$99
                 STA     $528,X
 
-locret_19E98:                           ; CODE XREF: sub_19E38+4A↑j
+locret_19E98:                           ; CODE XREF: enemy_type_25+4A↑j
                 RTS
-; End of function sub_19E38
+; End of function enemy_type_25
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_19E99:
+enemy_type_16:
                 LDA     $528,X
                 BMI     loc_19F05
                 LDA     #1
@@ -5993,20 +6004,25 @@ sub_19E99:
                 LDA     #$C0
                 STA     $67A,X
                 LDY     #0
+; End of function enemy_type_16
 
-loc_19EB4:                              ; CODE XREF: sub_19E99+D0↓j
-                                        ; sub_19E99+F8↓j
+
+; =============== S U B R O U T I N E =======================================
+
+
+sub_19EB4:                              ; CODE XREF: enemy_type_17+20↓j
+                                        ; enemy_type_18+25↓j
                 STY     $14
-                JSR     sub_1872B
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 AND     #1
                 BEQ     loc_19EBF
                 INC     $14
 
-loc_19EBF:                              ; CODE XREF: sub_19E99+22↑j
+loc_19EBF:                              ; CODE XREF: sub_19EB4+7↑j
                 LDA     #$15
                 STA     $576,X
                 LDY     $14
-                LDA     $9FBC,Y
+                LDA     unk_19FBC,Y
                 STA     $55C,X
                 LDA     $9FBE,Y
                 STA     $590,X
@@ -6016,29 +6032,29 @@ loc_19EBF:                              ; CODE XREF: sub_19E99+22↑j
                 CMP     #$92
                 BEQ     loc_19EF0
                 LSR
-                LDA     $9FC0,Y
+                LDA     unk_19FC0,Y
                 STA     $764,X
                 BCC     loc_19F05
-                LDA     $9FBC,Y
+                LDA     unk_19FBC,Y
                 STA     $6FC,X
                 JMP     loc_19F05
 ; ---------------------------------------------------------------------------
 
-loc_19EF0:                              ; CODE XREF: sub_19E99+43↑j
+loc_19EF0:                              ; CODE XREF: sub_19EB4+28↑j
                 LDA     #3
                 STA     $646,X
-                LDA     $9FC0,Y
+                LDA     unk_19FC0,Y
                 STA     $6FC,X
                 BEQ     loc_19F02
                 LDA     #$FD
                 STA     $646,X
 
-loc_19F02:                              ; CODE XREF: sub_19E99+62↑j
+loc_19F02:                              ; CODE XREF: sub_19EB4+47↑j
                 JMP     loc_19F94
 ; ---------------------------------------------------------------------------
 
-loc_19F05:                              ; CODE XREF: sub_19E99+3↑j
-                                        ; sub_19E99+4C↑j ...
+loc_19F05:                              ; CODE XREF: enemy_type_16+3↑j
+                                        ; sub_19EB4+31↑j ...
                 LDA     $542,X
                 CLC
                 ADC     #$18
@@ -6058,7 +6074,7 @@ loc_19F05:                              ; CODE XREF: sub_19E99+3↑j
                 JMP     loc_197B4
 ; ---------------------------------------------------------------------------
 
-loc_19F2A:                              ; CODE XREF: sub_19E99+8C↑j
+loc_19F2A:                              ; CODE XREF: sub_19EB4+71↑j
                 LDA     #$16
                 STA     $576,X
                 JSR     check_enemy_overflow ; Checks that the enemy list is complete. If overflowed, sets Carry flag.
@@ -6068,15 +6084,21 @@ loc_19F2A:                              ; CODE XREF: sub_19E99+8C↑j
                 LDA     #$26 ; '&'
                 JSR     sub_1B631
 
-loc_19F3E:                              ; CODE XREF: sub_19E99+99↑j
+loc_19F3E:                              ; CODE XREF: sub_19EB4+7E↑j
                 JMP     loc_197B4
 ; ---------------------------------------------------------------------------
 
-loc_19F41:                              ; CODE XREF: sub_19E99+7B↑j
+loc_19F41:                              ; CODE XREF: sub_19EB4+60↑j
                 LDA     #$15
                 STA     $576,X
                 JMP     loc_197B4
-; ---------------------------------------------------------------------------
+; End of function sub_19EB4
+
+
+; =============== S U B R O U T I N E =======================================
+
+
+enemy_type_17:
                 LDA     $528,X
                 BMI     loc_19F05
                 LDA     #$13
@@ -6090,8 +6112,14 @@ loc_19F41:                              ; CODE XREF: sub_19E99+7B↑j
                 LDA     #$E0
                 STA     $67A,X
                 LDY     #6
-                JMP     loc_19EB4
-; ---------------------------------------------------------------------------
+                JMP     sub_19EB4
+; End of function enemy_type_17
+
+
+; =============== S U B R O U T I N E =======================================
+
+
+enemy_type_18:
                 LDA     $528,X
                 BMI     loc_19F94
                 LDA     #2
@@ -6107,11 +6135,11 @@ loc_19F41:                              ; CODE XREF: sub_19E99+7B↑j
                 LDA     #8
                 STA     $716,X
                 LDY     #$C
-                JMP     loc_19EB4
+                JMP     sub_19EB4
 ; ---------------------------------------------------------------------------
 
-loc_19F94:                              ; CODE XREF: sub_19E99:loc_19F02↑j
-                                        ; sub_19E99+D6↑j
+loc_19F94:                              ; CODE XREF: sub_19EB4:loc_19F02↑j
+                                        ; enemy_type_18+3↑j
                 DEC     $764,X
                 BNE     loc_19FAD
                 LDA     #$30 ; '0'
@@ -6123,24 +6151,24 @@ loc_19F94:                              ; CODE XREF: sub_19E99:loc_19F02↑j
                 LDA     #$25 ; '%'
                 JSR     sub_1B631
 
-loc_19FAD:                              ; CODE XREF: sub_19E99+FE↑j
-                                        ; sub_19E99+10D↑j
+loc_19FAD:                              ; CODE XREF: enemy_type_18+2B↑j
+                                        ; enemy_type_18+3A↑j
                 LDA     $764,X
                 CMP     #8
                 BNE     loc_19FB9
                 LDA     #$16
                 STA     $576,X
 
-loc_19FB9:                              ; CODE XREF: sub_19E99+119↑j
+loc_19FB9:                              ; CODE XREF: enemy_type_18+46↑j
                 JMP     loc_197B4
-; End of function sub_19E99
+; End of function enemy_type_18
 
 ; ---------------------------------------------------------------------------
-                .BYTE $20
+unk_19FBC:      .BYTE $20
                 .BYTE $E0
                 .BYTE   2
                 .BYTE   2
-                .BYTE   1
+unk_19FC0:      .BYTE   1
                 .BYTE   7
                 .BYTE $20
                 .BYTE $E0
@@ -6166,18 +6194,18 @@ loc_19FB9:                              ; CODE XREF: sub_19E99+119↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_19FD6:
+enemy_type_22:
                 LDA     $528,X
                 BMI     loc_1A01B
                 ORA     #$80
                 STA     $528,X
-                JSR     sub_1872B
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 LDY     #0
                 LSR
                 BCC     loc_19FEA
                 LDY     #2
 
-loc_19FEA:                              ; CODE XREF: sub_19FD6+10↑j
+loc_19FEA:                              ; CODE XREF: enemy_type_22+10↑j
                 LDA     #9
                 STA     $660,X
                 LDA     #2
@@ -6185,7 +6213,7 @@ loc_19FEA:                              ; CODE XREF: sub_19FD6+10↑j
                 LDA     #$38 ; '8'
                 STA     $74A,X
 
-loc_19FF9:                              ; CODE XREF: sub_1A08A+2E↓j
+loc_19FF9:                              ; CODE XREF: enemy_type_23+2E↓j
                 LDA     $9FCE,Y
                 STA     $55C,X
                 LDA     $9FCF,Y
@@ -6200,22 +6228,22 @@ loc_19FF9:                              ; CODE XREF: sub_1A08A+2E↓j
                 LDY     #5
                 JSR     sub_1A2CB
 
-loc_1A01B:                              ; CODE XREF: sub_19FD6+3↑j
-                                        ; sub_1A08A+3↓j
+loc_1A01B:                              ; CODE XREF: enemy_type_22+3↑j
+                                        ; enemy_type_23+3↓j
                 LDA     $5AA,X
                 BEQ     loc_1A026
                 CMP     #1
                 BNE     loc_1A051
                 BEQ     loc_1A033
 
-loc_1A026:                              ; CODE XREF: sub_19FD6+48↑j
+loc_1A026:                              ; CODE XREF: enemy_type_22+48↑j
                 DEC     $74A,X
                 BNE     loc_1A051
                 JSR     sub_1A05E
                 LDA     #1
                 STA     $5AA,X
 
-loc_1A033:                              ; CODE XREF: sub_19FD6+4E↑j
+loc_1A033:                              ; CODE XREF: enemy_type_22+4E↑j
                 JSR     sub_183BC
                 BCS     loc_1A04C
                 LDA     $A054,Y
@@ -6227,14 +6255,14 @@ loc_1A033:                              ; CODE XREF: sub_19FD6+4E↑j
                 JMP     loc_1A051
 ; ---------------------------------------------------------------------------
 
-loc_1A04C:                              ; CODE XREF: sub_19FD6+60↑j
+loc_1A04C:                              ; CODE XREF: enemy_type_22+60↑j
                 LDA     #2
                 STA     $5AA,X
 
-loc_1A051:                              ; CODE XREF: sub_19FD6+4C↑j
-                                        ; sub_19FD6+53↑j ...
+loc_1A051:                              ; CODE XREF: enemy_type_22+4C↑j
+                                        ; enemy_type_22+53↑j ...
                 JMP     loc_197B4
-; End of function sub_19FD6
+; End of function enemy_type_22
 
 ; ---------------------------------------------------------------------------
                 .BYTE $1F
@@ -6251,7 +6279,7 @@ loc_1A051:                              ; CODE XREF: sub_19FD6+4C↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1A05E:                              ; CODE XREF: sub_19FD6+55↑p
+sub_1A05E:                              ; CODE XREF: enemy_type_22+55↑p
                 LDA     $528,X
                 CMP     #$96
                 BNE     loc_1A077
@@ -6280,18 +6308,18 @@ loc_1A081:                              ; CODE XREF: sub_1A05E+1C↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1A08A:
+enemy_type_23:
                 LDA     $528,X
                 BMI     loc_1A01B
                 ORA     #$80
                 STA     $528,X
-                JSR     sub_1872B
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 LDY     #4
                 LSR
                 BCC     loc_1A09E
                 LDY     #6
 
-loc_1A09E:                              ; CODE XREF: sub_1A08A+10↑j
+loc_1A09E:                              ; CODE XREF: enemy_type_23+10↑j
                 LDA     #$1B
                 STA     $660,X
                 LDA     #$10
@@ -6303,19 +6331,19 @@ loc_1A09E:                              ; CODE XREF: sub_1A08A+10↑j
                 LDA     $9FCF,Y
                 STA     $6FC,X
                 JMP     loc_19FF9
-; End of function sub_1A08A
+; End of function enemy_type_23
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1A0BB:
+enemy_type_26:
                 LDA     $528,X
                 BMI     loc_1A110
                 ORA     #$80
                 STA     $528,X
                 JSR     sub_18746
-                JSR     sub_1872B
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 AND     #$7F
                 ADC     #$10
                 STA     $542,X
@@ -6336,8 +6364,8 @@ sub_1A0BB:
                 LDY     #3
                 LDA     #$28 ; '('
 
-loc_1A0F9:                              ; CODE XREF: sub_1A16B+32↓j
-                                        ; sub_1A1A0+21↓j ...
+loc_1A0F9:                              ; CODE XREF: enemy_type_27+32↓j
+                                        ; enemy_type_28+21↓j ...
                 STA     $5AA,X
                 LSR
                 STA     $74A,X
@@ -6349,13 +6377,13 @@ loc_1A0F9:                              ; CODE XREF: sub_1A16B+32↓j
                 LDA     #2
                 STA     $590,X
 
-loc_1A110:                              ; CODE XREF: sub_1A0BB+3↑j
-                                        ; sub_1A16B:loc_1A16E↓j ...
+loc_1A110:                              ; CODE XREF: enemy_type_26+3↑j
+                                        ; enemy_type_27:loc_1A16E↓j ...
                 JSR     sub_183BC
                 STA     $10
                 AND     #3
                 TAY
-                LDA     $A165,Y
+                LDA     unk_1A165,Y
                 STA     $576,X
                 LDA     $528,X
                 CMP     #$9A
@@ -6369,7 +6397,7 @@ loc_1A110:                              ; CODE XREF: sub_1A0BB+3↑j
                 LDA     #$FF
                 STA     $7CC,X
 
-loc_1A139:                              ; CODE XREF: sub_1A0BB+6D↑j
+loc_1A139:                              ; CODE XREF: enemy_type_26+6D↑j
                 LDA     $10
                 LSR
                 LSR
@@ -6380,28 +6408,28 @@ loc_1A139:                              ; CODE XREF: sub_1A0BB+6D↑j
                 AND     #$20 ; ' '
                 BEQ     loc_1A14D
 
-loc_1A149:                              ; CODE XREF: sub_1A0BB+77↑j
+loc_1A149:                              ; CODE XREF: enemy_type_26+77↑j
                 JSR     sub_182B1
                 RTS
 ; ---------------------------------------------------------------------------
 
-loc_1A14D:                              ; CODE XREF: sub_1A0BB+68↑j
-                                        ; sub_1A0BB+8C↑j
+loc_1A14D:                              ; CODE XREF: enemy_type_26+68↑j
+                                        ; enemy_type_26+8C↑j
                 DEC     $74A,X
                 BNE     loc_1A15B
                 LDA     $5AA,X
                 STA     $74A,X
                 JSR     sub_1A264
 
-loc_1A15B:                              ; CODE XREF: sub_1A0BB+95↑j
+loc_1A15B:                              ; CODE XREF: enemy_type_26+95↑j
                 JSR     sub_182B1
                 JSR     sub_181F6
                 JSR     sub_1A2B1
                 RTS
-; End of function sub_1A0BB
+; End of function enemy_type_26
 
 ; ---------------------------------------------------------------------------
-                .BYTE $11
+unk_1A165:      .BYTE $11
                 .BYTE $12
                 .BYTE $13
                 .BYTE $14
@@ -6411,10 +6439,10 @@ loc_1A15B:                              ; CODE XREF: sub_1A0BB+95↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1A16B:
+enemy_type_27:
                 LDA     $528,X
 
-loc_1A16E:                              ; CODE XREF: sub_1A1A0+3↓j
+loc_1A16E:                              ; CODE XREF: enemy_type_28+3↓j
                 BMI     loc_1A110
                 ORA     #$80
                 STA     $528,X
@@ -6422,7 +6450,7 @@ loc_1A16E:                              ; CODE XREF: sub_1A1A0+3↓j
                 STA     $55C,X
                 LDA     #2
                 STA     $646,X
-                JSR     sub_1872B
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 LSR
                 BCC     loc_1A18F
                 LDA     #$E0
@@ -6430,7 +6458,7 @@ loc_1A16E:                              ; CODE XREF: sub_1A1A0+3↓j
                 LDA     #$FE
                 STA     $646,X
 
-loc_1A18F:                              ; CODE XREF: sub_1A16B+18↑j
+loc_1A18F:                              ; CODE XREF: enemy_type_27+18↑j
                 LDA     #2
                 STA     $660,X
                 LDA     #$30 ; '0'
@@ -6438,13 +6466,13 @@ loc_1A18F:                              ; CODE XREF: sub_1A16B+18↑j
                 LDY     #1
                 LDA     #$10
                 JMP     loc_1A0F9
-; End of function sub_1A16B
+; End of function enemy_type_27
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1A1A0:
+enemy_type_28:
                 LDA     $528,X
                 BMI     loc_1A16E
                 ORA     #$80
@@ -6462,21 +6490,21 @@ sub_1A1A0:
                 JMP     loc_1A0F9
 ; ---------------------------------------------------------------------------
 
-loc_1A1C4:                              ; CODE XREF: sub_1A1A0+1D↑j
+loc_1A1C4:                              ; CODE XREF: enemy_type_28+1D↑j
                 LDA     #$20 ; ' '
                 JMP     loc_1A0F9
-; End of function sub_1A1A0
+; End of function enemy_type_28
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1A1C9:
+enemy_type_29:
                 LDA     $528,X
                 BMI     loc_1A201
                 ORA     #$80
                 STA     $528,X
-                JSR     sub_1872B
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 AND     #$7F
                 ADC     #$40 ; '@'
                 STA     $55C,X
@@ -6488,7 +6516,7 @@ sub_1A1C9:
                 STA     $660,X
                 JSR     sub_1802A
                 STA     $716,X
-                JSR     sub_18097
+                JSR     prng_lfsr_based ; PRNG variant using ASL/ROL instructions and array with parameters
                 LDA     #$50 ; 'P'
                 STA     $730,X
                 LDY     #2
@@ -6496,7 +6524,7 @@ sub_1A1C9:
                 JMP     loc_1A0F9
 ; ---------------------------------------------------------------------------
 
-loc_1A201:                              ; CODE XREF: sub_1A1C9+3↑j
+loc_1A201:                              ; CODE XREF: enemy_type_29+3↑j
                 DEC     $730,X
                 LDA     $730,X
                 BNE     loc_1A20F
@@ -6504,7 +6532,7 @@ loc_1A201:                              ; CODE XREF: sub_1A1C9+3↑j
                 JMP     loc_1A110
 ; ---------------------------------------------------------------------------
 
-loc_1A20F:                              ; CODE XREF: sub_1A1C9+3E↑j
+loc_1A20F:                              ; CODE XREF: enemy_type_29+3E↑j
                 PHA
                 LDA     $49
                 LDY     #8
@@ -6518,8 +6546,8 @@ loc_1A20F:                              ; CODE XREF: sub_1A1C9+3E↑j
                 BCC     loc_1A226
                 LDY     #$14
 
-loc_1A226:                              ; CODE XREF: sub_1A1C9+4D↑j
-                                        ; sub_1A1C9+53↑j ...
+loc_1A226:                              ; CODE XREF: enemy_type_29+4D↑j
+                                        ; enemy_type_29+53↑j ...
                 STY     $10
                 PLA
                 CMP     $10
@@ -6545,10 +6573,10 @@ loc_1A226:                              ; CODE XREF: sub_1A1C9+4D↑j
                 TXA
                 STA     $5AA,Y
 
-loc_1A25B:                              ; CODE XREF: sub_1A1C9+62↑j
-                                        ; sub_1A1C9+66↑j ...
+loc_1A25B:                              ; CODE XREF: enemy_type_29+62↑j
+                                        ; enemy_type_29+66↑j ...
                 JMP     loc_1A110
-; End of function sub_1A1C9
+; End of function enemy_type_29
 
 ; ---------------------------------------------------------------------------
                 .BYTE   8
@@ -6561,7 +6589,7 @@ loc_1A25B:                              ; CODE XREF: sub_1A1C9+62↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1A264:                              ; CODE XREF: sub_1A0BB+9D↑p
+sub_1A264:                              ; CODE XREF: enemy_type_26+9D↑p
                 JSR     check_enemy_overflow ; Checks that the enemy list is complete. If overflowed, sets Carry flag.
                 BCS     locret_1A2B0
                 LDA     $528,X
@@ -6615,8 +6643,8 @@ locret_1A2B0:                           ; CODE XREF: sub_1A264+3↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1A2B1:                              ; CODE XREF: sub_1961B+5C↑p
-                                        ; sub_199F6+F6↑p ...
+sub_1A2B1:                              ; CODE XREF: enemy_type_4_5_6+5C↑p
+                                        ; enemy_type_14+F6↑p ...
                 LDA     $528,X
                 BPL     loc_1A2B9
                 PLA
@@ -6641,8 +6669,8 @@ loc_1A2B9:                              ; CODE XREF: sub_1A2B1+3↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1A2CB:                              ; CODE XREF: sub_18F78+31↑p
-                                        ; sub_18F78+6F↑p ...
+sub_1A2CB:                              ; CODE XREF: enemy_type_60+31↑p
+                                        ; enemy_type_60+6F↑p ...
                 STA     $67A,X
                 TYA
                 STA     $6C8,X
@@ -6656,13 +6684,13 @@ sub_1A2CB:                              ; CODE XREF: sub_18F78+31↑p
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1A2DB:
+enemy_type_30_32:
                 LDA     $528,X
                 BPL     loc_1A2E3
                 JMP     loc_1A379
 ; ---------------------------------------------------------------------------
 
-loc_1A2E3:                              ; CODE XREF: sub_1A2DB+3↑j
+loc_1A2E3:                              ; CODE XREF: enemy_type_30_32+3↑j
                 ORA     #$80
                 STA     $528,X
                 JSR     sub_1876A
@@ -6720,11 +6748,11 @@ loc_1A2E3:                              ; CODE XREF: sub_1A2DB+3↑j
                 LDA     #$C3
                 STA     $590,Y
 
-loc_1A376:                              ; CODE XREF: sub_1A2DB+61↑j
+loc_1A376:                              ; CODE XREF: enemy_type_30_32+61↑j
                 JMP     loc_1A3C5
 ; ---------------------------------------------------------------------------
 
-loc_1A379:                              ; CODE XREF: sub_1A2DB+5↑j
+loc_1A379:                              ; CODE XREF: enemy_type_30_32+5↑j
                 LDA     $5AA,X
                 BMI     loc_1A3C5
                 LDA     $764,X
@@ -6740,7 +6768,7 @@ loc_1A379:                              ; CODE XREF: sub_1A2DB+5↑j
                 STA     $660,X
                 STA     $660,Y
 
-loc_1A39A:                              ; CODE XREF: sub_1A2DB+B5↑j
+loc_1A39A:                              ; CODE XREF: enemy_type_30_32+B5↑j
                 LDA     $55C,Y
                 SEC
                 SBC     $55C,X
@@ -6760,26 +6788,33 @@ loc_1A39A:                              ; CODE XREF: sub_1A2DB+B5↑j
                 LDA     #$28 ; '('
                 STA     $528,Y
 
-loc_1A3C5:                              ; CODE XREF: sub_1A2DB:loc_1A376↑j
-                                        ; sub_1A2DB+A1↑j ...
+loc_1A3C5:                              ; CODE XREF: enemy_type_30_32:loc_1A376↑j
+                                        ; enemy_type_30_32+A1↑j ...
                 JMP     loc_197B4
 ; ---------------------------------------------------------------------------
 
-loc_1A3C8:                              ; CODE XREF: sub_1A2DB+B0↑j
+loc_1A3C8:                              ; CODE XREF: enemy_type_30_32+B0↑j
                 INC     $528,X
-                JSR     sub_1A3D7
-                BCS     loc_1A3C5
-                LDA     #2
-                STA     $660,X
-                BNE     loc_1A3C5
-; End of function sub_1A2DB
+; End of function enemy_type_30_32
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1A3D7:                              ; CODE XREF: sub_1A2DB+B2↑p
-                                        ; sub_1A2DB+F0↑p
+enemy_type_31_33:
+                JSR     sub_1A3D7
+                BCS     loc_1A3C5
+                LDA     #2
+                STA     $660,X
+                BNE     loc_1A3C5
+; End of function enemy_type_31_33
+
+
+; =============== S U B R O U T I N E =======================================
+
+
+sub_1A3D7:                              ; CODE XREF: enemy_type_30_32+B2↑p
+                                        ; enemy_type_31_33↑p
                 LDA     $5AA,X
                 AND     #$40 ; '@'
                 BEQ     loc_1A3E5
@@ -6798,12 +6833,12 @@ loc_1A3E5:                              ; CODE XREF: sub_1A3D7+5↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1A3EC:
+enemy_type_34_65_66:
                 LDA     $528,X
                 BMI     loc_1A44A
                 ORA     #$80
                 STA     $528,X
-                JSR     sub_1872B
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 AND     #6
                 TAY
                 LDA     $A4DF,Y
@@ -6811,7 +6846,7 @@ sub_1A3EC:
                 LDA     #1
                 STA     $74A,X
                 LDA     $A4E0,Y
-                JSR     sub_18097
+                JSR     prng_lfsr_based ; PRNG variant using ASL/ROL instructions and array with parameters
                 LDA     #3
                 STA     $660,X
                 LDA     $528,X
@@ -6823,8 +6858,8 @@ sub_1A3EC:
                 BEQ     loc_1A423
                 LDY     #$C
 
-loc_1A423:                              ; CODE XREF: sub_1A3EC+2D↑j
-                                        ; sub_1A3EC+33↑j
+loc_1A423:                              ; CODE XREF: enemy_type_34_65_66+2D↑j
+                                        ; enemy_type_34_65_66+33↑j
                 LDA     $A4E7,Y
                 STA     $716,X
                 STA     $730,X
@@ -6839,13 +6874,13 @@ loc_1A423:                              ; CODE XREF: sub_1A3EC+2D↑j
                 LDA     $A4EC,Y
                 STA     $576,X
 
-loc_1A44A:                              ; CODE XREF: sub_1A3EC+3↑j
+loc_1A44A:                              ; CODE XREF: enemy_type_34_65_66+3↑j
                 DEC     $730,X
                 BEQ     loc_1A452
                 JMP     loc_1A4D5
 ; ---------------------------------------------------------------------------
 
-loc_1A452:                              ; CODE XREF: sub_1A3EC+61↑j
+loc_1A452:                              ; CODE XREF: enemy_type_34_65_66+61↑j
                 LDA     $716,X
                 STA     $730,X
                 LDA     $6E2,X
@@ -6859,7 +6894,7 @@ loc_1A452:                              ; CODE XREF: sub_1A3EC+61↑j
                 STA     $14
                 LDY     #0
 
-loc_1A470:                              ; CODE XREF: sub_1A3EC+B9↓j
+loc_1A470:                              ; CODE XREF: enemy_type_34_65_66+B9↓j
                 STY     $16
                 JSR     check_enemy_overflow ; Checks that the enemy list is complete. If overflowed, sets Carry flag.
                 BCS     loc_1A4D5
@@ -6887,15 +6922,15 @@ loc_1A470:                              ; CODE XREF: sub_1A3EC+B9↓j
                 BNE     loc_1A470
                 BEQ     loc_1A4D5
 
-loc_1A4A9:                              ; CODE XREF: sub_1A3EC+76↑j
+loc_1A4A9:                              ; CODE XREF: enemy_type_34_65_66+76↑j
                 LDA     $542
                 CMP     $542,X
                 LDY     #0
                 BCC     loc_1A4B5
                 LDY     #3
 
-loc_1A4B5:                              ; CODE XREF: sub_1A3EC+C5↑j
-                                        ; sub_1A3EC+E7↓j
+loc_1A4B5:                              ; CODE XREF: enemy_type_34_65_66+C5↑j
+                                        ; enemy_type_34_65_66+E7↓j
                 LDA     $A4F9,Y
                 STA     $14
                 INY
@@ -6907,19 +6942,19 @@ loc_1A4B5:                              ; CODE XREF: sub_1A3EC+C5↑j
                 BNE     loc_1A4CC
                 JSR     sub_1981D
 
-loc_1A4CC:                              ; CODE XREF: sub_1A3EC+DB↑j
+loc_1A4CC:                              ; CODE XREF: enemy_type_34_65_66+DB↑j
                 JSR     sub_1B631
                 LDY     $16
                 DEC     $15
                 BNE     loc_1A4B5
 
-loc_1A4D5:                              ; CODE XREF: sub_1A3EC+63↑j
-                                        ; sub_1A3EC+89↑j ...
+loc_1A4D5:                              ; CODE XREF: enemy_type_34_65_66+63↑j
+                                        ; enemy_type_34_65_66+89↑j ...
                 JSR     sub_182B1
                 JSR     sub_181F6
                 JSR     sub_1A2B1
                 RTS
-; End of function sub_1A3EC
+; End of function enemy_type_34_65_66
 
 ; ---------------------------------------------------------------------------
                 .BYTE $20
@@ -6968,7 +7003,7 @@ loc_1A4D5:                              ; CODE XREF: sub_1A3EC+63↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1A509:
+enemy_type_46_47:
                 LDA     $528,X
                 BMI     loc_1A56E
                 ORA     #$80
@@ -6999,7 +7034,7 @@ sub_1A509:
                 STA     $5F8,X
                 LDA     #$E0
                 STA     $55C,X
-                JSR     sub_1872B
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 LSR
                 BCS     loc_1A56E
                 LDA     #$20 ; ' '
@@ -7012,8 +7047,8 @@ sub_1A509:
                 SBC     #7
                 STA     $67A,X
 
-loc_1A56E:                              ; CODE XREF: sub_1A509+3↑j
-                                        ; sub_1A509+4E↑j
+loc_1A56E:                              ; CODE XREF: enemy_type_46_47+3↑j
+                                        ; enemy_type_46_47+4E↑j
                 LDA     $5AA,X
                 BPL     loc_1A5AE
                 CMP     #$80
@@ -7030,12 +7065,12 @@ loc_1A56E:                              ; CODE XREF: sub_1A509+3↑j
                 LDA     #$15
                 JSR     sub_1B631
 
-loc_1A593:                              ; CODE XREF: sub_1A509+7E↑j
+loc_1A593:                              ; CODE XREF: enemy_type_46_47+7E↑j
                 LDA     #$C0
                 STA     $5AA,X
                 BNE     loc_1A5FE
 
-loc_1A59A:                              ; CODE XREF: sub_1A509+6C↑j
+loc_1A59A:                              ; CODE XREF: enemy_type_46_47+6C↑j
                 LDA     $542,X
                 CMP     $542
                 BCS     loc_1A5FE
@@ -7045,7 +7080,7 @@ loc_1A59A:                              ; CODE XREF: sub_1A509+6C↑j
                 STA     $576,X
                 BNE     loc_1A5FE
 
-loc_1A5AE:                              ; CODE XREF: sub_1A509+68↑j
+loc_1A5AE:                              ; CODE XREF: enemy_type_46_47+68↑j
                 BNE     loc_1A5D6
                 DEC     $6FC,X
                 BNE     loc_1A5FE
@@ -7062,7 +7097,7 @@ loc_1A5AE:                              ; CODE XREF: sub_1A509+68↑j
                 LDA     $716,X
                 STA     $694,X
 
-loc_1A5D6:                              ; CODE XREF: sub_1A509:loc_1A5AE↑j
+loc_1A5D6:                              ; CODE XREF: enemy_type_46_47:loc_1A5AE↑j
                 JSR     check_enemy_overflow ; Checks that the enemy list is complete. If overflowed, sets Carry flag.
                 BCS     loc_1A5E5
                 LDA     $764,X
@@ -7070,7 +7105,7 @@ loc_1A5D6:                              ; CODE XREF: sub_1A509:loc_1A5AE↑j
                 LDA     #$15
                 JSR     sub_1B631
 
-loc_1A5E5:                              ; CODE XREF: sub_1A509+D0↑j
+loc_1A5E5:                              ; CODE XREF: enemy_type_46_47+D0↑j
                 LDA     $764,X
                 CLC
                 ADC     $730,X
@@ -7082,10 +7117,10 @@ loc_1A5E5:                              ; CODE XREF: sub_1A509+D0↑j
                 LDA     #0
                 STA     $5AA,X
 
-loc_1A5FE:                              ; CODE XREF: sub_1A509+74↑j
-                                        ; sub_1A509+8F↑j ...
+loc_1A5FE:                              ; CODE XREF: enemy_type_46_47+74↑j
+                                        ; enemy_type_46_47+8F↑j ...
                 JMP     loc_197B4
-; End of function sub_1A509
+; End of function enemy_type_46_47
 
 ; ---------------------------------------------------------------------------
 unk_1A601:      .BYTE   2
@@ -7100,22 +7135,22 @@ unk_1A601:      .BYTE   2
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1A609:
+enemy_type_56:
                 LDA     $528,X
                 BMI     loc_1A638
                 JSR     sub_18746
                 LDY     #4
 
-loc_1A613:                              ; CODE XREF: sub_1A6C1+B↓j
+loc_1A613:                              ; CODE XREF: enemy_type_59+B↓j
                 LDA     #$E
                 STA     $576,X
 
-loc_1A618:                              ; CODE XREF: sub_1A645+12↓j
-                                        ; sub_1A6A5+19↓j
+loc_1A618:                              ; CODE XREF: enemy_type_57+12↓j
+                                        ; enemy_type_58+19↓j
                 LDA     #5
                 STA     $74A,X
                 TYA
-                JSR     sub_18097
+                JSR     prng_lfsr_based ; PRNG variant using ASL/ROL instructions and array with parameters
                 LDA     #3
                 STA     $660,X
                 LDA     #2
@@ -7126,22 +7161,22 @@ loc_1A618:                              ; CODE XREF: sub_1A645+12↓j
                 ORA     #$80
                 STA     $528,X
 
-loc_1A638:                              ; CODE XREF: sub_1A609+3↑j
-                                        ; sub_1A645:loc_1A66F↓j
+loc_1A638:                              ; CODE XREF: enemy_type_56+3↑j
+                                        ; enemy_type_57:loc_1A66F↓j
                 LDA     $612,X
                 BPL     loc_1A642
                 LDA     #$82
                 STA     $590,X
 
-loc_1A642:                              ; CODE XREF: sub_1A609+32↑j
+loc_1A642:                              ; CODE XREF: enemy_type_56+32↑j
                 JMP     loc_197B4
-; End of function sub_1A609
+; End of function enemy_type_56
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1A645:
+enemy_type_57:
                 LDA     $528,X
                 BMI     loc_1A659
                 JSR     sub_1876A
@@ -7151,8 +7186,8 @@ sub_1A645:
                 LDY     #4
                 BNE     loc_1A618
 
-loc_1A659:                              ; CODE XREF: sub_1A645+3↑j
-                                        ; sub_1A6A5+3↓j
+loc_1A659:                              ; CODE XREF: enemy_type_57+3↑j
+                                        ; enemy_type_58+3↓j
                 JSR     sub_1877E
                 LDA     $528,X
                 CMP     #$B9
@@ -7162,10 +7197,10 @@ loc_1A659:                              ; CODE XREF: sub_1A645+3↑j
                 LDA     #2
                 STA     $542,Y
 
-loc_1A66C:                              ; CODE XREF: sub_1A645+1C↑j
+loc_1A66C:                              ; CODE XREF: enemy_type_57+1C↑j
                 DEC     $716,X
 
-loc_1A66F:                              ; CODE XREF: sub_1A6C1+3↓j
+loc_1A66F:                              ; CODE XREF: enemy_type_59+3↓j
                 BNE     loc_1A638
                 LDA     #$15
                 JSR     sub_C030
@@ -7185,20 +7220,20 @@ loc_1A66F:                              ; CODE XREF: sub_1A6C1+3↓j
                 LDA     #$3B ; ';'
                 JSR     sub_1B631
 
-loc_1A698:                              ; CODE XREF: sub_1A645+48↑j
+loc_1A698:                              ; CODE XREF: enemy_type_57+48↑j
                 LDA     #$3B ; ';'
                 STA     $528,X
                 INC     $14
                 LDA     $14
                 STA     $77E,X
                 RTS
-; End of function sub_1A645
+; End of function enemy_type_57
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1A6A5:
+enemy_type_58:
                 LDA     $528,X
                 BMI     loc_1A659
                 JSR     sub_1876A
@@ -7210,27 +7245,27 @@ sub_1A6A5:
                 STA     $576,X
                 LDY     #4
                 JMP     loc_1A618
-; End of function sub_1A6A5
+; End of function enemy_type_58
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1A6C1:
+enemy_type_59:
                 LDA     $528,X
                 BMI     loc_1A66F
                 LDA     $77E,X
                 AND     #$F
                 TAY
                 JMP     loc_1A613
-; End of function sub_1A6C1
+; End of function enemy_type_59
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1A6CF:
-                JSR     sub_1872B
+enemy_type_64:
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 AND     #3
                 STA     $10
                 LDA     $49
@@ -7242,23 +7277,23 @@ sub_1A6CF:
                 BCC     loc_1A6E3
                 LDA     #$3B ; ';'
 
-loc_1A6E3:                              ; CODE XREF: sub_1A6CF+10↑j
+loc_1A6E3:                              ; CODE XREF: enemy_type_64+10↑j
                 TAY
-                JSR     $C078
+                JSR     sub_C078
                 CMP     #$40 ; '@'
                 BNE     loc_1A6ED
                 LDA     #$2C ; ','
 
-loc_1A6ED:                              ; CODE XREF: sub_1A6CF+1A↑j
+loc_1A6ED:                              ; CODE XREF: enemy_type_64+1A↑j
                 STA     $528,X
                 RTS
-; End of function sub_1A6CF
+; End of function enemy_type_64
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1A6F1:
+enemy_type_36:
                 LDA     $528,X
                 BMI     loc_1A72A
                 ORA     #$80
@@ -7268,11 +7303,11 @@ sub_1A6F1:
                 LDA     #1
                 STA     $74A,X
                 LDA     $77E,X
-                JSR     sub_18097
+                JSR     prng_lfsr_based ; PRNG variant using ASL/ROL instructions and array with parameters
                 JMP     loc_1A720
 ; ---------------------------------------------------------------------------
 
-loc_1A70E:                              ; CODE XREF: sub_1A6F1+D↑j
+loc_1A70E:                              ; CODE XREF: enemy_type_36+D↑j
                 JSR     sub_18746
                 LDA     #$10
                 STA     $764,X
@@ -7281,13 +7316,13 @@ loc_1A70E:                              ; CODE XREF: sub_1A6F1+D↑j
                 LDA     #$80
                 STA     $5F8,X
 
-loc_1A720:                              ; CODE XREF: sub_1A6F1+1A↑j
+loc_1A720:                              ; CODE XREF: enemy_type_36+1A↑j
                 LDA     #2
                 STA     $590,X
                 LDA     #$10
                 STA     $764,X
 
-loc_1A72A:                              ; CODE XREF: sub_1A6F1+3↑j
+loc_1A72A:                              ; CODE XREF: enemy_type_36+3↑j
                 LDA     $5AA,X
                 BNE     loc_1A740
                 INC     $6AE,X
@@ -7299,13 +7334,13 @@ loc_1A72A:                              ; CODE XREF: sub_1A6F1+3↑j
                 LDA     unk_1A74A,Y
                 STA     $576,X
 
-loc_1A740:                              ; CODE XREF: sub_1A6F1+3C↑j
-                                        ; sub_1ABE8+59↓j
+loc_1A740:                              ; CODE XREF: enemy_type_36+3C↑j
+                                        ; enemy_type_45+59↓j
                 JSR     sub_182B1
                 JSR     sub_181F6
                 JSR     sub_1A2B1
                 RTS
-; End of function sub_1A6F1
+; End of function enemy_type_36
 
 ; ---------------------------------------------------------------------------
 unk_1A74A:      .BYTE $1D
@@ -7314,13 +7349,13 @@ unk_1A74A:      .BYTE $1D
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1A74C:
+enemy_type_44:
                 LDA     $528,X
                 BMI     loc_1A776
                 ORA     #$80
                 STA     $528,X
                 JSR     sub_18746
-                JSR     sub_1872B
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 AND     #3
                 STA     $74A,X
                 INC     $74A,X
@@ -7332,15 +7367,15 @@ sub_1A74C:
                 LDA     #3
                 STA     $590,X
 
-loc_1A776:                              ; CODE XREF: sub_1A74C+3↑j
+loc_1A776:                              ; CODE XREF: enemy_type_44+3↑j
                 JMP     loc_197B4
-; End of function sub_1A74C
+; End of function enemy_type_44
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1A779:
+enemy_type_61:
                 LDA     $528,X
                 BMI     loc_1A7C2
                 ORA     #$80
@@ -7351,7 +7386,7 @@ sub_1A779:
                 BCS     loc_1A78E
                 LDY     #$D0
 
-loc_1A78E:                              ; CODE XREF: sub_1A779+11↑j
+loc_1A78E:                              ; CODE XREF: enemy_type_61+11↑j
                 TYA
                 STA     $55C,X
                 LDA     #1
@@ -7374,11 +7409,11 @@ loc_1A78E:                              ; CODE XREF: sub_1A779+11↑j
                 BCC     loc_1A7BE
                 LDY     #$2D ; '-'
 
-loc_1A7BE:                              ; CODE XREF: sub_1A779+41↑j
+loc_1A7BE:                              ; CODE XREF: enemy_type_61+41↑j
                 TYA
                 STA     $576,X
 
-loc_1A7C2:                              ; CODE XREF: sub_1A779+3↑j
+loc_1A7C2:                              ; CODE XREF: enemy_type_61+3↑j
                 LDA     $542,X
                 CMP     #$81
                 BNE     loc_1A7DB
@@ -7390,8 +7425,8 @@ loc_1A7C2:                              ; CODE XREF: sub_1A779+3↑j
                 LDA     #$FC
                 STA     $612,X
 
-loc_1A7DB:                              ; CODE XREF: sub_1A779+4E↑j
-                                        ; sub_1A779+58↑j
+loc_1A7DB:                              ; CODE XREF: enemy_type_61+4E↑j
+                                        ; enemy_type_61+58↑j
                 JSR     sub_182B1
                 LDA     $576,X
                 CMP     #$2D ; '-'
@@ -7407,14 +7442,14 @@ loc_1A7DB:                              ; CODE XREF: sub_1A779+4E↑j
                 STA     $87
                 JSR     sub_1860C
 
-loc_1A7FA:                              ; CODE XREF: sub_1A779+6A↑j
+loc_1A7FA:                              ; CODE XREF: enemy_type_61+6A↑j
                 JSR     sub_181F6
                 LDA     $528,X
                 BPL     loc_1A803
                 RTS
 ; ---------------------------------------------------------------------------
 
-loc_1A803:                              ; CODE XREF: sub_1A779+87↑j
+loc_1A803:                              ; CODE XREF: enemy_type_61+87↑j
                 JSR     sub_18796
                 JSR     sub_18796
                 LDA     $55
@@ -7430,7 +7465,7 @@ loc_1A803:                              ; CODE XREF: sub_1A779+87↑j
                 RTS
 ; ---------------------------------------------------------------------------
 
-loc_1A821:                              ; CODE XREF: sub_1A779+9D↑j
+loc_1A821:                              ; CODE XREF: enemy_type_61+9D↑j
                 LDA     $576,X
                 CMP     #$2D ; '-'
                 BNE     locret_1A835
@@ -7440,15 +7475,15 @@ loc_1A821:                              ; CODE XREF: sub_1A779+9D↑j
                 LDA     #0
                 STA     $5AA,X
 
-locret_1A835:                           ; CODE XREF: sub_1A779+AD↑j
+locret_1A835:                           ; CODE XREF: enemy_type_61+AD↑j
                 RTS
-; End of function sub_1A779
+; End of function enemy_type_61
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1A836:
+enemy_type_67:
                 LDA     $528,X
                 BMI     loc_1A86F
                 ORA     #$80
@@ -7473,14 +7508,14 @@ sub_1A836:
                 LDA     #$1E
                 STA     $6FC,X
 
-loc_1A86F:                              ; CODE XREF: sub_1A836+3↑j
+loc_1A86F:                              ; CODE XREF: enemy_type_67+3↑j
                 LDA     $5AA,X
                 BMI     loc_1A87C
                 LDA     $6E2,X
                 AND     #3
                 STA     $590,X
 
-loc_1A87C:                              ; CODE XREF: sub_1A836+3C↑j
+loc_1A87C:                              ; CODE XREF: enemy_type_67+3C↑j
                 LDA     $6E2,X
                 LSR
                 LSR
@@ -7496,13 +7531,13 @@ loc_1A87C:                              ; CODE XREF: sub_1A836+3C↑j
                 LDA     #$80
                 STA     $5AA,X
 
-loc_1A899:                              ; CODE XREF: sub_1A836+57↑j
+loc_1A899:                              ; CODE XREF: enemy_type_67+57↑j
                 LDA     $5AA,X
                 BMI     loc_1A8A1
                 JMP     sub_182D9
 ; ---------------------------------------------------------------------------
 
-loc_1A8A1:                              ; CODE XREF: sub_1A836+66↑j
+loc_1A8A1:                              ; CODE XREF: enemy_type_67+66↑j
                 JSR     sub_181F6
                 LDA     $528,X
                 BMI     loc_1A8CD
@@ -7519,28 +7554,28 @@ loc_1A8A1:                              ; CODE XREF: sub_1A836+66↑j
                 JMP     sub_182D9
 ; ---------------------------------------------------------------------------
 
-loc_1A8C2:                              ; CODE XREF: sub_1A836+7C↑j
-                                        ; sub_1A836+82↑j
+loc_1A8C2:                              ; CODE XREF: enemy_type_67+7C↑j
+                                        ; enemy_type_67+82↑j
                 DEC     $764,X
                 BNE     loc_1A8C8
                 RTS
 ; ---------------------------------------------------------------------------
 
-loc_1A8C8:                              ; CODE XREF: sub_1A836+8F↑j
+loc_1A8C8:                              ; CODE XREF: enemy_type_67+8F↑j
                 LDA     #$C3
                 STA     $528,X
 
-loc_1A8CD:                              ; CODE XREF: sub_1A836+71↑j
+loc_1A8CD:                              ; CODE XREF: enemy_type_67+71↑j
                 JSR     sub_182B1
                 RTS
-; End of function sub_1A836
+; End of function enemy_type_67
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1A8D1:                              ; CODE XREF: sub_19C2B:loc_19C56↑p
-                                        ; sub_19E38:loc_19E64↑p ...
+sub_1A8D1:                              ; CODE XREF: enemy_type_49_50_52:loc_19C56↑p
+                                        ; enemy_type_25:loc_19E64↑p ...
                 CLC
                 LDA     $6FC,X
                 BEQ     locret_1A8E9
@@ -7561,7 +7596,7 @@ locret_1A8E9:                           ; CODE XREF: sub_1A8D1+4↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1A8EA:
+enemy_type_35:
                 LDA     $528,X
                 BMI     loc_1A96C
                 ORA     #$80
@@ -7573,27 +7608,27 @@ sub_1A8EA:
                 BCC     loc_1A900
                 JSR     sub_18788
 
-loc_1A900:                              ; CODE XREF: sub_1A8EA+11↑j
+loc_1A900:                              ; CODE XREF: enemy_type_35+11↑j
                 LDA     $4C
                 CMP     #$11
                 BCC     loc_1A90A
                 LDA     #1
                 BNE     loc_1A90E
 
-loc_1A90A:                              ; CODE XREF: sub_1A8EA+1A↑j
+loc_1A90A:                              ; CODE XREF: enemy_type_35+1A↑j
                 TAY
 
 loc_1A90B:
                 LDA     $8E92,Y
 
-loc_1A90E:                              ; CODE XREF: sub_1A8EA+1E↑j
+loc_1A90E:                              ; CODE XREF: enemy_type_35+1E↑j
                 CLC
                 ADC     $4A
                 STA     $4A
                 BCC     loc_1A918
                 JSR     sub_1879F
 
-loc_1A918:                              ; CODE XREF: sub_1A8EA+29↑j
+loc_1A918:                              ; CODE XREF: enemy_type_35+29↑j
                 LDA     $56
                 CMP     #8
                 BCS     loc_1A928
@@ -7605,24 +7640,24 @@ loc_1A918:                              ; CODE XREF: sub_1A8EA+29↑j
                 JMP     loc_1A92A
 ; ---------------------------------------------------------------------------
 
-loc_1A928:                              ; CODE XREF: sub_1A8EA+32↑j
+loc_1A928:                              ; CODE XREF: enemy_type_35+32↑j
                 LDA     #1
 
-loc_1A92A:                              ; CODE XREF: sub_1A8EA+3B↑j
+loc_1A92A:                              ; CODE XREF: enemy_type_35+3B↑j
                 CLC
                 ADC     $4A
                 STA     $4A
                 BCC     loc_1A934
                 JSR     sub_1879F
 
-loc_1A934:                              ; CODE XREF: sub_1A8EA+45↑j
+loc_1A934:                              ; CODE XREF: enemy_type_35+45↑j
                 LDA     #0
                 STA     $4C
                 STA     $56
                 LDA     #$11
                 JSR     sub_C030
 
-loc_1A93F:                              ; CODE XREF: sub_1B69B+12↓j
+loc_1A93F:                              ; CODE XREF: enemy_type_80+12↓j
                 JSR     sub_C02A
                 LDA     #0
                 STA     $660,X
@@ -7644,8 +7679,8 @@ loc_1A93F:                              ; CODE XREF: sub_1B69B+12↓j
                 LDA     #1
                 STA     $46
 
-loc_1A96C:                              ; CODE XREF: sub_1A8EA+3↑j
-                                        ; sub_1A8EA+6C↑j ...
+loc_1A96C:                              ; CODE XREF: enemy_type_35+3↑j
+                                        ; enemy_type_35+6C↑j ...
                 JSR     sub_183BC
                 BCS     loc_1A97B
                 LDA     unk_1A97E,Y
@@ -7654,10 +7689,10 @@ loc_1A96C:                              ; CODE XREF: sub_1A8EA+3↑j
                 RTS
 ; ---------------------------------------------------------------------------
 
-loc_1A97B:                              ; CODE XREF: sub_1A8EA+85↑j
-                                        ; sub_1A985+1E↓j
-                JMP     sub_182FE
-; End of function sub_1A8EA
+loc_1A97B:                              ; CODE XREF: enemy_type_35+85↑j
+                                        ; enemy_type_91+1E↓j
+                JMP     enemy_common    ; A generic piece of code for some types as well as type 40 always goes here.
+; End of function enemy_type_35
 
 ; ---------------------------------------------------------------------------
 unk_1A97E:      .BYTE   6
@@ -7671,7 +7706,7 @@ unk_1A97E:      .BYTE   6
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1A985:
+enemy_type_91:
                 LDA     $528,X
                 BMI     loc_1A9A0
                 ORA     #$80
@@ -7684,7 +7719,7 @@ sub_1A985:
                 LDY     #$10
                 JSR     sub_1A2CB
 
-loc_1A9A0:                              ; CODE XREF: sub_1A985+3↑j
+loc_1A9A0:                              ; CODE XREF: enemy_type_91+3↑j
                 JSR     sub_183BC
                 BCS     loc_1A97B
                 LDA     $55C,X
@@ -7694,7 +7729,7 @@ loc_1A9A0:                              ; CODE XREF: sub_1A985+3↑j
                 LDA     #0
                 STA     $15
 
-loc_1A9B3:                              ; CODE XREF: sub_1A985+88↓j
+loc_1A9B3:                              ; CODE XREF: enemy_type_91+88↓j
                 LDY     $15
                 LDA     $6AE,X
                 SEC
@@ -7713,11 +7748,11 @@ loc_1A9B3:                              ; CODE XREF: sub_1A985+88↓j
                 BCS     loc_1AA07
                 BCC     loc_1A9DB
 
-loc_1A9D7:                              ; CODE XREF: sub_1A985+4A↑j
+loc_1A9D7:                              ; CODE XREF: enemy_type_91+4A↑j
                 ADC     $17
                 BCC     loc_1AA07
 
-loc_1A9DB:                              ; CODE XREF: sub_1A985+50↑j
+loc_1A9DB:                              ; CODE XREF: enemy_type_91+50↑j
                 STA     $55C,X
                 CLC
                 LDA     unk_1AA46,Y
@@ -7726,11 +7761,11 @@ loc_1A9DB:                              ; CODE XREF: sub_1A985+50↑j
                 BCS     loc_1AA07
                 BCC     loc_1A9EE
 
-loc_1A9EA:                              ; CODE XREF: sub_1A985+5D↑j
+loc_1A9EA:                              ; CODE XREF: enemy_type_91+5D↑j
                 ADC     $16
                 BCC     loc_1AA07
 
-loc_1A9EE:                              ; CODE XREF: sub_1A985+63↑j
+loc_1A9EE:                              ; CODE XREF: enemy_type_91+63↑j
                 STA     $542,X
                 LDA     #1
                 STA     $590,X
@@ -7744,11 +7779,11 @@ loc_1A9EE:                              ; CODE XREF: sub_1A985+63↑j
                 ADC     #1
                 STA     $590,X
 
-loc_1AA04:                              ; CODE XREF: sub_1A985+74↑j
+loc_1AA04:                              ; CODE XREF: enemy_type_91+74↑j
                 JSR     sub_182D9
 
-loc_1AA07:                              ; CODE XREF: sub_1A985+37↑j
-                                        ; sub_1A985+3B↑j ...
+loc_1AA07:                              ; CODE XREF: enemy_type_91+37↑j
+                                        ; enemy_type_91+3B↑j ...
                 INC     $15
                 LDA     $15
                 CMP     #$10
@@ -7761,11 +7796,11 @@ loc_1AA07:                              ; CODE XREF: sub_1A985+37↑j
                 AND     #7
                 BNE     locret_1AA25
                 LDA     #$12
-                JSR     $C030
+                JSR     sub_C030
 
-locret_1AA25:                           ; CODE XREF: sub_1A985+99↑j
+locret_1AA25:                           ; CODE XREF: enemy_type_91+99↑j
                 RTS
-; End of function sub_1A985
+; End of function enemy_type_91
 
 ; ---------------------------------------------------------------------------
 unk_1AA26:      .BYTE   0
@@ -7828,14 +7863,20 @@ unk_1AA56:      .BYTE   6
                 .BYTE   7
                 .BYTE   6
                 .BYTE   5
-; ---------------------------------------------------------------------------
-                LDA     $528,X
-                BMI     loc_1AA86
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1AA67:                              ; CODE XREF: sub_1ABA2↓p
+enemy_type_37:
+                LDA     $528,X
+                BMI     loc_1AA86
+; End of function enemy_type_37
+
+
+; =============== S U B R O U T I N E =======================================
+
+
+sub_1AA67:                              ; CODE XREF: enemy_type_42↓p
                 LDA     #3
                 STA     $74A,X
                 JSR     sub_18024
@@ -7851,8 +7892,8 @@ loc_1AA6F:                              ; CODE XREF: sub_1AA91+B↓j
                 ORA     #$80
                 STA     $528,X
 
-loc_1AA86:                              ; CODE XREF: seg002:AA65↑j
-                                        ; sub_1AA8C+3↓j
+loc_1AA86:                              ; CODE XREF: enemy_type_37+3↑j
+                                        ; enemy_type_38+3↓j
                 JSR     sub_182B1
                 JMP     sub_181E4
 ; End of function sub_1AA67
@@ -7861,40 +7902,44 @@ loc_1AA86:                              ; CODE XREF: seg002:AA65↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1AA8C:
+enemy_type_38:
                 LDA     $528,X
                 BMI     loc_1AA86
-; End of function sub_1AA8C
+; End of function enemy_type_38
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1AA91:                              ; CODE XREF: sub_1ABAA↓p
+sub_1AA91:                              ; CODE XREF: enemy_type_43↓p
                 LDA     #3
                 STA     $74A,X
 
-loc_1AA96:                              ; CODE XREF: sub_1ABE8+16↓p
+loc_1AA96:                              ; CODE XREF: enemy_type_45+16↓p
                 LDA     $77E,X
-                JSR     sub_18097
+                JSR     prng_lfsr_based ; PRNG variant using ASL/ROL instructions and array with parameters
                 JMP     loc_1AA6F
 ; End of function sub_1AA91
 
-; ---------------------------------------------------------------------------
-                .BYTE $DE
-                .BYTE $42 ; B
-                .BYTE   5
-                .BYTE $F0
-                .BYTE   1
-                .BYTE $60 ; `
-                .BYTE $4C ; L
-                .BYTE $FE
-                .BYTE $82
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1AAA8:
+enemy_type_39:
+                DEC     $542,X
+                BEQ     loc_1AAA5
+                RTS
+; ---------------------------------------------------------------------------
+
+loc_1AAA5:                              ; CODE XREF: enemy_type_39+3↑j
+                JMP     enemy_common    ; A generic piece of code for some types as well as type 40 always goes here.
+; End of function enemy_type_39
+
+
+; =============== S U B R O U T I N E =======================================
+
+
+enemy_type_41:
                 LDA     $528,X
                 BMI     loc_1AB18
                 ORA     #$80
@@ -7904,12 +7949,12 @@ sub_1AAA8:
                 LDA     $74A,X
                 PHA
                 TAY
-                LDA     unk_1AB90,Y
+                LDA     byte_1AB90,Y
                 STA     $74A,X
                 CLC
                 LDA     $77E,X
                 STA     $67A,X
-                JSR     sub_18097
+                JSR     prng_lfsr_based ; PRNG variant using ASL/ROL instructions and array with parameters
                 LDA     $5F8,X
                 STA     $716,X
                 LDA     $612,X
@@ -7925,23 +7970,23 @@ sub_1AAA8:
                 LDA     #0
                 STA     $694,X
 
-loc_1AAF3:                              ; CODE XREF: sub_1AAA8+44↑j
+loc_1AAF3:                              ; CODE XREF: enemy_type_41+44↑j
                 PLA
                 TAY
-                LDA     $AB91,Y
+                LDA     byte_1AB90+1,Y
                 STA     $74A,X
-                LDA     $AB92,Y
+                LDA     byte_1AB90+2,Y
                 STA     $6FC,X
-                LDA     $AB93,Y
+                LDA     byte_1AB90+3,Y
                 STA     $576,X
-                LDA     $AB94,Y
+                LDA     byte_1AB90+4,Y
                 STA     $590,X
-                LDA     $AB95,Y
+                LDA     byte_1AB90+5,Y
                 STA     $764,X
                 LDA     #1
                 STA     $6E2,X
 
-loc_1AB18:                              ; CODE XREF: sub_1AAA8+3↑j
+loc_1AB18:                              ; CODE XREF: enemy_type_41+3↑j
                 DEC     $6E2,X
                 BNE     loc_1AB5D
                 LDA     $6FC,X
@@ -7952,12 +7997,12 @@ loc_1AB18:                              ; CODE XREF: sub_1AAA8+3↑j
                 JMP     loc_1AB31
 ; ---------------------------------------------------------------------------
 
-loc_1AB2E:                              ; CODE XREF: sub_1AAA8+7E↑j
+loc_1AB2E:                              ; CODE XREF: enemy_type_41+7E↑j
                 INC     $694,X
 
-loc_1AB31:                              ; CODE XREF: sub_1AAA8+83↑j
+loc_1AB31:                              ; CODE XREF: enemy_type_41+83↑j
                 LDA     $694,X
-                JSR     sub_18097
+                JSR     prng_lfsr_based ; PRNG variant using ASL/ROL instructions and array with parameters
                 LDA     $5F8,X
                 CLC
                 ADC     $716,X
@@ -7973,7 +8018,7 @@ loc_1AB31:                              ; CODE XREF: sub_1AAA8+83↑j
                 ADC     $6C8,X
                 STA     $646,X
 
-loc_1AB5D:                              ; CODE XREF: sub_1AAA8+73↑j
+loc_1AB5D:                              ; CODE XREF: enemy_type_41+73↑j
                 JSR     sub_182B1
                 LDA     $576,X
                 CMP     #$47 ; 'G'
@@ -7981,7 +8026,7 @@ loc_1AB5D:                              ; CODE XREF: sub_1AAA8+73↑j
                 JMP     sub_181E4
 ; ---------------------------------------------------------------------------
 
-loc_1AB6A:                              ; CODE XREF: sub_1AAA8+BD↑j
+loc_1AB6A:                              ; CODE XREF: enemy_type_41+BD↑j
                 LDA     $5AA,X
                 TAY
                 LDA     $528,Y
@@ -7991,7 +8036,7 @@ loc_1AB6A:                              ; CODE XREF: sub_1AAA8+BD↑j
                 CMP     #$50 ; 'P'
                 BNE     loc_1AB89
 
-loc_1AB7B:                              ; CODE XREF: sub_1AAA8+CD↑j
+loc_1AB7B:                              ; CODE XREF: enemy_type_41+CD↑j
                 LDA     #$23 ; '#'
                 STA     $528,X
                 LDA     $528,X
@@ -8000,57 +8045,42 @@ loc_1AB7B:                              ; CODE XREF: sub_1AAA8+CD↑j
                 RTS
 ; ---------------------------------------------------------------------------
 
-loc_1AB89:                              ; CODE XREF: sub_1AAA8+D1↑j
+loc_1AB89:                              ; CODE XREF: enemy_type_41+D1↑j
                 JSR     sub_181F6
                 JSR     sub_1A2B1
                 RTS
-; End of function sub_1AAA8
+; End of function enemy_type_41
 
 ; ---------------------------------------------------------------------------
-unk_1AB90:      .BYTE   2
-                .BYTE   4
-                .BYTE   3
-                .BYTE $47 ; G
-                .BYTE   1
-                .BYTE   0
-                .BYTE   1
-                .BYTE   4
-                .BYTE   5
-                .BYTE $1B
-                .BYTE   2
-                .BYTE   6
-                .BYTE   1
-                .BYTE $83
-                .BYTE   1
-                .BYTE   8
-                .BYTE   0
-                .BYTE   6
+byte_1AB90:     .BYTE 2, 4, 3, $47, 1, 0
+                .BYTE 1, 4, 5, $1B, 2, 6
+                .BYTE 1, $83, 1, 8, 0, 6
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1ABA2:
+enemy_type_42:
                 JSR     sub_1AA67
                 LDA     #$A5
                 JMP     sub_1ABAF
-; End of function sub_1ABA2
+; End of function enemy_type_42
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1ABAA:
+enemy_type_43:
                 JSR     sub_1AA91
                 LDA     #$A6
-; End of function sub_1ABAA
+; End of function enemy_type_43
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1ABAF:                              ; CODE XREF: sub_1ABA2+5↑j
+sub_1ABAF:                              ; CODE XREF: enemy_type_42+5↑j
                 STA     $528,X
-                JSR     sub_1872B
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 AND     #$7F
                 ADC     $62C,X
                 STA     $62C,X
@@ -8080,10 +8110,10 @@ locret_1ABE7:                           ; CODE XREF: sub_1ABAF+29↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1ABE8:
+enemy_type_45:
                 LDA     $528,X
                 BMI     loc_1AC11
-                JSR     sub_1872B
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 AND     #1
                 CLC
                 ADC     #2
@@ -8096,19 +8126,19 @@ sub_1ABE8:
                 RTS
 ; ---------------------------------------------------------------------------
 
-loc_1AC07:                              ; CODE XREF: sub_1ABE8+1C↑j
+loc_1AC07:                              ; CODE XREF: enemy_type_45+1C↑j
                 LDA     #3
                 STA     $764,X
 
-loc_1AC0C:                              ; CODE XREF: sub_1ABE8+31↓j
-                                        ; sub_1ABE8+44↓j
+loc_1AC0C:                              ; CODE XREF: enemy_type_45+31↓j
+                                        ; enemy_type_45+44↓j
                 LDA     #$28 ; '('
                 STA     $6E2,X
 
-loc_1AC11:                              ; CODE XREF: sub_1ABE8+3↑j
+loc_1AC11:                              ; CODE XREF: enemy_type_45+3↑j
                 DEC     $6E2,X
                 BNE     loc_1AC2F
-                JSR     sub_1872B
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 BPL     loc_1AC0C
                 AND     #8
                 CLC
@@ -8117,31 +8147,31 @@ loc_1AC11:                              ; CODE XREF: sub_1ABE8+3↑j
                 SBC     #4
                 AND     #$F
                 STA     $6FC,X
-                JSR     sub_18097
+                JSR     prng_lfsr_based ; PRNG variant using ASL/ROL instructions and array with parameters
                 JMP     loc_1AC0C
 ; ---------------------------------------------------------------------------
 
-loc_1AC2F:                              ; CODE XREF: sub_1ABE8+2C↑j
+loc_1AC2F:                              ; CODE XREF: enemy_type_45+2C↑j
                 LDA     $6E2,X
                 AND     #1
                 TAY
                 LDA     unk_1AC44,Y
                 STA     $576,X
-                LDA     $AC46,Y
+                LDA     unk_1AC46,Y
                 STA     $590,X
                 JMP     loc_1A740
-; End of function sub_1ABE8
+; End of function enemy_type_45
 
 ; ---------------------------------------------------------------------------
 unk_1AC44:      .BYTE   7
                 .BYTE   9
-                .BYTE   0
+unk_1AC46:      .BYTE   0
                 .BYTE   2
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1AC48:
+enemy_type_21:
                 LDA     $528,X
                 BMI     loc_1AC6E
                 ORA     #$80
@@ -8149,16 +8179,16 @@ sub_1AC48:
                 LDA     #4
                 STA     $74A,X
                 LDA     $77E,X
-                JSR     sub_18097
+                JSR     prng_lfsr_based ; PRNG variant using ASL/ROL instructions and array with parameters
                 LDA     #3
                 STA     $660,X
                 LDA     #$60 ; '`'
                 LDY     #$10
                 JSR     sub_1A2CB
                 LDA     #$16
-                JSR     $C030
+                JSR     sub_C030
 
-loc_1AC6E:                              ; CODE XREF: sub_1AC48+3↑j
+loc_1AC6E:                              ; CODE XREF: enemy_type_21+3↑j
                 JSR     sub_183BC
                 LDA     unk_1AC83,Y
                 STA     $576,X
@@ -8166,7 +8196,7 @@ loc_1AC6E:                              ; CODE XREF: sub_1AC48+3↑j
                 STA     $590,X
                 JSR     sub_182B1
                 JMP     sub_181F6
-; End of function sub_1AC48
+; End of function enemy_type_21
 
 ; ---------------------------------------------------------------------------
 unk_1AC83:      .BYTE   9
@@ -8205,7 +8235,7 @@ unk_1AC83:      .BYTE   9
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1ACA3:
+enemy_type_20:
                 LDA     $528,X
                 BMI     loc_1ACD8
                 ORA     #$80
@@ -8224,25 +8254,25 @@ sub_1ACA3:
                 STA     $716,X
                 LDA     $77E,X
                 STA     $646,X
-                JSR     sub_1872B
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 STA     $62C,X
 
-loc_1ACD8:                              ; CODE XREF: sub_1ACA3+3↑j
+loc_1ACD8:                              ; CODE XREF: enemy_type_20+3↑j
                 JSR     sub_182B1
                 JMP     sub_181E4
-; End of function sub_1ACA3
+; End of function enemy_type_20
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1ACDE:
+enemy_type_53:
                 JSR     sub_1B87F
                 BCC     loc_1ACE8
                 LDA     #$1E
                 STA     $764,X
 
-loc_1ACE8:                              ; CODE XREF: sub_1ACDE+3↑j
+loc_1ACE8:                              ; CODE XREF: enemy_type_53+3↑j
                 LDA     $5AA,X
                 BEQ     loc_1AD05
                 LDA     $6E2,X
@@ -8258,8 +8288,8 @@ loc_1ACE8:                              ; CODE XREF: sub_1ACDE+3↑j
                 TAY
                 JSR     sub_1B1CD
 
-loc_1AD05:                              ; CODE XREF: sub_1ACDE+D↑j
-                                        ; sub_1ACDE+14↑j ...
+loc_1AD05:                              ; CODE XREF: enemy_type_53+D↑j
+                                        ; enemy_type_53+14↑j ...
                 JSR     sub_18204
                 JSR     sub_1A2B1
                 BNE     loc_1AD13
@@ -8267,7 +8297,7 @@ loc_1AD05:                              ; CODE XREF: sub_1ACDE+D↑j
                 JMP     sub_C02A
 ; ---------------------------------------------------------------------------
 
-loc_1AD13:                              ; CODE XREF: sub_1ACDE+2D↑j
+loc_1AD13:                              ; CODE XREF: enemy_type_53+2D↑j
                 LDA     $5AA,X
                 INC     $5AA,X
                 CMP     #0
@@ -8275,32 +8305,32 @@ loc_1AD13:                              ; CODE XREF: sub_1ACDE+2D↑j
                 JMP     loc_1972F
 ; ---------------------------------------------------------------------------
 
-loc_1AD20:                              ; CODE XREF: sub_1ACDE+3D↑j
+loc_1AD20:                              ; CODE XREF: enemy_type_53+3D↑j
                 LDA     $5C
                 JMP     sub_19493
-; End of function sub_1ACDE
+; End of function enemy_type_53
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1AD25:
+enemy_type_54:
                 JSR     sub_1B87F
                 BCC     loc_1AD2F
                 LDA     #$A
                 STA     $764,X
 
-loc_1AD2F:                              ; CODE XREF: sub_1AD25+3↑j
+loc_1AD2F:                              ; CODE XREF: enemy_type_54+3↑j
                 JSR     sub_18204
                 JSR     sub_1A2B1
                 RTS
-; End of function sub_1AD25
+; End of function enemy_type_54
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1AD36:
+enemy_type_55:
                 LDA     $528,X
                 BMI     loc_1AD68
                 ORA     #$80
@@ -8321,7 +8351,7 @@ sub_1AD36:
                 STA     $590,X
                 STA     $6C8,X
 
-loc_1AD68:                              ; CODE XREF: sub_1AD36+3↑j
+loc_1AD68:                              ; CODE XREF: enemy_type_55+3↑j
                 INC     $6AE,X
                 LDA     $6AE,X
                 AND     #2
@@ -8338,7 +8368,7 @@ loc_1AD68:                              ; CODE XREF: sub_1AD36+3↑j
                 RTS
 ; ---------------------------------------------------------------------------
 
-loc_1AD88:                              ; CODE XREF: sub_1AD36+4C↑j
+loc_1AD88:                              ; CODE XREF: enemy_type_55+4C↑j
                 ORA     #$80
                 STA     $528,X
                 INC     $590,X
@@ -8348,21 +8378,21 @@ loc_1AD88:                              ; CODE XREF: sub_1AD36+4C↑j
                 LDA     #3
                 STA     $660,X
 
-loc_1AD9D:                              ; CODE XREF: sub_1AD36+44↑j
+loc_1AD9D:                              ; CODE XREF: enemy_type_55+44↑j
                 LDA     $764,X
                 BEQ     loc_1ADA7
                 LDA     #2
                 STA     $6FC,X
 
-loc_1ADA7:                              ; CODE XREF: sub_1AD36+6A↑j
+loc_1ADA7:                              ; CODE XREF: enemy_type_55+6A↑j
                 JSR     sub_1A8D1
                 BCC     loc_1ADB7
-                JSR     sub_1872B
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 AND     #$F
                 ADC     $6E2,X
                 STA     $6E2,X
 
-loc_1ADB7:                              ; CODE XREF: sub_1AD36+74↑j
+loc_1ADB7:                              ; CODE XREF: enemy_type_55+74↑j
                 LDA     $6C8,X
                 TAY
                 LDA     $528,Y
@@ -8371,19 +8401,19 @@ loc_1ADB7:                              ; CODE XREF: sub_1AD36+74↑j
                 CMP     #$B5
                 BCC     loc_1ADD4
 
-loc_1ADC6:                              ; CODE XREF: sub_1AD36+8A↑j
+loc_1ADC6:                              ; CODE XREF: enemy_type_55+8A↑j
                 INY
                 CPY     #$1A
                 BCC     loc_1ADCD
                 LDY     #5
 
-loc_1ADCD:                              ; CODE XREF: sub_1AD36+93↑j
+loc_1ADCD:                              ; CODE XREF: enemy_type_55+93↑j
                 TYA
                 STA     $6C8,X
                 JMP     loc_1AE07
 ; ---------------------------------------------------------------------------
 
-loc_1ADD4:                              ; CODE XREF: sub_1AD36+8E↑j
+loc_1ADD4:                              ; CODE XREF: enemy_type_55+8E↑j
                 LDA     $6AE,X
                 AND     #7
                 BNE     loc_1AE07
@@ -8406,13 +8436,13 @@ loc_1ADD4:                              ; CODE XREF: sub_1AD36+8E↑j
                 BNE     loc_1ADFF
                 LDA     #1
 
-loc_1ADFF:                              ; CODE XREF: sub_1AD36+C5↑j
+loc_1ADFF:                              ; CODE XREF: enemy_type_55+C5↑j
                 STA     $764,Y
                 LDA     #$14
                 JSR     sub_C030
 
-loc_1AE07:                              ; CODE XREF: sub_1AD36+9B↑j
-                                        ; sub_1AD36+A3↑j ...
+loc_1AE07:                              ; CODE XREF: enemy_type_55+9B↑j
+                                        ; enemy_type_55+A3↑j ...
                 LDA     $C0
                 AND     #$22 ; '"'
                 CMP     #2
@@ -8421,16 +8451,16 @@ loc_1AE07:                              ; CODE XREF: sub_1AD36+9B↑j
                 STA     $C2
                 DEC     $764,X
 
-loc_1AE16:                              ; CODE XREF: sub_1AD36+D7↑j
+loc_1AE16:                              ; CODE XREF: enemy_type_55+D7↑j
                 JSR     sub_182B1
                 RTS
-; End of function sub_1AD36
+; End of function enemy_type_55
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1AE1A:
+enemy_type_62:
                 LDA     $528,X
                 BMI     loc_1AE3D
                 ORA     #$80
@@ -8446,7 +8476,7 @@ sub_1AE1A:
                 LDA     #6
                 STA     $764,X
 
-loc_1AE3D:                              ; CODE XREF: sub_1AE1A+3↑j
+loc_1AE3D:                              ; CODE XREF: enemy_type_62+3↑j
                 INC     $6AE,X
                 LDA     $6AE,X
                 LSR
@@ -8470,12 +8500,12 @@ loc_1AE3D:                              ; CODE XREF: sub_1AE1A+3↑j
                 LDA     #1
                 STA     $590,X
 
-loc_1AE6D:                              ; CODE XREF: sub_1AE1A+47↑j
+loc_1AE6D:                              ; CODE XREF: enemy_type_62+47↑j
                 LDA     #$BE
                 STA     $528,X
                 BNE     locret_1AE98
 
-loc_1AE74:                              ; CODE XREF: sub_1AE1A+42↑j
+loc_1AE74:                              ; CODE XREF: enemy_type_62+42↑j
                 LDA     $590,X
                 BEQ     loc_1AE88
                 LDY     $51
@@ -8484,15 +8514,15 @@ loc_1AE74:                              ; CODE XREF: sub_1AE1A+42↑j
                 BNE     loc_1AE81
                 INY
 
-loc_1AE81:                              ; CODE XREF: sub_1AE1A+64↑j
+loc_1AE81:                              ; CODE XREF: enemy_type_62+64↑j
                 BCC     loc_1AE85
                 LDY     #5
 
-loc_1AE85:                              ; CODE XREF: sub_1AE1A:loc_1AE81↑j
+loc_1AE85:                              ; CODE XREF: enemy_type_62:loc_1AE81↑j
                 TYA
                 STA     $51
 
-loc_1AE88:                              ; CODE XREF: sub_1AE1A+5D↑j
+loc_1AE88:                              ; CODE XREF: enemy_type_62+5D↑j
                 LDA     #8
                 JSR     $C030
                 LDA     #$81
@@ -8501,16 +8531,17 @@ loc_1AE88:                              ; CODE XREF: sub_1AE1A+5D↑j
                 BNE     locret_1AE98
                 DEC     $32
 
-locret_1AE98:                           ; CODE XREF: sub_1AE1A+3E↑j
-                                        ; sub_1AE1A+58↑j ...
+locret_1AE98:                           ; CODE XREF: enemy_type_62+3E↑j
+                                        ; enemy_type_62+58↑j ...
                 RTS
-; End of function sub_1AE1A
+; End of function enemy_type_62
 
 
 ; =============== S U B R O U T I N E =======================================
 
+; When there is a Distro with a special weapon on the screen, this procedure is called. Apparently to handle interaction with these objects
 
-sub_1AE99:
+enemy_type_82_weapon_distro:
                 JSR     sub_1B87F
                 BCS     loc_1AEC6
                 LDA     $716,X
@@ -8529,16 +8560,18 @@ sub_1AE99:
                 ORA     #$80
                 STA     $C0
                 JMP     loc_1AED8
-; ---------------------------------------------------------------------------
-                .BYTE $20
-                .BYTE $7F ; 
-                .BYTE $B8
-                .BYTE $90
-                .BYTE $12
-; ---------------------------------------------------------------------------
+; End of function enemy_type_82_weapon_distro
 
-loc_1AEC6:                              ; CODE XREF: sub_1AE99+3↑j
-                                        ; sub_1B72C+F↓j
+
+; =============== S U B R O U T I N E =======================================
+
+
+enemy_type_70_71_81_88_89:
+                JSR     sub_1B87F
+                BCC     loc_1AED8
+
+loc_1AEC6:                              ; CODE XREF: enemy_type_82_weapon_distro+3↑j
+                                        ; enemy_type_84_85_86_87+F↓j
                 LDA     $528,X
                 AND     #$7F
                 TAY
@@ -8547,15 +8580,15 @@ loc_1AEC6:                              ; CODE XREF: sub_1AE99+3↑j
                 LDA     $AF68,Y
                 STA     $576,X
 
-loc_1AED8:                              ; CODE XREF: sub_1AE99+25↑j
-                                        ; sub_1B72C:loc_1B775↓j
+loc_1AED8:                              ; CODE XREF: enemy_type_82_weapon_distro+25↑j
+                                        ; enemy_type_70_71_81_88_89+3↑j ...
                 JSR     sub_18204
                 JSR     sub_1A2B1
                 BEQ     loc_1AEE1
                 RTS
 ; ---------------------------------------------------------------------------
 
-loc_1AEE1:                              ; CODE XREF: sub_1AE99+45↑j
+loc_1AEE1:                              ; CODE XREF: enemy_type_70_71_81_88_89+1D↑j
                 LDA     $88
                 CMP     #$51 ; 'Q'
                 BCS     loc_1AF21
@@ -8566,7 +8599,7 @@ loc_1AEE1:                              ; CODE XREF: sub_1AE99+45↑j
                 RTS
 ; ---------------------------------------------------------------------------
 
-loc_1AEF3:                              ; CODE XREF: sub_1AE99+57↑j
+loc_1AEF3:                              ; CODE XREF: enemy_type_70_71_81_88_89+2F↑j
                 LDA     #$D1
                 JSR     sub_1B631
                 LDA     #8
@@ -8586,13 +8619,13 @@ loc_1AEF3:                              ; CODE XREF: sub_1AE99+57↑j
                 RTS
 ; ---------------------------------------------------------------------------
 
-loc_1AF21:                              ; CODE XREF: sub_1AE99+4C↑j
+loc_1AF21:                              ; CODE XREF: enemy_type_70_71_81_88_89+24↑j
                 BNE     loc_1AF28
                 LDY     #$4C ; 'L'
                 JMP     sub_1B1E8
 ; ---------------------------------------------------------------------------
 
-loc_1AF28:                              ; CODE XREF: sub_1AE99:loc_1AF21↑j
+loc_1AF28:                              ; CODE XREF: enemy_type_70_71_81_88_89:loc_1AF21↑j
                 CMP     #$52 ; 'R'
                 BNE     loc_1AF49
                 JSR     sub_C02A
@@ -8600,7 +8633,7 @@ loc_1AF28:                              ; CODE XREF: sub_1AE99:loc_1AF21↑j
                 STA     $5AA,X
                 LDA     $716,X
 
-loc_1AF37:                              ; CODE XREF: sub_1AE99+F9↓j
+loc_1AF37:                              ; CODE XREF: enemy_type_70_71_81_88_89+D1↓j
                 STA     $764,X
                 LDA     #$12
                 JSR     sub_C030
@@ -8610,7 +8643,7 @@ loc_1AF37:                              ; CODE XREF: sub_1AE99+F9↓j
                 JMP     sub_1B09A
 ; ---------------------------------------------------------------------------
 
-loc_1AF49:                              ; CODE XREF: sub_1AE99+91↑j
+loc_1AF49:                              ; CODE XREF: enemy_type_70_71_81_88_89+69↑j
                 CMP     #$58 ; 'X'
                 BCS     loc_1AF83
                 CMP     #$54 ; 'T'
@@ -8621,7 +8654,7 @@ loc_1AF49:                              ; CODE XREF: sub_1AE99+91↑j
                 JMP     sub_1B09A
 ; ---------------------------------------------------------------------------
 
-loc_1AF5B:                              ; CODE XREF: sub_1AE99+B6↑j
+loc_1AF5B:                              ; CODE XREF: enemy_type_70_71_81_88_89+8E↑j
                 CMP     #$57 ; 'W'
                 BNE     loc_1AF6B
                 LDA     $74A,X
@@ -8632,7 +8665,7 @@ loc_1AF5B:                              ; CODE XREF: sub_1AE99+B6↑j
                 JMP     sub_1B1E2
 ; ---------------------------------------------------------------------------
 
-loc_1AF6B:                              ; CODE XREF: sub_1AE99+C4↑j
+loc_1AF6B:                              ; CODE XREF: enemy_type_70_71_81_88_89+9C↑j
                 CMP     #$55 ; 'U'
                 BNE     loc_1AF79
                 LDA     #0
@@ -8641,27 +8674,27 @@ loc_1AF6B:                              ; CODE XREF: sub_1AE99+C4↑j
                 JMP     sub_1B09A
 ; ---------------------------------------------------------------------------
 
-loc_1AF79:                              ; CODE XREF: sub_1AE99+D4↑j
+loc_1AF79:                              ; CODE XREF: enemy_type_70_71_81_88_89+AC↑j
                 LDA     #$40 ; '@'
                 JSR     sub_1B169
                 LDY     #$12
                 JMP     sub_1B09A
 ; ---------------------------------------------------------------------------
 
-loc_1AF83:                              ; CODE XREF: sub_1AE99+B2↑j
+loc_1AF83:                              ; CODE XREF: enemy_type_70_71_81_88_89+8A↑j
                 BEQ     loc_1AF95
                 JSR     sub_C02A
                 LDA     #1
                 STA     $5AA,X
-                JSR     sub_1872B
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 AND     #7
                 JMP     loc_1AF37
 ; ---------------------------------------------------------------------------
 
-loc_1AF95:                              ; CODE XREF: sub_1AE99:loc_1AF83↑j
+loc_1AF95:                              ; CODE XREF: enemy_type_70_71_81_88_89:loc_1AF83↑j
                 LDY     #$C
                 JMP     sub_1B1E8
-; End of function sub_1AE99
+; End of function enemy_type_70_71_81_88_89
 
 ; ---------------------------------------------------------------------------
                 .BYTE   6
@@ -8924,8 +8957,8 @@ loc_1AF95:                              ; CODE XREF: sub_1AE99:loc_1AF83↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1B09A:                              ; CODE XREF: sub_1AE99+AD↑j
-                                        ; sub_1AE99+BF↑j ...
+sub_1B09A:                              ; CODE XREF: enemy_type_70_71_81_88_89+85↑j
+                                        ; enemy_type_70_71_81_88_89+97↑j ...
                 LDA     $174
                 STA     $76
                 STY     $10
@@ -8991,7 +9024,7 @@ loc_1B0E5:                              ; CODE XREF: sub_1B0AA+35↑j
                 BEQ     loc_1B10C
                 CMP     #$F
                 BNE     loc_1B0F5
-                JSR     sub_1872B
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 AND     #3
                 CLC
                 ADC     #$F
@@ -9080,8 +9113,8 @@ locret_1B168:                           ; CODE XREF: sub_1B0AA+B9↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1B169:                              ; CODE XREF: sub_1AE99+A8↑p
-                                        ; sub_1AE99+BA↑p ...
+sub_1B169:                              ; CODE XREF: enemy_type_70_71_81_88_89+80↑p
+                                        ; enemy_type_70_71_81_88_89+92↑p ...
                 STA     $10
                 LDA     $5F8,X
                 STA     $18
@@ -9150,7 +9183,7 @@ loc_1B1AF:                              ; CODE XREF: sub_1B169+2C↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1B1CD:                              ; CODE XREF: sub_1ACDE+24↑p
+sub_1B1CD:                              ; CODE XREF: enemy_type_53+24↑p
                                         ; sub_1B4D5+2F↓j
                 LDA     $16F
 ; End of function sub_1B1CD
@@ -9164,10 +9197,10 @@ sub_1B1D0:                              ; CODE XREF: sub_1B4D5+21↓j
                 TYA
                 CLC
                 ADC     #$C2
-                STA     $1A
+                STA     byte_1A
                 LDA     #$AF
                 ADC     #0
-                STA     $1B
+                STA     byte_1B
                 PLA
                 TAY
                 JMP     sub_1B1FA
@@ -9177,8 +9210,8 @@ sub_1B1D0:                              ; CODE XREF: sub_1B4D5+21↓j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1B1E2:                              ; CODE XREF: sub_1AE99+CF↑j
-                LDA     $171
+sub_1B1E2:                              ; CODE XREF: enemy_type_70_71_81_88_89+A7↑j
+                LDA     byte_171
                 JMP     sub_1B1EB
 ; End of function sub_1B1E2
 
@@ -9186,9 +9219,9 @@ sub_1B1E2:                              ; CODE XREF: sub_1AE99+CF↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1B1E8:                              ; CODE XREF: sub_1AE99+8C↑j
-                                        ; sub_1AE99+FE↑j
-                LDA     $174
+sub_1B1E8:                              ; CODE XREF: enemy_type_70_71_81_88_89+64↑j
+                                        ; enemy_type_70_71_81_88_89+D6↑j
+                LDA     byte_174
 ; End of function sub_1B1E8
 
 
@@ -9201,10 +9234,10 @@ sub_1B1EB:                              ; CODE XREF: sub_1B1E2+3↑j
                 TYA
                 CLC
                 ADC     #$3E ; '>'
-                STA     $1A
+                STA     byte_1A
                 LDA     #$B0
                 ADC     #0
-                STA     $1B
+                STA     byte_1B
                 PLA
                 TAY
 ; End of function sub_1B1EB
@@ -9215,13 +9248,13 @@ sub_1B1EB:                              ; CODE XREF: sub_1B1E2+3↑j
 
 sub_1B1FA:                              ; CODE XREF: sub_1B1D0+F↑j
                 LDA     $5F8,X
-                STA     $18
+                STA     byte_18
                 LDA     $612,X
-                STA     $19
+                STA     byte_19
                 LDA     $62C,X
-                STA     $15
+                STA     byte_15
                 LDA     $646,X
-                STA     $14
+                STA     byte_14
 ; End of function sub_1B1FA
 
 
@@ -9285,148 +9318,90 @@ unk_1B264:      .BYTE   3
                 .BYTE  $C
                 .BYTE $30 ; 0
                 .BYTE $C0
-                .BYTE $BD
-                .BYTE $28 ; (
-                .BYTE   5
-                .BYTE $30 ; 0
-                .BYTE $1C
-                .BYTE   9
-                .BYTE $80
-                .BYTE $9D
-                .BYTE $28 ; (
-                .BYTE   5
-                .BYTE $A9
-                .BYTE $FF
-                .BYTE $9D
-                .BYTE $12
-                .BYTE   6
-                .BYTE $A9
-                .BYTE $F8
-                .BYTE $9D
-                .BYTE $F8
-                .BYTE   5
-                .BYTE $9D
-                .BYTE $E2
-                .BYTE   6
-                .BYTE $A9
-                .BYTE   1
-                .BYTE $9D
-                .BYTE $60 ; `
-                .BYTE   6
-                .BYTE $A9
-                .BYTE   1
-                .BYTE $9D
-                .BYTE $FC
-                .BYTE   6
-                .BYTE $DE
-                .BYTE $E2
-                .BYTE   6
-                .BYTE $D0
-                .BYTE $14
-                .BYTE $BD
-                .BYTE $FC
-                .BYTE   6
-                .BYTE $F0
-                .BYTE  $F
-                .BYTE $DE
-                .BYTE $FC
-                .BYTE   6
-                .BYTE $D0
-                .BYTE  $A
-                .BYTE $BD
-                .BYTE $7A ; z
-                .BYTE   6
-                .BYTE $C9
-                .BYTE $46 ; F
-                .BYTE $D0
-                .BYTE   3
-                .BYTE $DE
-                .BYTE $FC
-                .BYTE   6
-                .BYTE $BD
-                .BYTE $E2
-                .BYTE   6
-                .BYTE $29 ; )
-                .BYTE   3
-                .BYTE $9D
-                .BYTE $90
-                .BYTE   5
-                .BYTE $18
-                .BYTE $69 ; i
-                .BYTE $3C ; <
-                .BYTE $9D
-                .BYTE $76 ; v
-                .BYTE   5
-                .BYTE $20
-                .BYTE $B1
-                .BYTE $82
-                .BYTE $BD
-                .BYTE $90
-                .BYTE   5
-                .BYTE $29 ; )
-                .BYTE   1
-                .BYTE $18
-                .BYTE $69 ; i
-                .BYTE $36 ; 6
-                .BYTE $9D
-                .BYTE $76 ; v
-                .BYTE   5
-                .BYTE $BD
-                .BYTE $FC
-                .BYTE   6
-                .BYTE $F0
-                .BYTE   3
-                .BYTE $20
-                .BYTE $D9
-                .BYTE $82
-                .BYTE $20
-                .BYTE $ED
-                .BYTE $81
-                .BYTE $BD
-                .BYTE $28 ; (
-                .BYTE   5
-                .BYTE $10
-                .BYTE   1
-                .BYTE $60 ; `
-                .BYTE $A9
-                .BYTE $81
-                .BYTE $8D
-                .BYTE $28 ; (
-                .BYTE   5
-                .BYTE $BD
-                .BYTE $FC
-                .BYTE   6
-                .BYTE $F0
-                .BYTE   8
-                .BYTE $20
-                .BYTE $ED
-                .BYTE $B2
-                .BYTE $A9
-                .BYTE $13
-                .BYTE $4C ; L
-                .BYTE $30 ; 0
-                .BYTE $C0
-                .BYTE $BD
-                .BYTE $16
-                .BYTE   7
-                .BYTE $85
-                .BYTE $92
-                .BYTE $A5
-                .BYTE $30 ; 0
-                .BYTE   9
-                .BYTE $20
-                .BYTE $85
-                .BYTE $30 ; 0
-                .BYTE $60 ; `
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1B2ED:                              ; CODE XREF: sub_19410:loc_19480↑p
-                                        ; sub_1AD36+5F↑p ...
+enemy_type_72:
+                LDA     $528,X
+                BMI     loc_1B289
+                ORA     #$80
+                STA     $528,X
+                LDA     #$FF
+                STA     $612,X
+                LDA     #$F8
+                STA     $5F8,X
+                STA     $6E2,X
+                LDA     #1
+                STA     $660,X
+                LDA     #1
+                STA     $6FC,X
+
+loc_1B289:                              ; CODE XREF: enemy_type_72+3↑j
+                DEC     $6E2,X
+                BNE     loc_1B2A2
+                LDA     $6FC,X
+                BEQ     loc_1B2A2
+                DEC     $6FC,X
+                BNE     loc_1B2A2
+                LDA     $67A,X
+                CMP     #$46 ; 'F'
+                BNE     loc_1B2A2
+                DEC     $6FC,X
+
+loc_1B2A2:                              ; CODE XREF: enemy_type_72+24↑j
+                                        ; enemy_type_72+29↑j ...
+                LDA     $6E2,X
+                AND     #3
+                STA     $590,X
+                CLC
+                ADC     #$3C ; '<'
+                STA     $576,X
+                JSR     sub_182B1
+                LDA     $590,X
+                AND     #1
+                CLC
+                ADC     #$36 ; '6'
+                STA     $576,X
+                LDA     $6FC,X
+                BEQ     loc_1B2C6
+                JSR     sub_182D9
+
+loc_1B2C6:                              ; CODE XREF: enemy_type_72+59↑j
+                JSR     sub_181ED
+                LDA     $528,X
+                BPL     loc_1B2CF
+                RTS
+; ---------------------------------------------------------------------------
+
+loc_1B2CF:                              ; CODE XREF: enemy_type_72+64↑j
+                LDA     #$81
+                STA     $528
+                LDA     $6FC,X
+                BEQ     loc_1B2E1
+                JSR     sub_1B2ED
+                LDA     #$13
+                JMP     $C030
+; ---------------------------------------------------------------------------
+
+loc_1B2E1:                              ; CODE XREF: enemy_type_72+6F↑j
+                LDA     $716,X
+                STA     $92
+                LDA     $30
+                ORA     #$20 ; ' '
+                STA     $30
+                RTS
+; End of function enemy_type_72
+
+
+; =============== S U B R O U T I N E =======================================
+
+
+sub_1B2ED:                              ; CODE XREF: sub_1946F:loc_19480↑p
+                                        ; enemy_type_55+5F↑p ...
                 LDA     #$23 ; '#'
 
-loc_1B2EF:                              ; CODE XREF: sub_19410+67↑p
+loc_1B2EF:                              ; CODE XREF: sub_1946F+8↑p
                 PHA
                 LDA     $145
                 PHA
@@ -9484,37 +9459,38 @@ sub_1B32E:                              ; CODE XREF: sub_1B2ED+9↑p
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1B337:
+enemy_type_79:
                 LDA     $528,X
-                BPL     sub_1B355
+                BPL     fortress_core_appears ; When some Core of the Fortress shows up (by Core, you mean some shooting part of the Fortress)
                 JSR     sub_182D9
                 JMP     loc_1B3A5
-; End of function sub_1B337
+; End of function enemy_type_79
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1B342:
+enemy_type_73_74_75_76_77_78:
                 JSR     sub_1B8A3
                 LDA     $528,X
                 BPL     loc_1B352
                 LDA     $542,X
                 CMP     #$F0
-                JMP     loc_1B39E
+                JMP     sub_1B39E
 ; ---------------------------------------------------------------------------
 
-loc_1B352:                              ; CODE XREF: sub_1B342+6↑j
-                BCS     sub_1B355
+loc_1B352:                              ; CODE XREF: enemy_type_73_74_75_76_77_78+6↑j
+                BCS     fortress_core_appears ; When some Core of the Fortress shows up (by Core, you mean some shooting part of the Fortress)
                 RTS
-; End of function sub_1B342
+; End of function enemy_type_73_74_75_76_77_78
 
 
 ; =============== S U B R O U T I N E =======================================
 
+; When some Core of the Fortress shows up (by Core, you mean some shooting part of the Fortress)
 
-sub_1B355:                              ; CODE XREF: sub_1B337+3↑j
-                                        ; sub_1B342:loc_1B352↑j ...
+fortress_core_appears:                  ; CODE XREF: enemy_type_79+3↑j
+                                        ; enemy_type_73_74_75_76_77_78:loc_1B352↑j ...
                 LDA     #3
                 STA     $590,X
                 LDA     #0
@@ -9545,15 +9521,20 @@ sub_1B355:                              ; CODE XREF: sub_1B337+3↑j
                 STA     $6C8,X
                 JSR     sub_1B667
                 CLC
+; End of function fortress_core_appears
 
-loc_1B39E:                              ; CODE XREF: sub_1B342+D↑j
+
+; =============== S U B R O U T I N E =======================================
+
+
+sub_1B39E:                              ; CODE XREF: enemy_type_73_74_75_76_77_78+D↑j
                 BCC     loc_1B3A5
                 DEC     $C2
-                JMP     sub_182FE
+                JMP     enemy_common    ; A generic piece of code for some types as well as type 40 always goes here.
 ; ---------------------------------------------------------------------------
 
-loc_1B3A5:                              ; CODE XREF: sub_1B337+8↑j
-                                        ; sub_1B355:loc_1B39E↑j
+loc_1B3A5:                              ; CODE XREF: enemy_type_79+8↑j
+                                        ; sub_1B39E↑j
                 LDA     $C0
                 ORA     #$80
                 STA     $C0
@@ -9562,21 +9543,21 @@ loc_1B3A5:                              ; CODE XREF: sub_1B337+8↑j
                 RTS
 ; ---------------------------------------------------------------------------
 
-loc_1B3B0:                              ; CODE XREF: sub_1B355+58↑j
+loc_1B3B0:                              ; CODE XREF: sub_1B39E+F↑j
                 LDA     $5AA,X
                 AND     #2
                 BEQ     loc_1B3BA
                 JMP     sub_1B482
 ; ---------------------------------------------------------------------------
 
-loc_1B3BA:                              ; CODE XREF: sub_1B355+60↑j
+loc_1B3BA:                              ; CODE XREF: sub_1B39E+17↑j
                 LDA     $528,X
                 CMP     #$CF
                 BNE     loc_1B3C4
                 JMP     loc_1B41B
 ; ---------------------------------------------------------------------------
 
-loc_1B3C4:                              ; CODE XREF: sub_1B355+6A↑j
+loc_1B3C4:                              ; CODE XREF: sub_1B39E+21↑j
                 LDA     $C0
                 AND     #8
                 BEQ     loc_1B3E3
@@ -9588,12 +9569,12 @@ loc_1B3C4:                              ; CODE XREF: sub_1B355+6A↑j
                 STA     $5AA,X
                 ASL     $6E2,X
 
-loc_1B3DC:                              ; CODE XREF: sub_1B355+7D↑j
+loc_1B3DC:                              ; CODE XREF: sub_1B39E+34↑j
                 LDA     $6AE,X
                 CMP     #3
                 BEQ     loc_1B41B
 
-loc_1B3E3:                              ; CODE XREF: sub_1B355+73↑j
+loc_1B3E3:                              ; CODE XREF: sub_1B39E+2A↑j
                 LDA     $67A,X
                 CLC
                 ADC     $694,X
@@ -9606,7 +9587,7 @@ loc_1B3E3:                              ; CODE XREF: sub_1B355+73↑j
                 LDA     #0
                 STA     $6AE,X
 
-loc_1B3FE:                              ; CODE XREF: sub_1B355+A2↑j
+loc_1B3FE:                              ; CODE XREF: sub_1B39E+59↑j
                 TAY
                 LDA     $B65B,Y
                 STA     $716,X
@@ -9615,18 +9596,18 @@ loc_1B3FE:                              ; CODE XREF: sub_1B355+A2↑j
                 JSR     sub_1B667
                 JSR     sub_1B4D5
 
-loc_1B411:                              ; CODE XREF: sub_1B355+98↑j
+loc_1B411:                              ; CODE XREF: sub_1B39E+4F↑j
                 LDA     $730,X
                 BNE     loc_1B417
                 RTS
 ; ---------------------------------------------------------------------------
 
-loc_1B417:                              ; CODE XREF: sub_1B355+BF↑j
+loc_1B417:                              ; CODE XREF: sub_1B39E+76↑j
                 CMP     #3
                 BNE     loc_1B42A
 
-loc_1B41B:                              ; CODE XREF: sub_1B355+6C↑j
-                                        ; sub_1B355+8C↑j
+loc_1B41B:                              ; CODE XREF: sub_1B39E+23↑j
+                                        ; sub_1B39E+43↑j
                 LDA     $6E2,X
                 CLC
                 ADC     $6FC,X
@@ -9634,14 +9615,14 @@ loc_1B41B:                              ; CODE XREF: sub_1B355+6C↑j
                 BCC     loc_1B42A
                 JSR     sub_1B533
 
-loc_1B42A:                              ; CODE XREF: sub_1B355+C4↑j
-                                        ; sub_1B355+D0↑j
+loc_1B42A:                              ; CODE XREF: sub_1B39E+7B↑j
+                                        ; sub_1B39E+87↑j
                 LDA     $528,X
                 CMP     #$CF
                 BNE     loc_1B434
                 JSR     sub_1B44B
 
-loc_1B434:                              ; CODE XREF: sub_1B355+DA↑j
+loc_1B434:                              ; CODE XREF: sub_1B39E+91↑j
                 JSR     sub_18204
                 JSR     sub_1A2B1
                 BEQ     sub_1B467
@@ -9650,18 +9631,18 @@ loc_1B434:                              ; CODE XREF: sub_1B355+DA↑j
                 RTS
 ; ---------------------------------------------------------------------------
 
-loc_1B441:                              ; CODE XREF: sub_1B355+E9↑j
+loc_1B441:                              ; CODE XREF: sub_1B39E+A0↑j
                 LDA     #$11
                 JSR     sub_C030
                 LDA     #$F
                 JSR     sub_1B491
-; End of function sub_1B355
+; End of function sub_1B39E
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1B44B:                              ; CODE XREF: sub_1B355+DC↑p
+sub_1B44B:                              ; CODE XREF: sub_1B39E+93↑p
                 LDY     #$50 ; 'P'
                 LDA     $764,X
                 CMP     #$1E
@@ -9685,7 +9666,7 @@ loc_1B462:                              ; CODE XREF: sub_1B44B+7↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1B467:                              ; CODE XREF: sub_1B355+E5↑j
+sub_1B467:                              ; CODE XREF: sub_1B39E+9C↑j
                 LDA     $88
                 CMP     #$4F ; 'O'
                 BNE     loc_1B478
@@ -9708,7 +9689,7 @@ loc_1B478:                              ; CODE XREF: sub_1B467+4↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1B482:                              ; CODE XREF: sub_1B355+62↑j
+sub_1B482:                              ; CODE XREF: sub_1B39E+19↑j
                 DEC     $764,X
                 BEQ     loc_1B478
                 LDA     $764,X
@@ -9726,7 +9707,7 @@ loc_1B48F:                              ; CODE XREF: sub_19CAB+16↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1B491:                              ; CODE XREF: sub_1B355+F3↑p
+sub_1B491:                              ; CODE XREF: sub_1B39E+AA↑p
                 STA     $14
                 STA     $15
                 LDA     $55C,X
@@ -9744,7 +9725,7 @@ sub_1B49F:                              ; CODE XREF: sub_1BCE0+29↓p
                 BCS     locret_1B4D4
                 LDA     #$23 ; '#'
                 STA     $528,Y
-                JSR     sub_1872B
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 AND     $14
                 PHA
                 LDA     $14
@@ -9754,7 +9735,7 @@ sub_1B49F:                              ; CODE XREF: sub_1BCE0+29↓p
                 SBC     $10
                 ADC     $18
                 STA     $542,Y
-                JSR     sub_1872B
+                JSR     enemy_prng      ; Random number generator for enemies. It is not very clear how it works yet, as not all arrays are known. It is used in a large number of procedures
                 AND     $15
                 PHA
                 LDA     $15
@@ -9775,7 +9756,7 @@ locret_1B4D4:                           ; CODE XREF: sub_1B49F+3↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1B4D5:                              ; CODE XREF: sub_1B355+B9↑p
+sub_1B4D5:                              ; CODE XREF: sub_1B39E+70↑p
                 LDA     $528,X
                 CMP     #$CF
                 BNE     loc_1B4DD
@@ -9796,7 +9777,7 @@ loc_1B4DD:                              ; CODE XREF: sub_1B4D5+5↑j
                 ASL
                 ADC     #$60 ; '`'
                 TAY
-                LDA     $171
+                LDA     byte_171
                 JMP     sub_1B1D0
 ; ---------------------------------------------------------------------------
 
@@ -9825,7 +9806,7 @@ sub_1B507:                              ; CODE XREF: sub_1B467+18↑j
                 BEQ     loc_1B51C
                 BCS     loc_1B52B
                 LDY     #4
-                LDA     $171
+                LDA     byte_171
                 JMP     sub_1B1EB
 ; ---------------------------------------------------------------------------
 
@@ -9834,14 +9815,14 @@ loc_1B51C:                              ; CODE XREF: sub_1B507+9↑j
                 LDA     $74A,X
                 CMP     #4
                 BEQ     loc_1B52B
-                LDA     $171
+                LDA     byte_171
                 JMP     sub_1B1EB
 ; ---------------------------------------------------------------------------
 
 loc_1B52B:                              ; CODE XREF: sub_1B507+B↑j
                                         ; sub_1B507+1C↑j
                 LDY     #8
-                LDA     $171
+                LDA     byte_171
                 JMP     sub_1B1EB
 ; End of function sub_1B507
 
@@ -9849,7 +9830,7 @@ loc_1B52B:                              ; CODE XREF: sub_1B507+B↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1B533:                              ; CODE XREF: sub_1B355+D2↑p
+sub_1B533:                              ; CODE XREF: sub_1B39E+89↑p
                 LDA     $528,X
                 SEC
                 SBC     #$C9
@@ -9857,13 +9838,13 @@ sub_1B533:                              ; CODE XREF: sub_1B355+D2↑p
 ; End of function sub_1B533
 
 ; ---------------------------------------------------------------------------
-                .WORD $B549
-                .WORD $B575
-                .WORD $B591
-                .WORD $B5AF
-                .WORD $B599
-                .WORD $B5BD
-                .WORD $B610
+                .WORD $B549             ; sub_1B54A - 1
+                .WORD $B575             ; sub_1B576 - 1
+                .WORD $B591             ; sub_1B592 - 1
+                .WORD $B5AF             ; sub_1B5B0 - 1
+                .WORD $B599             ; sub_1B59A - 1
+                .WORD $B5BD             ; sub_1B5BE - 1
+                .WORD $B610             ; sub_1B611 - 1
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -9998,7 +9979,7 @@ loc_1B5D3:                              ; CODE XREF: sub_1B5CF+23↓j
                 TAY
                 LDA     $14
                 CLC
-                ADC     $B5F5,Y
+                ADC     unk_1B5F5,Y
                 STA     $14
                 JSR     check_enemy_overflow ; Checks that the enemy list is complete. If overflowed, sets Carry flag.
                 BCC     loc_1B5E7
@@ -10018,7 +9999,7 @@ loc_1B5E7:                              ; CODE XREF: sub_1B5CF+15↑j
 ; End of function sub_1B5CF
 
 ; ---------------------------------------------------------------------------
-                .BYTE   0
+unk_1B5F5:      .BYTE   0
                 .BYTE $FE
                 .BYTE   4
                 .BYTE   0
@@ -10050,7 +10031,7 @@ loc_1B5E7:                              ; CODE XREF: sub_1B5CF+15↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1B611:                              ; CODE XREF: sub_1B7B8+4D↓p
+sub_1B611:                              ; CODE XREF: enemy_type_90+4D↓p
                 INC     $660,X
                 LDA     $660,X
                 AND     #3
@@ -10077,8 +10058,8 @@ loc_1B62B:                              ; CODE XREF: sub_1B54A+29↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1B631:                              ; CODE XREF: sub_18F78+44↑p
-                                        ; sub_1961B+BD↑j ...
+sub_1B631:                              ; CODE XREF: enemy_type_60+44↑p
+                                        ; enemy_type_4_5_6+BD↑j ...
                 STA     $528,Y
                 LDA     $14
                 STA     $77E,Y
@@ -10105,8 +10086,8 @@ byte_1B646:     .BYTE 7, $28, $7F
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1B667:                              ; CODE XREF: sub_1B355+45↑p
-                                        ; sub_1B355+B6↑p
+sub_1B667:                              ; CODE XREF: fortress_core_appears+45↑p
+                                        ; sub_1B39E+6D↑p
                 LDA     $6C8,X
                 AND     #7
                 STA     $10
@@ -10141,7 +10122,7 @@ loc_1B695:                              ; CODE XREF: sub_1B667+1D↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1B69B:
+enemy_type_80:
                 LDA     $528,X
                 BMI     loc_1B6B0
                 ORA     #$80
@@ -10152,16 +10133,16 @@ sub_1B69B:
                 JMP     loc_1A93F
 ; ---------------------------------------------------------------------------
 
-loc_1B6B0:                              ; CODE XREF: sub_1B69B+3↑j
+loc_1B6B0:                              ; CODE XREF: enemy_type_80+3↑j
                 JSR     loc_1B895
                 JMP     loc_1A96C
-; End of function sub_1B69B
+; End of function enemy_type_80
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1B6B6:
+enemy_type_83:
                 LDA     $528,X
                 BMI     loc_1B6D9
                 ORA     #$80
@@ -10177,7 +10158,7 @@ sub_1B6B6:
                 LDA     #$35 ; '5'
                 STA     $576,X
 
-loc_1B6D9:                              ; CODE XREF: sub_1B6B6+3↑j
+loc_1B6D9:                              ; CODE XREF: enemy_type_83+3↑j
                 JSR     sub_182B1
                 LDA     #$FC
                 STA     $87
@@ -10186,7 +10167,7 @@ loc_1B6D9:                              ; CODE XREF: sub_1B6B6+3↑j
                 BEQ     loc_1B6E9
                 LDY     #2
 
-loc_1B6E9:                              ; CODE XREF: sub_1B6B6+2F↑j
+loc_1B6E9:                              ; CODE XREF: enemy_type_83+2F↑j
                 STY     $86
                 LDA     #$F6
                 STA     $84
@@ -10200,7 +10181,7 @@ loc_1B6E9:                              ; CODE XREF: sub_1B6B6+2F↑j
                 RTS
 ; ---------------------------------------------------------------------------
 
-loc_1B701:                              ; CODE XREF: sub_1B6B6+48↑j
+loc_1B701:                              ; CODE XREF: enemy_type_83+48↑j
                 LDA     #$81
                 STA     $528
                 LDA     #0
@@ -10215,21 +10196,21 @@ loc_1B701:                              ; CODE XREF: sub_1B6B6+48↑j
                 BCS     loc_1B71E
                 LDA     #0
 
-loc_1B71E:                              ; CODE XREF: sub_1B6B6+64↑j
+loc_1B71E:                              ; CODE XREF: enemy_type_83+64↑j
                 STA     $5A
 
-loc_1B720:                              ; CODE XREF: sub_1B6B6+5D↑j
+loc_1B720:                              ; CODE XREF: enemy_type_83+5D↑j
                 JSR     sub_1879F
                 LDA     $764,X
                 JSR     sub_19493
-                JMP     sub_182FE
-; End of function sub_1B6B6
+                JMP     enemy_common    ; A generic piece of code for some types as well as type 40 always goes here.
+; End of function enemy_type_83
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1B72C:
+enemy_type_84_85_86_87:
                 JSR     sub_1B87F
                 BCC     loc_1B73E
                 LDA     #3
@@ -10239,7 +10220,7 @@ sub_1B72C:
                 JMP     loc_1AEC6
 ; ---------------------------------------------------------------------------
 
-loc_1B73E:                              ; CODE XREF: sub_1B72C+3↑j
+loc_1B73E:                              ; CODE XREF: enemy_type_84_85_86_87+3↑j
                 DEC     $6E2,X
                 BNE     loc_1B775
                 LDA     $6FC,X
@@ -10263,20 +10244,20 @@ loc_1B73E:                              ; CODE XREF: sub_1B72C+3↑j
                 ADC     #2
                 STA     $14
 
-loc_1B770:                              ; CODE XREF: sub_1B72C+68↓j
-                                        ; sub_1B72C+71↓j
+loc_1B770:                              ; CODE XREF: enemy_type_84_85_86_87+68↓j
+                                        ; enemy_type_84_85_86_87+71↓j
                 LDA     #$15
 
-loc_1B772:                              ; CODE XREF: sub_1B72C+75↓j
-                                        ; sub_1B72C+86↓j
+loc_1B772:                              ; CODE XREF: enemy_type_84_85_86_87+75↓j
+                                        ; enemy_type_84_85_86_87+86↓j
                 JSR     sub_1B631
 
-loc_1B775:                              ; CODE XREF: sub_1B72C+15↑j
-                                        ; sub_1B72C+20↑j
+loc_1B775:                              ; CODE XREF: enemy_type_84_85_86_87+15↑j
+                                        ; enemy_type_84_85_86_87+20↑j
                 JMP     loc_1AED8
 ; ---------------------------------------------------------------------------
 
-loc_1B778:                              ; CODE XREF: sub_1B72C+2B↑j
+loc_1B778:                              ; CODE XREF: enemy_type_84_85_86_87+2B↑j
                 LDA     $55C
                 CMP     $55C,X
                 LDA     #0
@@ -10289,7 +10270,7 @@ loc_1B778:                              ; CODE XREF: sub_1B72C+2B↑j
                 LDA     #$FF
                 STA     $15
 
-loc_1B790:                              ; CODE XREF: sub_1B72C+5A↑j
+loc_1B790:                              ; CODE XREF: enemy_type_84_85_86_87+5A↑j
                 LDA     $AA
                 ORA     $AB
                 BEQ     loc_1B770
@@ -10299,11 +10280,11 @@ loc_1B790:                              ; CODE XREF: sub_1B72C+5A↑j
                 STA     $14
                 BNE     loc_1B770
 
-loc_1B79F:                              ; CODE XREF: sub_1B72C+27↑j
+loc_1B79F:                              ; CODE XREF: enemy_type_84_85_86_87+27↑j
                 LDA     #$25 ; '%'
                 BNE     loc_1B772
 
-loc_1B7A3:                              ; CODE XREF: sub_1B72C+2F↑j
+loc_1B7A3:                              ; CODE XREF: enemy_type_84_85_86_87+2F↑j
                 STY     $10
                 LDA     $74A,X
                 TAY
@@ -10312,7 +10293,7 @@ loc_1B7A3:                              ; CODE XREF: sub_1B72C+2F↑j
                 LDY     $10
                 LDA     #$15
                 BNE     loc_1B772
-; End of function sub_1B72C
+; End of function enemy_type_84_85_86_87
 
 ; ---------------------------------------------------------------------------
                 .BYTE  $A
@@ -10323,7 +10304,7 @@ loc_1B7A3:                              ; CODE XREF: sub_1B72C+2F↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1B7B8:
+enemy_type_90:
                 LDA     $528,X
                 BMI     loc_1B7D4
                 ORA     #$80
@@ -10336,14 +10317,14 @@ sub_1B7B8:
                 LDA     #0
                 STA     $6AE,X
 
-loc_1B7D4:                              ; CODE XREF: sub_1B7B8+3↑j
+loc_1B7D4:                              ; CODE XREF: enemy_type_90+3↑j
                 LDA     $52B,X
                 CMP     #$CF
                 BEQ     loc_1B7DE
                 JMP     loc_1B860
 ; ---------------------------------------------------------------------------
 
-loc_1B7DE:                              ; CODE XREF: sub_1B7B8+21↑j
+loc_1B7DE:                              ; CODE XREF: enemy_type_90+21↑j
                 LDA     $767,X
                 LDY     #0
                 CMP     #$28 ; '('
@@ -10359,8 +10340,8 @@ loc_1B7DE:                              ; CODE XREF: sub_1B7B8+21↑j
                 BCS     loc_1B7FB
                 LDY     #$F0
 
-loc_1B7FB:                              ; CODE XREF: sub_1B7B8+2D↑j
-                                        ; sub_1B7B8+33↑j ...
+loc_1B7FB:                              ; CODE XREF: enemy_type_90+2D↑j
+                                        ; enemy_type_90+33↑j ...
                 TYA
                 CLC
                 ADC     $694,X
@@ -10398,39 +10379,39 @@ loc_1B7FB:                              ; CODE XREF: sub_1B7B8+2D↑j
                 JSR     sub_C03F
                 BNE     loc_1B860
 
-loc_1B84F:                              ; CODE XREF: sub_1B7B8+83↑j
-                LDA     $B877,Y
+loc_1B84F:                              ; CODE XREF: enemy_type_90+83↑j
+                LDA     unk_1B877,Y
                 STA     $463,X
-                LDA     $B87B,Y
+                LDA     unk_1B87B,Y
                 STA     $464,X
                 LDX     $10
                 JSR     sub_C03F
 
-loc_1B860:                              ; CODE XREF: sub_1B7B8+23↑j
-                                        ; sub_1B7B8+4B↑j ...
+loc_1B860:                              ; CODE XREF: enemy_type_90+23↑j
+                                        ; enemy_type_90+4B↑j ...
                 JSR     sub_18204
                 JSR     sub_1A2B1
                 BEQ     loc_1B869
                 RTS
 ; ---------------------------------------------------------------------------
 
-loc_1B869:                              ; CODE XREF: sub_1B7B8+AE↑j
+loc_1B869:                              ; CODE XREF: enemy_type_90+AE↑j
                 LDA     #0
                 JSR     sub_1B169
                 LDY     #$22 ; '"'
                 JMP     sub_1B09A
-; End of function sub_1B7B8
+; End of function enemy_type_90
 
 ; ---------------------------------------------------------------------------
 unk_1B873:      .BYTE $AA
                 .BYTE $FF
                 .BYTE   0
                 .BYTE $55 ; U
-                .BYTE $BB
+unk_1B877:      .BYTE $BB
                 .BYTE $FF
                 .BYTE $33 ; 3
                 .BYTE $77 ; w
-                .BYTE $EE
+unk_1B87B:      .BYTE $EE
                 .BYTE $FF
                 .BYTE $CC
                 .BYTE $DD
@@ -10438,8 +10419,8 @@ unk_1B873:      .BYTE $AA
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1B87F:                              ; CODE XREF: sub_1ACDE↑p
-                                        ; sub_1AD25↑p ...
+sub_1B87F:                              ; CODE XREF: enemy_type_53↑p
+                                        ; enemy_type_54↑p ...
                 LDA     $528,X
                 BMI     loc_1B895
                 JSR     sub_1B8A3
@@ -10456,7 +10437,7 @@ loc_1B88C:                              ; CODE XREF: sub_1B87F+8↑j
                 RTS
 ; ---------------------------------------------------------------------------
 
-loc_1B895:                              ; CODE XREF: sub_1B69B:loc_1B6B0↑p
+loc_1B895:                              ; CODE XREF: enemy_type_80:loc_1B6B0↑p
                                         ; sub_1B87F+3↑j
                 JSR     sub_1B8A3
                 BCS     loc_1B89B
@@ -10467,14 +10448,14 @@ loc_1B89B:                              ; CODE XREF: sub_1B87F+19↑j
                 PLA
                 PLA
                 JSR     sub_18788
-                JMP     sub_182FE
+                JMP     enemy_common    ; A generic piece of code for some types as well as type 40 always goes here.
 ; End of function sub_1B87F
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_1B8A3:                              ; CODE XREF: sub_1B342↑p
+sub_1B8A3:                              ; CODE XREF: enemy_type_73_74_75_76_77_78↑p
                                         ; sub_1B87F+5↑p ...
                 LDA     $AE
                 CLC
@@ -10639,7 +10620,7 @@ loc_1B95F:                              ; CODE XREF: sub_1B8E5+48↑j
                 LDA     $C7
                 AND     #$20 ; ' '
                 BEQ     loc_1B96E
-                JSR     $C072
+                JSR     sub_C072
 
 loc_1B96E:                              ; CODE XREF: sub_1B8E5+84↑j
                 LDA     #$60 ; '`'
@@ -10688,7 +10669,7 @@ loc_1B9AC:                              ; CODE XREF: sub_1B8E5+36↑j
                 AND     #$20 ; ' '
                 BEQ     loc_1B9BF
                 LDA     #$1A
-                JSR     $C030
+                JSR     sub_C030
 
 loc_1B9BF:                              ; CODE XREF: sub_1B8E5+C9↑j
                                         ; sub_1B8E5+CD↑j ...
@@ -10803,7 +10784,7 @@ loc_1BA5D:                              ; CODE XREF: sub_1B8E5+17D↓j
                 LDA     $C0
                 ORA     #$10
                 STA     $C0
-                JSR     sub_C00F
+                JSR     j_ppu_disable_all
                 LDA     $A1
                 CMP     #$E
                 BNE     loc_1BA7A
@@ -10827,7 +10808,7 @@ loc_1BA7A:                              ; CODE XREF: sub_1B8E5+191↑j
                 LDA     $C0
                 AND     #$EF
                 STA     $C0
-                JSR     sub_C012
+                JSR     j_ppu_enable_all
 
 loc_1BAA1:                              ; CODE XREF: sub_1B8E5+14C↑j
                 PLA
@@ -10920,7 +10901,7 @@ loc_1BB29:                              ; CODE XREF: sub_1B8E5+23F↑j
 ; End of function sub_1B8E5
 
 ; ---------------------------------------------------------------------------
-                .BYTE $22 ; "
+tab_BB2C:       .BYTE $22 ; "
                 .BYTE $12
                 .BYTE   2
                 .BYTE $21 ; !
@@ -10977,13 +10958,13 @@ loc_1BB5B:                              ; CODE XREF: sub_1BB56↑j
                 LDX     #3
 
 loc_1BB62:                              ; CODE XREF: sub_1BB56+1C↓j
-                LDA     $BB2B,X
+                LDA     $BB2B,X         ; tab_BB2C - 1
                 STA     $145,X
                 STA     $148,X
                 STA     $14B,X
                 STA     $14E,X
                 DEX
-                BNE     loc_1BB62
+                BNE     loc_1BB62       ; tab_BB2C - 1
                 LDA     #1
                 STA     $144
                 LDY     #$1E
@@ -11095,7 +11076,7 @@ sub_1BC04:                              ; CODE XREF: sub_1BC04+47↓j
                 LDA     $528,X
                 CMP     #$5A ; 'Z'
                 BEQ     loc_1BC46
-                JSR     sub_1B355
+                JSR     fortress_core_appears ; When some Core of the Fortress shows up (by Core, you mean some shooting part of the Fortress)
 
 loc_1BC46:                              ; CODE XREF: sub_1BC04+3D↑j
                 PLA

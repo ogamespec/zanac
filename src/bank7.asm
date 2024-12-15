@@ -7,6 +7,7 @@
 
 ; Segment type: Pure code
                 ;.segment ROM
+                ;* =  $C000
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -39,36 +40,36 @@ sub_C006:
 
 ; Attributes: thunk
 
-sub_C009:
-                JMP     sub_CAE7
-; End of function sub_C009
+j_ppu_nmi_disable:
+                JMP     ppu_nmi_disable
+; End of function j_ppu_nmi_disable
 
 
 ; =============== S U B R O U T I N E =======================================
 
 ; Attributes: thunk
 
-sub_C00C:
-                JMP     sub_CAF7
-; End of function sub_C00C
+j_ppu_nmi_enable:
+                JMP     ppu_nmi_enable
+; End of function j_ppu_nmi_enable
 
 
 ; =============== S U B R O U T I N E =======================================
 
 ; Attributes: thunk
 
-sub_C00F:                               ; CODE XREF: sub_1B8E5+18A↓P
-                JMP     sub_CACD
-; End of function sub_C00F
+j_ppu_disable_all:                      ; CODE XREF: sub_1B8E5+18A↓P
+                JMP     ppu_disable_all
+; End of function j_ppu_disable_all
 
 
 ; =============== S U B R O U T I N E =======================================
 
 ; Attributes: thunk
 
-sub_C012:                               ; CODE XREF: sub_1B8E5+1B9↓P
-                JMP     sub_CAF1
-; End of function sub_C012
+j_ppu_enable_all:                       ; CODE XREF: sub_1B8E5+1B9↓P
+                JMP     ppu_enable_all
+; End of function j_ppu_enable_all
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -141,7 +142,7 @@ sub_C027:
 ; Attributes: thunk
 
 sub_C02A:                               ; CODE XREF: sub_196F3↓P
-                                        ; sub_1A779+9F↓P ...
+                                        ; enemy_type_61+9F↓P ...
                 JMP     sub_D18C
 ; End of function sub_C02A
 
@@ -159,8 +160,8 @@ sub_C02D:
 
 ; Attributes: thunk
 
-sub_C030:                               ; CODE XREF: sub_19039+15↓P
-                                        ; sub_1907F:loc_1909F↓P ...
+sub_C030:                               ; CODE XREF: enemy_type_60+2A↓P
+                                        ; enemy_type_2+15↓P ...
                 JMP     sub_EF90
 ; End of function sub_C030
 
@@ -187,7 +188,7 @@ sub_C036:
 
 ; Attributes: thunk
 
-sub_C039:                               ; CODE XREF: sub_1B7B8+65↓P
+sub_C039:                               ; CODE XREF: enemy_type_90+65↓P
                 JMP     sub_C7D8
 ; End of function sub_C039
 
@@ -197,7 +198,7 @@ sub_C039:                               ; CODE XREF: sub_1B7B8+65↓P
 ; Attributes: thunk
 
 sub_C03C:                               ; CODE XREF: sub_1B20E+9↓P
-                                        ; sub_1B7B8+6A↓P ...
+                                        ; enemy_type_90+6A↓P ...
                 JMP     sub_C7F8
 ; End of function sub_C03C
 
@@ -207,7 +208,7 @@ sub_C03C:                               ; CODE XREF: sub_1B20E+9↓P
 ; Attributes: thunk
 
 sub_C03F:                               ; CODE XREF: sub_1B20E+4A↓P
-                                        ; sub_1B7B8+92↓P ...
+                                        ; enemy_type_90+92↓P ...
                 JMP     sub_C807
 ; End of function sub_C03F
 
@@ -281,7 +282,7 @@ sub_C054:
 
 ; Attributes: thunk
 
-sub_C057:                               ; CODE XREF: sub_199F6+FD↓J
+sub_C057:                               ; CODE XREF: enemy_type_14+FD↓J
                                         ; sub_1B8E5+208↓P
                 JMP     loc_D193
 ; End of function sub_C057
@@ -364,7 +365,7 @@ sub_C06F:
 
 ; Attributes: thunk
 
-sub_C072:
+sub_C072:                               ; CODE XREF: sub_1B8E5+86↓P
                 JMP     sub_F146
 ; End of function sub_C072
 
@@ -373,8 +374,8 @@ sub_C072:
 
 ; Attributes: thunk
 
-j_switch_case:                          ; CODE XREF: sub_1907F+4B↓P
-                                        ; sub_190DD+2↓P ...
+j_switch_case:                          ; CODE XREF: enemy_type_3+4B↓P
+                                        ; special_weapon_process+2↓P ...
                 JMP     switch_case     ; Old-school Switch-Case. Right after the call there is a jump table of variable size.
 ; End of function j_switch_case
 
@@ -383,7 +384,7 @@ j_switch_case:                          ; CODE XREF: sub_1907F+4B↓P
 
 ; Attributes: thunk
 
-sub_C078:
+sub_C078:                               ; CODE XREF: enemy_type_64+15↓P
                 JMP     sub_D69B
 ; End of function sub_C078
 
@@ -564,21 +565,9 @@ sub_C090:                               ; CODE XREF: sub_1B8E5+1E4↓P
                 .BYTE $FF
                 .BYTE $FF
                 .BYTE $FF
-byte_C0F8:      .BYTE 0                 ; DATA XREF: sub_C824+5↓r
-                                        ; sub_C824+8↓w
-byte_C0F9:      .BYTE 1                 ; DATA XREF: sub_C831+5↓r
-                                        ; sub_C831+8↓w
-byte_C0FA:      .BYTE 2                 ; DATA XREF: sub_C83E+5↓r
-                                        ; sub_C83E+8↓w
-byte_C0FB:      .BYTE 3                 ; DATA XREF: sub_C84B+5↓r
-                                        ; sub_C84B+8↓w
-byte_C0FC:      .BYTE 4                 ; DATA XREF: sub_C858+5↓r
-                                        ; sub_C858+8↓w
-byte_C0FD:      .BYTE 5                 ; DATA XREF: switch_bank_5+5↓r
-                                        ; switch_bank_5+8↓w
-byte_C0FE:      .BYTE 6                 ; DATA XREF: switch_bank_6+5↓r
-                                        ; switch_bank_6+8↓w
-unk_C0FF:       .BYTE   7
+bank_remap_table:.BYTE 0, 1, 2, 3, 4, 5, 6, 7
+                                        ; DATA XREF: switch_bank_0_unused+5↓r
+                                        ; switch_bank_0_unused+8↓w ...
 unk_C100:       .BYTE   8
                 .BYTE   8
                 .BYTE  $A
@@ -2050,9 +2039,9 @@ sub_C6AB:                               ; CODE XREF: sub_C01B↑j
 sub_C6B5:                               ; CODE XREF: sub_CEC5+4↓p
                                         ; sub_D6AF-A↓p
                 LDA     byte_9A
-                STA     byte_FD
+                STA     ppu_scroll_1st_value
                 LDA     byte_98
-                STA     byte_FC
+                STA     ppu_scroll_2nd_value
                 LDA     last_ppu_ctrl1
                 AND     #$FC
                 LSR
@@ -2094,8 +2083,8 @@ stack_call_return:                      ; CODE XREF: print_string+E↓j
 
 ; Uses old-school parameter passing, via stack and return address. After JSR is byte - number of Chars, then Word - VRAM address, then variable size string for output.
 
-print_string:                           ; CODE XREF: sub_DFBF+198↓p
-                                        ; sub_DFBF+1A8↓p ...
+print_string:                           ; CODE XREF: show_main_menu+198↓p
+                                        ; show_main_menu+1A8↓p ...
                 PLA
                 STA     byte_16
                 PLA
@@ -2207,7 +2196,7 @@ loc_C75A:                               ; CODE XREF: sub_C725+3B↓j
 
 
 sub_C768:                               ; CODE XREF: sub_C018↑j
-                                        ; sub_DFBF+4E↓p ...
+                                        ; show_main_menu+4E↓p ...
                 STA     PPU_ADDRESS
                 STA     byte_2
                 LDA     #0
@@ -2251,16 +2240,16 @@ locret_C7A2:                            ; CODE XREF: sub_C768+2D↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_C7A3:                               ; CODE XREF: sub_CAF1↓p
+ppu_update_scroll_regs:                 ; CODE XREF: ppu_enable_all↓p
                                         ; nmi_handler+26↓p
                 LDA     last_ppu_ctrl1
                 STA     PPU_CTRL_REG1
-                LDA     byte_FD
+                LDA     ppu_scroll_1st_value
                 STA     PPU_SCROLL_REG
-                LDA     byte_FC
+                LDA     ppu_scroll_2nd_value
                 STA     PPU_SCROLL_REG
                 RTS
-; End of function sub_C7A3
+; End of function ppu_update_scroll_regs
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -2389,8 +2378,8 @@ switch_bank:                            ; CODE XREF: j_switch_bank↑j
                 TYA
                 PHA
                 LDY     last_bank_num
-                LDA     byte_C0F8,Y
-                STA     byte_C0F8,Y
+                LDA     bank_remap_table,Y
+                STA     bank_remap_table,Y
                 PLA
                 TAY
                 RTS
@@ -2400,71 +2389,71 @@ switch_bank:                            ; CODE XREF: j_switch_bank↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_C824:
+switch_bank_0_unused:
                 PHA
                 LDA     #0
                 STA     last_bank_num
-                LDA     byte_C0F8
-                STA     byte_C0F8
+                LDA     bank_remap_table
+                STA     bank_remap_table
                 PLA
                 RTS
-; End of function sub_C824
+; End of function switch_bank_0_unused
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_C831:
+switch_bank_1_unused:
                 PHA
                 LDA     #1
                 STA     last_bank_num
-                LDA     byte_C0F9
-                STA     byte_C0F9
+                LDA     bank_remap_table+1
+                STA     bank_remap_table+1
                 PLA
                 RTS
-; End of function sub_C831
+; End of function switch_bank_1_unused
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_C83E:
+switch_bank_2_unused:
                 PHA
                 LDA     #2
                 STA     last_bank_num
-                LDA     byte_C0FA
-                STA     byte_C0FA
+                LDA     bank_remap_table+2
+                STA     bank_remap_table+2
                 PLA
                 RTS
-; End of function sub_C83E
+; End of function switch_bank_2_unused
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_C84B:
+switch_bank_3_unused:
                 PHA
                 LDA     #3
                 STA     last_bank_num
-                LDA     byte_C0FB
-                STA     byte_C0FB
+                LDA     bank_remap_table+3
+                STA     bank_remap_table+3
                 PLA
                 RTS
-; End of function sub_C84B
+; End of function switch_bank_3_unused
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_C858:
+switch_bank_4:
                 PHA
                 LDA     #4
                 STA     last_bank_num
-                LDA     byte_C0FC
-                STA     byte_C0FC
+                LDA     bank_remap_table+4
+                STA     bank_remap_table+4
                 PLA
                 RTS
-; End of function sub_C858
+; End of function switch_bank_4
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -2475,8 +2464,8 @@ switch_bank_5:                          ; CODE XREF: sub_C985+41↓p
                 PHA
                 LDA     #5
                 STA     last_bank_num
-                LDA     byte_C0FD
-                STA     byte_C0FD
+                LDA     bank_remap_table+5
+                STA     bank_remap_table+5
                 PLA
                 RTS
 ; End of function switch_bank_5
@@ -2490,8 +2479,8 @@ switch_bank_6:                          ; CODE XREF: sub_CC57+4D↓p
                 PHA
                 LDA     #6
                 STA     last_bank_num
-                LDA     byte_C0FE
-                STA     byte_C0FE
+                LDA     bank_remap_table+6
+                STA     bank_remap_table+6
                 PLA
                 RTS
 ; End of function switch_bank_6
@@ -2545,8 +2534,8 @@ sub_C8A0:                               ; CODE XREF: sub_C87F+16↑p
 sub_C8AC:                               ; CODE XREF: sub_C87F+1E↑j
                 STA     last_bank_num
                 TAY
-                LDA     byte_C0F8,Y
-                STA     byte_C0F8,Y
+                LDA     bank_remap_table,Y
+                STA     bank_remap_table,Y
                 LDA     byte_10
                 LDY     byte_11
                 RTS
@@ -2563,7 +2552,7 @@ sub_C8BA:                               ; CODE XREF: sub_C045↑j
 
 loc_C8BC:                               ; CODE XREF: sub_C8BA+20↓j
                 JSR     sub_CD6B
-                LDA     byte_FE
+                LDA     last_ppu_ctrl2
                 AND     #$18
                 BNE     loc_C8D4
                 LDA     last_ppu_ctrl1
@@ -2778,7 +2767,7 @@ loc_C9E8:                               ; CODE XREF: sub_C985+5F↑j
                 LDY     byte_10
                 AND     $16E,Y
                 ORA     byte_11
-				.BYTE $9D, $44, $00  ; STA !$44,X  -- Force non Zero Page [!]
+                .BYTE $9D, $44, $00  ; STA !$44,X  -- Force non Zero Page [!]
                 LDX     byte_21
                 STA     $467,X
                 PLA
@@ -2839,13 +2828,13 @@ loc_CA56:                               ; CODE XREF: sub_CA0F+43↑j
                 BNE     loc_CA7C
                 LDA     $466,X
                 TAX
-				.BYTE $BD, $44, $00    ; LDA     $44,X    -- Force non Zero Page [!]
+                .BYTE $BD, $44, $00    ; LDA     $44,X    -- Force non Zero Page [!]
                 AND     byte_D7DB,Y
                 STA     byte_11
                 LDA     byte_D7DF,Y
                 AND     byte_63
                 ORA     byte_11
-				.BYTE $9D, $44, $00  	; STA     $44,X   -- Force non Zero Page [!]
+                .BYTE $9D, $44, $00     ; STA     $44,X   -- Force non Zero Page [!]
                 LDX     byte_21
                 STA     $467,X
                 PLA
@@ -2879,7 +2868,7 @@ loc_CA7C:                               ; CODE XREF: sub_CA0F+4B↑j
 
 
 sub_CA9D:                               ; CODE XREF: sub_C05A↑j
-                                        ; sub_DFBF+14↓p ...
+                                        ; show_main_menu+14↓p ...
                 LDY     #0
 
 loc_CA9F:                               ; CODE XREF: sub_CA9D+A↓j
@@ -2921,46 +2910,48 @@ sub_CAB2:                               ; CODE XREF: sub_CB4B+8F↓p
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_CACD:                               ; CODE XREF: sub_C00F↑j
-                                        ; sub_DFBF+3↓p ...
-                JSR     sub_CAE7
+ppu_disable_all:                        ; CODE XREF: j_ppu_disable_all↑j
+                                        ; show_main_menu+3↓p ...
+                JSR     ppu_nmi_disable
                 LDA     PPU_STATUS
-                LDA     byte_FE
+                LDA     last_ppu_ctrl2
                 AND     #$E7
-; End of function sub_CACD
+; End of function ppu_disable_all
 
 
 ; =============== S U B R O U T I N E =======================================
 
+; A = new PPU CTRL2 value
 
-sub_CAD7:                               ; CODE XREF: reset+13↓p
+ppu_set_control2:                       ; CODE XREF: reset+13↓p
                                         ; reset+86↓p
                 STA     PPU_CTRL_REG2
-                STA     byte_FE
+                STA     last_ppu_ctrl2
                 RTS
-; End of function sub_CAD7
+; End of function ppu_set_control2
 
 
 ; =============== S U B R O U T I N E =======================================
 
+; Enable BG & Sprites
 
-sub_CADD:                               ; CODE XREF: sub_CAF1+3↓p
-                LDA     byte_FE
+ppu_enable_picture:                     ; CODE XREF: ppu_enable_all+3↓p
+                LDA     last_ppu_ctrl2
                 ORA     #$18
-                STA     byte_FE
+                STA     last_ppu_ctrl2
                 STA     PPU_CTRL_REG2
                 RTS
-; End of function sub_CADD
+; End of function ppu_enable_picture
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_CAE7:                               ; CODE XREF: sub_C009↑j
-                                        ; sub_CACD↑p
+ppu_nmi_disable:                        ; CODE XREF: j_ppu_nmi_disable↑j
+                                        ; ppu_disable_all↑p
                 LDA     last_ppu_ctrl1
                 AND     #$7F
-; End of function sub_CAE7
+; End of function ppu_nmi_disable
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -2976,31 +2967,31 @@ ppu_set_control1:                       ; CODE XREF: reset+E↓p
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_CAF1:                               ; CODE XREF: sub_C012↑j
+ppu_enable_all:                         ; CODE XREF: j_ppu_enable_all↑j
                                         ; sub_DDF3+3↓j
-                JSR     sub_C7A3
-                JSR     sub_CADD
-; End of function sub_CAF1
+                JSR     ppu_update_scroll_regs
+                JSR     ppu_enable_picture ; Enable BG & Sprites
+; End of function ppu_enable_all
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_CAF7:                               ; CODE XREF: sub_C00C↑j
+ppu_nmi_enable:                         ; CODE XREF: j_ppu_nmi_enable↑j
                                         ; sub_DDF9+9↓p ...
                 LDA     last_ppu_ctrl1
                 ORA     #$80
                 STA     last_ppu_ctrl1
                 STA     PPU_CTRL_REG1
                 RTS
-; End of function sub_CAF7
+; End of function ppu_nmi_enable
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
 sub_CB01:                               ; CODE XREF: sub_C015↑j
-                                        ; sub_DFBF+17↓p ...
+                                        ; show_main_menu+17↓p ...
                 LDA     #$F8
                 LDX     #2
                 LDY     #2
@@ -3051,6 +3042,7 @@ loc_CB2D:                               ; CODE XREF: sub_CB0A+33↓j
 
 ; =============== S U B R O U T I N E =======================================
 
+; Clear array $172...$179
 
 sub_CB40:                               ; CODE XREF: sub_CB4B:loc_CC36↓p
                                         ; reset+3E↓p
@@ -3208,7 +3200,7 @@ unk_CC26:       .BYTE   6
 ; ---------------------------------------------------------------------------
 
 loc_CC36:                               ; CODE XREF: sub_CB4B+89↑j
-                JSR     sub_CB40
+                JSR     sub_CB40        ; Clear array $172...$179
                 LDY     byte_7D
                 LDA     byte_199
                 BEQ     loc_CC50
@@ -3339,15 +3331,15 @@ sub_CCE3:                               ; CODE XREF: sub_D0BF+2C↓p
                                         ; sub_D3F4↓p ...
                 LDA     byte_19B
                 BEQ     loc_CCED
-                LDA     byte_41
+                LDA     vblank_wait_flag ; Set (incremented) in the NMI handler. The application is waiting until this flag is 0 to know that the VBlank handler has not started its work yet
                 STA     byte_181
 
 loc_CCED:                               ; CODE XREF: sub_CCE3+3↑j
                                         ; sub_CCE3+C↓j
-                LDA     byte_41
+                LDA     vblank_wait_flag ; Set (incremented) in the NMI handler. The application is waiting until this flag is 0 to know that the VBlank handler has not started its work yet
                 BEQ     loc_CCED
                 LDA     #0
-                STA     byte_41
+                STA     vblank_wait_flag ; Set (incremented) in the NMI handler. The application is waiting until this flag is 0 to know that the VBlank handler has not started its work yet
                 RTS
 ; End of function sub_CCE3
 
@@ -3676,23 +3668,23 @@ nmi_handler:                            ; DATA XREF: ROM:FFFA↓o
                 PHA
                 TYA
                 PHA
-                LDA     byte_FE
+                LDA     last_ppu_ctrl2
                 PHA
                 AND     #$E7
-                STA     byte_FE
+                STA     last_ppu_ctrl2
                 STA     PPU_CTRL_REG2
-                INC     byte_41
+                INC     vblank_wait_flag ; Set (incremented) in the NMI handler. The application is waiting until this flag is 0 to know that the VBlank handler has not started its work yet
                 LDA     PPU_STATUS
-                STA     byte_7F
+                STA     ppu_status_in_vblank ; The VBlank handler saves here the contents of the PPU_STATUS register
                 LDA     #0
                 STA     PPU_SPR_ADDR
-                LDA     #2
+                LDA     #2              ; Start OAM DMA. Page 2 ($200) is traditionally used for the transfer
                 STA     PPU_SPR_DMA
                 JSR     sub_CEC5
                 JSR     ppu_cram_update ; Update CRAM (palette)
-                JSR     sub_C7A3
+                JSR     ppu_update_scroll_regs
                 PLA
-                STA     byte_FE
+                STA     last_ppu_ctrl2
                 STA     PPU_CTRL_REG2
                 JSR     sub_EA52
                 PLA
@@ -4566,8 +4558,8 @@ locret_D346:                            ; CODE XREF: sub_D2FD+5↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_D347:                               ; CODE XREF: sub_DFBF+A1↓p
-                                        ; sub_DFBF+23D↓p ...
+sub_D347:                               ; CODE XREF: show_main_menu+A1↓p
+                                        ; show_main_menu+23D↓p ...
                 LDY     #$30 ; '0'
                 STY     byte_11
                 STY     byte_12
@@ -4900,11 +4892,11 @@ loc_D4FA:                               ; CODE XREF: sub_D5AB+4↓j
 ; End of function sub_D480
 
 ; ---------------------------------------------------------------------------
-                .WORD $D50F             ; $D510
-                .WORD $D519             ; $D51A
-                .WORD $D527             ; $D528
-                .WORD $D54C             ; $D54D
-                .WORD $D558             ; $D559
+                .WORD $D50F             ; sub_D510 - 1
+                .WORD $D519             ; sub_D51A - 1
+                .WORD $D527             ; sub_D528 - 1
+                .WORD $D54C             ; sub_D54D - 1
+                .WORD $D558             ; sub_D559 - 1
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -5465,7 +5457,7 @@ loc_D789:                               ; CODE XREF: sub_D77B+2↑j
 
 
 sub_D78F:                               ; CODE XREF: sub_D77B:loc_D789↑p
-                LDA     byte_FE
+                LDA     last_ppu_ctrl2
                 AND     #$18
                 BNE     locret_D7A4
                 LDA     last_ppu_ctrl1
@@ -6696,9 +6688,9 @@ loc_DDF1:                               ; CODE XREF: sub_DD9E+5↑j
 
 
 sub_DDF3:                               ; CODE XREF: sub_C05D↑j
-                                        ; sub_DFBF+A7↓p ...
+                                        ; show_main_menu+A7↓p ...
                 JSR     sub_DDF9
-                JMP     sub_CAF1
+                JMP     ppu_enable_all
 ; End of function sub_DDF3
 
 
@@ -6711,7 +6703,7 @@ sub_DDF9:                               ; CODE XREF: sub_DDF3↑p
                 PHA
                 LDA     #0
                 STA     cram_update_mode
-                JSR     sub_CAF7
+                JSR     ppu_nmi_enable
                 LDY     #1
                 JSR     all_enemies_destroyed ; Called when all enemies are destroyed (with weapon 6 or via Enemy Eraser)
                 PLA
@@ -6947,23 +6939,24 @@ loc_DF5C:                               ; CODE XREF: sub_DF48+10↑j
 
 ; =============== S U B R O U T I N E =======================================
 
+; During Hard Reset, reset current Score. Also increase Reset Counter
 
-sub_DF68:                               ; CODE XREF: reset+2D↓p
-                LDA     byte_102
+reset_score:                            ; CODE XREF: reset+2D↓p
+                LDA     hard_reset_marker1
                 CMP     #$35 ; '5'
                 BNE     loc_DF7A
-                LDA     byte_103
+                LDA     hard_reset_marker2
                 CMP     #$53 ; 'S'
                 BNE     loc_DF7A
-                INC     byte_19A
+                INC     reset_counter
                 RTS
 ; ---------------------------------------------------------------------------
 
-loc_DF7A:                               ; CODE XREF: sub_DF68+5↑j
-                                        ; sub_DF68+C↑j
+loc_DF7A:                               ; CODE XREF: reset_score+5↑j
+                                        ; reset_score+C↑j
                 LDX     #6
 
-loc_DF7C:                               ; CODE XREF: sub_DF68+1B↓j
+loc_DF7C:                               ; CODE XREF: reset_score+1B↓j
                 LDA     unk_DF9F,X
                 STA     $182,X
                 DEX
@@ -6971,15 +6964,15 @@ loc_DF7C:                               ; CODE XREF: sub_DF68+1B↓j
                 LDA     #1
                 STA     byte_7D
                 LDA     #0
-                STA     byte_19A
+                STA     reset_counter
                 STA     byte_199
                 STA     byte_19B
                 LDA     #$35 ; '5'
-                STA     byte_102
+                STA     hard_reset_marker1
                 LDA     #$53 ; 'S'
-                STA     byte_103
+                STA     hard_reset_marker2
                 RTS
-; End of function sub_DF68
+; End of function reset_score
 
 ; ---------------------------------------------------------------------------
 unk_DF9F:       .BYTE   0
@@ -7017,10 +7010,11 @@ unk_DF9F:       .BYTE   0
 
 ; =============== S U B R O U T I N E =======================================
 
+; Display the title (main menu), no game mode selection yet
 
-sub_DFBF:                               ; CODE XREF: reset+50↓p
+show_main_menu:                         ; CODE XREF: reset+50↓p
                 JSR     sub_EF79
-                JSR     sub_CACD
+                JSR     ppu_disable_all
                 LDA     #0
                 STA     byte_9C
                 STA     byte_20
@@ -7064,7 +7058,7 @@ sub_DFBF:                               ; CODE XREF: reset+50↓p
                 JMP     sub_E439
 ; ---------------------------------------------------------------------------
 
-loc_E020:                               ; CODE XREF: sub_DFBF+5C↑j
+loc_E020:                               ; CODE XREF: show_main_menu+5C↑j
                 LDA     #$20 ; ' '
                 STA     byte_19
                 LDA     #0
@@ -7096,7 +7090,7 @@ loc_E020:                               ; CODE XREF: sub_DFBF+5C↑j
                 JSR     sub_D347
                 JSR     sub_C6AB
                 JSR     sub_DDF3
-                JSR     $8006
+                JSR     sub_18006
                 LDA     #3
                 JSR     sub_EF90
                 LDA     #$B
@@ -7107,8 +7101,8 @@ loc_E020:                               ; CODE XREF: sub_DFBF+5C↑j
                 STA     byte_300
                 STA     byte_6F
 
-loc_E080:                               ; CODE XREF: sub_DFBF+DE↓j
-                                        ; sub_DFBF+E7↓j
+loc_E080:                               ; CODE XREF: show_main_menu+DE↓j
+                                        ; show_main_menu+E7↓j
                 LDY     #1
                 JSR     all_enemies_destroyed ; Called when all enemies are destroyed (with weapon 6 or via Enemy Eraser)
                 JSR     sub_E229
@@ -7128,7 +7122,7 @@ loc_E080:                               ; CODE XREF: sub_DFBF+DE↓j
                 RTS
 ; ---------------------------------------------------------------------------
 
-loc_E0A9:                               ; CODE XREF: sub_DFBF+D9↑j
+loc_E0A9:                               ; CODE XREF: show_main_menu+D9↑j
                 JSR     sub_CB01
                 LDA     #$13
                 JSR     sub_C7EB
@@ -7143,7 +7137,7 @@ loc_E0A9:                               ; CODE XREF: sub_DFBF+D9↑j
                 LDY     #$10
                 LDA     #$AA
 
-loc_E0C8:                               ; CODE XREF: sub_DFBF+10E↓j
+loc_E0C8:                               ; CODE XREF: show_main_menu+10E↓j
                 STA     $463,X
                 INX
                 DEY
@@ -7154,7 +7148,7 @@ loc_E0C8:                               ; CODE XREF: sub_DFBF+10E↓j
                 LDA     #$A2
                 STA     byte_70
 
-loc_E0DA:                               ; CODE XREF: sub_DFBF+160↓j
+loc_E0DA:                               ; CODE XREF: show_main_menu+160↓j
                 LDA     #$10
                 JSR     sub_C7EB
                 JSR     sub_C7F8
@@ -7167,7 +7161,7 @@ loc_E0DA:                               ; CODE XREF: sub_DFBF+160↓j
                 STA     $462,X
                 LDY     #0
 
-loc_E0F4:                               ; CODE XREF: sub_DFBF+155↓j
+loc_E0F4:                               ; CODE XREF: show_main_menu+155↓j
                 LDA     byte_70
                 CMP     #$BD
                 BCC     loc_E100
@@ -7175,18 +7169,18 @@ loc_E0F4:                               ; CODE XREF: sub_DFBF+155↓j
                 JMP     loc_E10D
 ; ---------------------------------------------------------------------------
 
-loc_E100:                               ; CODE XREF: sub_DFBF+139↑j
+loc_E100:                               ; CODE XREF: show_main_menu+139↑j
                 CMP     #$A2
                 BNE     loc_E10A
                 LDA     unk_E202,Y
                 JMP     loc_E10D
 ; ---------------------------------------------------------------------------
 
-loc_E10A:                               ; CODE XREF: sub_DFBF+143↑j
+loc_E10A:                               ; CODE XREF: show_main_menu+143↑j
                 LDA     unk_E20F,Y
 
-loc_E10D:                               ; CODE XREF: sub_DFBF+13E↑j
-                                        ; sub_DFBF+148↑j
+loc_E10D:                               ; CODE XREF: show_main_menu+13E↑j
+                                        ; show_main_menu+148↑j
                 STA     $463,X
                 INX
                 INY
@@ -7202,7 +7196,7 @@ loc_E10D:                               ; CODE XREF: sub_DFBF+13E↑j
                 LDA     #$E8
                 STA     byte_70
 
-loc_E129:                               ; CODE XREF: sub_DFBF+196↓j
+loc_E129:                               ; CODE XREF: show_main_menu+196↓j
                 LDA     #$B
                 JSR     sub_C7EB
                 JSR     sub_C7F8
@@ -7216,7 +7210,7 @@ loc_E129:                               ; CODE XREF: sub_DFBF+196↓j
                 LDY     #8
                 LDA     #$20 ; ' '
 
-loc_E145:                               ; CODE XREF: sub_DFBF+18B↓j
+loc_E145:                               ; CODE XREF: show_main_menu+18B↓j
                 STA     $463,X
                 INX
                 DEY
@@ -7247,17 +7241,17 @@ aContinue:      .BYTE "CONTINUE"
                 LDA     #$4C ; 'L'
                 STA     byte_203
 
-loc_E184:                               ; CODE XREF: sub_DFBF+1FA↓j
+loc_E184:                               ; CODE XREF: show_main_menu+1FA↓j
                 LDA     #$82
                 LDY     byte_199
                 BEQ     loc_E18D
                 LDA     #$9A
 
-loc_E18D:                               ; CODE XREF: sub_DFBF+1CA↑j
+loc_E18D:                               ; CODE XREF: show_main_menu+1CA↑j
                 STA     byte_200
 
-loc_E190:                               ; CODE XREF: sub_DFBF+20F↓j
-                                        ; sub_DFBF+217↓j ...
+loc_E190:                               ; CODE XREF: show_main_menu+20F↓j
+                                        ; show_main_menu+217↓j ...
                 LDY     #1
                 JSR     all_enemies_destroyed ; Called when all enemies are destroyed (with weapon 6 or via Enemy Eraser)
                 JSR     sub_CB0A
@@ -7269,7 +7263,7 @@ loc_E190:                               ; CODE XREF: sub_DFBF+20F↓j
                 RTS
 ; ---------------------------------------------------------------------------
 
-loc_E1A2:                               ; CODE XREF: sub_DFBF+1E0↑j
+loc_E1A2:                               ; CODE XREF: show_main_menu+1E0↑j
                 TYA
                 AND     #$2C ; ','
                 BEQ     loc_E1C9
@@ -7281,25 +7275,25 @@ loc_E1A2:                               ; CODE XREF: sub_DFBF+1E0↑j
                 LDA     byte_199
                 EOR     #1
 
-loc_E1B6:                               ; CODE XREF: sub_DFBF+204↓j
-                                        ; sub_DFBF+208↓j
+loc_E1B6:                               ; CODE XREF: show_main_menu+204↓j
+                                        ; show_main_menu+208↓j
                 STA     byte_199
                 JMP     loc_E184
 ; ---------------------------------------------------------------------------
 
-loc_E1BC:                               ; CODE XREF: sub_DFBF+1F0↑j
+loc_E1BC:                               ; CODE XREF: show_main_menu+1F0↑j
                 TYA
                 AND     #8
                 BEQ     loc_E1C5
                 LDA     #0
                 BEQ     loc_E1B6
 
-loc_E1C5:                               ; CODE XREF: sub_DFBF+200↑j
+loc_E1C5:                               ; CODE XREF: show_main_menu+200↑j
                 LDA     #1
                 BNE     loc_E1B6
 
-loc_E1C9:                               ; CODE XREF: sub_DFBF+1E6↑j
-                LDA     byte_19A
+loc_E1C9:                               ; CODE XREF: show_main_menu+1E6↑j
+                LDA     reset_counter
                 CMP     #$D
                 BNE     loc_E190
                 LDA     byte_F5
@@ -7314,7 +7308,7 @@ loc_E1C9:                               ; CODE XREF: sub_DFBF+1E6↑j
                 STA     byte_7D
                 BNE     loc_E1F2
 
-loc_E1E6:                               ; CODE XREF: sub_DFBF+21B↑j
+loc_E1E6:                               ; CODE XREF: show_main_menu+21B↑j
                 INC     byte_7D
                 LDA     byte_7D
                 CMP     #$D
@@ -7322,8 +7316,8 @@ loc_E1E6:                               ; CODE XREF: sub_DFBF+21B↑j
                 LDA     #1
                 STA     byte_7D
 
-loc_E1F2:                               ; CODE XREF: sub_DFBF+21F↑j
-                                        ; sub_DFBF+225↑j ...
+loc_E1F2:                               ; CODE XREF: show_main_menu+21F↑j
+                                        ; show_main_menu+225↑j ...
                 LDA     #$20 ; ' '
                 STA     byte_19
                 LDA     #$88
@@ -7331,7 +7325,7 @@ loc_E1F2:                               ; CODE XREF: sub_DFBF+21F↑j
                 LDA     byte_7D
                 JSR     sub_D347
                 JMP     loc_E190
-; End of function sub_DFBF
+; End of function show_main_menu
 
 ; ---------------------------------------------------------------------------
 unk_E202:       .BYTE $B0
@@ -7377,8 +7371,8 @@ unk_E21C:       .BYTE $B2
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_E229:                               ; CODE XREF: sub_DFBF+C6↑p
-                LDA     byte_19A
+sub_E229:                               ; CODE XREF: show_main_menu+C6↑p
+                LDA     reset_counter
                 CMP     #9
                 BNE     locret_E253
                 JSR     sub_E76C
@@ -7425,8 +7419,8 @@ unk_E25D:       .BYTE   2
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_E266:                               ; CODE XREF: sub_DFBF+85↑p
-                                        ; sub_DFBF+94↑p ...
+sub_E266:                               ; CODE XREF: show_main_menu+85↑p
+                                        ; show_main_menu+94↑p ...
                 LDA     #7
                 STA     byte_10
                 LDA     #0
@@ -7581,7 +7575,7 @@ aNintendoOfAmer:.BYTE "nintendo OF america inc."
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_E399:                               ; CODE XREF: sub_DFBF+76↑p
+sub_E399:                               ; CODE XREF: show_main_menu+76↑p
                                         ; sub_E399+17↓j ...
                 LDA     unk_E3B8,Y
                 BEQ     locret_E3B7
@@ -7668,7 +7662,7 @@ unk_E3B8:       .BYTE $C2
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_E3F4:                               ; CODE XREF: sub_DFBF+71↑p
+sub_E3F4:                               ; CODE XREF: show_main_menu+71↑p
                                         ; sub_E3F4+42↓j
                 LDY     #0
 
@@ -7722,7 +7716,7 @@ locret_E438:                            ; CODE XREF: sub_E3F4+28↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_E439:                               ; CODE XREF: sub_DFBF+5E↑j
+sub_E439:                               ; CODE XREF: show_main_menu+5E↑j
                                         ; sub_E439+9↓j
                 JSR     sub_CB0A
                 LDA     byte_F7
@@ -7822,7 +7816,7 @@ loc_E4BB:                               ; CODE XREF: sub_E462+4D↑j
 sub_E4CF:                               ; CODE XREF: sub_E8C9+C0↓j
                 LDY     #$78 ; 'x'
                 JSR     all_enemies_destroyed ; Called when all enemies are destroyed (with weapon 6 or via Enemy Eraser)
-                JSR     sub_CACD
+                JSR     ppu_disable_all
                 LDA     #$C
                 STA     byte_7D
                 JSR     sub_D2E4
@@ -7836,10 +7830,10 @@ sub_E4CF:                               ; CODE XREF: sub_E8C9+C0↓j
                 STA     byte_74
                 LDA     #$FF
                 STA     byte_75
-                JSR     sub_CAF7
+                JSR     ppu_nmi_enable
                 LDY     #1
                 JSR     sub_E60F
-                JSR     sub_CACD
+                JSR     ppu_disable_all
                 LDA     #$12
                 STA     byte_19
                 LDA     #0
@@ -8210,7 +8204,7 @@ reset:                                  ; CODE XREF: j_reset↑j
                 LDA     #$30 ; '0'
                 JSR     ppu_set_control1
                 LDA     #6
-                JSR     sub_CAD7
+                JSR     ppu_set_control2 ; A = new PPU CTRL2 value
                 JSR     sub_E767
                 LDX     #3
 
@@ -8224,7 +8218,7 @@ loc_E7DA:                               ; CODE XREF: reset+1E↓j
                 STA     JOYPAD_PORT2
                 LDA     #0
                 STA     APU_DELTA_REG
-                JSR     sub_DF68
+                JSR     reset_score     ; During Hard Reset, reset current Score. Also increase Reset Counter
                 LDA     byte_7D
                 PHA
                 LDX     #$A
@@ -8235,7 +8229,7 @@ loc_E7F6:                               ; CODE XREF: reset+3C↓j
                 INX
                 CPX     #$F9
                 BNE     loc_E7F6
-                JSR     sub_CB40
+                JSR     sub_CB40        ; Clear array $172...$179
                 PLA
                 STA     byte_7D
                 JSR     sub_EF71
@@ -8245,19 +8239,19 @@ loc_E806:                               ; CODE XREF: sub_CCF6+E↑j
                 LDX     #$FF
                 TXS
                 JSR     switch_bank_6
-                JSR     sub_CACD
-                JSR     sub_DFBF
+                JSR     ppu_disable_all
+                JSR     show_main_menu  ; Display the title (main menu), no game mode selection yet
                 JSR     switch_bank_6
                 JSR     sub_EF79
-                JSR     sub_CACD
+                JSR     ppu_disable_all
                 JSR     sub_CB4B
 
 loc_E81E:                               ; CODE XREF: sub_E8C9+C9↓j
                 JSR     switch_bank_6
-                JSR     sub_CACD
+                JSR     ppu_disable_all
                 JSR     sub_CB01
                 JSR     sub_18006
-                JSR     sub_18018
+                JSR     j_clear_main_menu_sprites
                 JSR     sub_1801B
                 JSR     sub_CC57
                 LDY     #7
@@ -8269,9 +8263,9 @@ loc_E83B:                               ; CODE XREF: reset+78↑j
                 TYA
                 STA     byte_66
                 JSR     sub_DDF9
-                LDA     byte_FE
+                LDA     last_ppu_ctrl2
                 ORA     #$10
-                JSR     sub_CAD7
+                JSR     ppu_set_control2 ; A = new PPU CTRL2 value
                 LDY     #$28 ; '('
 
 loc_E84A:                               ; CODE XREF: reset+9E↓j
@@ -8958,8 +8952,8 @@ loc_EB98:                               ; CODE XREF: sub_EB7A+19↑j
 ; End of function sub_EB7A
 
 ; ---------------------------------------------------------------------------
-word_EBAF:      .WORD $EBEA             ; $EBEB
-                .WORD $EBF5             ; $EBF6
+word_EBAF:      .WORD $EBEA             ; sub_EBEB - 1
+                .WORD $EBF5             ; sub_EBF6 - 1
                 .WORD $EC0A
                 .WORD $EC16
                 .WORD $EC1E

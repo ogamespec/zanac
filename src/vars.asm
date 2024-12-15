@@ -15,6 +15,7 @@ byte_17 equ $17
 byte_18 equ $18
 byte_19 equ $19
 byte_1A equ $1A
+byte_1B equ $1B
 byte_1C equ $1C
 byte_1D equ $1D
 byte_1E equ $1E
@@ -42,7 +43,8 @@ unk_36 equ $36
 byte_39 equ $39
 unk_3B equ $3B
 unk_3C equ $3C
-byte_41 equ $41
+byte_40 equ $40
+vblank_wait_flag equ $41                        ; Set (incremented) in the NMI handler. The application is waiting until this flag is 0 to know that the VBlank handler has not started its work yet
 unk_42 equ $42
 unk_44 equ $44
 byte_45 equ $45
@@ -65,7 +67,9 @@ byte_55 equ $55
 byte_56 equ $56
 byte_5A equ $5A
 unk_5B equ $5B
+special_weapon_type equ $5C
 byte_5D equ $5D
+byte_5E equ $5E
 unk_60 equ $60
 byte_62 equ $62
 byte_63 equ $63
@@ -86,10 +90,14 @@ byte_77 equ $77
 byte_7A equ $7A
 byte_7D equ $7D
 byte_7E equ $7E
-byte_7F equ $7F
+ppu_status_in_vblank equ $7F                ; The VBlank handler saves here the contents of the PPU_STATUS register
 unk_80 equ $80
 byte_83 equ $83
+byte_84 equ $84
+byte_85 equ $85
+byte_86 equ $86
 unk_86 equ $86
+byte_87 equ $87
 byte_90 equ $90
 byte_91 equ $91
 byte_92 equ $92
@@ -162,14 +170,16 @@ byte_F7 equ $F7
 byte_F8 equ $F8
 unk_F9 equ $F9
 byte_FB equ $FB
-byte_FC equ $FC
-byte_FD equ $FD
-byte_FE equ $FE
+ppu_scroll_2nd_value equ $FC
+ppu_scroll_1st_value equ $FD
+last_ppu_ctrl2 equ $FE
 last_ppu_ctrl1 equ $FF
-byte_102 equ $102
-byte_103 equ $103
+hard_reset_marker1 equ $102
+hard_reset_marker2 equ $103
 cram_update_mode equ $144
 byte_145 equ $145
+byte_171 equ $171
+byte_174 equ $174
 unk_175 equ $175
 byte_176 equ $176
 byte_177 equ $177
@@ -183,7 +193,7 @@ byte_181 equ $181
 ; $183 [6 bytes] : Top Score  (BCD encoded)
 
 byte_199 equ $199
-byte_19A equ $19A
+reset_counter equ $19A
 byte_19B equ $19B
 byte_200 equ $200
 byte_201 equ $201
@@ -219,6 +229,26 @@ byte_31F equ $31F
 byte_3C4 equ $3C4
 byte_3C5 equ $3C5
 byte_528 equ $528
+byte_52C equ $52C
+byte_542 equ $542
+byte_546 equ $546
+byte_55C equ $55C
+byte_560 equ $560
+byte_590 equ $590
 byte_5AA equ $5AA
+byte_5C4 equ $5C4
+byte_5DE equ $5DE
+byte_5F8 equ $5F8
+byte_612 equ $612
+byte_62C equ $62C
+byte_646 equ $646
+byte_6E2 equ $6E2
+byte_6FC equ $6FC
+byte_764 equ $764
+byte_77E equ $77E
+byte_782 equ $782
+byte_798 equ $798
+byte_7B2 equ $7B2
+byte_7CC equ $7CC
 unk_67A equ $67A
 unk_7FE equ $7FE

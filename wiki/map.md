@@ -22,8 +22,7 @@ sub_1801E	seg002	0000801E	00000003			R	.	.	.	.	.	.
 j_check_enemy_overflow	seg002	00008021	00000003			R	.	.	.	.	.	.
 sub_18024	seg002	00008024	00000006			R	.	.	.	.	.	.
 sub_1802A	seg002	0000802A	0000006D			R	.	.	.	.	.	.
-sub_18097	seg002	00008097	00000062			R	.	.	.	.	.	.
-sub_180F9	seg002	000080F9	00000028			R	.	.	.	.	.	.
+prng_lfsr_based	seg002	00008097	0000008A	00000000	00000000	R	.	.	.	.	.	.
 sub_1818C	seg002	0000818C	0000001B			R	.	.	.	.	.	.
 sub_181A7	seg002	000081A7	0000003D			R	.	.	.	.	.	.
 sub_181E4	seg002	000081E4	00000009			R	.	.	.	.	.	.
@@ -35,7 +34,7 @@ sub_18250	seg002	00008250	00000040			R	.	.	.	.	.	.
 sub_18290	seg002	00008290	00000021	00000000	00000000	R	.	.	.	.	.	.
 sub_182B1	seg002	000082B1	00000028			R	.	.	.	.	.	.
 sub_182D9	seg002	000082D9	00000021			R	.	.	.	.	.	.
-sub_182FE	seg002	000082FE	00000024			R	.	.	.	.	.	.
+enemy_common	seg002	000082FE	00000024			R	.	.	.	.	.	.
 sub_18322	seg002	00008322	00000025			R	.	.	.	.	.	.
 sub_18347	seg002	00008347	00000021			R	.	.	.	.	.	.
 sub_18368	seg002	00008368	0000002A			R	.	.	.	.	.	.
@@ -52,7 +51,7 @@ sub_185CE	seg002	000085CE	0000000A			R	.	.	.	.	.	.
 sub_185D8	seg002	000085D8	00000027			R	.	.	.	.	.	.
 sub_185FF	seg002	000085FF	0000000D			R	.	.	.	.	.	.
 sub_1860C	seg002	0000860C	0000000D			R	.	.	.	.	.	.
-sub_1872B	seg002	0000872B	0000001B			R	.	.	.	.	.	.
+enemy_prng	seg002	0000872B	0000001B			R	.	.	.	.	.	.
 sub_18746	seg002	00008746	00000024			R	.	.	.	.	.	.
 sub_1876A	seg002	0000876A	00000014			R	.	.	.	.	.	.
 sub_1877E	seg002	0000877E	0000000A			R	.	.	.	.	.	.
@@ -63,104 +62,115 @@ sub_187A6	seg002	000087A6	00000007			R	.	.	.	.	.	.
 sub_187C7	seg002	000087C7	0000005E			R	.	.	.	.	.	.
 check_enemy_overflow	seg002	00008825	00000010			R	.	.	.	.	.	.
 sub_18835	seg002	00008835	0000012B	00000000	00000000	R	.	.	.	.	.	.
-sub_18C68	seg002	00008C68	000001C1			R	.	.	.	.	.	.
+enemy_type_1	seg002	00008C68	000001C1			R	.	.	.	.	.	.
 sub_18E29	seg002	00008E29	0000004B			R	.	.	.	.	.	.
 set_default_weapon	seg002	00008EA1	00000017			R	.	.	.	.	.	.
-sub_18ECA	seg002	00008ECA	000000AE			R	.	.	.	.	.	.
-sub_18F78	seg002	00008F78	000000A9			R	.	.	.	.	.	.
-sub_19039	seg002	00009039	00000035			R	.	.	.	.	.	.
+warp_sequence	seg002	00008ECA	000000AE			R	.	.	.	.	.	.
+enemy_type_60	seg002	00008F78	000000A9			R	.	.	.	.	.	.
+enemy_type_2	seg002	00009039	00000035			R	.	.	.	.	.	.
 sub_1906E	seg002	0000906E	00000011			R	.	.	.	.	.	.
-sub_1907F	seg002	0000907F	0000005E			R	.	.	.	.	.	.
+enemy_type_3	seg002	0000907F	0000005E			R	.	.	.	.	.	.
 special_weapon_process	seg002	000090DD	00000005			R	.	.	.	.	.	.
 sub_1913A	seg002	0000913A	00000013	00000000	00000000	R	.	.	.	.	.	.
 sub_1914D	seg002	0000914D	0000001D			R	.	.	.	.	.	.
-sub_1916A	seg002	0000916A	00000008			R	.	.	.	.	.	.
-sub_19172	seg002	00009172	00000029			R	.	.	.	.	.	.
-sub_1919B	seg002	0000919B	00000006			R	.	.	.	.	.	.
+special_weapon_type_7	seg002	0000916A	00000008			R	.	.	.	.	.	.
+special_weapon_type_1	seg002	00009172	00000029			R	.	.	.	.	.	.
+special_weapon_type_0	seg002	0000919B	00000006			R	.	.	.	.	.	.
 sub_191A1	seg002	000091A1	0000003C			R	.	.	.	.	.	.
 sub_191E6	seg002	000091E6	00000005			R	.	.	.	.	.	.
-sub_191EB	seg002	000091EB	00000067			R	.	.	.	.	.	.
+special_weapon_type_2	seg002	000091EB	00000067			R	.	.	.	.	.	.
 sub_1925C	seg002	0000925C	0000001C			R	.	.	.	.	.	.
-sub_19278	seg002	00009278	00000079			R	.	.	.	.	.	.
+special_weapon_type_3	seg002	00009278	00000079			R	.	.	.	.	.	.
 sub_192F1	seg002	000092F1	0000003E			R	.	.	.	.	.	.
-sub_1932F	seg002	0000932F	0000002D			R	.	.	.	.	.	.
+special_weapon_type_4	seg002	0000932F	0000002D			R	.	.	.	.	.	.
 sub_1935C	seg002	0000935C	00000016	00000000	00000000	R	.	.	.	.	.	.
-sub_19372	seg002	00009372	0000009E			R	.	.	.	.	.	.
+special_weapon_type_5	seg002	00009372	0000009E			R	.	.	.	.	.	.
 sub_19410	seg002	00009410	0000001F	00000000	00000000	R	.	.	.	.	.	.
-sub_1942F	seg002	0000942F	00000006			R	.	.	.	.	.	.
-sub_19435	seg002	00009435	0000000A			R	.	.	.	.	.	.
+special_weapon_type_6	seg002	0000942F	00000006			R	.	.	.	.	.	.
+enemy_type_19	seg002	00009435	0000000A			R	.	.	.	.	.	.
 sub_1944F	seg002	0000944F	00000015			R	.	.	.	.	.	.
 sub_19464	seg002	00009464	0000000B			R	.	.	.	.	.	.
 sub_1946F	seg002	0000946F	0000001C			R	.	.	.	.	.	.
 sub_1948B	seg002	0000948B	00000008			R	.	.	.	.	.	.
 sub_19493	seg002	00009493	000000E5	00000000	00000000	R	.	.	.	.	.	.
-sub_1958E	seg002	0000958E	0000004B			R	.	.	.	.	.	.
+enemy_type_68	seg002	0000958E	0000004B			R	.	.	.	.	.	.
 sub_19615	seg002	00009615	00000006			R	.	.	.	.	.	.
-sub_1961B	seg002	0000961B	000000D8			R	.	.	.	.	.	.
+enemy_type_4_5_6	seg002	0000961B	000000C1	00000000	00000000	R	.	.	.	.	.	.
+enemy_type_63	seg002	000096E8	0000000B			R	.	.	.	.	.	.
 sub_196F3	seg002	000096F3	0000004C			R	.	.	.	.	.	.
-sub_1973F	seg002	0000973F	000000B4			R	.	.	.	.	.	.
+enemy_type_7	seg002	0000973F	0000007B	00000000	00000000	R	.	.	.	.	.	.
+enemy_type_8	seg002	000097C7	00000008			R	.	.	.	.	.	.
+sub_197CF	seg002	000097CF	00000024			R	.	.	.	.	.	.
 sub_197F3	seg002	000097F3	0000000A			R	.	.	.	.	.	.
-sub_197FD	seg002	000097FD	00000020			R	.	.	.	.	.	.
+enemy_type_9	seg002	000097FD	00000020			R	.	.	.	.	.	.
 sub_1981D	seg002	0000981D	0000000C			R	.	.	.	.	.	.
-sub_19829	seg002	00009829	00000037			R	.	.	.	.	.	.
-sub_19860	seg002	00009860	00000066			R	.	.	.	.	.	.
-sub_198C6	seg002	000098C6	00000021			R	.	.	.	.	.	.
+enemy_type_10_duster	seg002	00009829	00000037			R	.	.	.	.	.	.
+enemy_type_69	seg002	00009860	00000066			R	.	.	.	.	.	.
+enemy_type_11	seg002	000098C6	00000021			R	.	.	.	.	.	.
 sub_19918	seg002	00009918	00000024			R	.	.	.	.	.	.
-sub_1993C	seg002	0000993C	00000094			R	.	.	.	.	.	.
-sub_199F6	seg002	000099F6	00000101			R	.	.	.	.	.	.
-sub_19AF7	seg002	00009AF7	00000093			R	.	.	.	.	.	.
-sub_19B8A	seg002	00009B8A	0000009D	00000000	00000000	R	.	.	.	.	.	.
-sub_19C2B	seg002	00009C2B	0000006C			R	.	.	.	.	.	.
+enemy_type_12_13	seg002	0000993C	00000094			R	.	.	.	.	.	.
+enemy_type_14	seg002	000099F6	00000101			R	.	.	.	.	.	.
+enemy_type_15	seg002	00009AF7	00000093			R	.	.	.	.	.	.
+enemy_type_48	seg002	00009B8A	0000009D	00000000	00000000	R	.	.	.	.	.	.
+enemy_type_51	seg002	00009C2B	0000000C	00000000	00000000	R	.	.	.	.	.	.
+enemy_type_49_50_52	seg002	00009C37	00000060			R	.	.	.	.	.	.
 sub_19C97	seg002	00009C97	00000014			R	.	.	.	.	.	.
 sub_19CAB	seg002	00009CAB	0000003B			R	.	.	.	.	.	.
 sub_19CE6	seg002	00009CE6	00000029			R	.	.	.	.	.	.
 sub_19D23	seg002	00009D23	00000057			R	.	.	.	.	.	.
-sub_19D7A	seg002	00009D7A	00000035			R	.	.	.	.	.	.
+enemy_type_24	seg002	00009D7A	00000035			R	.	.	.	.	.	.
 sub_19DAF	seg002	00009DAF	00000077			R	.	.	.	.	.	.
 sub_19E2A	seg002	00009E2A	0000000E			R	.	.	.	.	.	.
-sub_19E38	seg002	00009E38	00000061			R	.	.	.	.	.	.
-sub_19E99	seg002	00009E99	00000123			R	.	.	.	.	.	.
-sub_19FD6	seg002	00009FD6	0000007E			R	.	.	.	.	.	.
+enemy_type_25	seg002	00009E38	00000061			R	.	.	.	.	.	.
+enemy_type_16	seg002	00009E99	0000001B	00000000	00000000	R	.	.	.	.	.	.
+sub_19EB4	seg002	00009EB4	00000095			R	.	.	.	.	.	.
+enemy_type_17	seg002	00009F49	00000023			R	.	.	.	.	.	.
+enemy_type_18	seg002	00009F6C	00000050			R	.	.	.	.	.	.
+enemy_type_22	seg002	00009FD6	0000007E			R	.	.	.	.	.	.
 sub_1A05E	seg002	0000A05E	0000002C			R	.	.	.	.	.	.
-sub_1A08A	seg002	0000A08A	00000031			R	.	.	.	.	.	.
-sub_1A0BB	seg002	0000A0BB	000000AA			R	.	.	.	.	.	.
-sub_1A16B	seg002	0000A16B	00000035			R	.	.	.	.	.	.
-sub_1A1A0	seg002	0000A1A0	00000029			R	.	.	.	.	.	.
-sub_1A1C9	seg002	0000A1C9	00000095			R	.	.	.	.	.	.
+enemy_type_23	seg002	0000A08A	00000031			R	.	.	.	.	.	.
+enemy_type_26	seg002	0000A0BB	000000AA			R	.	.	.	.	.	.
+enemy_type_27	seg002	0000A16B	00000035			R	.	.	.	.	.	.
+enemy_type_28	seg002	0000A1A0	00000029			R	.	.	.	.	.	.
+enemy_type_29	seg002	0000A1C9	00000095			R	.	.	.	.	.	.
 sub_1A264	seg002	0000A264	0000004D			R	.	.	.	.	.	.
 sub_1A2B1	seg002	0000A2B1	0000001A			R	.	.	.	.	.	.
 sub_1A2CB	seg002	0000A2CB	00000010			R	.	.	.	.	.	.
-sub_1A2DB	seg002	0000A2DB	000000FC			R	.	.	.	.	.	.
+enemy_type_30_32	seg002	0000A2DB	000000F0	00000000	00000000	R	.	.	.	.	.	.
+enemy_type_31_33	seg002	0000A3CB	0000000C			R	.	.	.	.	.	.
 sub_1A3D7	seg002	0000A3D7	00000015			R	.	.	.	.	.	.
-sub_1A3EC	seg002	0000A3EC	000000F3			R	.	.	.	.	.	.
-sub_1A509	seg002	0000A509	000000F8			R	.	.	.	.	.	.
-sub_1A609	seg002	0000A609	0000003C			R	.	.	.	.	.	.
-sub_1A645	seg002	0000A645	00000060			R	.	.	.	.	.	.
-sub_1A6A5	seg002	0000A6A5	0000001C			R	.	.	.	.	.	.
-sub_1A6C1	seg002	0000A6C1	0000000E			R	.	.	.	.	.	.
-sub_1A6CF	seg002	0000A6CF	00000022			R	.	.	.	.	.	.
-sub_1A6F1	seg002	0000A6F1	00000059			R	.	.	.	.	.	.
-sub_1A74C	seg002	0000A74C	0000002D			R	.	.	.	.	.	.
-sub_1A779	seg002	0000A779	000000BD			R	.	.	.	.	.	.
-sub_1A836	seg002	0000A836	0000009B			R	.	.	.	.	.	.
+enemy_type_34_65_66	seg002	0000A3EC	000000F3			R	.	.	.	.	.	.
+enemy_type_46_47	seg002	0000A509	000000F8			R	.	.	.	.	.	.
+enemy_type_56	seg002	0000A609	0000003C			R	.	.	.	.	.	.
+enemy_type_57	seg002	0000A645	00000060			R	.	.	.	.	.	.
+enemy_type_58	seg002	0000A6A5	0000001C			R	.	.	.	.	.	.
+enemy_type_59	seg002	0000A6C1	0000000E			R	.	.	.	.	.	.
+enemy_type_64	seg002	0000A6CF	00000022			R	.	.	.	.	.	.
+enemy_type_36	seg002	0000A6F1	00000059			R	.	.	.	.	.	.
+enemy_type_44	seg002	0000A74C	0000002D			R	.	.	.	.	.	.
+enemy_type_61	seg002	0000A779	000000BD			R	.	.	.	.	.	.
+enemy_type_67	seg002	0000A836	0000009B			R	.	.	.	.	.	.
 sub_1A8D1	seg002	0000A8D1	00000019			R	.	.	.	.	.	.
-sub_1A8EA	seg002	0000A8EA	00000094			R	.	.	.	.	.	.
-sub_1A985	seg002	0000A985	000000A1			R	.	.	.	.	.	.
+enemy_type_35	seg002	0000A8EA	00000094			R	.	.	.	.	.	.
+enemy_type_91	seg002	0000A985	000000A1			R	.	.	.	.	.	.
+enemy_type_37	seg002	0000AA62	00000005			R	.	.	.	.	.	.
 sub_1AA67	seg002	0000AA67	00000025			R	.	.	.	.	.	.
-sub_1AA8C	seg002	0000AA8C	00000005			R	.	.	.	.	.	.
+enemy_type_38	seg002	0000AA8C	00000005			R	.	.	.	.	.	.
 sub_1AA91	seg002	0000AA91	0000000E			R	.	.	.	.	.	.
-sub_1AAA8	seg002	0000AAA8	000000E8			R	.	.	.	.	.	.
-sub_1ABA2	seg002	0000ABA2	00000008			R	.	.	.	.	.	.
-sub_1ABAA	seg002	0000ABAA	00000005			R	.	.	.	.	.	.
+enemy_type_39	seg002	0000AA9F	00000009			R	.	.	.	.	.	.
+enemy_type_41	seg002	0000AAA8	000000E8			R	.	.	.	.	.	.
+enemy_type_42	seg002	0000ABA2	00000008			R	.	.	.	.	.	.
+enemy_type_43	seg002	0000ABAA	00000005			R	.	.	.	.	.	.
 sub_1ABAF	seg002	0000ABAF	00000039			R	.	.	.	.	.	.
-sub_1ABE8	seg002	0000ABE8	0000005C			R	.	.	.	.	.	.
-sub_1AC48	seg002	0000AC48	0000003B			R	.	.	.	.	.	.
-sub_1ACA3	seg002	0000ACA3	0000003B			R	.	.	.	.	.	.
-sub_1ACDE	seg002	0000ACDE	00000047			R	.	.	.	.	.	.
-sub_1AD25	seg002	0000AD25	00000011			R	.	.	.	.	.	.
-sub_1AD36	seg002	0000AD36	000000E4			R	.	.	.	.	.	.
-sub_1AE1A	seg002	0000AE1A	0000007F			R	.	.	.	.	.	.
-sub_1AE99	seg002	0000AE99	00000101	00000000	00000000	R	.	.	.	.	.	.
+enemy_type_45	seg002	0000ABE8	0000005C			R	.	.	.	.	.	.
+enemy_type_21	seg002	0000AC48	0000003B			R	.	.	.	.	.	.
+enemy_type_20	seg002	0000ACA3	0000003B			R	.	.	.	.	.	.
+enemy_type_53	seg002	0000ACDE	00000047			R	.	.	.	.	.	.
+enemy_type_54	seg002	0000AD25	00000011			R	.	.	.	.	.	.
+enemy_type_55	seg002	0000AD36	000000E4			R	.	.	.	.	.	.
+enemy_type_62	seg002	0000AE1A	0000007F			R	.	.	.	.	.	.
+enemy_type_82_weapon_distro	seg002	0000AE99	00000028	00000000	00000000	R	.	.	.	.	.	.
+enemy_type_70_71_81_88_89	seg002	0000AEC1	000000D9			R	.	.	.	.	.	.
 sub_1B09A	seg002	0000B09A	00000010			R	.	.	.	.	.	.
 sub_1B0AA	seg002	0000B0AA	000000BF			R	.	.	.	.	.	.
 sub_1B169	seg002	0000B169	00000064			R	.	.	.	.	.	.
@@ -171,11 +181,13 @@ sub_1B1E8	seg002	0000B1E8	00000003			R	.	.	.	.	.	.
 sub_1B1EB	seg002	0000B1EB	0000000F			R	.	.	.	.	.	.
 sub_1B1FA	seg002	0000B1FA	00000014			R	.	.	.	.	.	.
 sub_1B20E	seg002	0000B20E	00000052			R	.	.	.	.	.	.
+enemy_type_72	seg002	0000B268	00000085			R	.	.	.	.	.	.
 sub_1B2ED	seg002	0000B2ED	00000041			R	.	.	.	.	.	.
 sub_1B32E	seg002	0000B32E	00000009			R	.	.	.	.	.	.
-sub_1B337	seg002	0000B337	0000000B			R	.	.	.	.	.	.
-sub_1B342	seg002	0000B342	00000013			R	.	.	.	.	.	.
-boss_section_appears	seg002	0000B355	000000F6			R	.	.	.	.	.	.
+enemy_type_79	seg002	0000B337	0000000B			R	.	.	.	.	.	.
+enemy_type_73_74_75_76_77_78	seg002	0000B342	00000013			R	.	.	.	.	.	.
+fortress_core_appears	seg002	0000B355	00000049	00000000	00000000	R	.	.	.	.	.	.
+sub_1B39E	seg002	0000B39E	000000AD			R	.	.	.	.	.	.
 sub_1B44B	seg002	0000B44B	0000001C			R	.	.	.	.	.	.
 sub_1B467	seg002	0000B467	0000001B			R	.	.	.	.	.	.
 sub_1B482	seg002	0000B482	0000000F			R	.	.	.	.	.	.
@@ -194,10 +206,10 @@ sub_1B5CF	seg002	0000B5CF	00000026			R	.	.	.	.	.	.
 sub_1B611	seg002	0000B611	00000020			R	.	.	.	.	.	.
 sub_1B631	seg002	0000B631	00000015			R	.	.	.	.	.	.
 sub_1B667	seg002	0000B667	00000034			R	.	.	.	.	.	.
-sub_1B69B	seg002	0000B69B	0000001B			R	.	.	.	.	.	.
-sub_1B6B6	seg002	0000B6B6	00000076			R	.	.	.	.	.	.
-sub_1B72C	seg002	0000B72C	00000088			R	.	.	.	.	.	.
-sub_1B7B8	seg002	0000B7B8	000000BB			R	.	.	.	.	.	.
+enemy_type_80	seg002	0000B69B	0000001B			R	.	.	.	.	.	.
+enemy_type_83	seg002	0000B6B6	00000076			R	.	.	.	.	.	.
+enemy_type_84_85_86_87	seg002	0000B72C	00000088			R	.	.	.	.	.	.
+enemy_type_90	seg002	0000B7B8	000000BB			R	.	.	.	.	.	.
 sub_1B87F	seg002	0000B87F	00000024			R	.	.	.	.	.	.
 sub_1B8A3	seg002	0000B8A3	0000000A			R	.	.	.	.	.	.
 sub_1B8E5	seg002	0000B8E5	00000247	00000000	00000000	R	.	.	.	.	.	.

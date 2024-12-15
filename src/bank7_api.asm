@@ -1,10 +1,10 @@
 j_reset equ $c000
 j_switch_bank equ $c003
 sub_C006 equ $c006
-sub_C009 equ $c009
-sub_C00C equ $c00c
-sub_C00F equ $c00f
-sub_C012 equ $c012
+j_ppu_nmi_disable equ $c009
+j_ppu_nmi_enable equ $c00c
+j_ppu_disable_all equ $c00f
+j_ppu_enable_all equ $c012
 sub_C015 equ $c015
 sub_C018 equ $c018
 sub_C01B equ $c01b
@@ -49,7 +49,7 @@ sub_C08D equ $c08d
 sub_C090 equ $c090
 
 
-unk_C0FF equ $C0FF
+bank_remap_table equ $C0F8
 unk_C152 equ $C152
 unk_C1A5 equ $C1A5
 unk_C1F8 equ $C1F8
