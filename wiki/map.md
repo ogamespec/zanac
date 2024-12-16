@@ -227,7 +227,7 @@ j_ppu_nmi_disable	ROM	0000C009	00000003			R	.	.	.	.	.	.
 j_ppu_nmi_enable	ROM	0000C00C	00000003			R	.	.	.	.	.	.
 j_ppu_disable_all	ROM	0000C00F	00000003			R	.	.	.	.	.	.
 j_ppu_enable_all	ROM	0000C012	00000003			R	.	.	.	.	.	.
-sub_C015	ROM	0000C015	00000003			R	.	.	.	.	.	.
+j_clear_oam_buffer	ROM	0000C015	00000003			R	.	.	.	.	.	.
 j_clear_screen	ROM	0000C018	00000003			R	.	.	.	.	.	.
 sub_C01B	ROM	0000C01B	00000003			R	.	.	.	.	.	.
 j_pad_read	ROM	0000C01E	00000003			R	.	.	.	.	.	.
@@ -235,7 +235,7 @@ j_all_enemies_destroyed	ROM	0000C021	00000003			R	.	.	.	.	.	.
 sub_C024	ROM	0000C024	00000003			R	.	.	.	.	.	.
 sub_C027	ROM	0000C027	00000003			R	.	.	.	.	.	.
 sub_C02A	ROM	0000C02A	00000003			R	.	.	.	.	.	.
-sub_C02D	ROM	0000C02D	00000003			R	.	.	.	.	.	.
+j_handle_pad_buttons	ROM	0000C02D	00000003			R	.	.	.	.	.	.
 j_apu_play	ROM	0000C030	00000003			R	.	.	.	.	.	.
 sub_C033	ROM	0000C033	00000003			R	.	.	.	.	.	.
 sub_C036	ROM	0000C036	00000003			R	.	.	.	.	.	.
@@ -278,7 +278,7 @@ sub_C6EA	ROM	0000C6EA	0000003B			R	.	.	.	.	.	.
 sub_C725	ROM	0000C725	00000043			R	.	.	.	.	.	.
 clear_screen	ROM	0000C768	0000003B			R	.	.	.	.	.	.
 ppu_update_scroll_regs	ROM	0000C7A3	00000010			R	.	.	.	.	.	.
-sub_C7B3	ROM	0000C7B3	00000013			R	.	.	.	.	.	.
+mem_page_fill	ROM	0000C7B3	00000013			R	.	.	.	.	.	.
 switch_case	ROM	0000C7C6	00000012			R	.	.	.	.	.	.
 sub_C7D8	ROM	0000C7D8	00000013			R	.	.	.	.	.	.
 sub_C7EB	ROM	0000C7EB	0000000D			R	.	.	.	.	.	.
@@ -297,12 +297,13 @@ far_call_prepare	ROM	0000C8A0	0000000C			R	.	.	.	.	.	.
 far_call_restore	ROM	0000C8AC	0000000E			R	.	.	.	.	.	.
 sub_C8BA	ROM	0000C8BA	00000025			R	.	.	.	.	.	.
 sub_C8DF	ROM	0000C8DF	00000049			R	.	.	.	.	.	.
-sub_C938	ROM	0000C938	00000024			R	.	.	.	.	.	.
+enemy_common_2	ROM	0000C938	00000024			R	.	.	.	.	.	.
 sub_C95C	ROM	0000C95C	00000029			R	.	.	.	.	.	.
 sub_C985	ROM	0000C985	0000008A			R	.	.	.	.	.	.
 sub_CA0F	ROM	0000CA0F	00000088			R	.	.	.	.	.	.
+sub_CA97	ROM	0000CA97	00000006			R	.	.	.	.	.	.
 sub_CA9D	ROM	0000CA9D	00000015			R	.	.	.	.	.	.
-sub_CAB2	ROM	0000CAB2	0000001B			R	.	.	.	.	.	.
+randomize	ROM	0000CAB2	0000001B			R	.	.	.	.	.	.
 ppu_disable_all	ROM	0000CACD	0000000A			R	.	.	.	.	.	.
 ppu_set_control2	ROM	0000CAD7	00000006			R	.	.	.	.	.	.
 ppu_enable_picture	ROM	0000CADD	0000000A			R	.	.	.	.	.	.
@@ -310,15 +311,15 @@ ppu_nmi_disable	ROM	0000CAE7	00000004			R	.	.	.	.	.	.
 ppu_set_control1	ROM	0000CAEB	00000006			R	.	.	.	.	.	.
 ppu_enable_all	ROM	0000CAF1	00000006			R	.	.	.	.	.	.
 ppu_nmi_enable	ROM	0000CAF7	0000000A			R	.	.	.	.	.	.
-sub_CB01	ROM	0000CB01	00000009			R	.	.	.	.	.	.
+clear_oam_buffer	ROM	0000CB01	00000009			R	.	.	.	.	.	.
 pad_read	ROM	0000CB0A	00000036			R	.	.	.	.	.	.
 sub_CB40	ROM	0000CB40	0000000B			R	.	.	.	.	.	.
-sub_CB4B	ROM	0000CB4B	0000010C			R	.	.	.	.	.	.
+start_game_check	ROM	0000CB4B	0000010C			R	.	.	.	.	.	.
 sub_CC57	ROM	0000CC57	00000056			R	.	.	.	.	.	.
 sub_CCD4	ROM	0000CCD4	00000004			R	.	.	.	.	.	.
 sub_CCD8	ROM	0000CCD8	0000000B			R	.	.	.	.	.	.
 sub_CCE3	ROM	0000CCE3	00000013			R	.	.	.	.	.	.
-sub_CCF6	ROM	0000CCF6	00000045			R	.	.	.	.	.	.
+handle_pad_buttons	ROM	0000CCF6	00000045			R	.	.	.	.	.	.
 sub_CD6B	ROM	0000CD6B	00000107			R	.	.	.	.	.	.
 sub_CE72	ROM	0000CE72	0000001B			R	.	.	.	.	.	.
 nmi_handler	ROM	0000CE8D	00000037			R	.	.	.	.	.	.
@@ -332,6 +333,7 @@ sub_D12C	ROM	0000D12C	00000060			R	.	.	.	.	.	.
 sub_D18C	ROM	0000D18C	0000001A			R	.	.	.	.	.	.
 sub_D1A6	ROM	0000D1A6	0000003B			R	.	.	.	.	.	.
 sub_D2C0	ROM	0000D2C0	00000004			R	.	.	.	.	.	.
+sub_D2C4	ROM	0000D2C4	00000004			R	.	.	.	.	.	.
 sub_D2C8	ROM	0000D2C8	0000001C			R	.	.	.	.	.	.
 sub_D2E4	ROM	0000D2E4	00000019			R	.	.	.	.	.	.
 sub_D2FD	ROM	0000D2FD	0000004A			R	.	.	.	.	.	.
@@ -395,7 +397,7 @@ sub_E653	ROM	0000E653	0000001E			R	.	.	.	.	.	.
 sub_E767	ROM	0000E767	00000005			R	.	.	.	.	.	.
 sub_E76C	ROM	0000E76C	00000053			R	.	.	.	.	.	.
 reset	ROM	0000E7BF	00000047	00000000	00000000	R	.	.	.	.	.	.
-sub_E806	ROM	0000E806	000000A4			R	.	.	.	.	.	.
+main_menu_loop	ROM	0000E806	000000A4			R	.	.	.	.	.	.
 sub_E8AA	ROM	0000E8AA	0000001F			R	.	.	.	.	.	.
 sub_E8C9	ROM	0000E8C9	000000CC			R	.	.	.	.	.	.
 sub_E995	ROM	0000E995	0000000D			R	.	.	.	.	.	.

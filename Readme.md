@@ -27,11 +27,11 @@ Thank you guys!
 ## Progress
 
 Project development happens sporadically when I am bored. In the evening I sit down, launch IDA and in parallel the Mesen debugger and play the game trying to understand the purpose of all procedures.
-At the moment there are 455 procedures marked, and about 180 procedures are identified (more or less clear what they do).
+At the moment there are 457 procedures marked, and about 189 procedures are identified (more or less clear what they do).
 
 More details here: [map.md](/wiki/map.md)
 
-It is also planned to export a fresh disasm from the IDA database from time to time.
+It is also planned to export a fresh disasm from the IDA database from time to time. Exporting from IDA will finish only when all calls and RAM variables are defined, after that the work will be done only with sources.
 
 ## References
 

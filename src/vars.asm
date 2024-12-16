@@ -174,6 +174,8 @@ ppu_scroll_2nd_value equ $FC
 ppu_scroll_1st_value equ $FD
 last_ppu_ctrl2 equ $FE
 last_ppu_ctrl1 equ $FF
+
+
 hard_reset_marker1 equ $102
 hard_reset_marker2 equ $103
 cram_update_mode equ $144
@@ -186,15 +188,15 @@ byte_177 equ $177
 byte_178 equ $178
 byte_179 equ $179
 byte_17A equ $17A
-
 ; $17D [6 bytes] : Score  (BCD encoded)
 byte_181 equ $181
-
 ; $183 [6 bytes] : Top Score  (BCD encoded)
-
 byte_199 equ $199
 reset_counter equ $19A
 byte_19B equ $19B
+
+
+
 byte_200 equ $200
 byte_201 equ $201
 byte_202 equ $202
@@ -207,6 +209,8 @@ byte_214 equ $214
 byte_215 equ $215
 byte_216 equ $216
 byte_217 equ $217
+
+
 byte_300 equ $300
 byte_302 equ $302
 byte_303 equ $303
@@ -228,6 +232,9 @@ byte_31D equ $31D
 byte_31F equ $31F
 byte_3C4 equ $3C4
 byte_3C5 equ $3C5
+
+
+
 byte_528 equ $528
 byte_52C equ $52C
 byte_542 equ $542
@@ -242,6 +249,7 @@ byte_5F8 equ $5F8
 byte_612 equ $612
 byte_62C equ $62C
 byte_646 equ $646
+unk_67A equ $67A
 byte_6E2 equ $6E2
 byte_6FC equ $6FC
 byte_764 equ $764
@@ -250,5 +258,4 @@ byte_782 equ $782
 byte_798 equ $798
 byte_7B2 equ $7B2
 byte_7CC equ $7CC
-unk_67A equ $67A
 unk_7FE equ $7FE
