@@ -8,7 +8,7 @@ All this is quite usual for the NES, but because of this, the list of labeled pr
 Then just the contents of the left list from the IDA.
 
 ```
-sub_18000	seg002	00008000	00000003			R	.	.	.	.	.	.
+j_game_logic_processing	seg002	00008000	00000003			R	.	.	.	.	.	.
 sub_18003	seg002	00008003	00000003			R	.	.	.	.	.	.
 sub_18006	seg002	00008006	00000003			R	.	.	.	.	.	.
 sub_18009	seg002	00008009	00000003			R	.	.	.	.	.	.
@@ -17,7 +17,7 @@ sub_1800F	seg002	0000800F	00000003			R	.	.	.	.	.	.
 sub_18012	seg002	00008012	00000003			R	.	.	.	.	.	.
 j_set_default_weapon	seg002	00008015	00000003			R	.	.	.	.	.	.
 j_clear_main_menu_sprites	seg002	00008018	00000003			R	.	.	.	.	.	.
-sub_1801B	seg002	0000801B	00000003			R	.	.	.	.	.	.
+j_update_score_onscreen	seg002	0000801B	00000003			R	.	.	.	.	.	.
 sub_1801E	seg002	0000801E	00000003			R	.	.	.	.	.	.
 j_check_enemy_overflow	seg002	00008021	00000003			R	.	.	.	.	.	.
 sub_18024	seg002	00008024	00000006			R	.	.	.	.	.	.
@@ -27,13 +27,14 @@ sub_1818C	seg002	0000818C	0000001B			R	.	.	.	.	.	.
 sub_181A7	seg002	000081A7	0000003D			R	.	.	.	.	.	.
 sub_181E4	seg002	000081E4	00000009			R	.	.	.	.	.	.
 sub_181ED	seg002	000081ED	00000009			R	.	.	.	.	.	.
-sub_181F6	seg002	000081F6	0000000D			R	.	.	.	.	.	.
+sub_181F6	seg002	000081F6	0000000E	00000000	00000000	R	.	.	.	.	.	.
 sub_18204	seg002	00008204	0000002C			R	.	.	.	.	.	.
 sub_18230	seg002	00008230	00000020			R	.	.	.	.	.	.
 sub_18250	seg002	00008250	00000040			R	.	.	.	.	.	.
 sub_18290	seg002	00008290	00000021	00000000	00000000	R	.	.	.	.	.	.
 sub_182B1	seg002	000082B1	00000028			R	.	.	.	.	.	.
 sub_182D9	seg002	000082D9	00000021			R	.	.	.	.	.	.
+sub_182FA	seg002	000082FA	00000004			R	.	.	.	.	.	.
 enemy_common	seg002	000082FE	00000024			R	.	.	.	.	.	.
 sub_18322	seg002	00008322	00000025			R	.	.	.	.	.	.
 sub_18347	seg002	00008347	00000021			R	.	.	.	.	.	.
@@ -45,11 +46,11 @@ sub_183EF	seg002	000083EF	00000023			R	.	.	.	.	.	.
 sub_18412	seg002	00008412	00000095			R	.	.	.	.	.	.
 sub_184A7	seg002	000084A7	00000083			R	.	.	.	.	.	.
 clear_main_menu_sprites	seg002	0000852A	00000011			R	.	.	.	.	.	.
-sub_1853B	seg002	0000853B	00000050			R	.	.	.	.	.	.
-sub_1858B	seg002	0000858B	00000043			R	.	.	.	.	.	.
+update_score_onscreen	seg002	0000853B	00000050			R	.	.	.	.	.	.
+update_player_lives	seg002	0000858B	00000043			R	.	.	.	.	.	.
 sub_185CE	seg002	000085CE	0000000A			R	.	.	.	.	.	.
-sub_185D8	seg002	000085D8	00000027			R	.	.	.	.	.	.
-sub_185FF	seg002	000085FF	0000000D			R	.	.	.	.	.	.
+add_sprite	seg002	000085D8	00000027			R	.	.	.	.	.	.
+add_more_sprites	seg002	000085FF	0000000D			R	.	.	.	.	.	.
 sub_1860C	seg002	0000860C	0000000D			R	.	.	.	.	.	.
 enemy_prng	seg002	0000872B	0000001B			R	.	.	.	.	.	.
 sub_18746	seg002	00008746	00000024			R	.	.	.	.	.	.
@@ -59,7 +60,7 @@ sub_18788	seg002	00008788	0000000E			R	.	.	.	.	.	.
 sub_18796	seg002	00008796	00000009			R	.	.	.	.	.	.
 sub_1879F	seg002	0000879F	00000007			R	.	.	.	.	.	.
 sub_187A6	seg002	000087A6	00000007			R	.	.	.	.	.	.
-sub_187C7	seg002	000087C7	0000005E			R	.	.	.	.	.	.
+game_logic_processing	seg002	000087C7	0000005E			R	.	.	.	.	.	.
 check_enemy_overflow	seg002	00008825	00000010			R	.	.	.	.	.	.
 sub_18835	seg002	00008835	0000012B	00000000	00000000	R	.	.	.	.	.	.
 enemy_type_1	seg002	00008C68	000001C1			R	.	.	.	.	.	.
@@ -251,8 +252,8 @@ sub_C054	ROM	0000C054	00000003			R	.	.	.	.	.	.
 sub_C057	ROM	0000C057	00000003			R	.	.	.	.	.	.
 sub_C05A	ROM	0000C05A	00000003			R	.	.	.	.	.	.
 sub_C05D	ROM	0000C05D	00000003			R	.	.	.	.	.	.
-sub_C060	ROM	0000C060	00000003			R	.	.	.	.	.	.
-sub_C063	ROM	0000C063	00000003			R	.	.	.	.	.	.
+j_apu_reset	ROM	0000C060	00000003			R	.	.	.	.	.	.
+j_apu_stop	ROM	0000C063	00000003			R	.	.	.	.	.	.
 j_apu_play_0	ROM	0000C066	00000003			R	.	.	.	.	.	.
 j_apu_update	ROM	0000C069	00000003			R	.	.	.	.	.	.
 sub_C06C	ROM	0000C06C	00000003			R	.	.	.	.	.	.
@@ -261,7 +262,7 @@ sub_C072	ROM	0000C072	00000003			R	.	.	.	.	.	.
 j_switch_case	ROM	0000C075	00000003			R	.	.	.	.	.	.
 sub_C078	ROM	0000C078	00000003			R	.	.	.	.	.	.
 sub_C07B	ROM	0000C07B	00000003			R	.	.	.	.	.	.
-sub_C07E	ROM	0000C07E	00000003			R	.	.	.	.	.	.
+j_update_music_after_fortress_destroy	ROM	0000C07E	00000003			R	.	.	.	.	.	.
 sub_C081	ROM	0000C081	00000003			R	.	.	.	.	.	.
 sub_C084	ROM	0000C084	00000003			R	.	.	.	.	.	.
 sub_C087	ROM	0000C087	00000003			R	.	.	.	.	.	.
@@ -400,11 +401,11 @@ sub_E8C9	ROM	0000E8C9	000000CC			R	.	.	.	.	.	.
 sub_E995	ROM	0000E995	0000000D			R	.	.	.	.	.	.
 sub_E9A2	ROM	0000E9A2	00000006			R	.	.	.	.	.	.
 sub_E9A8	ROM	0000E9A8	00000028			R	.	.	.	.	.	.
-sub_E9E0	ROM	0000E9E0	0000001E			R	.	.	.	.	.	.
+update_music_after_fortress_destroy	ROM	0000E9E0	0000001E			R	.	.	.	.	.	.
 sub_EA0B	ROM	0000EA0B	0000002B			R	.	.	.	.	.	.
 all_enemies_destroyed	ROM	0000EA36	00000007			R	.	.	.	.	.	.
-sub_EA3D	ROM	0000EA3D	00000003			R	.	.	.	.	.	.
-sub_EA40	ROM	0000EA40	00000003			R	.	.	.	.	.	.
+j_apu_reset_0	ROM	0000EA3D	00000003			R	.	.	.	.	.	.
+j_apu_stop_0	ROM	0000EA40	00000003			R	.	.	.	.	.	.
 j_apu_play_1	ROM	0000EA43	00000003			R	.	.	.	.	.	.
 j_apu_update_0	ROM	0000EA46	00000003			R	.	.	.	.	.	.
 sub_EA49	ROM	0000EA49	00000003			R	.	.	.	.	.	.
@@ -454,8 +455,8 @@ sub_EE71	ROM	0000EE71	00000023			R	.	.	.	.	.	.
 sub_EE94	ROM	0000EE94	00000016			R	.	.	.	.	.	.
 sub_EEAA	ROM	0000EEAA	00000098			R	.	.	.	.	.	.
 sub_EF4A	ROM	0000EF4A	00000027			R	.	.	.	.	.	.
-sub_EF71	ROM	0000EF71	00000008			R	.	.	.	.	.	.
-sub_EF79	ROM	0000EF79	00000017			R	.	.	.	.	.	.
+apu_reset	ROM	0000EF71	00000008			R	.	.	.	.	.	.
+apu_stop	ROM	0000EF79	00000017			R	.	.	.	.	.	.
 apu_play	ROM	0000EF90	00000016			R	.	.	.	.	.	.
 sub_EFA6	ROM	0000EFA6	00000076			R	.	.	.	.	.	.
 sub_F0F4	ROM	0000F0F4	00000006			R	.	.	.	.	.	.
