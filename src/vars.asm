@@ -196,6 +196,7 @@ reset_counter equ $19A
 byte_19B equ $19B
 
 
+; Addresses $200...$2FF are used by the OAM buffer (for OAM DMA). This is a typical allocation for almost all NES games
 
 byte_200 equ $200
 byte_201 equ $201
@@ -210,6 +211,7 @@ byte_215 equ $215
 byte_216 equ $216
 byte_217 equ $217
 
+; Addresses $300...$3FF are used by the APU engine
 
 byte_300 equ $300
 byte_302 equ $302
@@ -233,7 +235,9 @@ byte_31F equ $31F
 byte_3C4 equ $3C4
 byte_3C5 equ $3C5
 
+; The $400 addresses are used (apparently) by the Background engine (the part of the code that is responsible for rendering and scrolling the background = level)
 
+; Addresses $500...$7FF are used by the game logic ("AI") and contains a large number of arrays of 0x1a elements ("Enemy Data")
 
 byte_528 equ $528
 byte_52C equ $52C

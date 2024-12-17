@@ -11,7 +11,7 @@ The cartridge uses the UNROM mapper: 8KByte CHR RAM + 128KByte PRG ROM.
 PRG ROM composition:
 - Bank 0-3: empty (filled by 0)
 - Bank 4: graphics data  (unused space filled by 0xff)
-- Bank 5: graphics data  (unused space filled by 0xff)
+- Bank 5: level data  (unused space filled by 0xff)
 - Bank 6: enemy & game logic   (unused space filled by 0xff)
 - Bank 7: main engine (ppu, apu, reset etc.)  (unused space filled by 0xff)
 
@@ -27,7 +27,7 @@ Thank you guys!
 ## Progress
 
 Project development happens sporadically when I am bored. In the evening I sit down, launch IDA and in parallel the Mesen debugger and play the game trying to understand the purpose of all procedures.
-At the moment there are 457 procedures marked, and about 189 procedures are identified (more or less clear what they do).
+At the moment there are 457 procedures marked, and about 191 procedures are identified (more or less clear what they do).
 
 More details here: [map.md](/wiki/map.md)
 

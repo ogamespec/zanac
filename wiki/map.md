@@ -250,7 +250,7 @@ sub_C04E	ROM	0000C04E	00000003			R	.	.	.	.	.	.
 sub_C051	ROM	0000C051	00000003			R	.	.	.	.	.	.
 sub_C054	ROM	0000C054	00000003			R	.	.	.	.	.	.
 sub_C057	ROM	0000C057	00000003			R	.	.	.	.	.	.
-sub_C05A	ROM	0000C05A	00000003			R	.	.	.	.	.	.
+j_ppu_cram_load	ROM	0000C05A	00000003			R	.	.	.	.	.	.
 sub_C05D	ROM	0000C05D	00000003			R	.	.	.	.	.	.
 j_apu_reset	ROM	0000C060	00000003			R	.	.	.	.	.	.
 j_apu_stop	ROM	0000C063	00000003			R	.	.	.	.	.	.
@@ -302,7 +302,7 @@ sub_C95C	ROM	0000C95C	00000029			R	.	.	.	.	.	.
 sub_C985	ROM	0000C985	0000008A			R	.	.	.	.	.	.
 sub_CA0F	ROM	0000CA0F	00000088			R	.	.	.	.	.	.
 sub_CA97	ROM	0000CA97	00000006			R	.	.	.	.	.	.
-sub_CA9D	ROM	0000CA9D	00000015			R	.	.	.	.	.	.
+ppu_cram_load	ROM	0000CA9D	00000015			R	.	.	.	.	.	.
 randomize	ROM	0000CAB2	0000001B			R	.	.	.	.	.	.
 ppu_disable_all	ROM	0000CACD	0000000A			R	.	.	.	.	.	.
 ppu_set_control2	ROM	0000CAD7	00000006			R	.	.	.	.	.	.
