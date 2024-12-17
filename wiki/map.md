@@ -2,7 +2,7 @@
 
 There are only 2 banks with code in the game (6 and 7). Bank 6 temporarily drops out of the address space during graphics loading, but in general we can say that the addresses are static (the caller usually knows that at the moment bank 6 contains the code).
 
-Developers use all sorts of tricks like a shared RTS for multiple procedures, interleaving data and code (see for example switch_case, print_string), and “ chopped” procedures that don't terminate but just “continue” into another procedure.
+Developers use all sorts of tricks like a shared RTS for multiple procedures, interleaving data and code (see for example switch_case, print_string), and "chopped" procedures that don't terminate but just "continue" into another procedure.
 All this is quite usual for the NES, but because of this, the list of labeled procedures can change when it turns out that one procedure is actually 2, or a procedure was not immediately found in the mess.
 
 Then just the contents of the left list from the IDA.

@@ -4,13 +4,13 @@ Maximum number of enemies = 26 (0x1a). The game stores the state of game objects
 
 The first 5 objects are reserved for Zanac (ship + 3 shots + 1 special shot). The `check_enemy_overflow` procedure therefore skips the first 5 slots.
 
-## byte_528 
+## byte_528 - Type
 
 The most significant bit is used for some purpose (probably for tagging aeral/ground objects).
 
-## byte_542 
+## byte_542 - Y Position
 
-## byte_55C
+## byte_55C - X Position
 
 ## byte_576
 
@@ -22,11 +22,11 @@ The most significant bit is used for some purpose (probably for tagging aeral/gr
 
 ## byte_5F8 
 
-## byte_612
+## byte_612 - Y Speed
 
 ## byte_62C
 
-## byte_646
+## byte_646 - X Speed
 
 ## byte_660
 
