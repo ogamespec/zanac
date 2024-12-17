@@ -316,9 +316,9 @@ pad_read	ROM	0000CB0A	00000036			R	.	.	.	.	.	.
 sub_CB40	ROM	0000CB40	0000000B			R	.	.	.	.	.	.
 start_game_check	ROM	0000CB4B	0000010C			R	.	.	.	.	.	.
 sub_CC57	ROM	0000CC57	00000056			R	.	.	.	.	.	.
-sub_CCD4	ROM	0000CCD4	00000004			R	.	.	.	.	.	.
+clear_oam_buffer_unused	ROM	0000CCD4	00000004			R	.	.	.	.	.	.
 sub_CCD8	ROM	0000CCD8	0000000B			R	.	.	.	.	.	.
-sub_CCE3	ROM	0000CCE3	00000013			R	.	.	.	.	.	.
+vsync	ROM	0000CCE3	00000013			R	.	.	.	.	.	.
 handle_pad_buttons	ROM	0000CCF6	00000045			R	.	.	.	.	.	.
 sub_CD6B	ROM	0000CD6B	00000107			R	.	.	.	.	.	.
 sub_CE72	ROM	0000CE72	0000001B			R	.	.	.	.	.	.
@@ -328,7 +328,7 @@ sub_CEC5	ROM	0000CEC5	0000016C			R	.	.	.	.	.	.
 ppu_cram_update	ROM	0000D031	00000073			R	.	.	.	.	.	.
 sub_D0A4	ROM	0000D0A4	0000001B			R	.	.	.	.	.	.
 sub_D0BF	ROM	0000D0BF	00000049			R	.	.	.	.	.	.
-sub_D108	ROM	0000D108	00000024			R	.	.	.	.	.	.
+check_high_score_reached	ROM	0000D108	00000024			R	.	.	.	.	.	.
 sub_D12C	ROM	0000D12C	00000060			R	.	.	.	.	.	.
 sub_D18C	ROM	0000D18C	0000001A			R	.	.	.	.	.	.
 sub_D1A6	ROM	0000D1A6	0000003B			R	.	.	.	.	.	.

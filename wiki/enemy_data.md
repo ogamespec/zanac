@@ -47,3 +47,5 @@ Some flags (each element contains a mask)
 ## byte_716
 
 ## byte_730
+
+## byte_7E6
