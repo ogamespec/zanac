@@ -35,7 +35,7 @@ sub_18290	seg002	00008290	00000021	00000000	00000000	R	.	.	.	.	.	.
 sub_182B1	seg002	000082B1	00000028			R	.	.	.	.	.	.
 sub_182D9	seg002	000082D9	00000021			R	.	.	.	.	.	.
 sub_182FA	seg002	000082FA	00000004			R	.	.	.	.	.	.
-enemy_common	seg002	000082FE	00000024			R	.	.	.	.	.	.
+enemy_erase	seg002	000082FE	00000024			R	.	.	.	.	.	.
 sub_18322	seg002	00008322	00000025			R	.	.	.	.	.	.
 sub_18347	seg002	00008347	00000021			R	.	.	.	.	.	.
 sub_18368	seg002	00008368	0000002A			R	.	.	.	.	.	.
@@ -53,7 +53,7 @@ add_sprite	seg002	000085D8	00000027			R	.	.	.	.	.	.
 add_more_sprites	seg002	000085FF	0000000D			R	.	.	.	.	.	.
 sub_1860C	seg002	0000860C	0000000D			R	.	.	.	.	.	.
 enemy_prng	seg002	0000872B	0000001B			R	.	.	.	.	.	.
-sub_18746	seg002	00008746	00000024			R	.	.	.	.	.	.
+spawn_top_random_x_position	seg002	00008746	00000024			R	.	.	.	.	.	.
 sub_1876A	seg002	0000876A	00000014			R	.	.	.	.	.	.
 sub_1877E	seg002	0000877E	0000000A			R	.	.	.	.	.	.
 sub_18788	seg002	00008788	0000000E			R	.	.	.	.	.	.
@@ -96,24 +96,25 @@ sub_1948B	seg002	0000948B	00000008			R	.	.	.	.	.	.
 sub_19493	seg002	00009493	000000E5	00000000	00000000	R	.	.	.	.	.	.
 enemy_type_68	seg002	0000958E	0000004B			R	.	.	.	.	.	.
 sub_19615	seg002	00009615	00000006			R	.	.	.	.	.	.
-enemy_type_4_5_6	seg002	0000961B	000000C1	00000000	00000000	R	.	.	.	.	.	.
+enemy_type_4_5_6_boxes	seg002	0000961B	000000C1	00000000	00000000	R	.	.	.	.	.	.
 enemy_type_63	seg002	000096E8	0000000B			R	.	.	.	.	.	.
 sub_196F3	seg002	000096F3	0000004C			R	.	.	.	.	.	.
-enemy_type_7	seg002	0000973F	0000007B	00000000	00000000	R	.	.	.	.	.	.
+enemy_type_7	seg002	0000973F	00000075	00000000	00000000	R	.	.	.	.	.	.
+sub_197B4	seg002	000097B4	00000006			R	.	.	.	.	.	.
 enemy_type_8	seg002	000097C7	00000008			R	.	.	.	.	.	.
 sub_197CF	seg002	000097CF	00000024			R	.	.	.	.	.	.
 sub_197F3	seg002	000097F3	0000000A			R	.	.	.	.	.	.
 enemy_type_9	seg002	000097FD	00000020			R	.	.	.	.	.	.
 sub_1981D	seg002	0000981D	0000000C			R	.	.	.	.	.	.
-enemy_type_10_duster	seg002	00009829	00000037			R	.	.	.	.	.	.
+enemy_type_10_blue_duster	seg002	00009829	00000037			R	.	.	.	.	.	.
 enemy_type_69	seg002	00009860	00000066			R	.	.	.	.	.	.
 enemy_type_11	seg002	000098C6	00000021			R	.	.	.	.	.	.
 sub_19918	seg002	00009918	00000024			R	.	.	.	.	.	.
 enemy_type_12_13	seg002	0000993C	00000094			R	.	.	.	.	.	.
 enemy_type_14	seg002	000099F6	00000101			R	.	.	.	.	.	.
 enemy_type_15	seg002	00009AF7	00000093			R	.	.	.	.	.	.
-enemy_type_48	seg002	00009B8A	0000009D	00000000	00000000	R	.	.	.	.	.	.
-enemy_type_51	seg002	00009C2B	0000000C	00000000	00000000	R	.	.	.	.	.	.
+enemy_type_48_maseru	seg002	00009B8A	0000009D	00000000	00000000	R	.	.	.	.	.	.
+enemy_type_51_girevu	seg002	00009C2B	0000000C	00000000	00000000	R	.	.	.	.	.	.
 enemy_type_49_50_52	seg002	00009C37	00000060			R	.	.	.	.	.	.
 sub_19C97	seg002	00009C97	00000014			R	.	.	.	.	.	.
 sub_19CAB	seg002	00009CAB	0000003B			R	.	.	.	.	.	.
@@ -122,7 +123,7 @@ sub_19D23	seg002	00009D23	00000057			R	.	.	.	.	.	.
 enemy_type_24	seg002	00009D7A	00000035			R	.	.	.	.	.	.
 sub_19DAF	seg002	00009DAF	00000077			R	.	.	.	.	.	.
 sub_19E2A	seg002	00009E2A	0000000E			R	.	.	.	.	.	.
-enemy_type_25	seg002	00009E38	00000061			R	.	.	.	.	.	.
+enemy_type_25_carla	seg002	00009E38	00000061			R	.	.	.	.	.	.
 enemy_type_16	seg002	00009E99	0000001B	00000000	00000000	R	.	.	.	.	.	.
 sub_19EB4	seg002	00009EB4	00000095			R	.	.	.	.	.	.
 enemy_type_17	seg002	00009F49	00000023			R	.	.	.	.	.	.
@@ -135,7 +136,7 @@ enemy_type_27	seg002	0000A16B	00000035			R	.	.	.	.	.	.
 enemy_type_28	seg002	0000A1A0	00000029			R	.	.	.	.	.	.
 enemy_type_29	seg002	0000A1C9	00000095			R	.	.	.	.	.	.
 sub_1A264	seg002	0000A264	0000004D			R	.	.	.	.	.	.
-sub_1A2B1	seg002	0000A2B1	0000001A			R	.	.	.	.	.	.
+decrease_enemy_health	seg002	0000A2B1	0000001A			R	.	.	.	.	.	.
 sub_1A2CB	seg002	0000A2CB	00000010			R	.	.	.	.	.	.
 enemy_type_30_32	seg002	0000A2DB	000000F0	00000000	00000000	R	.	.	.	.	.	.
 enemy_type_31_33	seg002	0000A3CB	0000000C			R	.	.	.	.	.	.
@@ -146,11 +147,11 @@ enemy_type_56	seg002	0000A609	0000003C			R	.	.	.	.	.	.
 enemy_type_57	seg002	0000A645	00000060			R	.	.	.	.	.	.
 enemy_type_58	seg002	0000A6A5	0000001C			R	.	.	.	.	.	.
 enemy_type_59	seg002	0000A6C1	0000000E			R	.	.	.	.	.	.
-enemy_type_64	seg002	0000A6CF	00000022			R	.	.	.	.	.	.
-enemy_type_36	seg002	0000A6F1	00000059			R	.	.	.	.	.	.
-enemy_type_44	seg002	0000A74C	0000002D			R	.	.	.	.	.	.
-enemy_type_61	seg002	0000A779	000000BD			R	.	.	.	.	.	.
-enemy_type_67	seg002	0000A836	0000009B			R	.	.	.	.	.	.
+enemy_type_64_random	seg002	0000A6CF	00000022			R	.	.	.	.	.	.
+enemy_type_36_giza	seg002	0000A6F1	00000059			R	.	.	.	.	.	.
+enemy_type_44_yellow_duster	seg002	0000A74C	0000002D			R	.	.	.	.	.	.
+enemy_type_61_sart	seg002	0000A779	000000BD			R	.	.	.	.	.	.
+enemy_type_67_valkyrie	seg002	0000A836	0000009B			R	.	.	.	.	.	.
 sub_1A8D1	seg002	0000A8D1	00000019			R	.	.	.	.	.	.
 enemy_type_35	seg002	0000A8EA	00000094			R	.	.	.	.	.	.
 enemy_type_91	seg002	0000A985	000000A1			R	.	.	.	.	.	.
@@ -168,7 +169,7 @@ enemy_type_21	seg002	0000AC48	0000003B			R	.	.	.	.	.	.
 enemy_type_20	seg002	0000ACA3	0000003B			R	.	.	.	.	.	.
 enemy_type_53	seg002	0000ACDE	00000047			R	.	.	.	.	.	.
 enemy_type_54	seg002	0000AD25	00000011			R	.	.	.	.	.	.
-enemy_type_55	seg002	0000AD36	000000E4			R	.	.	.	.	.	.
+enemy_type_55_fairy	seg002	0000AD36	000000E4			R	.	.	.	.	.	.
 enemy_type_62	seg002	0000AE1A	0000007F			R	.	.	.	.	.	.
 enemy_type_82_weapon_distro	seg002	0000AE99	00000028	00000000	00000000	R	.	.	.	.	.	.
 enemy_type_70_71_81_88_89	seg002	0000AEC1	000000D9			R	.	.	.	.	.	.
@@ -238,7 +239,7 @@ sub_C02A	ROM	0000C02A	00000003			R	.	.	.	.	.	.
 j_handle_pad_buttons	ROM	0000C02D	00000003			R	.	.	.	.	.	.
 j_apu_play	ROM	0000C030	00000003			R	.	.	.	.	.	.
 sub_C033	ROM	0000C033	00000003			R	.	.	.	.	.	.
-sub_C036	ROM	0000C036	00000003			R	.	.	.	.	.	.
+j_ppu_update_background	ROM	0000C036	00000003			R	.	.	.	.	.	.
 sub_C039	ROM	0000C039	00000003			R	.	.	.	.	.	.
 sub_C03C	ROM	0000C03C	00000003			R	.	.	.	.	.	.
 sub_C03F	ROM	0000C03F	00000003			R	.	.	.	.	.	.
@@ -260,7 +261,7 @@ sub_C06C	ROM	0000C06C	00000003			R	.	.	.	.	.	.
 sub_C06F	ROM	0000C06F	00000003			R	.	.	.	.	.	.
 sub_C072	ROM	0000C072	00000003			R	.	.	.	.	.	.
 j_switch_case	ROM	0000C075	00000003			R	.	.	.	.	.	.
-sub_C078	ROM	0000C078	00000003			R	.	.	.	.	.	.
+j_get_random_enemy	ROM	0000C078	00000003			R	.	.	.	.	.	.
 sub_C07B	ROM	0000C07B	00000003			R	.	.	.	.	.	.
 j_update_music_after_fortress_destroy	ROM	0000C07E	00000003			R	.	.	.	.	.	.
 sub_C081	ROM	0000C081	00000003			R	.	.	.	.	.	.
@@ -297,7 +298,7 @@ far_call_prepare	ROM	0000C8A0	0000000C			R	.	.	.	.	.	.
 far_call_restore	ROM	0000C8AC	0000000E			R	.	.	.	.	.	.
 sub_C8BA	ROM	0000C8BA	00000025			R	.	.	.	.	.	.
 sub_C8DF	ROM	0000C8DF	00000049			R	.	.	.	.	.	.
-enemy_common_2	ROM	0000C938	00000024			R	.	.	.	.	.	.
+enemy_erase_2	ROM	0000C938	00000024			R	.	.	.	.	.	.
 sub_C95C	ROM	0000C95C	00000029			R	.	.	.	.	.	.
 sub_C985	ROM	0000C985	0000008A			R	.	.	.	.	.	.
 sub_CA0F	ROM	0000CA0F	00000088			R	.	.	.	.	.	.
@@ -324,7 +325,7 @@ sub_CD6B	ROM	0000CD6B	00000107			R	.	.	.	.	.	.
 sub_CE72	ROM	0000CE72	0000001B			R	.	.	.	.	.	.
 nmi_handler	ROM	0000CE8D	00000037			R	.	.	.	.	.	.
 dummy_irq_handler	ROM	0000CEC4	00000001			R	.	.	.	.	.	.
-sub_CEC5	ROM	0000CEC5	0000016C			R	.	.	.	.	.	.
+ppu_update_background	ROM	0000CEC5	0000016C			R	.	.	.	.	.	.
 ppu_cram_update	ROM	0000D031	00000073			R	.	.	.	.	.	.
 sub_D0A4	ROM	0000D0A4	0000001B			R	.	.	.	.	.	.
 sub_D0BF	ROM	0000D0BF	00000049			R	.	.	.	.	.	.
@@ -334,8 +335,8 @@ sub_D18C	ROM	0000D18C	0000001A			R	.	.	.	.	.	.
 sub_D1A6	ROM	0000D1A6	0000003B			R	.	.	.	.	.	.
 sub_D2C0	ROM	0000D2C0	00000004			R	.	.	.	.	.	.
 sub_D2C4	ROM	0000D2C4	00000004			R	.	.	.	.	.	.
-sub_D2C8	ROM	0000D2C8	0000001C			R	.	.	.	.	.	.
-sub_D2E4	ROM	0000D2E4	00000019			R	.	.	.	.	.	.
+clear_first_last_sprites	ROM	0000D2C8	0000001C			R	.	.	.	.	.	.
+set_new_high_score	ROM	0000D2E4	00000019			R	.	.	.	.	.	.
 sub_D2FD	ROM	0000D2FD	0000004A			R	.	.	.	.	.	.
 sub_D347	ROM	0000D347	00000061			R	.	.	.	.	.	.
 sub_D3A8	ROM	0000D3A8	0000004C			R	.	.	.	.	.	.
@@ -353,7 +354,7 @@ sub_D56B	ROM	0000D56B	00000040	00000000	00000000	R	.	.	.	.	.	.
 sub_D5AB	ROM	0000D5AB	00000016			R	.	.	.	.	.	.
 sub_D5C1	ROM	0000D5C1	00000016			R	.	.	.	.	.	.
 sub_D5D7	ROM	0000D5D7	00000048			R	.	.	.	.	.	.
-sub_D69B	ROM	0000D69B	00000004			R	.	.	.	.	.	.
+get_random_enemy	ROM	0000D69B	00000004			R	.	.	.	.	.	.
 sub_D69F	ROM	0000D69F	00000010			R	.	.	.	.	.	.
 sub_D6AF	ROM	0000D6AF	00000030			R	.	.	.	.	.	.
 sub_D6DF	ROM	0000D6DF	0000006C			R	.	.	.	.	.	.
@@ -373,7 +374,8 @@ sub_D938	ROM	0000D938	000000A8			R	.	.	.	.	.	.
 sub_D9E0	ROM	0000D9E0	00000036			R	.	.	.	.	.	.
 sub_DA16	ROM	0000DA16	00000020			R	.	.	.	.	.	.
 sub_DA36	ROM	0000DA36	0000018F			R	.	.	.	.	.	.
-sub_DCC5	ROM	0000DCC5	00000019			R	.	.	.	.	.	.
+sub_DCC5	ROM	0000DCC5	00000006	00000000	00000000	R	.	.	.	.	.	.
+sub_DCCB	ROM	0000DCCB	00000013			R	.	.	.	.	.	.
 sub_DD26	ROM	0000DD26	00000078			R	.	.	.	.	.	.
 sub_DD9E	ROM	0000DD9E	00000055			R	.	.	.	.	.	.
 sub_DDF3	ROM	0000DDF3	00000006			R	.	.	.	.	.	.

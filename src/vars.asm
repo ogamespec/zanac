@@ -237,26 +237,26 @@ byte_3C5 equ $3C5
 
 ; The $400 addresses are used (apparently) by the Background engine (the part of the code that is responsible for rendering and scrolling the background = level)
 
-; Addresses $500...$7FF are used by the game logic ("AI") and contains a large number of arrays of 0x1a elements ("Enemy Data")
+; Addresses $500...$7FF are used by the game logic ("AI") and contains a large number of arrays of 0x1a elements ("Enemy Data" aka game objects data)
 
-byte_528 equ $528
+byte_528 equ $528  		; Type  (The most significant bit is used to show that the object is spawned)
 byte_52C equ $52C
-byte_542 equ $542
+byte_542 equ $542 		; Y Position
 byte_546 equ $546
-byte_55C equ $55C
+byte_55C equ $55C 		; X Position
 byte_560 equ $560
 byte_590 equ $590
 byte_5AA equ $5AA
 byte_5C4 equ $5C4
 byte_5DE equ $5DE
 byte_5F8 equ $5F8
-byte_612 equ $612
+byte_612 equ $612 		; Y Speed
 byte_62C equ $62C
-byte_646 equ $646
+byte_646 equ $646 		; X Speed
 unk_67A equ $67A
 byte_6E2 equ $6E2
 byte_6FC equ $6FC
-byte_764 equ $764
+byte_764 equ $764 		; Enemy Health (For example, Giza has 16 HP. Each shot at such a tough enemy is accompanied by a ringing sound)
 byte_77E equ $77E
 byte_782 equ $782
 byte_798 equ $798
