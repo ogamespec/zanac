@@ -1,6 +1,7 @@
-byte_0 equ $0
-byte_1 equ $1
+temp_0 equ $0
+temp_1 equ $1
 byte_2 equ $2
+byte_6 equ $6
 unk_7 equ $7
 byte_8 equ $8
 last_bank_num equ $0f
@@ -34,12 +35,13 @@ byte_2C equ $2C
 byte_2D equ $2D
 byte_2E equ $2E
 byte_2F equ $2F
-byte_30 equ $30
-byte_31 equ $31
+game_mode equ $30                               ; 0x80 = demo mode
+warp_sequence_counter equ $31
 byte_32 equ $32
-byte_33 equ $33
-byte_34 equ $34
+zanac_main_weapon_level equ $33                 ; 0...5, Super
+pmove_direction equ $34                         ; On the Up/Down/Left/Right base, the direction of ship movement is selected (according to the table)
 unk_36 equ $36
+zanac_main_weapon_speed_y equ $37               ; Vertical speed of a regular Zanac shot
 byte_39 equ $39
 unk_3B equ $3B
 unk_3C equ $3C
@@ -89,7 +91,7 @@ byte_75 equ $75
 byte_77 equ $77
 byte_7A equ $7A
 byte_7D equ $7D
-byte_7E equ $7E
+last_randomize_result equ $7E               ; Used only in the `randomize` procedure
 ppu_status_in_vblank equ $7F                ; The VBlank handler saves here the contents of the PPU_STATUS register
 unk_80 equ $80
 byte_83 equ $83
@@ -99,7 +101,7 @@ byte_86 equ $86
 unk_86 equ $86
 byte_87 equ $87
 byte_90 equ $90
-byte_91 equ $91
+current_level equ $91                       ; Current game level (1 = first level). There are a total of 12 regular levels and 1 secret level in the game.
 byte_92 equ $92
 byte_98 equ $98
 byte_99 equ $99
@@ -148,11 +150,11 @@ byte_C7 equ $C7
 byte_C8 equ $C8
 unk_CB equ $CB
 byte_CD equ $CD
-byte_CE equ $CE
-byte_CF equ $CF
-byte_D0 equ $D0
-byte_D1 equ $D1
-byte_D2 equ $D2
+demo_counter_2 equ $CE
+demo_counter_1 equ $CF
+demo_button_update_counter equ $D0
+demo_last_buttons equ $D1
+demo_button_tab_pointer equ $D2
 unk_D9 equ $D9
 unk_DB equ $DB
 unk_DC equ $DC
@@ -164,10 +166,10 @@ unk_E8 equ $E8
 unk_F2 equ $F2
 unk_F3 equ $F3
 unk_F4 equ $F4
-byte_F5 equ $F5
-byte_F6 equ $F6
-byte_F7 equ $F7
-byte_F8 equ $F8
+pad_test1 equ $F5
+pad_test2 equ $F6
+pad_buttons_1 equ $F7
+pad_buttons_2 equ $F8
 unk_F9 equ $F9
 byte_FB equ $FB
 ppu_scroll_2nd_value equ $FC
@@ -179,7 +181,7 @@ last_ppu_ctrl1 equ $FF
 hard_reset_marker1 equ $102
 hard_reset_marker2 equ $103
 cram_update_mode equ $144
-byte_145 equ $145
+cram_new_palette equ $145
 byte_171 equ $171
 byte_174 equ $174
 unk_175 equ $175
@@ -218,7 +220,7 @@ byte_302 equ $302
 byte_303 equ $303
 byte_304 equ $304
 byte_305 equ $305
-byte_306 equ $306
+apu_sound_length equ $306
 byte_307 equ $307
 byte_308 equ $308
 byte_30C equ $30C
@@ -239,24 +241,27 @@ byte_3C5 equ $3C5
 
 ; Addresses $500...$7FF are used by the game logic ("AI") and contains a large number of arrays of 0x1a elements ("Enemy Data" aka game objects data)
 
-byte_528 equ $528  		; Type  (The most significant bit is used to show that the object is spawned)
+byte_528 equ $528       ; Type  (The most significant bit is used to show that the object is spawned)
 byte_52C equ $52C
-byte_542 equ $542 		; Y Position
+byte_542 equ $542       ; Y Position
 byte_546 equ $546
-byte_55C equ $55C 		; X Position
+byte_55C equ $55C       ; X Position
 byte_560 equ $560
+byte_576 equ $576       ; Sprite ID (The identifier of the meta sprite, for displaying the object)
 byte_590 equ $590
 byte_5AA equ $5AA
 byte_5C4 equ $5C4
 byte_5DE equ $5DE
 byte_5F8 equ $5F8
-byte_612 equ $612 		; Y Speed
+byte_612 equ $612       ; Y Speed
 byte_62C equ $62C
-byte_646 equ $646 		; X Speed
+byte_646 equ $646       ; X Speed
+byte_660 equ $660       ; Flags
 unk_67A equ $67A
-byte_6E2 equ $6E2
-byte_6FC equ $6FC
-byte_764 equ $764 		; Enemy Health (For example, Giza has 16 HP. Each shot at such a tough enemy is accompanied by a ringing sound)
+byte_6E2 equ $6E2       ; Chase Timeout; Timer (down counter) used to update the pursuit coordinates. After reaching 0, it is refreshed from Chase Initial Timeout.
+byte_6FC equ $6FC       ; Chase Counter; Number of Zanac pursuit attempts (down counter).
+byte_716 equ $716       ; Chase Initial Timeout; Copied to Chase Timeout after the countdown ends and sub_18024 is called.
+byte_764 equ $764       ; Enemy Health (For example, Giza has 16 HP. Each shot at such a tough enemy is accompanied by a ringing sound)
 byte_77E equ $77E
 byte_782 equ $782
 byte_798 equ $798

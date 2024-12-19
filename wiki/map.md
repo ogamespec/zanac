@@ -20,20 +20,20 @@ j_clear_main_menu_sprites	seg002	00008018	00000003			R	.	.	.	.	.	.
 j_update_score_onscreen	seg002	0000801B	00000003			R	.	.	.	.	.	.
 sub_1801E	seg002	0000801E	00000003			R	.	.	.	.	.	.
 j_check_enemy_overflow	seg002	00008021	00000003			R	.	.	.	.	.	.
-sub_18024	seg002	00008024	00000006			R	.	.	.	.	.	.
-sub_1802A	seg002	0000802A	0000006D			R	.	.	.	.	.	.
-prng_lfsr_based	seg002	00008097	0000008A	00000000	00000000	R	.	.	.	.	.	.
-sub_1818C	seg002	0000818C	0000001B			R	.	.	.	.	.	.
+calculate_slope_and_speed	seg002	00008024	00000006			R	.	.	.	.	.	.
+calculate_slope	seg002	0000802A	0000006D			R	.	.	.	.	.	.
+set_speed_by_slope	seg002	00008097	0000008A	00000000	00000000	R	.	.	.	.	.	.
+slope_div	seg002	0000818C	0000001B			R	.	.	.	.	.	.
 sub_181A7	seg002	000081A7	0000003D			R	.	.	.	.	.	.
 sub_181E4	seg002	000081E4	00000009			R	.	.	.	.	.	.
 sub_181ED	seg002	000081ED	00000009			R	.	.	.	.	.	.
 sub_181F6	seg002	000081F6	0000000E	00000000	00000000	R	.	.	.	.	.	.
 sub_18204	seg002	00008204	0000002C			R	.	.	.	.	.	.
-sub_18230	seg002	00008230	00000020			R	.	.	.	.	.	.
-sub_18250	seg002	00008250	00000040			R	.	.	.	.	.	.
-sub_18290	seg002	00008290	00000021	00000000	00000000	R	.	.	.	.	.	.
-sub_182B1	seg002	000082B1	00000028			R	.	.	.	.	.	.
-sub_182D9	seg002	000082D9	00000021			R	.	.	.	.	.	.
+collision_detect_special_shot_and_zanac	seg002	00008230	00000020			R	.	.	.	.	.	.
+collision_detect_all_shots	seg002	00008250	00000040			R	.	.	.	.	.	.
+collision_detect_single	seg002	00008290	00000021	00000000	00000000	R	.	.	.	.	.	.
+process_enemy_flags_sprites	seg002	000082B1	00000028			R	.	.	.	.	.	.
+add_enemy_meta_sprite	seg002	000082D9	00000021			R	.	.	.	.	.	.
 enemy_erase_and_continue	seg002	000082FA	00000004			R	.	.	.	.	.	.
 enemy_erase	seg002	000082FE	00000024			R	.	.	.	.	.	.
 process_y_speed	seg002	00008322	00000025			R	.	.	.	.	.	.
@@ -43,7 +43,7 @@ sub_18392	seg002	00008392	0000002A			R	.	.	.	.	.	.
 sub_183BC	seg002	000083BC	00000021			R	.	.	.	.	.	.
 sub_183DD	seg002	000083DD	00000012			R	.	.	.	.	.	.
 sub_183EF	seg002	000083EF	00000023			R	.	.	.	.	.	.
-sub_18412	seg002	00008412	00000095			R	.	.	.	.	.	.
+add_next_sprite	seg002	00008412	00000095			R	.	.	.	.	.	.
 sub_184A7	seg002	000084A7	00000083			R	.	.	.	.	.	.
 clear_main_menu_sprites	seg002	0000852A	00000011			R	.	.	.	.	.	.
 update_score_onscreen	seg002	0000853B	00000050			R	.	.	.	.	.	.
@@ -51,7 +51,7 @@ update_player_lives	seg002	0000858B	00000043			R	.	.	.	.	.	.
 add_sprite_from_zeropage	seg002	000085CE	0000000A			R	.	.	.	.	.	.
 add_sprite	seg002	000085D8	00000027			R	.	.	.	.	.	.
 add_more_sprites	seg002	000085FF	0000000D			R	.	.	.	.	.	.
-sub_1860C	seg002	0000860C	0000000D			R	.	.	.	.	.	.
+add_next_sprite_from_zeropage	seg002	0000860C	0000000D			R	.	.	.	.	.	.
 enemy_prng	seg002	0000872B	0000001B			R	.	.	.	.	.	.
 spawn_top_random_x_position	seg002	00008746	00000024			R	.	.	.	.	.	.
 sub_1876A	seg002	0000876A	00000014			R	.	.	.	.	.	.
@@ -63,12 +63,13 @@ sub_187A6	seg002	000087A6	00000007			R	.	.	.	.	.	.
 game_logic_processing	seg002	000087C7	0000005E			R	.	.	.	.	.	.
 check_enemy_overflow	seg002	00008825	00000010			R	.	.	.	.	.	.
 sub_18835	seg002	00008835	0000012B	00000000	00000000	R	.	.	.	.	.	.
-enemy_type_1_zanac	seg002	00008C68	000001C1			R	.	.	.	.	.	.
+enemy_type_1_zanac	seg002	00008C68	0000003C	00000000	00000000	R	.	.	.	.	.	.
+zanac_main_handler	seg002	00008CA4	00000185			R	.	.	.	.	.	.
 sub_18E29	seg002	00008E29	0000004B			R	.	.	.	.	.	.
 set_default_weapon	seg002	00008EA1	00000017			R	.	.	.	.	.	.
 warp_sequence	seg002	00008ECA	000000AE			R	.	.	.	.	.	.
 enemy_type_60	seg002	00008F78	000000A9			R	.	.	.	.	.	.
-enemy_type_2	seg002	00009039	00000035			R	.	.	.	.	.	.
+enemy_type_2_zanac_standard_shot	seg002	00009039	00000035			R	.	.	.	.	.	.
 sub_1906E	seg002	0000906E	00000011			R	.	.	.	.	.	.
 enemy_type_3	seg002	0000907F	0000005E			R	.	.	.	.	.	.
 special_weapon_process	seg002	000090DD	00000005			R	.	.	.	.	.	.
@@ -131,10 +132,12 @@ enemy_type_18	seg002	00009F6C	00000050			R	.	.	.	.	.	.
 enemy_type_22	seg002	00009FD6	0000007E			R	.	.	.	.	.	.
 sub_1A05E	seg002	0000A05E	0000002C			R	.	.	.	.	.	.
 enemy_type_23	seg002	0000A08A	00000031			R	.	.	.	.	.	.
-enemy_type_26	seg002	0000A0BB	000000AA			R	.	.	.	.	.	.
+enemy_type_26	seg002	0000A0BB	0000003E	00000000	00000000	R	.	.	.	.	.	.
+sub_1A0F9	seg002	0000A0F9	00000017			R	.	.	.	.	.	.
+sub_1A110	seg002	0000A110	00000055			R	.	.	.	.	.	.
 enemy_type_27	seg002	0000A16B	00000035			R	.	.	.	.	.	.
 enemy_type_28	seg002	0000A1A0	00000029			R	.	.	.	.	.	.
-enemy_type_29	seg002	0000A1C9	00000095			R	.	.	.	.	.	.
+enemy_type_29_effine_T4	seg002	0000A1C9	00000095			R	.	.	.	.	.	.
 sub_1A264	seg002	0000A264	0000004D			R	.	.	.	.	.	.
 decrease_enemy_health	seg002	0000A2B1	0000001A			R	.	.	.	.	.	.
 sub_1A2CB	seg002	0000A2CB	00000010			R	.	.	.	.	.	.
@@ -152,12 +155,14 @@ enemy_type_36_giza	seg002	0000A6F1	00000059			R	.	.	.	.	.	.
 enemy_type_44_yellow_duster	seg002	0000A74C	0000002D			R	.	.	.	.	.	.
 enemy_type_61_sart	seg002	0000A779	000000BD			R	.	.	.	.	.	.
 enemy_type_67_valkyrie	seg002	0000A836	0000009B			R	.	.	.	.	.	.
-sub_1A8D1	seg002	0000A8D1	00000019			R	.	.	.	.	.	.
+update_chase_counters	seg002	0000A8D1	00000019			R	.	.	.	.	.	.
 enemy_type_35_small_explosion	seg002	0000A8EA	00000094			R	.	.	.	.	.	.
 enemy_type_91_big_explosion	seg002	0000A985	000000A1			R	.	.	.	.	.	.
 enemy_type_37	seg002	0000AA62	00000005			R	.	.	.	.	.	.
-sub_1AA67	seg002	0000AA67	00000025			R	.	.	.	.	.	.
-enemy_type_38	seg002	0000AA8C	00000005			R	.	.	.	.	.	.
+sub_1AA67	seg002	0000AA67	00000008	00000000	00000000	R	.	.	.	.	.	.
+sub_1AA6F	seg002	0000AA6F	00000017			R	.	.	.	.	.	.
+sub_1AA86	seg002	0000AA86	00000006			R	.	.	.	.	.	.
+enemy_type_38_lead	seg002	0000AA8C	00000005			R	.	.	.	.	.	.
 sub_1AA91	seg002	0000AA91	0000000E			R	.	.	.	.	.	.
 enemy_type_39	seg002	0000AA9F	00000009			R	.	.	.	.	.	.
 enemy_type_41	seg002	0000AAA8	000000E8			R	.	.	.	.	.	.
@@ -206,7 +211,7 @@ sub_1B5B0	seg002	0000B5B0	0000000E	00000000	00000000	R	.	.	.	.	.	.
 sub_1B5BE	seg002	0000B5BE	00000011			R	.	.	.	.	.	.
 sub_1B5CF	seg002	0000B5CF	00000026			R	.	.	.	.	.	.
 sub_1B611	seg002	0000B611	00000020			R	.	.	.	.	.	.
-sub_1B631	seg002	0000B631	00000015			R	.	.	.	.	.	.
+spawn_projectile	seg002	0000B631	00000015			R	.	.	.	.	.	.
 sub_1B667	seg002	0000B667	00000034			R	.	.	.	.	.	.
 enemy_type_80	seg002	0000B69B	0000001B			R	.	.	.	.	.	.
 enemy_type_83	seg002	0000B6B6	00000076			R	.	.	.	.	.	.

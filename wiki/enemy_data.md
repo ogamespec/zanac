@@ -14,7 +14,9 @@ The most significant bit is used to show that the object is spawned. Each game o
 
 ## byte_55C - X Position
 
-## byte_576
+## byte_576 - Sprite ID
+
+The identifier of the meta sprite, for displaying the object.
 
 ## byte_590
 
@@ -32,9 +34,15 @@ The most significant bit is used to show that the object is spawned. Each game o
 
 ## byte_646 - X Speed
 
-## byte_660
+## byte_660 - Flags
 
-Some flags (each element contains a mask)
+Flags for applying speed to object coordinates (kinematics), each element contains a mask:
+- 8:
+- 0x10:
+- 1: Y Speed active
+- 2: 
+
+(It also looks like there are more flags, not sure what they are yet)
 
 ## byte_67A
 
@@ -48,7 +56,7 @@ Some flags (each element contains a mask)
 
 Timer (down counter) used to update the pursuit coordinates. After reaching 0, it is refreshed from Chase Initial Timeout.
 
-Pursuit is done by the following enemies: Carla(T-Cell), Valkyrie, Fairy, as well as Capital Ships: Hume (X-wing), Soreido (with Super hard bolts) and Somasu (huge carrier).
+Pursuit is done by the following enemies: Carla(T-Cell), Valkyrie, Fairy, as well as Capital Ships: Girevu (shoot all around), Hume (X-wing), Soreido (with Super hard bolts) and Somasu (huge carrier).
 
 ## byte_6FC - Chase Counter
 

@@ -1,7 +1,6 @@
-# Another table
+# Enemy Meta Sprites
 
-It is not clear yet what the table is, it is organized like [Enemy Jump Table](enemy_jump_table.md). It contains 83 entries.
-
+It is organized like [Enemy Jump Table](enemy_jump_table.md). It contains 83 entries.
 
 ```
 ROM:C1A6 4C                            tab_C1A6:       .BYTE $4C ; L
@@ -179,6 +178,4 @@ ROM:C24C tab_C24C:       .BYTE 1, $F8, $7C, 0, $FC
 ROM:C251 tab_C251:       .BYTE 2, $F8, $7C, 0, $F8, $F8, $7C, $40, 0
 ```
 
-The first byte defines the number of entries of 4 bytes each.
-
-Looks like meta sprites.
+The first byte defines the number of entries of 4 bytes each (sprite for OAM).
