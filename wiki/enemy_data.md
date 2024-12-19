@@ -4,7 +4,7 @@ Maximum number of enemies = 26 (0x1a). The game stores the state of game objects
 
 The first 5 objects are reserved for Zanac (ship + 3 shots + 1 special shot). The `check_enemy_overflow` procedure therefore skips the first 5 slots.
 
-The term "enemy" should be understood in a broad sense - it is any game object (shots, bonus items, enemies, the player himself, etc.). It was just initially assumed that it was only for enemies, but it turned out that the game universally handles all game objects, but the term "enemy" was retained.
+The term "enemy" should be understood in a broad sense - it is any game object (shots, bonus items, enemies, the player, etc.). It was just initially assumed that it was only for enemies, but it turned out that the game universally handles all game objects, but the term "enemy" was retained.
 
 ## byte_528 - Type
 
@@ -44,16 +44,34 @@ Some flags (each element contains a mask)
 
 ## byte_6C8
 
-## byte_6E2
+## byte_6E2 - Chase Timeout
 
-## byte_6FC
+Timer (down counter) used to update the pursuit coordinates. After reaching 0, it is refreshed from Chase Initial Timeout.
 
-## byte_716
+Pursuit is done by the following enemies: Carla(T-Cell), Valkyrie, Fairy, as well as Capital Ships: Hume (X-wing), Soreido (with Super hard bolts) and Somasu (huge carrier).
+
+## byte_6FC - Chase Counter
+
+Number of Zanac pursuit attempts (down counter).
+
+## byte_716 - Chase Initial Timeout
+
+Copied to Chase Timeout after the countdown ends and sub_18024 is called.
 
 ## byte_730
+
+## byte_74A
 
 ## byte_764 - Enemy Health
 
 For example, Giza has 16 HP. Each shot at such a tough enemy is accompanied by a ringing sound.
+
+## byte_77E
+
+## byte_798
+
+## byte_7B2
+
+## byte_7CC
 
 ## byte_7E6

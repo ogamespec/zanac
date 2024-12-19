@@ -34,9 +34,9 @@ sub_18250	seg002	00008250	00000040			R	.	.	.	.	.	.
 sub_18290	seg002	00008290	00000021	00000000	00000000	R	.	.	.	.	.	.
 sub_182B1	seg002	000082B1	00000028			R	.	.	.	.	.	.
 sub_182D9	seg002	000082D9	00000021			R	.	.	.	.	.	.
-sub_182FA	seg002	000082FA	00000004			R	.	.	.	.	.	.
+enemy_erase_and_continue	seg002	000082FA	00000004			R	.	.	.	.	.	.
 enemy_erase	seg002	000082FE	00000024			R	.	.	.	.	.	.
-sub_18322	seg002	00008322	00000025			R	.	.	.	.	.	.
+process_y_speed	seg002	00008322	00000025			R	.	.	.	.	.	.
 sub_18347	seg002	00008347	00000021			R	.	.	.	.	.	.
 sub_18368	seg002	00008368	0000002A			R	.	.	.	.	.	.
 sub_18392	seg002	00008392	0000002A			R	.	.	.	.	.	.
@@ -48,7 +48,7 @@ sub_184A7	seg002	000084A7	00000083			R	.	.	.	.	.	.
 clear_main_menu_sprites	seg002	0000852A	00000011			R	.	.	.	.	.	.
 update_score_onscreen	seg002	0000853B	00000050			R	.	.	.	.	.	.
 update_player_lives	seg002	0000858B	00000043			R	.	.	.	.	.	.
-sub_185CE	seg002	000085CE	0000000A			R	.	.	.	.	.	.
+add_sprite_from_zeropage	seg002	000085CE	0000000A			R	.	.	.	.	.	.
 add_sprite	seg002	000085D8	00000027			R	.	.	.	.	.	.
 add_more_sprites	seg002	000085FF	0000000D			R	.	.	.	.	.	.
 sub_1860C	seg002	0000860C	0000000D			R	.	.	.	.	.	.
@@ -63,7 +63,7 @@ sub_187A6	seg002	000087A6	00000007			R	.	.	.	.	.	.
 game_logic_processing	seg002	000087C7	0000005E			R	.	.	.	.	.	.
 check_enemy_overflow	seg002	00008825	00000010			R	.	.	.	.	.	.
 sub_18835	seg002	00008835	0000012B	00000000	00000000	R	.	.	.	.	.	.
-enemy_type_1	seg002	00008C68	000001C1			R	.	.	.	.	.	.
+enemy_type_1_zanac	seg002	00008C68	000001C1			R	.	.	.	.	.	.
 sub_18E29	seg002	00008E29	0000004B			R	.	.	.	.	.	.
 set_default_weapon	seg002	00008EA1	00000017			R	.	.	.	.	.	.
 warp_sequence	seg002	00008ECA	000000AE			R	.	.	.	.	.	.
@@ -116,9 +116,9 @@ enemy_type_15	seg002	00009AF7	00000093			R	.	.	.	.	.	.
 enemy_type_48_maseru	seg002	00009B8A	0000009D	00000000	00000000	R	.	.	.	.	.	.
 enemy_type_51_girevu	seg002	00009C2B	0000000C	00000000	00000000	R	.	.	.	.	.	.
 enemy_type_49_50_52	seg002	00009C37	00000060			R	.	.	.	.	.	.
-sub_19C97	seg002	00009C97	00000014			R	.	.	.	.	.	.
+capital_ships_health_check	seg002	00009C97	00000014			R	.	.	.	.	.	.
 sub_19CAB	seg002	00009CAB	0000003B			R	.	.	.	.	.	.
-sub_19CE6	seg002	00009CE6	00000029			R	.	.	.	.	.	.
+set_capital_ship_parameters	seg002	00009CE6	00000029			R	.	.	.	.	.	.
 sub_19D23	seg002	00009D23	00000057			R	.	.	.	.	.	.
 enemy_type_24	seg002	00009D7A	00000035			R	.	.	.	.	.	.
 sub_19DAF	seg002	00009DAF	00000077			R	.	.	.	.	.	.
@@ -153,8 +153,8 @@ enemy_type_44_yellow_duster	seg002	0000A74C	0000002D			R	.	.	.	.	.	.
 enemy_type_61_sart	seg002	0000A779	000000BD			R	.	.	.	.	.	.
 enemy_type_67_valkyrie	seg002	0000A836	0000009B			R	.	.	.	.	.	.
 sub_1A8D1	seg002	0000A8D1	00000019			R	.	.	.	.	.	.
-enemy_type_35	seg002	0000A8EA	00000094			R	.	.	.	.	.	.
-enemy_type_91	seg002	0000A985	000000A1			R	.	.	.	.	.	.
+enemy_type_35_small_explosion	seg002	0000A8EA	00000094			R	.	.	.	.	.	.
+enemy_type_91_big_explosion	seg002	0000A985	000000A1			R	.	.	.	.	.	.
 enemy_type_37	seg002	0000AA62	00000005			R	.	.	.	.	.	.
 sub_1AA67	seg002	0000AA67	00000025			R	.	.	.	.	.	.
 enemy_type_38	seg002	0000AA8C	00000005			R	.	.	.	.	.	.
@@ -331,7 +331,8 @@ sub_D0A4	ROM	0000D0A4	0000001B			R	.	.	.	.	.	.
 sub_D0BF	ROM	0000D0BF	00000049			R	.	.	.	.	.	.
 check_high_score_reached	ROM	0000D108	00000024			R	.	.	.	.	.	.
 sub_D12C	ROM	0000D12C	00000060			R	.	.	.	.	.	.
-sub_D18C	ROM	0000D18C	0000001A			R	.	.	.	.	.	.
+sub_D18C	ROM	0000D18C	00000007	00000000	00000000	R	.	.	.	.	.	.
+sub_D193	ROM	0000D193	00000013			R	.	.	.	.	.	.
 sub_D1A6	ROM	0000D1A6	0000003B			R	.	.	.	.	.	.
 sub_D2C0	ROM	0000D2C0	00000004			R	.	.	.	.	.	.
 sub_D2C4	ROM	0000D2C4	00000004			R	.	.	.	.	.	.
