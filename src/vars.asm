@@ -148,6 +148,7 @@ byte_C5 equ $C5
 byte_C6 equ $C6
 byte_C7 equ $C7
 byte_C8 equ $C8
+byte_CB equ $CB
 unk_CB equ $CB
 byte_CD equ $CD
 demo_counter_2 equ $CE

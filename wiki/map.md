@@ -306,7 +306,8 @@ sub_C8DF	ROM	0000C8DF	00000049			R	.	.	.	.	.	.
 enemy_erase_2	ROM	0000C938	00000024			R	.	.	.	.	.	.
 sub_C95C	ROM	0000C95C	00000029			R	.	.	.	.	.	.
 sub_C985	ROM	0000C985	0000008A			R	.	.	.	.	.	.
-sub_CA0F	ROM	0000CA0F	00000088			R	.	.	.	.	.	.
+sub_CA0F	ROM	0000CA0F	00000003	00000000	00000000	R	.	.	.	.	.	.
+sub_CA12	ROM	0000CA12	00000085			R	.	.	.	.	.	.
 sub_CA97	ROM	0000CA97	00000006			R	.	.	.	.	.	.
 ppu_cram_load	ROM	0000CA9D	00000015			R	.	.	.	.	.	.
 randomize	ROM	0000CAB2	0000001B			R	.	.	.	.	.	.
@@ -350,7 +351,8 @@ sub_D3F4	ROM	0000D3F4	0000000B			R	.	.	.	.	.	.
 sub_D3FF	ROM	0000D3FF	00000064			R	.	.	.	.	.	.
 sub_D463	ROM	0000D463	0000000F			R	.	.	.	.	.	.
 sub_D472	ROM	0000D472	0000000E			R	.	.	.	.	.	.
-sub_D480	ROM	0000D480	00000086	00000000	00000000	R	.	.	.	.	.	.
+sub_D480	ROM	0000D480	0000007A	00000000	00000000	R	.	.	.	.	.	.
+sub_D4FA	ROM	0000D4FA	0000000C			R	.	.	.	.	.	.
 sub_D510	ROM	0000D510	0000000A	00000000	00000000	R	.	.	.	.	.	.
 sub_D51A	ROM	0000D51A	0000000E			R	.	.	.	.	.	.
 sub_D528	ROM	0000D528	00000025			R	.	.	.	.	.	.
@@ -369,16 +371,21 @@ sub_D77B	ROM	0000D77B	00000014			R	.	.	.	.	.	.
 sub_D78F	ROM	0000D78F	00000016			R	.	.	.	.	.	.
 set_nametable_addr_after_scroll	ROM	0000D7A5	00000018			R	.	.	.	.	.	.
 sub_D7E3	ROM	0000D7E3	00000041			R	.	.	.	.	.	.
-sub_D824	ROM	0000D824	00000050	00000000	00000000	R	.	.	.	.	.	.
+sub_D824	ROM	0000D824	00000026	00000000	00000000	R	.	.	.	.	.	.
+sub_D84A	ROM	0000D84A	00000005			R	.	.	.	.	.	.
+sub_D84F	ROM	0000D84F	00000025			R	.	.	.	.	.	.
 sub_D886	ROM	0000D886	0000000E			R	.	.	.	.	.	.
 sub_D894	ROM	0000D894	0000000D			R	.	.	.	.	.	.
 sub_D8A1	ROM	0000D8A1	0000001E			R	.	.	.	.	.	.
 sub_D8BF	ROM	0000D8BF	0000001D			R	.	.	.	.	.	.
 sub_D8DC	ROM	0000D8DC	00000044			R	.	.	.	.	.	.
 sub_D920	ROM	0000D920	00000018			R	.	.	.	.	.	.
-sub_D938	ROM	0000D938	000000A8			R	.	.	.	.	.	.
+sub_D938	ROM	0000D938	00000002	00000000	00000000	R	.	.	.	.	.	.
+sub_D93A	ROM	0000D93A	00000009	00000000	00000000	R	.	.	.	.	.	.
+sub_D943	ROM	0000D943	0000009D			R	.	.	.	.	.	.
 sub_D9E0	ROM	0000D9E0	00000036			R	.	.	.	.	.	.
-sub_DA16	ROM	0000DA16	00000020			R	.	.	.	.	.	.
+sub_DA16	ROM	0000DA16	00000012	00000000	00000000	R	.	.	.	.	.	.
+sub_DA28	ROM	0000DA28	0000000E			R	.	.	.	.	.	.
 sub_DA36	ROM	0000DA36	0000018F			R	.	.	.	.	.	.
 sub_DCC5	ROM	0000DCC5	00000006	00000000	00000000	R	.	.	.	.	.	.
 sub_DCCB	ROM	0000DCCB	00000013			R	.	.	.	.	.	.
@@ -405,12 +412,14 @@ sub_E653	ROM	0000E653	0000001E			R	.	.	.	.	.	.
 sub_E767	ROM	0000E767	00000005			R	.	.	.	.	.	.
 sub_E76C	ROM	0000E76C	00000053			R	.	.	.	.	.	.
 reset	ROM	0000E7BF	00000047	00000000	00000000	R	.	.	.	.	.	.
-main_menu_loop	ROM	0000E806	000000A4			R	.	.	.	.	.	.
+main_menu_loop	ROM	0000E806	00000018	00000000	00000000	R	.	.	.	.	.	.
+sub_E81E	ROM	0000E81E	0000008C			R	.	.	.	.	.	.
 sub_E8AA	ROM	0000E8AA	0000001F			R	.	.	.	.	.	.
-sub_E8C9	ROM	0000E8C9	000000CC			R	.	.	.	.	.	.
+sub_E8C9	ROM	0000E8C9	00000070	00000000	00000000	R	.	.	.	.	.	.
+level_completed_sequence	ROM	0000E939	0000005C			R	.	.	.	.	.	.
 sub_E995	ROM	0000E995	0000000D			R	.	.	.	.	.	.
-sub_E9A2	ROM	0000E9A2	00000006			R	.	.	.	.	.	.
-sub_E9A8	ROM	0000E9A8	00000028			R	.	.	.	.	.	.
+fade_palette_before_warp_another	ROM	0000E9A2	00000006			R	.	.	.	.	.	.
+fade_palette_before_warp	ROM	0000E9A8	00000028			R	.	.	.	.	.	.
 update_music_after_fortress_destroy	ROM	0000E9E0	0000001E			R	.	.	.	.	.	.
 sub_EA0B	ROM	0000EA0B	0000002B			R	.	.	.	.	.	.
 all_enemies_destroyed	ROM	0000EA36	00000007			R	.	.	.	.	.	.

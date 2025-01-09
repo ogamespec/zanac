@@ -821,1175 +821,206 @@ tab_C1F9:       .BYTE $C2               ; $C24C  (xref sub_182D9)
                 .BYTE $C2               ; $C251
                 .BYTE $C2               ; $C25A
                 .BYTE $C2               ; $C263
-                .BYTE $C2
-                .BYTE $C2
-                .BYTE $C2
-                .BYTE $C2
-                .BYTE $C2
-                .BYTE $C2
-                .BYTE $C2
-                .BYTE $C2
-                .BYTE $C2
-                .BYTE $C2
-                .BYTE $C2
-                .BYTE $C2
-                .BYTE $C2
-                .BYTE $C2
-                .BYTE $C2
-                .BYTE $C2
-                .BYTE $C2
-                .BYTE $C2
-                .BYTE $C3
-                .BYTE $C3
-                .BYTE $C3
-                .BYTE $C3
-                .BYTE $C3
-                .BYTE $C3
-                .BYTE $C3
-                .BYTE $C3
-                .BYTE $C3
-                .BYTE $C3
-                .BYTE $C3
-                .BYTE $C3
-                .BYTE $C3
-                .BYTE $C3
-                .BYTE $C3
-                .BYTE $C3
-                .BYTE $C3
-                .BYTE $C3
-                .BYTE $C3
-                .BYTE $C3
-                .BYTE $C3
-                .BYTE $C3
-                .BYTE $C3
-                .BYTE $C3
-                .BYTE $C3
-                .BYTE $C3
-                .BYTE $C3
-                .BYTE $C4
-                .BYTE $C4
-                .BYTE $C4
-                .BYTE $C4
-                .BYTE $C4
-                .BYTE $C4
-                .BYTE $C4
-                .BYTE $C4
-                .BYTE $C4
-                .BYTE $C4
-                .BYTE $C4
-                .BYTE $C4
-                .BYTE $C4
-                .BYTE $C4
-                .BYTE $C4
-                .BYTE $C4
-                .BYTE $C4
-                .BYTE $C5
-                .BYTE $C5
-                .BYTE $C5
-                .BYTE $C5
-                .BYTE $C5
-                .BYTE $C5
-                .BYTE $C5
-                .BYTE $C5
-                .BYTE $C6
-                .BYTE $C6
-                .BYTE $C6
-                .BYTE $C6
-                .BYTE $C6
-                .BYTE $C6
-                .BYTE $C6
-                .BYTE $C6
+                .BYTE $C2               ; $C270
+                .BYTE $C2               ; $C275
+                .BYTE $C2               ; $C27E
+                .BYTE $C2               ; $C287
+                .BYTE $C2               ; $C290
+                .BYTE $C2               ; $C299
+                .BYTE $C2               ; $C2A2
+                .BYTE $C2               ; $C2AB
+                .BYTE $C2               ; $C2B4
+                .BYTE $C2               ; $C2B9
+                .BYTE $C2               ; $C2BE
+                .BYTE $C2               ; $C2C7
+                .BYTE $C2               ; $C2D4
+                .BYTE $C2               ; $C2DD
+                .BYTE $C2               ; $C2E6
+                .BYTE $C2               ; $C2EB
+                .BYTE $C2               ; $C2F4
+                .BYTE $C2               ; $C2FD
+                .BYTE $C3               ; $C306
+                .BYTE $C3               ; $C30F
+                .BYTE $C3               ; $C318
+                .BYTE $C3               ; $C321
+                .BYTE $C3               ; $C32A
+                .BYTE $C3               ; $C333
+                .BYTE $C3               ; $C33C
+                .BYTE $C3               ; $C345
+                .BYTE $C3               ; $C34E
+                .BYTE $C3               ; $C357
+                .BYTE $C3               ; $C360
+                .BYTE $C3               ; $C369
+                .BYTE $C3               ; $C372
+                .BYTE $C3               ; $C377
+                .BYTE $C3               ; $C380
+                .BYTE $C3               ; $C389
+                .BYTE $C3               ; $C392
+                .BYTE $C3               ; $C39B
+                .BYTE $C3               ; $C3A8
+                .BYTE $C3               ; $C3B5
+                .BYTE $C3               ; $C3C2
+                .BYTE $C3               ; $C3CB
+                .BYTE $C3               ; $C3D4
+                .BYTE $C3               ; $C3DD
+                .BYTE $C3               ; $C3E6
+                .BYTE $C3               ; $C3EF
+                .BYTE $C3               ; $C3F8
+                .BYTE $C4               ; $C401
+                .BYTE $C4               ; $C40A
+                .BYTE $C4               ; $C413
+                .BYTE $C4               ; $C41C
+                .BYTE $C4               ; $C425
+                .BYTE $C4               ; $C42E
+                .BYTE $C4               ; $C437
+                .BYTE $C4               ; $C448
+                .BYTE $C4               ; $C459
+                .BYTE $C4               ; $C46A
+                .BYTE $C4               ; $C47B
+                .BYTE $C4               ; $C484
+                .BYTE $C4               ; $C48D
+                .BYTE $C4               ; $C4A6
+                .BYTE $C4               ; $C4C7
+                .BYTE $C4               ; $C4E8
+                .BYTE $C4               ; $C4F9
+                .BYTE $C5               ; $C50A
+                .BYTE $C5               ; $C513
+                .BYTE $C5               ; $C53C
+                .BYTE $C5               ; $C55D
+                .BYTE $C5               ; $C57E
+                .BYTE $C5               ; $C583
+                .BYTE $C5               ; $C5A4
+                .BYTE $C5               ; $C5C9
+                .BYTE $C6               ; $C60A
+                .BYTE $C6               ; $C613
+                .BYTE $C6               ; $C61C
+                .BYTE $C6               ; $C625
+                .BYTE $C6               ; $C62E
+                .BYTE $C6               ; $C637
+                .BYTE $C6               ; $C658
+                .BYTE $C6               ; $C679
                 .BYTE $C6               ; $C69A
 tab_C24C:       .BYTE 1, $F8, $7C, 0, $FC
 tab_C251:       .BYTE 2, $F8, $7C, 0, $F8, $F8, $7C, $40, 0
-tab_C25A:       .BYTE   2
-                .BYTE $F8
-                .BYTE $80
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $80
-                .BYTE $40 ; @
-                .BYTE   0
-tab_C263:       .BYTE   3
-                .BYTE   4
-                .BYTE $7C ; |
-                .BYTE   1
-                .BYTE $E8
-                .BYTE $F4
-                .BYTE $7C ; |
-                .BYTE   1
-                .BYTE $FC
-                .BYTE   4
-                .BYTE $7C ; |
-                .BYTE   1
-                .BYTE $10
-                .BYTE   1
-                .BYTE $F8
-                .BYTE $20
-                .BYTE   0
-                .BYTE $FC
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $22 ; "
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $22 ; "
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $24 ; $
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $24 ; $
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $26 ; &
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $26 ; &
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $28 ; (
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $28 ; (
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $2A ; *
-                .BYTE $80
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $2A ; *
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $2C ; ,
-                .BYTE $80
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $2C ; ,
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $2E ; .
-                .BYTE $80
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $2E ; .
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   1
-                .BYTE $F8
-                .BYTE $3A ; :
-                .BYTE   0
-                .BYTE $FC
-                .BYTE   1
-                .BYTE $F8
-                .BYTE $A8
-                .BYTE   0
-                .BYTE $FC
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $A8
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $A8
-                .BYTE   0
-                .BYTE   0
-                .BYTE   3
-                .BYTE $F8
-                .BYTE $A8
-                .BYTE   0
-                .BYTE $F6
-                .BYTE $FC
-                .BYTE $A8
-                .BYTE   0
-                .BYTE $FC
-                .BYTE $F8
-                .BYTE $A8
-                .BYTE   0
-                .BYTE   2
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $30 ; 0
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $32 ; 2
-                .BYTE   0
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $34 ; 4
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $36 ; 6
-                .BYTE   0
-                .BYTE   0
-                .BYTE   1
-                .BYTE $F8
-                .BYTE $38 ; 8
-                .BYTE   0
-                .BYTE $FC
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $36 ; 6
-                .BYTE $40 ; @
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $34 ; 4
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $3C ; <
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $3C ; <
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $3E ; >
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $3E ; >
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $40 ; @
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $42 ; B
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $42 ; B
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $44 ; D
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $44 ; D
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $46 ; F
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $46 ; F
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $48 ; H
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $48 ; H
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $4A ; J
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $4A ; J
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $4C ; L
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $4C ; L
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $4E ; N
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $4E ; N
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $50 ; P
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $50 ; P
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $52 ; R
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $52 ; R
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $54 ; T
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $54 ; T
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $56 ; V
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $56 ; V
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   1
-                .BYTE $F8
-                .BYTE $56 ; V
-                .BYTE   0
-                .BYTE $FC
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $58 ; X
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $5A ; Z
-                .BYTE   0
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $5C ; \
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $5E ; ^
-                .BYTE   0
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $60 ; `
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $60 ; `
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $62 ; b
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $64 ; d
-                .BYTE   0
-                .BYTE   0
-                .BYTE   3
-                .BYTE $F8
-                .BYTE $6A ; j
-                .BYTE   0
-                .BYTE $F4
-                .BYTE $F8
-                .BYTE $8A
-                .BYTE   1
-                .BYTE $FC
-                .BYTE $F8
-                .BYTE $6A ; j
-                .BYTE $40 ; @
-                .BYTE   4
-                .BYTE   3
-                .BYTE $F8
-                .BYTE $66 ; f
-                .BYTE   0
-                .BYTE $F4
-                .BYTE $F8
-                .BYTE $86
-                .BYTE   1
-                .BYTE $FC
-                .BYTE $F8
-                .BYTE $66 ; f
-                .BYTE $40 ; @
-                .BYTE   4
-                .BYTE   3
-                .BYTE $F8
-                .BYTE $88
-                .BYTE   0
-                .BYTE $F4
-                .BYTE $F8
-                .BYTE $86
-                .BYTE   1
-                .BYTE $FC
-                .BYTE $F8
-                .BYTE $8C
-                .BYTE   0
-                .BYTE   4
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $6C ; l
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $6C ; l
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $6E ; n
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $70 ; p
-                .BYTE   0
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $72 ; r
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $72 ; r
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $74 ; t
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $76 ; v
-                .BYTE   0
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $78 ; x
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $7A ; z
-                .BYTE   0
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $1C
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $1E
-                .BYTE   0
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $18
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $1A
-                .BYTE   0
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $14
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $16
-                .BYTE   0
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $1A
-                .BYTE $40 ; @
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $18
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $1E
-                .BYTE $40 ; @
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $1C
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $AE
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $B0
-                .BYTE   0
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $C4
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $C4
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $C2
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $C2
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   4
-                .BYTE $F8
-                .BYTE $C4
-                .BYTE   0
-                .BYTE $F0
-                .BYTE $F8
-                .BYTE $C4
-                .BYTE $40 ; @
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $C4
-                .BYTE   0
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $C4
-                .BYTE $40 ; @
-                .BYTE   8
-                .BYTE   4
-                .BYTE $F8
-                .BYTE $C2
-                .BYTE   0
-                .BYTE $F0
-                .BYTE $F8
-                .BYTE $C2
-                .BYTE $40 ; @
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $C2
-                .BYTE   0
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $C2
-                .BYTE $40 ; @
-                .BYTE   8
-                .BYTE   4
-                .BYTE $F8
-                .BYTE $C4
-                .BYTE   0
-                .BYTE $E8
-                .BYTE $F8
-                .BYTE $C4
-                .BYTE $40 ; @
-                .BYTE $F0
-                .BYTE $F8
-                .BYTE $C4
-                .BYTE   0
-                .BYTE   8
-                .BYTE $F8
-                .BYTE $C4
-                .BYTE $40 ; @
-                .BYTE $10
-                .BYTE   4
-                .BYTE $F8
-                .BYTE $C2
-                .BYTE   0
-                .BYTE $E8
-                .BYTE $F8
-                .BYTE $C2
-                .BYTE $40 ; @
-                .BYTE $F0
-                .BYTE $F8
-                .BYTE $C2
-                .BYTE   0
-                .BYTE   8
-                .BYTE $F8
-                .BYTE $C2
-                .BYTE $40 ; @
-                .BYTE $10
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $C0
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $C0
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $BE
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $BE
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   6
-                .BYTE $F0
-                .BYTE $BA
-                .BYTE   0
-                .BYTE $F4
-                .BYTE $F0
-                .BYTE $BC
-                .BYTE   0
-                .BYTE $FC
-                .BYTE $F0
-                .BYTE $BA
-                .BYTE $40 ; @
-                .BYTE   4
-                .BYTE   0
-                .BYTE $BA
-                .BYTE $80
-                .BYTE $F4
-                .BYTE   0
-                .BYTE $BC
-                .BYTE $80
-                .BYTE $FC
-                .BYTE   0
-                .BYTE $BA
-                .BYTE $C0
-                .BYTE   4
-                .BYTE   8
-                .BYTE $F0
-                .BYTE $B6
-                .BYTE   0
-                .BYTE $F0
-                .BYTE $E9
-                .BYTE $B8
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $E9
-                .BYTE $B8
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE $F0
-                .BYTE $B6
-                .BYTE $40 ; @
-                .BYTE   8
-                .BYTE   0
-                .BYTE $B6
-                .BYTE $80
-                .BYTE $F0
-                .BYTE   7
-                .BYTE $B8
-                .BYTE $80
-                .BYTE $F8
-                .BYTE   7
-                .BYTE $B8
-                .BYTE $C0
-                .BYTE   0
-                .BYTE   0
-                .BYTE $B6
-                .BYTE $C0
-                .BYTE   8
-                .BYTE   8
-                .BYTE $F0
-                .BYTE $B2
-                .BYTE   0
-                .BYTE $F0
-                .BYTE $E6
-                .BYTE $B4
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $E6
-                .BYTE $B4
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE $F0
-                .BYTE $B2
-                .BYTE $40 ; @
-                .BYTE   8
-                .BYTE   0
-                .BYTE $B2
-                .BYTE $80
-                .BYTE $F0
-                .BYTE  $A
-                .BYTE $B4
-                .BYTE $80
-                .BYTE $F8
-                .BYTE  $A
-                .BYTE $B4
-                .BYTE $C0
-                .BYTE   0
-                .BYTE   0
-                .BYTE $B2
-                .BYTE $C0
-                .BYTE   8
-                .BYTE   4
-                .BYTE $F4
-                .BYTE $B6
-                .BYTE   0
-                .BYTE $F0
-                .BYTE $ED
-                .BYTE $B8
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $ED
-                .BYTE $B8
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE $F4
-                .BYTE $B6
-                .BYTE $40 ; @
-                .BYTE   8
-                .BYTE   4
-                .BYTE $F4
-                .BYTE $B2
-                .BYTE   0
-                .BYTE $F0
-                .BYTE $EA
-                .BYTE $B4
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $EA
-                .BYTE $B4
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE $F4
-                .BYTE $B2
-                .BYTE $40 ; @
-                .BYTE   8
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $68 ; h
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $68 ; h
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE  $A
-                .BYTE $E8
-                .BYTE $84
-                .BYTE   0
-                .BYTE $E8
-                .BYTE $E8
-                .BYTE $84
-                .BYTE $40 ; @
-                .BYTE $F0
-                .BYTE $F8
-                .BYTE $84
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $84
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE $E8
-                .BYTE $84
-                .BYTE   0
-                .BYTE   8
-                .BYTE $E8
-                .BYTE $84
-                .BYTE $40 ; @
-                .BYTE $10
-                .BYTE $10
-                .BYTE $82
-                .BYTE $80
-                .BYTE $E8
-                .BYTE   8
-                .BYTE $82
-                .BYTE $80
-                .BYTE $F0
-                .BYTE   8
-                .BYTE $82
-                .BYTE $C0
-                .BYTE   8
-                .BYTE $10
-                .BYTE $82
-                .BYTE $C0
-                .BYTE $10
-                .BYTE   8
-                .BYTE $F0
-                .BYTE $98
-                .BYTE   0
-                .BYTE $F0
-                .BYTE $F0
-                .BYTE $9A
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F0
-                .BYTE $9C
-                .BYTE   0
-                .BYTE   0
-                .BYTE $F0
-                .BYTE $9E
-                .BYTE   0
-                .BYTE   8
-                .BYTE   0
-                .BYTE $98
-                .BYTE $80
-                .BYTE $F0
-                .BYTE   0
-                .BYTE $9A
-                .BYTE $80
-                .BYTE $F8
-                .BYTE   0
-                .BYTE $9C
-                .BYTE $80
-                .BYTE   0
-                .BYTE   0
-                .BYTE $9E
-                .BYTE $80
-                .BYTE   8
-                .BYTE   8
-                .BYTE $F0
-                .BYTE $A0
-                .BYTE   0
-                .BYTE $F0
-                .BYTE $F0
-                .BYTE $A2
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F0
-                .BYTE $A4
-                .BYTE   0
-                .BYTE   0
-                .BYTE $F0
-                .BYTE $A6
-                .BYTE   0
-                .BYTE   8
-                .BYTE   0
-                .BYTE $A0
-                .BYTE $80
-                .BYTE $F0
-                .BYTE   0
-                .BYTE $A2
-                .BYTE $80
-                .BYTE $F8
-                .BYTE   0
-                .BYTE $A4
-                .BYTE $80
-                .BYTE   0
-                .BYTE   0
-                .BYTE $A6
-                .BYTE $80
-                .BYTE   8
-                .BYTE   1
-                .BYTE $F8
-                .BYTE $D8
-                .BYTE   0
-                .BYTE $FC
-                .BYTE   8
-                .BYTE $F0
-                .BYTE $92
-                .BYTE   0
-                .BYTE $E7
-                .BYTE $F0
-                .BYTE $94
-                .BYTE   0
-                .BYTE $EF
-                .BYTE $F0
-                .BYTE $8E
-                .BYTE   0
-                .BYTE   9
-                .BYTE $F0
-                .BYTE $90
-                .BYTE   0
-                .BYTE $11
-                .BYTE   0
-                .BYTE $96
-                .BYTE $40 ; @
-                .BYTE $F4
-                .BYTE $F8
-                .BYTE $AA
-                .BYTE $80
-                .BYTE $FC
-                .BYTE   0
-                .BYTE $96
-                .BYTE   0
-                .BYTE   4
-                .BYTE   8
-                .BYTE $AC
-                .BYTE   0
-                .BYTE $FC
-                .BYTE   9
-                .BYTE $F0
-                .BYTE $92
-                .BYTE   0
-                .BYTE $EC
-                .BYTE $F0
-                .BYTE $94
-                .BYTE   0
-                .BYTE $F4
-                .BYTE $F0
-                .BYTE $8E
-                .BYTE   0
-                .BYTE   4
-                .BYTE $F0
-                .BYTE $90
-                .BYTE   0
-                .BYTE  $C
-                .BYTE   0
-                .BYTE $92
-                .BYTE $80
-                .BYTE $EC
-                .BYTE   0
-                .BYTE $94
-                .BYTE $80
-                .BYTE $F4
-                .BYTE   0
-                .BYTE $8E
-                .BYTE $80
-                .BYTE   4
-                .BYTE   0
-                .BYTE $90
-                .BYTE $80
-                .BYTE  $C
-                .BYTE $F8
-                .BYTE $86
-                .BYTE   1
-                .BYTE $FC
-                .BYTE $10
-                .BYTE $D8
-                .BYTE $92
-                .BYTE   0
-                .BYTE $EB
-                .BYTE $D8
-                .BYTE $94
-                .BYTE   0
-                .BYTE $F3
-                .BYTE $D8
-                .BYTE $8E
-                .BYTE   0
-                .BYTE   5
-                .BYTE $D8
-                .BYTE $90
-                .BYTE   0
-                .BYTE  $D
-                .BYTE $E8
-                .BYTE $D0
-                .BYTE $80
-                .BYTE $ED
-                .BYTE $E8
-                .BYTE $D2
-                .BYTE $80
-                .BYTE $F5
-                .BYTE $E8
-                .BYTE $D4
-                .BYTE $80
-                .BYTE   3
-                .BYTE $E8
-                .BYTE $D6
-                .BYTE $80
-                .BYTE  $B
-                .BYTE $F8
-                .BYTE $CC
-                .BYTE   0
-                .BYTE $ED
-                .BYTE $F8
-                .BYTE $C8
-                .BYTE   1
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $CA
-                .BYTE   1
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $CE
-                .BYTE   0
-                .BYTE  $B
-                .BYTE   8
-                .BYTE $D0
-                .BYTE   0
-                .BYTE $ED
-                .BYTE   8
-                .BYTE $D2
-                .BYTE   0
-                .BYTE $F5
-                .BYTE   8
-                .BYTE $D4
-                .BYTE   0
-                .BYTE   3
-                .BYTE   8
-                .BYTE $D6
-                .BYTE   0
-                .BYTE  $B
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $84
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $84
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $F4
-                .BYTE $40 ; @
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $F4
-                .BYTE   0
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $F6
-                .BYTE $40 ; @
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $F6
-                .BYTE   0
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $EC
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $EE
-                .BYTE   0
-                .BYTE   0
-                .BYTE   2
-                .BYTE $F8
-                .BYTE $F0
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F8
-                .BYTE $F2
-                .BYTE   0
-                .BYTE   0
-                .BYTE   8
-                .BYTE $F0
-                .BYTE $DC
-                .BYTE $40 ; @
-                .BYTE $F0
-                .BYTE $F0
-                .BYTE $DA
-                .BYTE $40 ; @
-                .BYTE $F8
-                .BYTE $F0
-                .BYTE $DA
-                .BYTE   0
-                .BYTE   0
-                .BYTE $F0
-                .BYTE $DC
-                .BYTE   0
-                .BYTE   8
-                .BYTE   0
-                .BYTE $E0
-                .BYTE $40 ; @
-                .BYTE $F0
-                .BYTE   0
-                .BYTE $DE
-                .BYTE $40 ; @
-                .BYTE $F8
-                .BYTE   0
-                .BYTE $DE
-                .BYTE   0
-                .BYTE   0
-                .BYTE   0
-                .BYTE $E0
-                .BYTE   0
-                .BYTE   8
-                .BYTE   8
-                .BYTE $F0
-                .BYTE $E4
-                .BYTE $40 ; @
-                .BYTE $F0
-                .BYTE $F0
-                .BYTE $E2
-                .BYTE $40 ; @
-                .BYTE $F8
-                .BYTE $F0
-                .BYTE $E2
-                .BYTE   0
-                .BYTE   0
-                .BYTE $F0
-                .BYTE $E4
-                .BYTE   0
-                .BYTE   8
-                .BYTE   0
-                .BYTE $E4
-                .BYTE $C0
-                .BYTE $F0
-                .BYTE   0
-                .BYTE $E2
-                .BYTE $80
-                .BYTE $F8
-                .BYTE   0
-                .BYTE $E2
-                .BYTE $C0
-                .BYTE   0
-                .BYTE   0
-                .BYTE $E4
-                .BYTE $80
-                .BYTE   8
-                .BYTE   8
-                .BYTE $F0
-                .BYTE $E8
-                .BYTE $40 ; @
-                .BYTE $F0
-                .BYTE $F0
-                .BYTE $E6
-                .BYTE   0
-                .BYTE $F8
-                .BYTE $F0
-                .BYTE $E6
-                .BYTE $40 ; @
-                .BYTE   0
-                .BYTE $F0
-                .BYTE $E8
-                .BYTE   0
-                .BYTE   8
-                .BYTE   0
-                .BYTE $E8
-                .BYTE $C0
-                .BYTE $F0
-                .BYTE   0
-                .BYTE $E6
-                .BYTE $80
-                .BYTE $F8
-                .BYTE   0
-                .BYTE $E6
-                .BYTE $C0
-                .BYTE   0
-                .BYTE   0
-                .BYTE $E8
-                .BYTE $80
-                .BYTE   8
+tab_C25A:       .BYTE 2, $F8, $80, 0, $F8, $F8, $80, $40, 0
+tab_C263:       .BYTE 3, 4, $7C, 1, $E8, $F4, $7C, 1, $FC, 4, $7C, 1, $10
+tab_C270:       .BYTE 1, $F8, $20, 0, $FC
+tab_C275:       .BYTE 2, $F8, $22, 0, $F8, $F8, $22, $40, 0
+tab_C27E:       .BYTE 2, $F8, $24, 0, $F8, $F8, $24, $40, 0
+tab_C287:       .BYTE 2, $F8, $26, 0, $F8, $F8, $26, $40, 0
+tab_C290:       .BYTE 2, $F8, $28, 0, $F8, $F8, $28, $40, 0
+tab_C299:       .BYTE 2, $F8, $2A, $80, $F8, $F8, $2A, $40, 0
+tab_C2A2:       .BYTE 2, $F8, $2C, $80, $F8, $F8, $2C, $40, 0
+tab_C2AB:       .BYTE 2, $F8, $2E, $80, $F8, $F8, $2E, $40, 0
+tab_C2B4:       .BYTE 1, $F8, $3A, 0, $FC
+tab_C2B9:       .BYTE 1, $F8, $A8, 0, $FC
+tab_C2BE:       .BYTE 2, $F8, $A8, 0, $F8, $F8, $A8, 0, 0
+tab_C2C7:       .BYTE 3, $F8, $A8, 0, $F6, $FC, $A8, 0, $FC, $F8, $A8
+                .BYTE 0, 2
+tab_C2D4:       .BYTE 2, $F8, $30, 0, $F8, $F8, $32, 0, 0
+tab_C2DD:       .BYTE 2, $F8, $34, 0, $F8, $F8, $36, 0, 0
+tab_C2E6:       .BYTE 1, $F8, $38, 0, $FC
+tab_C2EB:       .BYTE 2, $F8, $36, $40, $F8, $F8, $34, $40, 0
+tab_C2F4:       .BYTE 2, $F8, $3C, 0, $F8, $F8, $3C, $40, 0
+tab_C2FD:       .BYTE 2, $F8, $3E, 0, $F8, $F8, $3E, $40, 0
+tab_C306:       .BYTE 2, $F8, $40, 0, $F8, $F8, $40, $40, 0
+tab_C30F:       .BYTE 2, $F8, $42, 0, $F8, $F8, $42, $40, 0
+tab_C318:       .BYTE 2, $F8, $44, 0, $F8, $F8, $44, $40, 0
+tab_C321:       .BYTE 2, $F8, $46, 0, $F8, $F8, $46, $40, 0
+tab_C32A:       .BYTE 2, $F8, $48, 0, $F8, $F8, $48, $40, 0
+tab_C333:       .BYTE 2, $F8, $4A, 0, $F8, $F8, $4A, $40, 0
+tab_C33C:       .BYTE 2, $F8, $4C, 0, $F8, $F8, $4C, $40, 0
+tab_C345:       .BYTE 2, $F8, $4E, 0, $F8, $F8, $4E, $40, 0
+tab_C34E:       .BYTE 2, $F8, $50, 0, $F8, $F8, $50, $40, 0
+tab_C357:       .BYTE 2, $F8, $52, 0, $F8, $F8, $52, $40, 0
+tab_C360:       .BYTE 2, $F8, $54, 0, $F8, $F8, $54, $40, 0
+tab_C369:       .BYTE 2, $F8, $56, 0, $F8, $F8, $56, $40, 0
+tab_C372:       .BYTE 1, $F8, $56, 0, $FC
+tab_C377:       .BYTE 2, $F8, $58, 0, $F8, $F8, $5A, 0, 0
+tab_C380:       .BYTE 2, $F8, $5C, 0, $F8, $F8, $5E, 0, 0
+tab_C389:       .BYTE 2, $F8, $60, 0, $F8, $F8, $60, $40, 0
+tab_C392:       .BYTE 2, $F8, $62, 0, $F8, $F8, $64, 0, 0
+tab_C39B:       .BYTE 3, $F8, $6A, 0, $F4, $F8, $8A, 1, $FC, $F8, $6A
+                .BYTE $40, 4
+tab_C3A8:       .BYTE 3, $F8, $66, 0, $F4, $F8, $86, 1, $FC, $F8, $66
+                .BYTE $40, 4
+tab_C3B5:       .BYTE 3, $F8, $88, 0, $F4, $F8, $86, 1, $FC, $F8, $8C
+                .BYTE 0, 4
+tab_C3C2:       .BYTE 2, $F8, $6C, 0, $F8, $F8, $6C, $40, 0
+tab_C3CB:       .BYTE 2, $F8, $6E, 0, $F8, $F8, $70, 0, 0
+tab_C3D4:       .BYTE 2, $F8, $72, 0, $F8, $F8, $72, $40, 0
+tab_C3DD:       .BYTE 2, $F8, $74, 0, $F8, $F8, $76, 0, 0
+tab_C3E6:       .BYTE 2, $F8, $78, 0, $F8, $F8, $7A, 0, 0
+tab_C3EF:       .BYTE 2, $F8, $1C, 0, $F8, $F8, $1E, 0, 0
+tab_C3F8:       .BYTE 2, $F8, $18, 0, $F8, $F8, $1A, 0, 0
+tab_C401:       .BYTE 2, $F8, $14, 0, $F8, $F8, $16, 0, 0
+tab_C40A:       .BYTE 2, $F8, $1A, $40, $F8, $F8, $18, $40, 0
+tab_C413:       .BYTE 2, $F8, $1E, $40, $F8, $F8, $1C, $40, 0
+tab_C41C:       .BYTE 2, $F8, $AE, 0, $F8, $F8, $B0, 0, 0
+tab_C425:       .BYTE 2, $F8, $C4, 0, $F8, $F8, $C4, $40, 0
+tab_C42E:       .BYTE 2, $F8, $C2, 0, $F8, $F8, $C2, $40, 0
+tab_C437:       .BYTE 4, $F8, $C4, 0, $F0, $F8, $C4, $40, $F8, $F8, $C4
+                .BYTE 0, 0, $F8, $C4, $40, 8
+tab_C448:       .BYTE 4, $F8, $C2, 0, $F0, $F8, $C2, $40, $F8, $F8, $C2
+                .BYTE 0, 0, $F8, $C2, $40, 8
+tab_C459:       .BYTE 4, $F8, $C4, 0, $E8, $F8, $C4, $40, $F0, $F8, $C4
+                .BYTE 0, 8, $F8, $C4, $40, $10
+tab_C46A:       .BYTE 4, $F8, $C2, 0, $E8, $F8, $C2, $40, $F0, $F8, $C2
+                .BYTE 0, 8, $F8, $C2, $40, $10
+tab_C47B:       .BYTE 2, $F8, $C0, 0, $F8, $F8, $C0, $40, 0
+tab_C484:       .BYTE 2, $F8, $BE, 0, $F8, $F8, $BE, $40, 0
+tab_C48D:       .BYTE 6, $F0, $BA, 0, $F4, $F0, $BC, 0, $FC, $F0, $BA
+                .BYTE $40, 4, 0, $BA, $80, $F4, 0, $BC, $80, $FC, 0, $BA
+                .BYTE $C0, 4
+tab_C4A6:       .BYTE 8, $F0, $B6, 0, $F0, $E9, $B8, 0, $F8, $E9, $B8
+                .BYTE $40, 0, $F0, $B6, $40, 8, 0, $B6, $80, $F0, 7, $B8
+                .BYTE $80, $F8, 7, $B8, $C0, 0, 0, $B6, $C0, 8
+tab_C4C7:       .BYTE 8, $F0, $B2, 0, $F0, $E6, $B4, 0, $F8, $E6, $B4
+                .BYTE $40, 0, $F0, $B2, $40, 8, 0, $B2, $80, $F0, $A, $B4
+                .BYTE $80, $F8, $A, $B4, $C0, 0, 0, $B2, $C0, 8
+tab_C4E8:       .BYTE 4, $F4, $B6, 0, $F0, $ED, $B8, 0, $F8, $ED, $B8
+                .BYTE $40, 0, $F4, $B6, $40, 8
+tab_C4F9:       .BYTE 4, $F4, $B2, 0, $F0, $EA, $B4, 0, $F8, $EA, $B4
+                .BYTE $40, 0, $F4, $B2, $40, 8
+tab_C50A:       .BYTE 2, $F8, $68, 0, $F8, $F8, $68, $40, 0
+tab_C513:       .BYTE $A, $E8, $84, 0, $E8, $E8, $84, $40, $F0, $F8, $84
+                .BYTE 0, $F8, $F8, $84, $40, 0, $E8, $84, 0, 8, $E8, $84
+                .BYTE $40, $10, $10, $82, $80, $E8, 8, $82, $80, $F0, 8
+                .BYTE $82, $C0, 8, $10, $82, $C0, $10
+tab_C53C:       .BYTE 8, $F0, $98, 0, $F0, $F0, $9A, 0, $F8, $F0, $9C
+                .BYTE 0, 0, $F0, $9E, 0, 8, 0, $98, $80, $F0, 0, $9A, $80
+                .BYTE $F8, 0, $9C, $80, 0, 0, $9E, $80, 8
+tab_C55D:       .BYTE 8, $F0, $A0, 0, $F0, $F0, $A2, 0, $F8, $F0, $A4
+                .BYTE 0, 0, $F0, $A6, 0, 8, 0, $A0, $80, $F0, 0, $A2, $80
+                .BYTE $F8, 0, $A4, $80, 0, 0, $A6, $80, 8
+tab_C57E:       .BYTE 1, $F8, $D8, 0, $FC
+tab_C583:       .BYTE 8, $F0, $92, 0, $E7, $F0, $94, 0, $EF, $F0, $8E
+                .BYTE 0, 9, $F0, $90, 0, $11, 0, $96, $40, $F4, $F8, $AA
+                .BYTE $80, $FC, 0, $96, 0, 4, 8, $AC, 0, $FC
+tab_C5A4:       .BYTE 9, $F0, $92, 0, $EC, $F0, $94, 0, $F4, $F0, $8E
+                .BYTE 0, 4, $F0, $90, 0, $C, 0, $92, $80, $EC, 0, $94
+                .BYTE $80, $F4, 0, $8E, $80, 4, 0, $90, $80, $C, $F8, $86
+                .BYTE 1, $FC
+tab_C5C9:       .BYTE $10, $D8, $92, 0, $EB, $D8, $94, 0, $F3, $D8, $8E
+                .BYTE 0, 5, $D8, $90, 0, $D, $E8, $D0, $80, $ED, $E8, $D2
+                .BYTE $80, $F5, $E8, $D4, $80, 3, $E8, $D6, $80, $B, $F8
+                .BYTE $CC, 0, $ED, $F8, $C8, 1, $F8, $F8, $CA, 1, 0, $F8
+                .BYTE $CE, 0, $B, 8, $D0, 0, $ED, 8, $D2, 0, $F5, 8, $D4
+                .BYTE 0, 3, 8, $D6, 0, $B
+tab_C60A:       .BYTE 2, $F8, $84, 0, $F8, $F8, $84, $40, 0
+tab_C613:       .BYTE 2, $F8, $F4, $40, $F8, $F8, $F4, 0, 0
+tab_C61C:       .BYTE 2, $F8, $F6, $40, $F8, $F8, $F6, 0, 0
+tab_C625:       .BYTE 2, $F8, $EC, 0, $F8, $F8, $EE, 0, 0
+tab_C62E:       .BYTE 2, $F8, $F0, 0, $F8, $F8, $F2, 0, 0
+tab_C637:       .BYTE 8, $F0, $DC, $40, $F0, $F0, $DA, $40, $F8, $F0, $DA
+                .BYTE 0, 0, $F0, $DC, 0, 8, 0, $E0, $40, $F0, 0, $DE, $40
+                .BYTE $F8, 0, $DE, 0, 0, 0, $E0, 0, 8
+tab_C658:       .BYTE 8, $F0, $E4, $40, $F0, $F0, $E2, $40, $F8, $F0, $E2
+                .BYTE 0, 0, $F0, $E4, 0, 8, 0, $E4, $C0, $F0, 0, $E2, $80
+                .BYTE $F8, 0, $E2, $C0, 0, 0, $E4, $80, 8
+tab_C679:       .BYTE 8, $F0, $E8, $40, $F0, $F0, $E6, 0, $F8, $F0, $E6
+                .BYTE $40, 0, $F0, $E8, 0, 8, 0, $E8, $C0, $F0, 0, $E6
+                .BYTE $80, $F8, 0, $E6, $C0, 0, 0, $E8, $80, 8
 tab_C69A:       .BYTE 4, $F0, $EA, $40, $F8, $F0, $EA, 0, 0, 0, $EA, $C0, $F8, 0, $EA, $80, 0
 
 ; =============== S U B R O U T I N E =======================================
@@ -2252,7 +1283,7 @@ loc_C7B9:                               ; CODE XREF: mem_page_fill+A↓j
 ; Old-school Switch-Case. Right after the call there is a jump table of variable size.
 
 switch_case:                            ; CODE XREF: j_switch_case↑j
-                                        ; sub_D480+83↓p ...
+                                        ; sub_D4FA+9↓p ...
                 ASL
                 TAY
                 PLA
@@ -2760,8 +1791,13 @@ loc_C9E8:                               ; CODE XREF: sub_C985+5F↑j
 sub_CA0F:                               ; CODE XREF: sub_C054↑j
                 PHA
                 LDA     #8
+; End of function sub_CA0F
 
-loc_CA12:                               ; CODE XREF: sub_CA97+3↓j
+
+; =============== S U B R O U T I N E =======================================
+
+
+sub_CA12:                               ; CODE XREF: sub_CA97+3↓j
                 JSR     sub_C7EB
                 JSR     sub_C7F8
                 PLA
@@ -2800,7 +1836,7 @@ loc_CA12:                               ; CODE XREF: sub_CA97+3↓j
                 INY
                 INY
 
-loc_CA56:                               ; CODE XREF: sub_CA0F+43↑j
+loc_CA56:                               ; CODE XREF: sub_CA12+40↑j
                 LDA     byte_25
                 CMP     #8
                 BNE     loc_CA7C
@@ -2820,7 +1856,7 @@ loc_CA56:                               ; CODE XREF: sub_CA0F+43↑j
                 JMP     sub_C807
 ; ---------------------------------------------------------------------------
 
-loc_CA7C:                               ; CODE XREF: sub_CA0F+4B↑j
+loc_CA7C:                               ; CODE XREF: sub_CA12+48↑j
                 LDA     $460,X
                 ORA     #$E0
                 STA     $460,X
@@ -2832,7 +1868,7 @@ loc_CA7C:                               ; CODE XREF: sub_CA0F+4B↑j
                 PLA
                 TAX
                 JMP     sub_C807
-; End of function sub_CA0F
+; End of function sub_CA12
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -2841,7 +1877,7 @@ loc_CA7C:                               ; CODE XREF: sub_CA0F+4B↑j
 sub_CA97:
                 PHA
                 LDA     #9
-                JMP     loc_CA12
+                JMP     sub_CA12
 ; End of function sub_CA97
 
 
@@ -2907,7 +1943,7 @@ ppu_disable_all:                        ; CODE XREF: j_ppu_disable_all↑j
 ; A = new PPU CTRL2 value
 
 ppu_set_control2:                       ; CODE XREF: reset+13↓p
-                                        ; main_menu_loop+3F↓p
+                                        ; sub_E81E+27↓p
                 STA     PPU_CTRL_REG2
                 STA     last_ppu_ctrl2
                 RTS
@@ -3213,7 +2249,7 @@ loc_CC52:                               ; CODE XREF: start_game_check+FB↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_CC57:                               ; CODE XREF: main_menu_loop+2A↓p
+sub_CC57:                               ; CODE XREF: sub_E81E+12↓p
                 LDA     #0
                 STA     warp_sequence_counter
                 LDX     #5
@@ -3952,7 +2988,7 @@ locret_D0BE:                            ; CODE XREF: sub_D0A4+6↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_D0BF:                               ; CODE XREF: main_menu_loop+85↓p
+sub_D0BF:                               ; CODE XREF: sub_E81E+6D↓p
                 LDA     game_mode       ; 0x80 = demo mode
                 AND     #2
                 BEQ     locret_D0BE
@@ -4763,7 +3799,7 @@ loc_D47D:                               ; CODE XREF: sub_D472+3↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_D480:                               ; CODE XREF: main_menu_loop+88↓p
+sub_D480:                               ; CODE XREF: sub_E81E+70↓p
                 LDA     game_mode       ; 0x80 = demo mode
                 AND     #8
                 BEQ     loc_D487
@@ -4846,15 +3882,20 @@ loc_D4F1:                               ; CODE XREF: sub_D480+6C↑j
                 LDY     #0
                 LDA     #1
                 STA     byte_14
+; End of function sub_D480
 
-loc_D4FA:                               ; CODE XREF: sub_D5AB+4↓j
+
+; =============== S U B R O U T I N E =======================================
+
+
+sub_D4FA:                               ; CODE XREF: sub_D5AB+4↓j
                 LDA     ($6C),Y
                 INY
                 STY     byte_15
                 CMP     #5
                 BCS     sub_D56B
                 JSR     switch_case     ; Old-school Switch-Case. Right after the call there is a jump table of variable size.
-; End of function sub_D480
+; End of function sub_D4FA
 
 ; ---------------------------------------------------------------------------
                 .WORD $D50F             ; sub_D510 - 1
@@ -4957,7 +3998,7 @@ sub_D559:
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_D56B:                               ; CODE XREF: sub_D480+81↑j
+sub_D56B:                               ; CODE XREF: sub_D4FA+7↑j
                 STA     byte_16
                 LDA     byte_62
                 AND     #8
@@ -5005,7 +4046,7 @@ sub_D5AB:                               ; CODE XREF: sub_D510+7↑j
                                         ; sub_D51A+B↑j ...
                 DEC     byte_14
                 BEQ     loc_D5B2
-                JMP     loc_D4FA
+                JMP     sub_D4FA
 ; ---------------------------------------------------------------------------
 
 loc_D5B2:                               ; CODE XREF: sub_D5AB+2↑j
@@ -5164,77 +4205,19 @@ unk_D64B:       .BYTE $30 ; 0
                 .BYTE $2E ; .
                 .BYTE $2C ; ,
                 .BYTE $1C
-random_enemy_tab:.BYTE $2C ; ,
-                .BYTE  $A
-                .BYTE  $C
-                .BYTE $38 ; 8
-                .BYTE  $D
-                .BYTE $16
-                .BYTE   7
-                .BYTE $10
-                .BYTE  $A
-                .BYTE $39 ; 9
-                .BYTE $1E
-                .BYTE $2C ; ,
-                .BYTE $24 ; $
-                .BYTE $40 ; @
-                .BYTE $2E ; .
-                .BYTE  $E
-                .BYTE   8
-                .BYTE $1B
-                .BYTE $12
-                .BYTE $22 ; "
-                .BYTE $1E
-                .BYTE  $E
-                .BYTE  $F
-                .BYTE $2E ; .
-                .BYTE $17
-                .BYTE   8
-                .BYTE $1B
-                .BYTE   9
-                .BYTE $3A ; :
-                .BYTE $11
-                .BYTE  $D
-                .BYTE  $C
-                .BYTE $1E
-                .BYTE $12
-                .BYTE $24 ; $
-                .BYTE $2F ; /
-                .BYTE  $F
-                .BYTE $1C
-                .BYTE   9
-                .BYTE $41 ; A
-                .BYTE $2E ; .
-                .BYTE $1D
-                .BYTE  $E
-                .BYTE   8
-                .BYTE $3A ; :
-                .BYTE $40 ; @
-                .BYTE $1E
-                .BYTE $12
-                .BYTE $2C ; ,
-                .BYTE $3A ; :
-                .BYTE $16
-                .BYTE $2F ; /
-                .BYTE $11
-                .BYTE $1D
-                .BYTE $42 ; B
-                .BYTE  $D
-                .BYTE $3A ; :
-                .BYTE $1E
-                .BYTE $1B
-                .BYTE $2F ; /
-                .BYTE $43 ; C
-                .BYTE $22 ; "
-                .BYTE $24 ; $
-                .BYTE $1E
+random_enemy_tab:.BYTE $2C, $A, $C, $38, $D, $16, 7, $10, $A, $39, $1E
+                .BYTE $2C, $24, $40, $2E, $E, 8, $1B, $12, $22, $1E, $E
+                .BYTE $F, $2E, $17, 8, $1B, 9, $3A, $11, $D, $C, $1E, $12
+                .BYTE $24, $2F, $F, $1C, 9, $41, $2E, $1D, $E, 8, $3A
+                .BYTE $40, $1E, $12, $2C, $3A, $16, $2F, $11, $1D, $42
+                .BYTE $D, $3A, $1E, $1B, $2F, $43, $22, $24, $1E
 
 ; =============== S U B R O U T I N E =======================================
 
 ; Y: a random index in the table. Called from type 64
 
 get_random_enemy:                       ; CODE XREF: j_get_random_enemy↑j
-                LDA     random_enemy_tab,Y
+                LDA     random_enemy_tab,Y ; 0...63
                 RTS
 ; End of function get_random_enemy
 
@@ -5486,7 +4469,7 @@ byte_D7DF:      .BYTE 3
 
 
 sub_D7E3:                               ; CODE XREF: sub_D0BF:loc_D0E8↑p
-                                        ; main_menu_loop:loc_E880↓p ...
+                                        ; sub_E81E:loc_E880↓p ...
                 LDA     #0
                 STA     byte_90
                 JSR     sub_D6AF
@@ -5557,17 +4540,27 @@ loc_D830:                               ; CODE XREF: sub_D824+9↑j
 loc_D83D:                               ; CODE XREF: sub_D824+15↑j
                 JSR     set_nametable_addr_after_scroll ; Called after changing the BG scroll. Apparently it sets the Nametable address to update the new row of meta-tiles (16px)
                 LDA     byte_B7
-                BEQ     loc_D84A
+                BEQ     sub_D84A
                 LDA     byte_A0
                 ORA     #8
                 STA     byte_A0
+; End of function sub_D824
 
-loc_D84A:                               ; CODE XREF: sub_D824+1E↑j
+
+; =============== S U B R O U T I N E =======================================
+
+
+sub_D84A:                               ; CODE XREF: sub_D824+1E↑j
                                         ; sub_D8BF+1A↓j
                 JSR     switch_bank_5
                 LDY     #0
+; End of function sub_D84A
 
-loc_D84F:                               ; CODE XREF: sub_DA16+1D↓j
+
+; =============== S U B R O U T I N E =======================================
+
+
+sub_D84F:                               ; CODE XREF: sub_DA28+B↓j
                 LDA     byte_A2
                 CMP     byte_B3
                 BNE     loc_D85B
@@ -5575,7 +4568,7 @@ loc_D84F:                               ; CODE XREF: sub_DA16+1D↓j
                 CMP     byte_B4
                 BEQ     loc_D86C
 
-loc_D85B:                               ; CODE XREF: sub_D824+2F↑j
+loc_D85B:                               ; CODE XREF: sub_D84F+4↑j
                 TYA
                 BEQ     loc_D869
                 CLC
@@ -5585,16 +4578,16 @@ loc_D85B:                               ; CODE XREF: sub_D824+2F↑j
                 ADC     #0
                 STA     byte_B6
 
-loc_D869:                               ; CODE XREF: sub_D824+38↑j
+loc_D869:                               ; CODE XREF: sub_D84F+D↑j
                 JMP     sub_DA36
 ; ---------------------------------------------------------------------------
 
-loc_D86C:                               ; CODE XREF: sub_D824+35↑j
+loc_D86C:                               ; CODE XREF: sub_D84F+A↑j
                 LDA     ($B5),Y
                 INY
                 STY     byte_16
                 JSR     switch_case     ; Old-school Switch-Case. Right after the call there is a jump table of variable size.
-; End of function sub_D824
+; End of function sub_D84F
 
 ; ---------------------------------------------------------------------------
                 .WORD $D885             ; sub_D886 - 1
@@ -5617,7 +4610,7 @@ sub_D886:
                 INY
                 LDA     ($B5),Y
                 STA     byte_AD
-                JMP     loc_DA28
+                JMP     sub_DA28
 ; End of function sub_D886
 
 
@@ -5630,7 +4623,7 @@ sub_D894:
                 STA     byte_A8
                 LDA     #0
                 STA     byte_B2
-                JMP     loc_DA28
+                JMP     sub_DA28
 ; End of function sub_D894
 
 
@@ -5653,7 +4646,7 @@ sub_D8A1:
                 LDA     #0
                 STA     byte_AF
                 STA     byte_6E
-                JMP     loc_DA28
+                JMP     sub_DA28
 ; End of function sub_D8A1
 
 
@@ -5674,7 +4667,7 @@ sub_D8BF:
                 STA     byte_A3
                 LDA     #7
                 STA     byte_66
-                JMP     loc_D84A
+                JMP     sub_D84A
 ; End of function sub_D8BF
 
 
@@ -5724,7 +4717,7 @@ loc_D909:                               ; CODE XREF: sub_D8DC+36↓j
                 ORA     cram_update_mode
                 STA     cram_update_mode
                 LDY     byte_16
-                JMP     loc_DA28
+                JMP     sub_DA28
 ; End of function sub_D8DC
 
 
@@ -5745,7 +4738,7 @@ sub_D920:
 
 loc_D934:                               ; CODE XREF: sub_D920+6↑j
                 DEY
-                JMP     loc_DA28
+                JMP     sub_DA28
 ; End of function sub_D920
 
 
@@ -5754,17 +4747,27 @@ loc_D934:                               ; CODE XREF: sub_D920+6↑j
 
 sub_D938:
                 LDY     byte_16
+; End of function sub_D938
 
-loc_D93A:                               ; CODE XREF: sub_D9E0+2B↓j
+
+; =============== S U B R O U T I N E =======================================
+
+
+sub_D93A:                               ; CODE XREF: sub_D9E0+2B↓j
                 LDA     ($B5),Y
                 BNE     loc_D941
-                JMP     loc_DA28
+                JMP     sub_DA28
 ; ---------------------------------------------------------------------------
 
-loc_D941:                               ; CODE XREF: sub_D938+4↑j
+loc_D941:                               ; CODE XREF: sub_D93A+2↑j
                 STA     byte_14
+; End of function sub_D93A
 
-loc_D943:                               ; CODE XREF: sub_D938+A5↓j
+
+; =============== S U B R O U T I N E =======================================
+
+
+sub_D943:                               ; CODE XREF: sub_D943+9A↓j
                 INY
                 LDA     ($B5),Y
                 STA     byte_15
@@ -5777,7 +4780,7 @@ loc_D943:                               ; CODE XREF: sub_D938+A5↓j
                 STA     $430,X
                 BEQ     loc_D966
 
-loc_D957:                               ; CODE XREF: sub_D938+16↑j
+loc_D957:                               ; CODE XREF: sub_D943+B↑j
                 LDA     ($B5),Y
                 INY
                 STA     $430,X
@@ -5787,19 +4790,19 @@ loc_D957:                               ; CODE XREF: sub_D938+16↑j
                 LDA     ($B5),Y
                 INY
 
-loc_D966:                               ; CODE XREF: sub_D938+1D↑j
-                                        ; sub_D938+29↑j
+loc_D966:                               ; CODE XREF: sub_D943+12↑j
+                                        ; sub_D943+1E↑j
                 STA     $408,X
                 BIT     byte_15
                 BVC     loc_D971
                 LDA     #0
                 BEQ     loc_D974
 
-loc_D971:                               ; CODE XREF: sub_D938+33↑j
+loc_D971:                               ; CODE XREF: sub_D943+28↑j
                 LDA     ($B5),Y
                 INY
 
-loc_D974:                               ; CODE XREF: sub_D938+37↑j
+loc_D974:                               ; CODE XREF: sub_D943+2C↑j
                 STA     $438,X
                 LDA     byte_15
                 AND     #$20 ; ' '
@@ -5807,11 +4810,11 @@ loc_D974:                               ; CODE XREF: sub_D938+37↑j
                 LDA     #1
                 BNE     loc_D984
 
-loc_D981:                               ; CODE XREF: sub_D938+43↑j
+loc_D981:                               ; CODE XREF: sub_D943+38↑j
                 LDA     ($B5),Y
                 INY
 
-loc_D984:                               ; CODE XREF: sub_D938+47↑j
+loc_D984:                               ; CODE XREF: sub_D943+3C↑j
                 STA     $410,X
                 LDA     ($B5),Y
                 STA     $400,X
@@ -5833,7 +4836,7 @@ loc_D984:                               ; CODE XREF: sub_D938+47↑j
                 JMP     loc_D9D6
 ; ---------------------------------------------------------------------------
 
-loc_D9AD:                               ; CODE XREF: sub_D938+59↑j
+loc_D9AD:                               ; CODE XREF: sub_D943+4E↑j
                 LDA     ($B5),Y
                 STA     byte_18
                 INY
@@ -5855,12 +4858,12 @@ loc_D9AD:                               ; CODE XREF: sub_D938+59↑j
                 STA     $448,X
                 LDY     byte_16
 
-loc_D9D6:                               ; CODE XREF: sub_D938+72↑j
+loc_D9D6:                               ; CODE XREF: sub_D943+67↑j
                 JSR     sub_DCCB
                 DEC     byte_14
-                BEQ     loc_DA28
-                JMP     loc_D943
-; End of function sub_D938
+                BEQ     sub_DA28
+                JMP     sub_D943
+; End of function sub_D943
 
 
 ; =============== S U B R O U T I N E =======================================
@@ -5891,14 +4894,14 @@ sub_D9E0:
                 STA     byte_C1
                 STA     byte_C2
                 INY
-                JMP     loc_D93A
+                JMP     sub_D93A
 ; ---------------------------------------------------------------------------
 
 loc_DA0E:                               ; CODE XREF: sub_D9E0+A↑j
                 LDA     byte_C0
                 EOR     #$22 ; '"'
                 STA     byte_C0
-                BNE     loc_DA28
+                BNE     sub_DA28
 ; End of function sub_D9E0
 
 
@@ -5912,14 +4915,19 @@ loc_DA18:                               ; CODE XREF: sub_DA16+10↓j
                 LDA     ($B5),Y
                 TAX
                 CMP     #8
-                BCS     loc_DA28
+                BCS     sub_DA28
                 INY
                 LDA     ($B5),Y
                 STA     $16E,X
                 INY
                 BNE     loc_DA18
+; End of function sub_DA16
 
-loc_DA28:                               ; CODE XREF: sub_D886+B↑j
+
+; =============== S U B R O U T I N E =======================================
+
+
+sub_DA28:                               ; CODE XREF: sub_D886+B↑j
                                         ; sub_D894+A↑j ...
                 INY
                 LDA     ($B5),Y
@@ -5928,14 +4936,14 @@ loc_DA28:                               ; CODE XREF: sub_D886+B↑j
                 LDA     ($B5),Y
                 STA     byte_B4
                 INY
-                JMP     loc_D84F
-; End of function sub_DA16
+                JMP     sub_D84F
+; End of function sub_DA28
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_DA36:                               ; CODE XREF: sub_D824:loc_D869↑j
+sub_DA36:                               ; CODE XREF: sub_D84F:loc_D869↑j
                 LDA     byte_A8
                 ASL
                 ADC     byte_A8
@@ -6457,7 +5465,7 @@ sub_DCC5:                               ; CODE XREF: sub_DA36:loc_DAF8↑p
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_DCCB:                               ; CODE XREF: sub_D938:loc_D9D6↑p
+sub_DCCB:                               ; CODE XREF: sub_D943:loc_D9D6↑p
                 LDA     $440,X
                 STA     $450,X
                 LDA     $448,X
@@ -6709,7 +5717,7 @@ sub_DDF3:                               ; CODE XREF: sub_C05D↑j
 
 
 sub_DDF9:                               ; CODE XREF: sub_DDF3↑p
-                                        ; main_menu_loop+38↓p
+                                        ; sub_E81E+20↓p
                 LDA     cram_update_mode
                 PHA
                 LDA     #0
@@ -6758,7 +5766,7 @@ loc_DE23:                               ; CODE XREF: sub_DE14+30↓j
                 ORA     byte_12
                 LDX     byte_13
                 STA     $4B0,X
-                CPY     #$F0
+                CPY     #240
                 BNE     loc_DE23
                 LDA     $8058
                 STA     byte_10
@@ -6770,7 +5778,7 @@ loc_DE52:                               ; CODE XREF: sub_DE14+46↓j
                 LDA     ($10),Y
                 STA     $104,Y
                 INY
-                CPY     #$40 ; '@'
+                CPY     #64
                 BNE     loc_DE52
                 JMP     switch_bank_6
 ; End of function sub_DE14
@@ -7588,16 +6596,16 @@ aNintendoOfAmer:.BYTE "nintendo OF america inc."
 
 sub_E399:                               ; CODE XREF: show_main_menu+76↑p
                                         ; sub_E399+17↓j ...
-                LDA     unk_E3B8,Y
+                LDA     byte_E3B8,Y
                 BEQ     locret_E3B7
                 LDA     #$23 ; '#'
                 STA     PPU_ADDRESS
-                LDA     unk_E3B8,Y
+                LDA     byte_E3B8,Y
                 STA     PPU_ADDRESS
                 INY
 
 loc_E3AA:                               ; CODE XREF: sub_E399+1C↓j
-                LDA     unk_E3B8,Y
+                LDA     byte_E3B8,Y
                 INY
                 CMP     #$80
                 BEQ     sub_E399
@@ -7609,66 +6617,13 @@ locret_E3B7:                            ; CODE XREF: sub_E399+3↑j
 ; End of function sub_E399
 
 ; ---------------------------------------------------------------------------
-unk_E3B8:       .BYTE $C2
-                .BYTE   0
-                .BYTE   0
-                .BYTE $AA
-                .BYTE   0
-                .BYTE   0
-                .BYTE $80
-                .BYTE $CA
-                .BYTE   0
-                .BYTE $80
-                .BYTE $D2
-                .BYTE $FF
-                .BYTE $FF
-                .BYTE $FF
-                .BYTE $FF
-                .BYTE $80
-                .BYTE $E5
-                .BYTE $A5
-                .BYTE $A5
-                .BYTE $80
-                .BYTE $EB
-                .BYTE $A0
-                .BYTE $A0
-                .BYTE $80
-                .BYTE   0
-                .BYTE $CA
-                .BYTE $5A ; Z
-                .BYTE $52 ; R
-                .BYTE $50 ; P
-                .BYTE $50 ; P
-                .BYTE $80
-                .BYTE $D3
-                .BYTE  $A
-                .BYTE  $A
-                .BYTE $80
-                .BYTE $D8
-                .BYTE   0
-                .BYTE   0
-                .BYTE   0
-                .BYTE $CC
-                .BYTE $FF
-                .BYTE $FF
-                .BYTE $FF
-                .BYTE $FF
-                .BYTE   0
-                .BYTE   0
-                .BYTE   0
-                .BYTE $FF
-                .BYTE $FF
-                .BYTE $FF
-                .BYTE $80
-                .BYTE $E8
-                .BYTE $FF
-                .BYTE $FF
-                .BYTE $FF
-                .BYTE $FF
-                .BYTE $50 ; P
-                .BYTE $50 ; P
-                .BYTE $80
-                .BYTE   0
+byte_E3B8:      .BYTE $C2, 0, 0, $AA, 0, 0, $80, $CA, 0, $80, $D2, $FF
+                .BYTE $FF, $FF, $FF, $80, $E5, $A5, $A5, $80, $EB, $A0
+                .BYTE $A0, $80, 0
+tab_E3D1:       .BYTE $CA, $5A, $52, $50, $50, $80, $D3, $A, $A, $80, $D8
+                .BYTE 0, 0, 0, $CC, $FF, $FF, $FF, $FF, 0, 0, 0, $FF, $FF
+                .BYTE $FF, $80, $E8, $FF, $FF, $FF, $FF, $50, $50, $80
+                .BYTE 0
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -7824,7 +6779,7 @@ loc_E4BB:                               ; CODE XREF: sub_E462+4D↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-show_ending_screen:                     ; CODE XREF: sub_E8C9+C0↓j
+show_ending_screen:                     ; CODE XREF: level_completed_sequence+50↓j
                 LDY     #$78 ; 'x'
                 JSR     all_enemies_destroyed ; Called when all enemies are destroyed (with weapon 6 or via Enemy Eraser)
                 JSR     ppu_disable_all
@@ -8262,8 +7217,13 @@ main_menu_loop:                         ; CODE XREF: handle_pad_buttons+E↑j
                 JSR     apu_stop
                 JSR     ppu_disable_all
                 JSR     start_game_check
+; End of function main_menu_loop
 
-loc_E81E:                               ; CODE XREF: sub_E8C9+C9↓j
+
+; =============== S U B R O U T I N E =======================================
+
+
+sub_E81E:                               ; CODE XREF: level_completed_sequence+59↓j
                 JSR     switch_bank_6
                 JSR     ppu_disable_all
                 JSR     clear_oam_buffer
@@ -8276,7 +7236,7 @@ loc_E81E:                               ; CODE XREF: sub_E8C9+C9↓j
                 BPL     loc_E83B
                 LDY     #9
 
-loc_E83B:                               ; CODE XREF: main_menu_loop+31↑j
+loc_E83B:                               ; CODE XREF: sub_E81E+19↑j
                 TYA
                 STA     byte_66
                 JSR     sub_DDF9
@@ -8285,7 +7245,7 @@ loc_E83B:                               ; CODE XREF: main_menu_loop+31↑j
                 JSR     ppu_set_control2 ; A = new PPU CTRL2 value
                 LDY     #$28 ; '('
 
-loc_E84A:                               ; CODE XREF: main_menu_loop+57↓j
+loc_E84A:                               ; CODE XREF: sub_E81E+3F↓j
                 TYA
                 PHA
                 LDY     #1
@@ -8307,17 +7267,17 @@ loc_E84A:                               ; CODE XREF: main_menu_loop+57↓j
                 BNE     loc_E873
                 LDA     #7
 
-loc_E873:                               ; CODE XREF: main_menu_loop+69↑j
+loc_E873:                               ; CODE XREF: sub_E81E+51↑j
                 JSR     apu_play        ; A = sound num (1...35)
 
-loc_E876:                               ; CODE XREF: main_menu_loop+60↑j
-                                        ; main_menu_loop+A2↓j
+loc_E876:                               ; CODE XREF: sub_E81E+48↑j
+                                        ; sub_E81E+8A↓j
                 LDA     #1
                 STA     byte_528
                 LDA     #0
                 STA     byte_5AA
 
-loc_E880:                               ; CODE XREF: main_menu_loop+9E↓j
+loc_E880:                               ; CODE XREF: sub_E81E+86↓j
                 JSR     sub_D7E3
                 JSR     sub_1801E
                 LDY     #1
@@ -8331,7 +7291,7 @@ loc_E880:                               ; CODE XREF: main_menu_loop+9E↓j
                 AND     #$30 ; '0'
                 BNE     sub_E8C9
 
-loc_E89E:                               ; CODE XREF: main_menu_loop+90↑j
+loc_E89E:                               ; CODE XREF: sub_E81E+78↑j
                                         ; sub_E8C9+52↓j
                 LDA     game_mode       ; 0x80 = demo mode
                 AND     #$BF
@@ -8339,13 +7299,13 @@ loc_E89E:                               ; CODE XREF: main_menu_loop+90↑j
                 BEQ     loc_E880
                 STA     game_mode       ; 0x80 = demo mode
                 BNE     loc_E876
-; End of function main_menu_loop
+; End of function sub_E81E
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_E8AA:                               ; CODE XREF: sub_E8C9+B3↓p
+sub_E8AA:                               ; CODE XREF: level_completed_sequence+43↓p
                 LDX     #5
                 LDY     #$15
 
@@ -8372,7 +7332,7 @@ loc_E8BA:                               ; CODE XREF: sub_E8AA+9↑j
 ; =============== S U B R O U T I N E =======================================
 
 
-sub_E8C9:                               ; CODE XREF: main_menu_loop+96↑j
+sub_E8C9:                               ; CODE XREF: sub_E81E+7E↑j
                 CMP     #$10
                 BEQ     loc_E917
                 LDA     byte_4B
@@ -8389,7 +7349,7 @@ loc_E8DA:                               ; CODE XREF: sub_E8C9+2B↓j
                 LDA     $145,X
                 AND     #$F
                 TAY
-                LDA     unk_E907,Y
+                LDA     byte_E907,Y
                 STA     byte_10
                 LDA     $145,X
                 AND     #$30 ; '0'
@@ -8405,24 +7365,10 @@ loc_E8DA:                               ; CODE XREF: sub_E8C9+2B↓j
                 LDA     #11
                 JSR     apu_play        ; A = sound num (1...35)
                 LDY     #$B3
-                BNE     loc_E939
+                BNE     level_completed_sequence ; Perform actions after completing a level (start music, activate Warp, etc.).
 ; ---------------------------------------------------------------------------
-unk_E907:       .BYTE   5
-                .BYTE   6
-                .BYTE   7
-                .BYTE   8
-                .BYTE   9
-                .BYTE  $A
-                .BYTE  $B
-                .BYTE  $C
-                .BYTE  $F
-                .BYTE   1
-                .BYTE   2
-                .BYTE   3
-                .BYTE   4
-                .BYTE  $F
-                .BYTE  $F
-                .BYTE   0
+byte_E907:      .BYTE 5, 6, 7, 8, 9, $A, $B, $C, $F, 1, 2, 3, 4, $F, $F
+                .BYTE 0
 ; ---------------------------------------------------------------------------
 
 loc_E917:                               ; CODE XREF: sub_E8C9+2↑j
@@ -8446,9 +7392,15 @@ loc_E92E:                               ; CODE XREF: sub_E8C9+6C↓j
 
 loc_E937:                               ; CODE XREF: sub_E8C9+58↑j
                 LDY     #$FF
+; End of function sub_E8C9
 
-loc_E939:                               ; CODE XREF: sub_E8C9+3C↑j
-                                        ; sub_E8C9+9C↓j
+
+; =============== S U B R O U T I N E =======================================
+
+; Perform actions after completing a level (start music, activate Warp, etc.).
+
+level_completed_sequence:               ; CODE XREF: sub_E8C9+3C↑j
+                                        ; level_completed_sequence+2C↓j
                 TYA
                 PHA
                 AND     #$1F
@@ -8460,31 +7412,31 @@ loc_E939:                               ; CODE XREF: sub_E8C9+3C↑j
                 BNE     loc_E950
                 CPY     #$61 ; 'a'
                 BCS     loc_E950
-                JSR     sub_E9A8
+                JSR     fade_palette_before_warp ; Shade the palette before warp after completing a level
 
-loc_E950:                               ; CODE XREF: sub_E8C9+7E↑j
-                                        ; sub_E8C9+82↑j
-                JSR     sub_E9A2
+loc_E950:                               ; CODE XREF: level_completed_sequence+E↑j
+                                        ; level_completed_sequence+12↑j
+                JSR     fade_palette_before_warp_another ; Another option to shade the palette before warp after completing a level
 
-loc_E953:                               ; CODE XREF: sub_E8C9+74↑j
-                                        ; sub_E8C9+78↑j
+loc_E953:                               ; CODE XREF: level_completed_sequence+4↑j
+                                        ; level_completed_sequence+8↑j
                 JSR     sub_E995
                 PLA
                 TAY
                 CPY     #$B4
                 BNE     loc_E964
                 JSR     apu_stop
-                LDA     #$1E
+                LDA     #30             ; Level Complete music
                 JSR     apu_play        ; A = sound num (1...35)
 
-loc_E964:                               ; CODE XREF: sub_E8C9+91↑j
+loc_E964:                               ; CODE XREF: level_completed_sequence+21↑j
                 DEY
-                BNE     loc_E939
+                BNE     level_completed_sequence ; Perform actions after completing a level (start music, activate Warp, etc.).
                 LDA     warp_sequence_counter
                 ORA     #1
                 STA     warp_sequence_counter
 
-loc_E96D:                               ; CODE XREF: sub_E8C9+B1↓j
+loc_E96D:                               ; CODE XREF: level_completed_sequence+41↓j
                 LDA     #$81
                 STA     byte_528
                 LDY     #1
@@ -8500,19 +7452,19 @@ loc_E96D:                               ; CODE XREF: sub_E8C9+B1↓j
                 JMP     show_ending_screen
 ; ---------------------------------------------------------------------------
 
-loc_E98C:                               ; CODE XREF: sub_E8C9+BE↑j
+loc_E98C:                               ; CODE XREF: level_completed_sequence+4E↑j
                 LDA     byte_92
                 STA     current_level   ; Current game level (1 = first level). There are a total of 12 regular levels and 1 secret level in the game.
                 STA     byte_7D
-                JMP     loc_E81E
-; End of function sub_E8C9
+                JMP     sub_E81E
+; End of function level_completed_sequence
 
 
 ; =============== S U B R O U T I N E =======================================
 
 
 sub_E995:                               ; CODE XREF: sub_E8C9:loc_E92E↑p
-                                        ; sub_E8C9:loc_E953↑p
+                                        ; level_completed_sequence:loc_E953↑p
                 LDA     #$81
                 STA     byte_528
                 JSR     sub_D7E3
@@ -8523,38 +7475,40 @@ sub_E995:                               ; CODE XREF: sub_E8C9:loc_E92E↑p
 
 ; =============== S U B R O U T I N E =======================================
 
+; Another option to shade the palette before warp after completing a level
 
-sub_E9A2:                               ; CODE XREF: sub_E8C9:loc_E950↑p
+fade_palette_before_warp_another:       ; CODE XREF: level_completed_sequence:loc_E950↑p
                 LDY     #1
                 LDA     #1
                 BNE     loc_E9AC
-; End of function sub_E9A2
+; End of function fade_palette_before_warp_another
 
 
 ; =============== S U B R O U T I N E =======================================
 
+; Shade the palette before warp after completing a level
 
-sub_E9A8:                               ; CODE XREF: sub_E8C9+84↑p
+fade_palette_before_warp:               ; CODE XREF: level_completed_sequence+14↑p
                 LDY     #$D
                 LDA     #2
 
-loc_E9AC:                               ; CODE XREF: sub_E9A2+4↑j
+loc_E9AC:                               ; CODE XREF: fade_palette_before_warp_another+4↑j
                 PHA
                 LDA     #$C
                 STA     byte_10
 
-loc_E9B1:                               ; CODE XREF: sub_E9A8+1E↓j
+loc_E9B1:                               ; CODE XREF: fade_palette_before_warp+1E↓j
                 LDA     $145,Y
                 CMP     #$10
                 BCC     loc_E9BC
                 SBC     #$10
                 BCS     loc_E9C0
 
-loc_E9BC:                               ; CODE XREF: sub_E9A8+E↑j
+loc_E9BC:                               ; CODE XREF: fade_palette_before_warp+E↑j
                 TAX
                 LDA     unk_E9D0,X
 
-loc_E9C0:                               ; CODE XREF: sub_E9A8+12↑j
+loc_E9C0:                               ; CODE XREF: fade_palette_before_warp+12↑j
                 STA     $145,Y
                 INY
                 DEC     byte_10
@@ -8563,7 +7517,7 @@ loc_E9C0:                               ; CODE XREF: sub_E9A8+12↑j
                 ORA     cram_update_mode
                 STA     cram_update_mode
                 RTS
-; End of function sub_E9A8
+; End of function fade_palette_before_warp
 
 ; ---------------------------------------------------------------------------
 unk_E9D0:       .BYTE  $C
@@ -8630,7 +7584,7 @@ level_music_tab:.BYTE   2
 
 
 sub_EA0B:                               ; CODE XREF: sub_C024↑j
-                                        ; main_menu_loop+82↑p ...
+                                        ; sub_E81E+6A↑p ...
                 TXA
                 PHA
 

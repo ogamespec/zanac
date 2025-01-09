@@ -23,7 +23,7 @@ j_game_logic_processing:                ; CODE XREF: sub_D0BF+32↑P
 ; Attributes: thunk
 
 sub_18003:                              ; CODE XREF: show_main_menu+CC↑P
-                                        ; main_menu_loop+4E↑P
+                                        ; sub_E81E+36↑P
                 JMP     sub_18835
 ; End of function sub_18003
 
@@ -33,7 +33,7 @@ sub_18003:                              ; CODE XREF: show_main_menu+CC↑P
 ; Attributes: thunk
 
 sub_18006:                              ; CODE XREF: show_main_menu+AA↑P
-                                        ; main_menu_loop+21↑P
+                                        ; sub_E81E+9↑P
                 JMP     sub_183DD
 ; End of function sub_18006
 
@@ -43,7 +43,7 @@ sub_18006:                              ; CODE XREF: show_main_menu+AA↑P
 ; Attributes: thunk
 
 sub_18009:                              ; CODE XREF: show_main_menu+C9↑P
-                                        ; main_menu_loop+4B↑P
+                                        ; sub_E81E+33↑P
                 JMP     sub_183EF
 ; End of function sub_18009
 
@@ -53,7 +53,7 @@ sub_18009:                              ; CODE XREF: show_main_menu+C9↑P
 ; Attributes: thunk
 
 sub_1800C:                              ; CODE XREF: show_main_menu+CF↑P
-                                        ; main_menu_loop+51↑P
+                                        ; sub_E81E+39↑P
                 JMP     sub_184A7
 ; End of function sub_1800C
 
@@ -89,7 +89,7 @@ j_set_default_weapon:                   ; CODE XREF: start_game_check+82↑P
 
 ; Attributes: thunk
 
-j_clear_main_menu_sprites:              ; CODE XREF: main_menu_loop+24↑P
+j_clear_main_menu_sprites:              ; CODE XREF: sub_E81E+C↑P
                 JMP     clear_main_menu_sprites ; Called from reset. Apparently it clears the main menu sprites (PONY logo). Does not clear OAM, but only OAM cache ($200)
 ; End of function j_clear_main_menu_sprites
 
@@ -99,7 +99,7 @@ j_clear_main_menu_sprites:              ; CODE XREF: main_menu_loop+24↑P
 ; Attributes: thunk
 
 j_update_score_onscreen:                ; CODE XREF: sub_D3F4+3↑P
-                                        ; main_menu_loop+27↑P
+                                        ; sub_E81E+F↑P
                 JMP     update_score_onscreen ; Update the current Score (they appear as sprites at the top of the screen).
 ; End of function j_update_score_onscreen
 
@@ -108,7 +108,7 @@ j_update_score_onscreen:                ; CODE XREF: sub_D3F4+3↑P
 
 ; Attributes: thunk
 
-sub_1801E:                              ; CODE XREF: main_menu_loop+7D↑P
+sub_1801E:                              ; CODE XREF: sub_E81E+65↑P
                 JMP     sub_1B8E5
 ; End of function sub_1801E
 
@@ -10547,7 +10547,7 @@ loc_1B9AC:                              ; CODE XREF: sub_1B8E5+36↑j
                 LDA     $C7
                 AND     #$20 ; ' '
                 BEQ     loc_1B9BF
-                LDA     #$1A
+                LDA     #26             ; Final level fortress battle music
                 JSR     j_apu_play
 
 loc_1B9BF:                              ; CODE XREF: sub_1B8E5+C9↑j
@@ -10737,7 +10737,7 @@ loc_1BADB:                              ; CODE XREF: sub_1B8E5+1F0↑j
 
 loc_1BAE8:                              ; CODE XREF: sub_1B8E5+1FB↑j
                 LDA     unk_1BDF5,Y
-                STA     $CB
+                STA     byte_CB
                 JSR     sub_C057
                 LDY     #$64 ; 'd'
                 LDA     byte_C7
