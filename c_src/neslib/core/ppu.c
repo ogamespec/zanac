@@ -555,6 +555,18 @@ static void ppu_apply_addr(Ppu *ppu, uint8_t value)
 void ppu_write_register(Ppu *ppu, uint16_t addr, uint8_t value)
 {
     uint8_t reg = (uint8_t)(addr & 7);
+    /* PPU_TRACE=<n> logs the first n $2000/$2005/$2006 writes with the PPU's
+     * line, dot and loopy-register state - the diagnostic that showed the port
+     * and the original ROM set the scroll registers identically. */
+    {   static int traced;
+        const char *t = getenv("PPU_TRACE");
+        if (t && (reg == 0 || reg == 5 || reg == 6) && traced < atoi(t)) {
+            traced++;
+            fprintf(stderr, "PPUW f=%llu line=%3d dot=%3d reg=%d val=%02X  t=%04X v=%04X fine_x=%d\n",
+                    (unsigned long long)ppu->nes->frame_count, ppu->line, ppu->dot, reg, value,
+                    ppu->t, ppu->v, ppu->fine_x);
+        }
+    }
     ppu_bus_apply(ppu, 0xFF, value);
     if (reg == 3 || reg == 4 || reg == 5 || reg == 6 || reg == 7)
         ppu_ring_add(ppu, addr, value, 0);
