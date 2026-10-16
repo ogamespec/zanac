@@ -163,7 +163,7 @@ another at 200, then movement):
 | what | result |
 |---|---|
 | boot screens | same screens, in the same order, each shown for the same number of frames except the shortened boot |
-| screen sequence | **74 consecutive screens** frame-identical with the standard script, **98** with the input matched (`--input-offset`) |
+| screen sequence | **74 consecutive screens** frame-identical with the standard script, **98** with the input matched (`--input-offset`); 60.5% of all frames |
 | port frame 317 vs ROM frame 280 (identical screens) | RAM state **identical**; the only named difference is `vblank_wait_flag`, which depends on the dump point |
 | that frame's PPU memory | pattern tables (CHR) **byte-identical**, name tables within **7 bytes** |
 | first divergence | screen 36: same state, but the fine scroll is one pixel out of phase |
@@ -180,28 +180,24 @@ measured on the real ROM at that JSR by `make stack-scan`
 measurement per site is enough.  With that in place the sprite memory matches the
 ROM byte for byte over long stretches of level 1.
 
-What is left is one visible and two invisible differences.
+What is left are two small differences, both of them sprite positions: from
+around port frame 350 the Y of one or two sprites is a few pixels out (8 OAM
+bytes at frame 350, 12 at 450), and the enemy states then drift apart over the
+rest of the level.  The background is exact: with the attribute row fixed the
+name tables match byte for byte, the pattern tables are byte-identical, and the
+RAM comparison reports identical state at the aligned frames.
 
-The visible one is the last background attribute row (`$104+$38..$3F`, uploaded
-to $23F8): the ROM accumulates palette bits there (`1F DF DF 8F 2F 7F 0F BF`) and
-the port leaves the initial `0F`.  The code path is faithful line by line (the
-row decoder at $DB0A and the write at $DB58 match the listing, and the mask
-tables at $D7DB/$D7DF are byte-identical), and at the moment of the difference
-every input matches too - `byte_A1`, `byte_9D`, `byte_14`, the scroll registers
-and `$16E` itself.  What differs is *when* the port runs those row passes: at the
-start of the level the port decodes a row before the level script has filled the
-`$16E` attribute source table, so the pass computes its value from zeroes; the
-ROM fills the table first.  Measured by dumping RAM frame by frame: the port's
-`$16E` is still zero at frame 202 where the port first writes the row, the ROM's
-is already loaded at the same point in its own run.  The bottom rows of the
-background therefore keep the initial attribute value in the port, which is what
-the "holes at the bottom" of the map are.
-
-The invisible ones: the same seven bytes (which the ROM and the port do write
-identically at other moments) and, from port frame 323, the Y coordinate of two
-sprites three pixels out.  The level streaming, the tile
-decoder, the scrolling engine, the attribute/nametable updates, the CHR bank
-loader, the score and the menus all stay byte-identical to the original.
+That last fix is worth recording because it was not a porting mistake in the
+game code at all.  The engine used to clear the 2 KB of work RAM at power-on
+("the Reset handler initialises every variable it uses"), but the game reads some
+of it *before* writing it: the background attribute pass at $DB58 builds its
+value from $16E, which the level script only fills later, so the first passes run
+against whatever the RAM happened to hold.  On hardware - and in the reference
+ROM runner, which never had that memset - $16E holds the deterministic power-on
+pattern ($39 $DE $D7 $49 ...), and the accumulated attribute row comes out the way
+the original draws it.  With the RAM left alone the port's attribute buffer
+matches the ROM's exactly (0 differing bytes where it used to be 7) and the
+"holes at the bottom" of the map are gone.
 
 Two further differences are deliberate and documented in the code: `apu_fx_5`
 (a sound script that unwinds the 6502 stack with four `PLA`s; the port returns

@@ -16,7 +16,18 @@ static uint8_t s_bank = ZANAC_FIXED_BANK;
 void zanac_init(void)
 {
     RAM = neslib_ram();
-    memset(RAM, 0, 0x0800);
+
+    /* The work RAM is deliberately *not* cleared.
+     *
+     * RAM contents at power-on are undefined on real hardware, and this game
+     * reads some of it before writing it: the background attribute pass
+     * ($DB58) builds its value from $16E, which the level script only fills
+     * later, so the first passes run against whatever the RAM happened to
+     * hold.  The engine fills the 2 KB with a fixed, deterministic pattern
+     * (nes_power_on), which is what the reference ROM runner sees and what the
+     * game was written against - zeroing it here made the bottom attribute row
+     * of the background come out as 0F instead of the values the ROM has
+     * ("holes" at the bottom of the map). */
     A = X = Y = 0;
     SP = 0xFF;                    /* reset does LDX #$FF / TXS itself */
     F_C = F_Z = F_N = F_V = F_I = F_D = 0;

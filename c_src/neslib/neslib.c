@@ -149,10 +149,13 @@ void neslib_power_on(const NeslibBoard *board, const NeslibCallbacks *callbacks)
                       board->vertical_mirroring);
     nes_power_on(g_nes);
 
-    /* Deterministic power-on RAM: the game's Reset handler initialises every
-     * variable it uses, and a zeroed RAM makes the "hard reset" marker check
-     * behave like a cold start. */
-    memset(g_nes->ram, 0, sizeof(g_nes->ram));
+    /* The work RAM is left with the deterministic power-on pattern that
+     * nes_power_on() fills it with, exactly as the reference ROM runner sees
+     * it.  It is *not* cleared: the game reads some of it before writing it
+     * (the background attribute pass at $DB58 builds its value from $16E, which
+     * the level script only fills later), so zeroing the RAM here changed what
+     * those first passes computed - it left the bottom attribute row of the
+     * background at 0F instead of the values the original produces. */
 
     /* Power-on / reset clears $2000/$2001/$2005/$2006 for ~29658 CPU cycles.
      * The ported Reset handler runs at once, so the window is closed here
