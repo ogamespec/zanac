@@ -157,19 +157,29 @@ printf '100 START\n122 -\n' > /tmp/go1.txt
 python3 tools/compare_hashes.py /tmp/r.hashes /tmp/p.hashes
 ```
 
-| level | frames identical | screen sequence |
+| level | frames identical | identical from |
 |---|---|---|
-| 1 | 1770/1800 = **98.3%** | identical |
-| 3 | 870/900 = 96.7% | identical |
-| 5 | 870/900 = 96.7% | identical |
-| 7, 9, 11 | 670/700 = 95.7% | identical |
+| 1 | 1775/1800 = 98.6% | frame 30 to 1799 (1770 frames) |
+| 3, 5, 7, 9, 11 | 875/900 = 97.2% | frame 30 to the end |
 
-and at the aligned frames the *whole* PPU and RAM state matches: name table 0
+In other words: after the boot, the port's framebuffer is **identical to the
+original ROM frame for frame**, with the same input, on every level tested - and
+at the aligned frames the whole rendered state matches too (name table 0
 differing bytes, OAM 0 differing bytes at frames 250, 400, 600, 900 and 1200 of
-level 1.  The frames that do differ are one 30-frame window at the title/credits
-transition - the port's credits screen lasts one frame longer, after which the
-two runs are back in lockstep (the port's transition screens are the ROM's, just
-one frame later).
+level 1, i.e. enemies and their shots included).
+
+The frames that differ are 0-29, the boot: the port calls the game's Reset
+handler directly instead of executing the 6502 reset sequence and its PPU
+warm-up loop, so its first screens come up a few frames earlier.  That is the
+deliberate deviation documented under "Power-on / reset" in neslib_power_on(),
+and it is the only one left.
+
+Two harness details matter for reproducing this.  Feed the buttons *before* the
+frame runs (the port's frame hook now uses `s_frames + 1`; using `s_frames` made
+it react to every press one frame late, which shifted the whole level), and give
+the scripted movement runs a phase-aligned script (`--input-offset`) - a script
+keyed by absolute frame numbers hits a different point of the level in the two
+runs, because the boot lengths differ slightly.
 
 With the input matched this way (or with a script that only starts the game and
 then stands still, `/tmp/still.txt` above) the port and the ROM agree on **98

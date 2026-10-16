@@ -44,18 +44,22 @@ static int      s_stopped_by_host;
  * longjmp() out of reset() and locals of main() would be indeterminate. */
 static const char *s_script, *s_hashes, *s_shot, *s_dump, *s_ramdump, *s_wav;
 
-/* Called by neslib once per completed frame. */
+/* Called by neslib once per completed frame, i.e. at the boundary between two
+ * frames.  The buttons set here are the ones the *next* frame sees, so the
+ * script index used is s_frames + 1 - the reference runner feeds
+ * input_script_buttons(i) immediately before running frame i, and using
+ * s_frames here made the port react to every input one frame late. */
 static void frame_hook(void)
 {
     if (s_script) {
-        uint8_t mask = input_script_buttons(s_frames);
+        uint8_t mask = input_script_buttons(s_frames + 1);
         int b;
         for (b = 0; b < 8; b++)
             neslib_set_button(0, b, (mask & (1u << b)) != 0);
     }
     /* --level N: force the starting level for the first frames, the same way
      * the reference runner does, so the two can be compared on one level. */
-    if (s_level >= 0 && s_frames < 400) {
+    if (s_level >= 0 && s_frames + 1 < 400) {
         MEMW(0x7D, (uint8_t)s_level);
         MEMW(0x91, (uint8_t)s_level);
     }
