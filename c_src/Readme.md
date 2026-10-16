@@ -119,12 +119,21 @@ looks wrong, byte by byte in the PPU and in RAM:
 make compare FRAMES=900 SCRIPT=tests/play.txt   # port vs ROM, per-frame hashes
 make verify                                     # against tests/rom_play_900.hashes
 make check-bg                                   # PPU memory (CHR/nametables) at matched frames
-./build/zanac     --frames 140 --input tests/play.txt --dump-ppu /tmp/p --dump-ram /tmp/p.ram
-./build/zanac_rom --frames 160 --input tests/play.txt --dump-ppu /tmp/r --dump-ram /tmp/r.ram
+make auto                                       # long run with a stall watchdog (tests/autoplay.c)
+./build/zanac     --frames 317 --input tests/play.txt --dump-ppu /tmp/p --dump-ram /tmp/p.ram
+./build/zanac_rom --frames 280 --input tests/play.txt --dump-ppu /tmp/r --dump-ram /tmp/r.ram
+python3 tools/compare_ram.py /tmp/p.ram /tmp/r.ram   # RAM, byte by byte, by variable name
 cmp /tmp/p.chr /tmp/r.chr      # pattern tables
 cmp /tmp/p.nt  /tmp/r.nt       # name tables + attributes
 cmp /tmp/p.pal /tmp/r.pal      # palette
 ```
+
+**Compare frames whose screens are identical.** The port reaches a given game
+state a few frames away from the ROM (its boot is shorter), so dumping the same
+frame number on both sides compares two different states and every byte looks
+wrong. `compare_hashes.py` prints the alignment; `compare_ram.py` then reports
+the variables that really differ and separates the ones that only depend on
+where in the frame the dump was taken.
 
 `tools/compare_hashes.py` reports both the frame-level match and the *screen
 sequence* (how each run's framebuffers collapse into a list of distinct
@@ -132,17 +141,18 @@ screens). The screen sequence is the meaningful test: the port does not execute
 6502 instructions, so its boot is about 20 frames shorter than the ROM's, and
 after that both produce one frame per vsync.
 
-Measured with the current code (`tests/play.txt`: START at frames 60/100, then
-movement):
+Measured with the current code (`tests/play.txt`: a START press at frame 120,
+another at 200, then movement):
 
 | what | result |
 |---|---|
 | boot screens | same screens, in the same order, each shown for the same number of frames except the shortened boot |
-| title screen | frame hash `A0938DBE`, and `.chr`, `.nt`, `.pal`, `.oam` all byte-identical to the ROM |
-| level 1, screens 15..41 | 26 consecutive screens frame-identical to the ROM (161 frames) |
-| level 1 background, frames 200-900 | name table within **7 bytes** of the ROM's, pattern tables (CHR) **byte-identical** |
-| score / HUD / scripted progression | identical |
-| enemy and shot sprites after ~frame 160 | diverge |
+| screen sequence | **35 consecutive screens** frame-identical to the ROM |
+| port frame 317 vs ROM frame 280 (identical screens) | RAM state **identical**; the only named difference is `vblank_wait_flag`, which depends on the dump point |
+| that frame's PPU memory | pattern tables (CHR) **byte-identical**, name tables within **7 bytes** |
+| first divergence | screen 36: same state, but the fine scroll is one pixel out of phase |
+| stalls | none: `make auto` runs 12000-60000 frames on levels 1, 3 and 5, at normal and 4x scroll speed |
+| enemy and shot sprites after ~frame 160 | diverge (see below) |
 
 The sprite divergence is the known limit of the port: the game's random number
 generator mixes the 6502 stack pointer into *every* byte it returns
