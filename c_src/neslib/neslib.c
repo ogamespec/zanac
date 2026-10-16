@@ -61,6 +61,7 @@ static NeslibVBlankHook g_vblank_hook;
  * before its handler returns with RTI. */
 static bool g_in_vblank;
 
+
 /* Counters for the debug builds (see neslib_debug_counts). */
 static long g_pump_calls;
 static long g_vblank_dispatches;
@@ -267,7 +268,12 @@ void neslib_wait_vblank(void)
 
     if (!nes) return;
     if (g_in_vblank) {
-        finish_frame_quietly(nes);
+        /* Called from inside the VBlank callback (the music engine reaches
+         * all_enemies_destroyed -> vsync).  On the 6502 the game's vsync polls
+         * $2002 and the NMI's own flag, and both are already set here, so it
+         * returns at once; waiting for "the next" frame would stretch every
+         * frame the handler touches - which is what made the level-completed
+         * loop advance at half speed. */
         return;
     }
 
