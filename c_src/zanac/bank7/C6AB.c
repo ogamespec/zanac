@@ -62,12 +62,16 @@ void sub_C6B5(void)                          /* $C6B5 */
  * ------------------------------------------------------------------------ */
 void sub_C6CA(void)                          /* $C6CA */
 {
-    /* The original pops the JSR return address into $16/$17, which points at
-     * the inline parameter block; the port takes it from zanac_inline_block. */
-    A = ZANAC_LO(zanac_inline_block);        /* PLA */
-    STA(byte_16);                            /* STA byte_16 */
-    A = ZANAC_HI(zanac_inline_block);        /* PLA */
-    STA(byte_17);                            /* STA byte_17 */
+    /* The original pops the JSR return address into $16/$17.  That address is
+     * the address of the JSR's *own last byte*, i.e. inline_block - 1, and
+     * every reader below indexes it with "LDY #1" to reach the first byte of
+     * the block.  The -1 therefore has to be applied here, once. */
+    {   uint16_t base = (uint16_t)(zanac_inline_block - 1);
+        A = ZANAC_LO(base);                  /* PLA */
+        STA(byte_16);                        /* STA byte_16 */
+        A = ZANAC_HI(base);                  /* PLA */
+        STA(byte_17);                        /* STA byte_17 */
+    }
     sub_C6EA();                              /* JSR sub_C6EA */
     RTS();
 }
@@ -97,14 +101,18 @@ void stack_call_return(void)                 /* $C6D3 */
  *      JSR sub_C8BA / JSR sub_C6EA / BCS loc_C6E0 / BCC stack_call_return
  *
  *  Call convention (see PORTING.md section 4): the caller stores the address of
- *  the inline block - count, VRAM address, text - in zanac_inline_block.
+ *  the inline block - count, VRAM address, text - in zanac_inline_block.  As in
+ *  switch_case, the ported routine has to subtract one from it: the 6502 pushed
+ *  the JSR's last byte, and the readers start at "LDY #1".
  * ------------------------------------------------------------------------ */
 void print_string(void)                      /* $C6DA */
 {
-    A = ZANAC_LO(zanac_inline_block);        /* PLA */
-    STA(byte_16);                            /* STA byte_16 */
-    A = ZANAC_HI(zanac_inline_block);        /* PLA */
-    STA(byte_17);                            /* STA byte_17 */
+    {   uint16_t base = (uint16_t)(zanac_inline_block - 1);
+        A = ZANAC_LO(base);                  /* PLA */
+        STA(byte_16);                        /* STA byte_16 */
+        A = ZANAC_HI(base);                  /* PLA */
+        STA(byte_17);                        /* STA byte_17 */
+    }
 
 loc_C6E0:                                    /* $C6E0 */
     sub_C8BA();                              /* JSR sub_C8BA */
@@ -187,10 +195,12 @@ locret_C724:                                 /* $C724 */
  * ------------------------------------------------------------------------ */
 void sub_C725(void)                          /* $C725 */
 {
-    A = ZANAC_LO(zanac_inline_block);        /* PLA */
-    STA(byte_16);                            /* STA byte_16 */
-    A = ZANAC_HI(zanac_inline_block);        /* PLA */
-    STA(byte_17);                            /* STA byte_17 */
+    {   uint16_t base = (uint16_t)(zanac_inline_block - 1);
+        A = ZANAC_LO(base);                  /* PLA */
+        STA(byte_16);                        /* STA byte_16 */
+        A = ZANAC_HI(base);                  /* PLA */
+        STA(byte_17);                        /* STA byte_17 */
+    }
     LDYI(1);                                 /* LDY #1 */
     LDA(INDY(byte_16));                      /* LDA ($16),Y */
     CLC();                                   /* CLC */

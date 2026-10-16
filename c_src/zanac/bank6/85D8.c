@@ -29,6 +29,8 @@
  *  - zanac_main_handler ($8CA4) is entered by JMP from several handlers and
  *    falls through into sub_18E29 at $8E29.
  */
+#include <stdio.h>
+#include <stdlib.h>
 #include "zanac.h"
 
 /* ------------------------------------------------------------------------ *
@@ -400,6 +402,8 @@ loc_187E2:                                     /* $87E2 */
     INC(0x006B);                               /* INC $6B */
 
 loc_187E4:                                     /* $87E4 */
+    { static long n; if (getenv("ZANAC_DBG") && n++ < 40)
+        fprintf(stderr, "  GL: slot=%02X type=%02X\n", MEM8(0x6A), MEM8(0x528 + MEM8(0x6A))); }
     LDA(0x006B);                               /* LDA $6B */
     ANDI(0x02);                                /* AND #2 */
     BEQ(loc_187EE);                            /* BEQ loc_187EE */
@@ -422,6 +426,7 @@ loc_187EE:                                     /* $87EE */
      * 6502 stack with PLA + RTS (see zanac_ram.h) longjmp() back here, which
      * discards the same C frames their pops discarded on the 6502. */
     zanac_unwind_armed = 1;
+    if (getenv("ZANAC_DBG")) fprintf(stderr, "    dispatch slot=%02X type=%02X Y=%02X\n", MEM8(0x6A), MEM8(0x528+MEM8(0x6A)) & 0x7F, Y);
     if (setjmp(zanac_unwind_env) != 0)
         zanac_unwind_armed = 0;                /* the jump landed here */
     else

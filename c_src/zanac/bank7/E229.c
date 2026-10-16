@@ -209,9 +209,9 @@ loc_E439_wait:                               /* the loop waits for a button;
     goto loc_E439;
 
 loc_E439_done:                               /* $E439 after the wait */
-    /* $E6A3: JSR print_string ; inline block at $E6A6
+    /* $E444: JSR print_string ; inline block at $E447
      *   .byte $A, $20, $88, "SOUND TEST", 0 */
-    PRINT_STRING(0xE6A6);
+    PRINT_STRING(0xE447);
     LDAI(1);                                 /* LDA #1 */
     STA(byte_6F);                            /* STA byte_6F */
     LDAI(1);                                 /* LDA #1 */
@@ -333,9 +333,9 @@ void show_ending_screen(void)                /* $E4CF */
     LDXI(0x20);                              /* LDX #$20 */
     LDYI(0xAA);                              /* LDY #$AA */
     clear_screen();                          /* JSR clear_screen */
-    /* $E8C6: JSR print_string ; inline block at $E8C9
+    /* $E51B: JSR print_string ; inline block at $E51E
      *   .byte 5, $20, $89, "SCORE", 0 */
-    PRINT_STRING(0xE8C9);
+    PRINT_STRING(0xE51E);
     LDAI(0x20);                              /* LDA #$20 */
     STA(PPU_ADDRESS);                        /* STA PPU_ADDRESS */
     LDAI(0x8E);                              /* LDA #$8E */

@@ -192,6 +192,17 @@ int frontend_frame(void)
             case SDLK_F2: s_scale = 2; SDL_SetWindowSize(s_window, 512, 480); break;
             case SDLK_F3: s_scale = 3; SDL_SetWindowSize(s_window, 768, 720); break;
             case SDLK_F4: s_scale = 4; SDL_SetWindowSize(s_window, 1024, 960); break;
+            case SDLK_F12: {
+                /* F12 writes what is on screen right now; the file name is
+                 * printed on stderr so a bug report can point at the frame. */
+                static int shot_no;
+                char name[64];
+                snprintf(name, sizeof(name), "zanac_shot_%03d.ppm", shot_no++);
+                frontend_write_ppm(name, neslib_framebuffer(),
+                                   NESLIB_SCREEN_W, NESLIB_SCREEN_H);
+                fprintf(stderr, "zanac: wrote %s\n", name);
+                break;
+            }
             case SDLK_F11:
                 SDL_SetWindowFullscreen(s_window,
                     (SDL_GetWindowFlags(s_window) & SDL_WINDOW_FULLSCREEN) ? false : true);
