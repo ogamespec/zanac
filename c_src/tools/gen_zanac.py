@@ -337,7 +337,34 @@ def gen_rom(bank_bins):
     return "\n".join(h) + "\n", "\n".join(c) + "\n"
 
 
+# What this generator needs and what it writes.  The inputs (the assembled banks
+# and their DASM listings) live in Build/ and are deliberately not in the
+# repository - Build/build.bat produces them from the original ROM.  A checkout
+# that has the generated files but not the inputs (a fresh clone, say) keeps
+# them instead of failing.
+GENERATED = [
+    os.path.join(OUT, "vars.h"), os.path.join(OUT, "labels.h"),
+    os.path.join(OUT, "labels_addr.h"), os.path.join(OUT, "rom_labels.h"),
+    os.path.join(OUT, "rom", "zanac_banks.c"), os.path.join(OUT, "rom", "zanac_banks.h"),
+]
+
+
 def main():
+    missing = [os.path.join(BUILD, "bank%d.%s" % (n, ext))
+               for n in (4, 5, 6, 7) for ext in ("bin", "lst")
+               if not os.path.exists(os.path.join(BUILD, "bank%d.%s" % (n, ext)))]
+    if missing:
+        have = [p for p in GENERATED if os.path.exists(p)]
+        if len(have) == len(GENERATED):
+            print("gen_zanac: %s not found - keeping the generated files as they "
+                  "are (run Build/build.bat to regenerate them)" % missing[0])
+            return 0
+        print("gen_zanac: cannot generate: %s is missing.\n"
+              "  The assembled banks come from Build/build.bat (which needs the "
+              "original ROM);\n  the ROM data itself is not part of the "
+              "repository." % missing[0])
+        return 1
+
     variables = parse_vars()
     banks = []
     all_records = []
