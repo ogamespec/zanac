@@ -1060,6 +1060,12 @@ loc_D77B:                                    /* $D77B - re-entered by "JMP sub_D
 
 loc_D789:                                    /* $D789 */
     sub_D78F();                              /* JSR sub_D78F */
+    /* The original spins here until the NMI has drained the name-table buffer
+     * (sub_D78F does nothing while rendering is on, the NMI does the work).
+     * The 6502 gets an NMI by itself; the port has to let the engine run inside
+     * the loop, otherwise this is where GAME OVER and the level-complete pause
+     * hang forever. */
+    ZANAC_WAIT_NMI();
     goto loc_D77B;                           /* JMP sub_D77B */
 }
 
