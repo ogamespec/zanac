@@ -1,0 +1,12 @@
+# Start the game and play for a while with a simple input pattern:
+#   START on the title screen, START on the menu, then move and shoot.
+60   START
+66   -
+100  START
+106  -
+180  RIGHT
+300  RIGHT+A
+420  -
+500  LEFT+A
+600  RIGHT+B
+700  UP

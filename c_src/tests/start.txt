@@ -1,0 +1,3 @@
+# press START for a few frames, then leave the pad alone
+60   START
+66   -

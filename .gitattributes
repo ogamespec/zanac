@@ -1,0 +1,20 @@
+# Line-ending policy.
+#
+# The working tree of this repository was checked out on Windows, so most of the
+# files that were already tracked (LICENSE, src/*.asm, wiki/*.md, Scripts/*,
+# Build/*) sit here with CRLF while the repository stores LF.  Without this file
+# `git status` reports all of them as modified and a careless `git add -A` would
+# commit an empty 25,000-line rewrite.  `text=auto` makes git normalise line
+# endings on the way in, so only real changes show up.
+* text=auto
+
+# Real binaries: never touch their bytes.
+*.EXE   binary
+*.exe   binary
+*.bin   binary
+*.nes   binary
+*.png   binary
+*.dll   binary
+*.lib   binary
+*.pdb   binary
+*.zip   binary

@@ -1,0 +1,44 @@
+# Build outputs and everything a run leaves behind.
+#
+# The C port lives in c_src/; its two build trees are disposable (make and
+# build.bat recreate them, and the generators -- tools/gen_zanac.py,
+# tools/gen_support.py -- run automatically before every build):
+c_src/build/
+c_src/build-msvc/
+c_src/build-*/
+build/
+build-msvc/
+
+# Objects, dependency files, executables, libraries and debug databases.
+*.o
+*.obj
+*.d
+*.exe
+*.lib
+*.a
+*.so
+*.dll
+*.pdb
+*.ilk
+*.exp
+*.idb
+
+# Frame/audio dumps produced by --shot / --dump-ppu / --dump-ram / --audio.
+*.ppm
+*.wav
+
+# Python bytecode caches (tools/ and Scripts/).
+__pycache__/
+*.py[cod]
+
+# Editors and operating systems.
+.vs/
+.vscode/
+.idea/
+*.suo
+*.user
+*.swp
+*~
+Thumbs.db
+desktop.ini
+.DS_Store

@@ -1,0 +1,5466 @@
+[
+ {
+  "bank": 6,
+  "name": "j_game_logic_processing",
+  "addr": 32768,
+  "start": 15,
+  "end": 18,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_18003",
+  "addr": 32771,
+  "start": 25,
+  "end": 28,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_18006",
+  "addr": 32774,
+  "start": 35,
+  "end": 38,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_18009",
+  "addr": 32777,
+  "start": 45,
+  "end": 48,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_1800C",
+  "addr": 32780,
+  "start": 55,
+  "end": 58,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_1800F",
+  "addr": 32783,
+  "start": 65,
+  "end": 67,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_18012",
+  "addr": 32786,
+  "start": 74,
+  "end": 76,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 6,
+  "name": "j_set_default_weapon",
+  "addr": 32789,
+  "start": 83,
+  "end": 85,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 6,
+  "name": "j_clear_main_menu_sprites",
+  "addr": 32792,
+  "start": 92,
+  "end": 94,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 6,
+  "name": "j_update_score_onscreen",
+  "addr": 32795,
+  "start": 101,
+  "end": 104,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_1801E",
+  "addr": 32798,
+  "start": 111,
+  "end": 113,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 6,
+  "name": "j_check_enemy_overflow",
+  "addr": 32801,
+  "start": 120,
+  "end": 123,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 6,
+  "name": "calculate_slope_and_speed",
+  "addr": 32804,
+  "start": 129,
+  "end": 133,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "calculate_slope",
+  "addr": 32810,
+  "start": 140,
+  "end": 210,
+  "inner": [
+   "loc_18049",
+   "loc_1804D",
+   "loc_18066",
+   "loc_1806A",
+   "loc_1807C",
+   "loc_18085",
+   "loc_1808D"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "set_speed_by_slope",
+  "addr": 32919,
+  "start": 217,
+  "end": 291,
+  "inner": [
+   "loc_180CF",
+   "loc_180E3",
+   "loc_180F9",
+   "loc_1811E"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "slope_div",
+  "addr": 33164,
+  "start": 352,
+  "end": 373,
+  "inner": [
+   "loc_18195",
+   "loc_181A0"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_181A7",
+  "addr": 33191,
+  "start": 379,
+  "end": 416,
+  "inner": [
+   "loc_181B6",
+   "loc_181C4",
+   "loc_181D2",
+   "loc_181E0"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_181E4",
+  "addr": 33252,
+  "start": 422,
+  "end": 428,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_181ED",
+  "addr": 33261,
+  "start": 434,
+  "end": 440,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_181F6",
+  "addr": 33270,
+  "start": 446,
+  "end": 456,
+  "inner": [
+   "locret_18203"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_18204",
+  "addr": 33284,
+  "start": 462,
+  "end": 486,
+  "inner": [
+   "loc_1820C"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "collision_detect_special_shot_and_zanac",
+  "addr": 33328,
+  "start": 493,
+  "end": 512,
+  "inner": [
+   "loc_18244"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "collision_detect_all_shots",
+  "addr": 33360,
+  "start": 518,
+  "end": 561,
+  "inner": [
+   "loc_1825E",
+   "loc_1826C",
+   "loc_1827A",
+   "loc_1828E",
+   "locret_1828F"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "collision_detect_single",
+  "addr": 33424,
+  "start": 567,
+  "end": 582,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "process_enemy_flags_sprites",
+  "addr": 33457,
+  "start": 589,
+  "end": 613,
+  "inner": [
+   "loc_182BB",
+   "loc_182C5",
+   "loc_182CF"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "add_enemy_meta_sprite",
+  "addr": 33497,
+  "start": 619,
+  "end": 642,
+  "inner": [
+   "loc_182F2",
+   "locret_182F9"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_erase_and_continue",
+  "addr": 33530,
+  "start": 649,
+  "end": 655,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_erase",
+  "addr": 33534,
+  "start": 662,
+  "end": 677,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "process_y_speed",
+  "addr": 33570,
+  "start": 683,
+  "end": 703,
+  "inner": [
+   "loc_1833E"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_18347",
+  "addr": 33607,
+  "start": 709,
+  "end": 730,
+  "inner": [
+   "loc_1835F",
+   "locret_18367"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_18368",
+  "addr": 33640,
+  "start": 736,
+  "end": 762,
+  "inner": [
+   "locret_18381",
+   "loc_18382",
+   "locret_18391"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_18392",
+  "addr": 33682,
+  "start": 768,
+  "end": 794,
+  "inner": [
+   "locret_183AB",
+   "loc_183AC",
+   "locret_183BB"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_183BC",
+  "addr": 33724,
+  "start": 800,
+  "end": 819,
+  "inner": [
+   "loc_183D8"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_183DD",
+  "addr": 33757,
+  "start": 825,
+  "end": 835,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_183EF",
+  "addr": 33775,
+  "start": 841,
+  "end": 867,
+  "inner": [
+   "loc_183FE",
+   "loc_1840C"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "add_next_sprite",
+  "addr": 33810,
+  "start": 874,
+  "end": 984,
+  "inner": [
+   "loc_1842E",
+   "loc_18433",
+   "loc_18435",
+   "loc_1843A",
+   "loc_18460",
+   "loc_1846A",
+   "loc_1846F",
+   "loc_18477",
+   "loc_18490",
+   "loc_184A4"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_184A7",
+  "addr": 33959,
+  "start": 990,
+  "end": 1093,
+  "inner": [
+   "loc_184B8",
+   "loc_184C0",
+   "loc_184CD",
+   "loc_184D3",
+   "loc_184D9",
+   "loc_184DB",
+   "loc_184E8",
+   "loc_184EA",
+   "loc_18501",
+   "loc_1850E",
+   "loc_18512",
+   "loc_1851F",
+   "loc_18523"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "clear_main_menu_sprites",
+  "addr": 34090,
+  "start": 1100,
+  "end": 1113,
+  "inner": [
+   "loc_1852C"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "update_score_onscreen",
+  "addr": 34107,
+  "start": 1120,
+  "end": 1174,
+  "inner": [
+   "loc_18549",
+   "loc_1854F",
+   "loc_18555",
+   "loc_18571",
+   "loc_18578"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "update_player_lives",
+  "addr": 34187,
+  "start": 1180,
+  "end": 1220,
+  "inner": [
+   "loc_185AD",
+   "loc_185C1"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "add_sprite_from_zeropage",
+  "addr": 34254,
+  "start": 1227,
+  "end": 1233,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "add_sprite",
+  "addr": 34264,
+  "start": 1240,
+  "end": 1265,
+  "inner": [
+   "loc_185E3"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "add_more_sprites",
+  "addr": 34303,
+  "start": 1272,
+  "end": 1282,
+  "inner": [
+   "loc_18604"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "add_next_sprite_from_zeropage",
+  "addr": 34316,
+  "start": 1288,
+  "end": 1298,
+  "inner": [
+   "loc_18616"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_prng",
+  "addr": 34603,
+  "start": 1580,
+  "end": 1597,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "spawn_top_random_x_position",
+  "addr": 34630,
+  "start": 1604,
+  "end": 1623,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1876A",
+  "addr": 34666,
+  "start": 1629,
+  "end": 1644,
+  "inner": [
+   "loc_18779"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1877E",
+  "addr": 34686,
+  "start": 1650,
+  "end": 1656,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_18788",
+  "addr": 34696,
+  "start": 1662,
+  "end": 1678,
+  "inner": [
+   "locret_1878E",
+   "loc_1878F"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_18796",
+  "addr": 34710,
+  "start": 1684,
+  "end": 1690,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1879F",
+  "addr": 34719,
+  "start": 1696,
+  "end": 1705,
+  "inner": [
+   "locret_187A5"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_187A6",
+  "addr": 34726,
+  "start": 1711,
+  "end": 1717,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "game_logic_processing",
+  "addr": 34759,
+  "start": 1751,
+  "end": 1813,
+  "inner": [
+   "loc_187E2",
+   "loc_187E4",
+   "loc_187EE",
+   "locret_18806",
+   "loc_18807",
+   "loc_18822"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "check_enemy_overflow",
+  "addr": 34853,
+  "start": 1820,
+  "end": 1840,
+  "inner": [
+   "loc_18827",
+   "loc_18833",
+   "locret_18834"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_18835",
+  "addr": 34869,
+  "start": 1846,
+  "end": 2043,
+  "inner": [
+   "loc_18852",
+   "loc_18874",
+   "locret_18888",
+   "loc_18889",
+   "loc_1889C",
+   "loc_188B8",
+   "loc_188CA",
+   "loc_188CF",
+   "loc_188E8",
+   "loc_188FC",
+   "loc_1890C",
+   "loc_1891D",
+   "loc_18936",
+   "loc_18941"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_1_zanac",
+  "addr": 35944,
+  "start": 2747,
+  "end": 2773,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "zanac_main_handler",
+  "addr": 36004,
+  "start": 2779,
+  "end": 3037,
+  "inner": [
+   "loc_18CAB",
+   "loc_18CC3",
+   "loc_18CC8",
+   "loc_18CD6",
+   "loc_18CDD",
+   "loc_18D0A",
+   "loc_18D12",
+   "loc_18D30",
+   "loc_18D38",
+   "loc_18D3E",
+   "loc_18D44",
+   "loc_18D52",
+   "loc_18D64",
+   "loc_18D6A",
+   "loc_18D75",
+   "loc_18D80",
+   "loc_18D8A",
+   "loc_18D8E",
+   "loc_18D99",
+   "loc_18DAC",
+   "loc_18DAE",
+   "loc_18DD1",
+   "loc_18DEB",
+   "locret_18DF9",
+   "loc_18DFA",
+   "loc_18E08",
+   "loc_18E10",
+   "loc_18E17"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_18E29",
+  "addr": 36393,
+  "start": 3043,
+  "end": 3093,
+  "inner": [
+   "loc_18E3E",
+   "loc_18E47",
+   "loc_18E52",
+   "loc_18E5C"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "set_default_weapon",
+  "addr": 36513,
+  "start": 3146,
+  "end": 3160,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "warp_sequence",
+  "addr": 36554,
+  "start": 3174,
+  "end": 3269,
+  "inner": [
+   "loc_18EDA",
+   "loc_18EF7",
+   "loc_18F10",
+   "loc_18F16",
+   "loc_18F45",
+   "locret_18F77"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_60",
+  "addr": 36728,
+  "start": 3275,
+  "end": 3367,
+  "inner": [
+   "loc_18F8F",
+   "loc_18F96",
+   "loc_18FB5",
+   "loc_18FF6",
+   "loc_19000",
+   "loc_1900F"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_2_zanac_standard_shot",
+  "addr": 36921,
+  "start": 3399,
+  "end": 3424,
+  "inner": [
+   "loc_19068"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1906E",
+  "addr": 36974,
+  "start": 3430,
+  "end": 3442,
+  "inner": [
+   "locret_1907E"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_3",
+  "addr": 36991,
+  "start": 3448,
+  "end": 3529,
+  "inner": [
+   "loc_19099",
+   "loc_1909F",
+   "loc_190A2"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "special_weapon_process",
+  "addr": 37085,
+  "start": 3536,
+  "end": 3547,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1913A",
+  "addr": 37178,
+  "start": 3634,
+  "end": 3644,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1914D",
+  "addr": 37197,
+  "start": 3650,
+  "end": 3668,
+  "inner": [
+   "loc_1915D",
+   "loc_19164"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "special_weapon_type_7",
+  "addr": 37226,
+  "start": 3674,
+  "end": 3678,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "special_weapon_type_1",
+  "addr": 37234,
+  "start": 3684,
+  "end": 3706,
+  "inner": [
+   "loc_1918C",
+   "loc_1918F"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "special_weapon_type_0",
+  "addr": 37275,
+  "start": 3712,
+  "end": 3716,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_191A1",
+  "addr": 37281,
+  "start": 3722,
+  "end": 3757,
+  "inner": [
+   "loc_191B7",
+   "loc_191BD",
+   "loc_191CC"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_191E6",
+  "addr": 37350,
+  "start": 3773,
+  "end": 3776,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "special_weapon_type_2",
+  "addr": 37355,
+  "start": 3782,
+  "end": 3835,
+  "inner": [
+   "loc_191FE",
+   "loc_1921E",
+   "loc_1923C"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1925C",
+  "addr": 37468,
+  "start": 3852,
+  "end": 3864,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "special_weapon_type_3",
+  "addr": 37496,
+  "start": 3870,
+  "end": 3935,
+  "inner": [
+   "loc_19280",
+   "loc_19295",
+   "loc_192B3",
+   "loc_192B9",
+   "loc_192DE",
+   "loc_192E4"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_192F1",
+  "addr": 37617,
+  "start": 3941,
+  "end": 3976,
+  "inner": [
+   "loc_1930B",
+   "loc_19311",
+   "loc_19326"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "special_weapon_type_4",
+  "addr": 37679,
+  "start": 3982,
+  "end": 4008,
+  "inner": [
+   "loc_19339",
+   "loc_1934D",
+   "loc_19356"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1935C",
+  "addr": 37724,
+  "start": 4014,
+  "end": 4024,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "special_weapon_type_5",
+  "addr": 37746,
+  "start": 4030,
+  "end": 4122,
+  "inner": [
+   "loc_19384",
+   "loc_19398",
+   "loc_193A6",
+   "loc_193C9",
+   "loc_193D4",
+   "loc_193DE",
+   "loc_193FB",
+   "loc_1940D"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_19410",
+  "addr": 37904,
+  "start": 4128,
+  "end": 4146,
+  "inner": [
+   "loc_1941B"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "special_weapon_type_6",
+  "addr": 37935,
+  "start": 4152,
+  "end": 4156,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_19",
+  "addr": 37941,
+  "start": 4162,
+  "end": 4167,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1944F",
+  "addr": 37967,
+  "start": 4182,
+  "end": 4197,
+  "inner": [
+   "loc_1945E",
+   "loc_19461"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_19464",
+  "addr": 37988,
+  "start": 4203,
+  "end": 4209,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1946F",
+  "addr": 37999,
+  "start": 4215,
+  "end": 4232,
+  "inner": [
+   "loc_19480",
+   "loc_19483"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1948B",
+  "addr": 38027,
+  "start": 4238,
+  "end": 4244,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_19493",
+  "addr": 38035,
+  "start": 4250,
+  "end": 4404,
+  "inner": [
+   "loc_194AE",
+   "loc_194BD",
+   "loc_194D2",
+   "loc_194DC",
+   "loc_19507",
+   "loc_19511",
+   "loc_19515",
+   "loc_1954B",
+   "loc_1954E",
+   "loc_19553",
+   "locret_19557",
+   "loc_19558",
+   "loc_19574"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_68",
+  "addr": 38286,
+  "start": 4433,
+  "end": 4473,
+  "inner": [
+   "loc_195AB",
+   "loc_195D6"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_19615",
+  "addr": 38421,
+  "start": 4540,
+  "end": 4546,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_4_5_6_boxes",
+  "addr": 38427,
+  "start": 4553,
+  "end": 4661,
+  "inner": [
+   "loc_19626",
+   "loc_19644",
+   "loc_1966C",
+   "loc_19692",
+   "loc_1969C",
+   "loc_196A2",
+   "loc_196C3",
+   "locret_196DB"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_63",
+  "addr": 38632,
+  "start": 4680,
+  "end": 4685,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_196F3",
+  "addr": 38643,
+  "start": 4691,
+  "end": 4734,
+  "inner": [
+   "loc_19725",
+   "loc_1972F",
+   "loc_1973C"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_7",
+  "addr": 38719,
+  "start": 4740,
+  "end": 4799,
+  "inner": [
+   "loc_19744",
+   "loc_19777",
+   "loc_19787",
+   "loc_1979F"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_197B4",
+  "addr": 38836,
+  "start": 4805,
+  "end": 4809,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_8",
+  "addr": 38855,
+  "start": 4829,
+  "end": 4833,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_197CF",
+  "addr": 38863,
+  "start": 4839,
+  "end": 4855,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_197F3",
+  "addr": 38899,
+  "start": 4861,
+  "end": 4867,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_9",
+  "addr": 38909,
+  "start": 4873,
+  "end": 4889,
+  "inner": [
+   "loc_19805"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1981D",
+  "addr": 38941,
+  "start": 4895,
+  "end": 4903,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_10_blue_duster",
+  "addr": 38953,
+  "start": 4910,
+  "end": 4938,
+  "inner": [
+   "loc_19840",
+   "loc_1985D"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_69",
+  "addr": 39008,
+  "start": 4944,
+  "end": 4995,
+  "inner": [
+   "loc_19892",
+   "loc_198BB",
+   "locret_198C5"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_11",
+  "addr": 39110,
+  "start": 5001,
+  "end": 5017,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_19918",
+  "addr": 39192,
+  "start": 5043,
+  "end": 5062,
+  "inner": [
+   "locret_1993B"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_12_13",
+  "addr": 39228,
+  "start": 5068,
+  "end": 5148,
+  "inner": [
+   "loc_1998D",
+   "loc_199B2",
+   "loc_199B3",
+   "loc_199C0",
+   "loc_199CD"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_14",
+  "addr": 39414,
+  "start": 5193,
+  "end": 5315,
+  "inner": [
+   "loc_19A21",
+   "loc_19A36",
+   "loc_19A8C",
+   "loc_19AC9",
+   "loc_19AE6",
+   "locret_19AF6"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_15",
+  "addr": 39671,
+  "start": 5321,
+  "end": 5392,
+  "inner": [
+   "loc_19B25",
+   "loc_19B53",
+   "loc_19B74",
+   "loc_19B80"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_48_maseru",
+  "addr": 39818,
+  "start": 5399,
+  "end": 5480,
+  "inner": [
+   "loc_19BA1",
+   "loc_19BCC",
+   "loc_19BE1",
+   "loc_19BE6",
+   "loc_19C04",
+   "loc_19C17",
+   "locret_19C26"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_51_girevu",
+  "addr": 39979,
+  "start": 5492,
+  "end": 5498,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_49_50_52",
+  "addr": 39991,
+  "start": 5505,
+  "end": 5556,
+  "inner": [
+   "loc_19C56",
+   "loc_19C65",
+   "loc_19C73",
+   "loc_19C85",
+   "locret_19C96"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "capital_ships_health_check",
+  "addr": 40087,
+  "start": 5563,
+  "end": 5580,
+  "inner": [
+   "loc_19C9F",
+   "loc_19CA7"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_19CAB",
+  "addr": 40107,
+  "start": 5586,
+  "end": 5618,
+  "inner": [
+   "loc_19CC4",
+   "loc_19CD2"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "set_capital_ship_parameters",
+  "addr": 40166,
+  "start": 5625,
+  "end": 5642,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_19D23",
+  "addr": 40227,
+  "start": 5653,
+  "end": 5707,
+  "inner": [
+   "loc_19D40",
+   "loc_19D48",
+   "loc_19D4A",
+   "loc_19D5A",
+   "locret_19D79"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_24",
+  "addr": 40314,
+  "start": 5713,
+  "end": 5743,
+  "inner": [
+   "loc_19D94",
+   "loc_19D99",
+   "loc_19D9D"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_19DAF",
+  "addr": 40367,
+  "start": 5749,
+  "end": 5813,
+  "inner": [
+   "loc_19DB5",
+   "loc_19DCB",
+   "loc_19DEB",
+   "loc_19E08"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_19E2A",
+  "addr": 40490,
+  "start": 5824,
+  "end": 5835,
+  "inner": [
+   "locret_19E37"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_25_carla",
+  "addr": 40504,
+  "start": 5842,
+  "end": 5892,
+  "inner": [
+   "loc_19E64",
+   "loc_19E76",
+   "loc_19E8E",
+   "locret_19E98"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_16",
+  "addr": 40601,
+  "start": 5898,
+  "end": 5910,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_19EB4",
+  "addr": 40628,
+  "start": 5916,
+  "end": 5998,
+  "inner": [
+   "loc_19EBF",
+   "loc_19EF0",
+   "loc_19F02",
+   "loc_19F05",
+   "loc_19F2A",
+   "loc_19F3E",
+   "loc_19F41"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_17",
+  "addr": 40777,
+  "start": 6004,
+  "end": 6019,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_18",
+  "addr": 40812,
+  "start": 6025,
+  "end": 6067,
+  "inner": [
+   "loc_19F94",
+   "loc_19FAD",
+   "loc_19FB9"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_22",
+  "addr": 40918,
+  "start": 6100,
+  "end": 6168,
+  "inner": [
+   "loc_19FEA",
+   "loc_19FF9",
+   "loc_1A01B",
+   "loc_1A026",
+   "loc_1A033",
+   "loc_1A04C",
+   "loc_1A051"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1A05E",
+  "addr": 41054,
+  "start": 6185,
+  "end": 6208,
+  "inner": [
+   "loc_1A077",
+   "loc_1A081"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_23",
+  "addr": 41098,
+  "start": 6214,
+  "end": 6237,
+  "inner": [
+   "loc_1A09E"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_26",
+  "addr": 41147,
+  "start": 6243,
+  "end": 6269,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1A0F9",
+  "addr": 41209,
+  "start": 6275,
+  "end": 6287,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1A110",
+  "addr": 41232,
+  "start": 6293,
+  "end": 6342,
+  "inner": [
+   "loc_1A139",
+   "loc_1A149",
+   "loc_1A14D",
+   "loc_1A15B"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_27",
+  "addr": 41323,
+  "start": 6355,
+  "end": 6382,
+  "inner": [
+   "loc_1A16E",
+   "loc_1A18F"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_28",
+  "addr": 41376,
+  "start": 6388,
+  "end": 6409,
+  "inner": [
+   "loc_1A1C4"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_29_effine_T4",
+  "addr": 41417,
+  "start": 6416,
+  "end": 6493,
+  "inner": [
+   "loc_1A201",
+   "loc_1A20F",
+   "loc_1A226",
+   "loc_1A25B"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1A264",
+  "addr": 41572,
+  "start": 6506,
+  "end": 6554,
+  "inner": [
+   "loc_1A275",
+   "loc_1A283",
+   "loc_1A2A7",
+   "locret_1A2B0"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "decrease_enemy_health",
+  "addr": 41649,
+  "start": 6561,
+  "end": 6581,
+  "inner": [
+   "locret_1A2B8",
+   "loc_1A2B9"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1A2CB",
+  "addr": 41675,
+  "start": 6587,
+  "end": 6596,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_30_32",
+  "addr": 41691,
+  "start": 6602,
+  "end": 6713,
+  "inner": [
+   "loc_1A2E3",
+   "loc_1A376",
+   "loc_1A379",
+   "loc_1A39A",
+   "loc_1A3C5",
+   "loc_1A3C8"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_31_33",
+  "addr": 41931,
+  "start": 6719,
+  "end": 6725,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1A3D7",
+  "addr": 41943,
+  "start": 6731,
+  "end": 6745,
+  "inner": [
+   "loc_1A3E5"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_34_65_66",
+  "addr": 41964,
+  "start": 6751,
+  "end": 6872,
+  "inner": [
+   "loc_1A423",
+   "loc_1A44A",
+   "loc_1A452",
+   "loc_1A470",
+   "loc_1A4A9",
+   "loc_1A4B5",
+   "loc_1A4CC",
+   "loc_1A4D5"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_46_47",
+  "addr": 42249,
+  "start": 6921,
+  "end": 7038,
+  "inner": [
+   "loc_1A56E",
+   "loc_1A593",
+   "loc_1A59A",
+   "loc_1A5AE",
+   "loc_1A5D6",
+   "loc_1A5E5",
+   "loc_1A5FE"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_56",
+  "addr": 42505,
+  "start": 7053,
+  "end": 7088,
+  "inner": [
+   "loc_1A613",
+   "loc_1A618",
+   "loc_1A638",
+   "loc_1A642"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_57",
+  "addr": 42565,
+  "start": 7094,
+  "end": 7145,
+  "inner": [
+   "loc_1A659",
+   "loc_1A66C",
+   "loc_1A66F",
+   "loc_1A698"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_58",
+  "addr": 42661,
+  "start": 7151,
+  "end": 7163,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_59",
+  "addr": 42689,
+  "start": 7169,
+  "end": 7176,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_64_random",
+  "addr": 42703,
+  "start": 7183,
+  "end": 7206,
+  "inner": [
+   "loc_1A6E3",
+   "loc_1A6ED"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_36_giza",
+  "addr": 42737,
+  "start": 7213,
+  "end": 7260,
+  "inner": [
+   "loc_1A70E",
+   "loc_1A720",
+   "loc_1A72A",
+   "loc_1A740"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_44_yellow_duster",
+  "addr": 42828,
+  "start": 7270,
+  "end": 7290,
+  "inner": [
+   "loc_1A776"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_61_sart",
+  "addr": 42873,
+  "start": 7296,
+  "end": 7398,
+  "inner": [
+   "loc_1A78E",
+   "loc_1A7BE",
+   "loc_1A7C2",
+   "loc_1A7DB",
+   "loc_1A7FA",
+   "loc_1A803",
+   "loc_1A821",
+   "locret_1A835"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_67_valkyrie",
+  "addr": 43062,
+  "start": 7405,
+  "end": 7490,
+  "inner": [
+   "loc_1A86F",
+   "loc_1A87C",
+   "loc_1A899",
+   "loc_1A8A1",
+   "loc_1A8C2",
+   "loc_1A8C8",
+   "loc_1A8CD"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "update_chase_counters",
+  "addr": 43217,
+  "start": 7497,
+  "end": 7513,
+  "inner": [
+   "locret_1A8E9"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_35_small_explosion",
+  "addr": 43242,
+  "start": 7520,
+  "end": 7616,
+  "inner": [
+   "loc_1A900",
+   "loc_1A90A",
+   "loc_1A90B",
+   "loc_1A90E",
+   "loc_1A918",
+   "loc_1A928",
+   "loc_1A92A",
+   "loc_1A934",
+   "loc_1A93F",
+   "loc_1A96C",
+   "loc_1A97B"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_91_big_explosion",
+  "addr": 43397,
+  "start": 7631,
+  "end": 7725,
+  "inner": [
+   "loc_1A9A0",
+   "loc_1A9B3",
+   "loc_1A9D7",
+   "loc_1A9DB",
+   "loc_1A9EA",
+   "loc_1A9EE",
+   "loc_1AA04",
+   "loc_1AA07",
+   "locret_1AA25"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_37",
+  "addr": 43618,
+  "start": 7736,
+  "end": 7739,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1AA67",
+  "addr": 43623,
+  "start": 7745,
+  "end": 7749,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1AA6F",
+  "addr": 43631,
+  "start": 7755,
+  "end": 7765,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1AA86",
+  "addr": 43654,
+  "start": 7771,
+  "end": 7775,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_38_lead",
+  "addr": 43660,
+  "start": 7782,
+  "end": 7785,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1AA91",
+  "addr": 43665,
+  "start": 7791,
+  "end": 7799,
+  "inner": [
+   "loc_1AA96"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_39",
+  "addr": 43679,
+  "start": 7805,
+  "end": 7813,
+  "inner": [
+   "loc_1AAA5"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_41",
+  "addr": 43688,
+  "start": 7819,
+  "end": 7929,
+  "inner": [
+   "loc_1AAF3",
+   "loc_1AB18",
+   "loc_1AB2E",
+   "loc_1AB31",
+   "loc_1AB5D",
+   "loc_1AB6A",
+   "loc_1AB7B",
+   "loc_1AB89"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_42",
+  "addr": 43938,
+  "start": 7939,
+  "end": 7943,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_43",
+  "addr": 43946,
+  "start": 7949,
+  "end": 7952,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1ABAF",
+  "addr": 43951,
+  "start": 7958,
+  "end": 7984,
+  "inner": [
+   "locret_1ABE7"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_45",
+  "addr": 44008,
+  "start": 7990,
+  "end": 8040,
+  "inner": [
+   "loc_1AC07",
+   "loc_1AC0C",
+   "loc_1AC11",
+   "loc_1AC2F"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_21",
+  "addr": 44104,
+  "start": 8051,
+  "end": 8076,
+  "inner": [
+   "loc_1AC6E"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_20",
+  "addr": 44195,
+  "start": 8115,
+  "end": 8140,
+  "inner": [
+   "loc_1ACD8"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_53",
+  "addr": 44254,
+  "start": 8146,
+  "end": 8188,
+  "inner": [
+   "loc_1ACE8",
+   "loc_1AD05",
+   "loc_1AD13",
+   "loc_1AD20"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_54",
+  "addr": 44325,
+  "start": 8194,
+  "end": 8204,
+  "inner": [
+   "loc_1AD2F"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_55_fairy",
+  "addr": 44342,
+  "start": 8211,
+  "end": 8335,
+  "inner": [
+   "loc_1AD68",
+   "loc_1AD88",
+   "loc_1AD9D",
+   "loc_1ADA7",
+   "loc_1ADB7",
+   "loc_1ADC6",
+   "loc_1ADCD",
+   "loc_1ADD4",
+   "loc_1ADFF",
+   "loc_1AE07",
+   "loc_1AE16"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_62",
+  "addr": 44570,
+  "start": 8341,
+  "end": 8415,
+  "inner": [
+   "loc_1AE3D",
+   "loc_1AE6D",
+   "loc_1AE74",
+   "loc_1AE81",
+   "loc_1AE85",
+   "loc_1AE88",
+   "locret_1AE98"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_82_weapon_distro",
+  "addr": 44697,
+  "start": 8422,
+  "end": 8441,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_70_71_81_88_89",
+  "addr": 44737,
+  "start": 8447,
+  "end": 8575,
+  "inner": [
+   "loc_1AEC6",
+   "loc_1AED8",
+   "loc_1AEE1",
+   "loc_1AEF3",
+   "loc_1AF21",
+   "loc_1AF28",
+   "loc_1AF37",
+   "loc_1AF49",
+   "loc_1AF5B",
+   "loc_1AF6B",
+   "loc_1AF79",
+   "loc_1AF83",
+   "loc_1AF95"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B09A",
+  "addr": 45210,
+  "start": 8838,
+  "end": 8850,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B0AA",
+  "addr": 45226,
+  "start": 8856,
+  "end": 8988,
+  "inner": [
+   "loc_1B0B4",
+   "loc_1B0BF",
+   "loc_1B0CB",
+   "loc_1B0E5",
+   "loc_1B0F5",
+   "loc_1B10C",
+   "loc_1B11A",
+   "loc_1B138",
+   "loc_1B143",
+   "loc_1B146",
+   "loc_1B161",
+   "locret_1B168"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B169",
+  "addr": 45417,
+  "start": 8994,
+  "end": 9058,
+  "inner": [
+   "loc_1B18F",
+   "loc_1B1A3",
+   "locret_1B1AE",
+   "loc_1B1AF"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B1CD",
+  "addr": 45517,
+  "start": 9064,
+  "end": 9067,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B1D0",
+  "addr": 45520,
+  "start": 9073,
+  "end": 9085,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B1E2",
+  "addr": 45538,
+  "start": 9091,
+  "end": 9094,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B1E8",
+  "addr": 45544,
+  "start": 9100,
+  "end": 9103,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B1EB",
+  "addr": 45547,
+  "start": 9109,
+  "end": 9121,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B1FA",
+  "addr": 45562,
+  "start": 9127,
+  "end": 9136,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B20E",
+  "addr": 45582,
+  "start": 9142,
+  "end": 9188,
+  "inner": [
+   "loc_1B226",
+   "loc_1B23D",
+   "loc_1B24D"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_72",
+  "addr": 45672,
+  "start": 9203,
+  "end": 9272,
+  "inner": [
+   "loc_1B289",
+   "loc_1B2A2",
+   "loc_1B2C6",
+   "loc_1B2CF",
+   "loc_1B2E1"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B2ED",
+  "addr": 45805,
+  "start": 9278,
+  "end": 9322,
+  "inner": [
+   "loc_1B2EF",
+   "loc_1B303",
+   "loc_1B31A",
+   "loc_1B322"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B32E",
+  "addr": 45870,
+  "start": 9328,
+  "end": 9334,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_79",
+  "addr": 45879,
+  "start": 9340,
+  "end": 9345,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_73_74_75_76_77_78",
+  "addr": 45890,
+  "start": 9351,
+  "end": 9363,
+  "inner": [
+   "loc_1B352"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "fortress_core_appears",
+  "addr": 45909,
+  "start": 9370,
+  "end": 9402,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B39E",
+  "addr": 45982,
+  "start": 9408,
+  "end": 9517,
+  "inner": [
+   "loc_1B3A5",
+   "loc_1B3B0",
+   "loc_1B3BA",
+   "loc_1B3C4",
+   "loc_1B3DC",
+   "loc_1B3E3",
+   "loc_1B3FE",
+   "loc_1B411",
+   "loc_1B417",
+   "loc_1B41B",
+   "loc_1B42A",
+   "loc_1B434",
+   "loc_1B441"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B44B",
+  "addr": 46155,
+  "start": 9523,
+  "end": 9541,
+  "inner": [
+   "loc_1B462"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B467",
+  "addr": 46183,
+  "start": 9547,
+  "end": 9564,
+  "inner": [
+   "loc_1B478"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B482",
+  "addr": 46210,
+  "start": 9570,
+  "end": 9582,
+  "inner": [
+   "loc_1B48F"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B491",
+  "addr": 46225,
+  "start": 9588,
+  "end": 9595,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B49F",
+  "addr": 46239,
+  "start": 9601,
+  "end": 9631,
+  "inner": [
+   "locret_1B4D4"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B4D5",
+  "addr": 46293,
+  "start": 9637,
+  "end": 9673,
+  "inner": [
+   "locret_1B4DC",
+   "loc_1B4DD",
+   "loc_1B4F9"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B507",
+  "addr": 46343,
+  "start": 9679,
+  "end": 9705,
+  "inner": [
+   "loc_1B51C",
+   "loc_1B52B"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B533",
+  "addr": 46387,
+  "start": 9711,
+  "end": 9716,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B54A",
+  "addr": 46410,
+  "start": 9730,
+  "end": 9762,
+  "inner": [
+   "loc_1B54D",
+   "locret_1B568",
+   "loc_1B569",
+   "loc_1B56E"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B576",
+  "addr": 46454,
+  "start": 9768,
+  "end": 9783,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B592",
+  "addr": 46482,
+  "start": 9789,
+  "end": 9794,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B59A",
+  "addr": 46490,
+  "start": 9800,
+  "end": 9811,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B5B0",
+  "addr": 46512,
+  "start": 9817,
+  "end": 9825,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B5BE",
+  "addr": 46526,
+  "start": 9831,
+  "end": 9842,
+  "inner": [
+   "loc_1B5CA"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B5CF",
+  "addr": 46543,
+  "start": 9848,
+  "end": 9877,
+  "inner": [
+   "loc_1B5D3",
+   "locret_1B5E6",
+   "loc_1B5E7"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B611",
+  "addr": 46609,
+  "start": 9912,
+  "end": 9933,
+  "inner": [
+   "loc_1B61E",
+   "loc_1B62B"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "spawn_projectile",
+  "addr": 46641,
+  "start": 9940,
+  "end": 9950,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B667",
+  "addr": 46695,
+  "start": 9968,
+  "end": 9998,
+  "inner": [
+   "loc_1B692",
+   "loc_1B695"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_80",
+  "addr": 46747,
+  "start": 10004,
+  "end": 10018,
+  "inner": [
+   "loc_1B6B0"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_83",
+  "addr": 46774,
+  "start": 10024,
+  "end": 10086,
+  "inner": [
+   "loc_1B6D9",
+   "loc_1B6E9",
+   "loc_1B701",
+   "loc_1B71E",
+   "loc_1B720"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_84_85_86_87",
+  "addr": 46892,
+  "start": 10092,
+  "end": 10175,
+  "inner": [
+   "loc_1B73E",
+   "loc_1B770",
+   "loc_1B772",
+   "loc_1B775",
+   "loc_1B778",
+   "loc_1B790",
+   "loc_1B79F",
+   "loc_1B7A3"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_90",
+  "addr": 47032,
+  "start": 10186,
+  "end": 10282,
+  "inner": [
+   "loc_1B7D4",
+   "loc_1B7DE",
+   "loc_1B7FB",
+   "loc_1B84F",
+   "loc_1B860",
+   "loc_1B869"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B87F",
+  "addr": 47231,
+  "start": 10301,
+  "end": 10331,
+  "inner": [
+   "loc_1B88C",
+   "loc_1B895",
+   "loc_1B89B"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B8A3",
+  "addr": 47267,
+  "start": 10337,
+  "end": 10344,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B8E5",
+  "addr": 47333,
+  "start": 10407,
+  "end": 10780,
+  "inner": [
+   "loc_1B90F",
+   "loc_1B91E",
+   "locret_1B924",
+   "loc_1B925",
+   "loc_1B940",
+   "loc_1B949",
+   "loc_1B95F",
+   "loc_1B96E",
+   "loc_1B988",
+   "loc_1B99C",
+   "loc_1B9AC",
+   "loc_1B9BF",
+   "loc_1B9D6",
+   "loc_1B9EB",
+   "loc_1B9F6",
+   "loc_1B9FD",
+   "loc_1BA12",
+   "loc_1BA35",
+   "loc_1BA4E",
+   "loc_1BA58",
+   "loc_1BA5D",
+   "loc_1BA7A",
+   "loc_1BAA1",
+   "loc_1BAA5",
+   "loc_1BAB6",
+   "loc_1BACF",
+   "loc_1BADB",
+   "loc_1BAE8",
+   "loc_1BAFF",
+   "loc_1BB0F",
+   "loc_1BB18",
+   "loc_1BB29"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1BB56",
+  "addr": 47958,
+  "start": 10829,
+  "end": 10922,
+  "inner": [
+   "loc_1BB5B",
+   "loc_1BB62",
+   "loc_1BB88",
+   "loc_1BBA9",
+   "loc_1BBC0",
+   "loc_1BBD3"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1BC04",
+  "addr": 48132,
+  "start": 10928,
+  "end": 10967,
+  "inner": [
+   "loc_1BC46"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1BC4E",
+  "addr": 48206,
+  "start": 10973,
+  "end": 10994,
+  "inner": [
+   "loc_1BC68"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1BCE0",
+  "addr": 48352,
+  "start": 11016,
+  "end": 11128,
+  "inner": [
+   "loc_1BCE7",
+   "loc_1BCEB",
+   "loc_1BCF0",
+   "loc_1BCF4",
+   "loc_1BD61"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1BDC9",
+  "addr": 48585,
+  "start": 11143,
+  "end": 11171,
+  "inner": [
+   "loc_1BDD8",
+   "loc_1BDDF"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1BE08",
+  "addr": 48648,
+  "start": 11197,
+  "end": 11230,
+  "inner": [
+   "loc_1BE2C",
+   "locret_1BE40"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "j_reset",
+  "addr": 49152,
+  "start": 16,
+  "end": 18,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "j_switch_bank",
+  "addr": 49155,
+  "start": 25,
+  "end": 27,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "j_far_call",
+  "addr": 49158,
+  "start": 34,
+  "end": 36,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "j_ppu_nmi_disable",
+  "addr": 49161,
+  "start": 43,
+  "end": 45,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "j_ppu_nmi_enable",
+  "addr": 49164,
+  "start": 52,
+  "end": 54,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "j_ppu_disable_all",
+  "addr": 49167,
+  "start": 61,
+  "end": 63,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "j_ppu_enable_all",
+  "addr": 49170,
+  "start": 70,
+  "end": 72,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "j_clear_oam_buffer",
+  "addr": 49173,
+  "start": 79,
+  "end": 81,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "j_clear_screen",
+  "addr": 49176,
+  "start": 88,
+  "end": 90,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C01B",
+  "addr": 49179,
+  "start": 97,
+  "end": 99,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "j_pad_read",
+  "addr": 49182,
+  "start": 106,
+  "end": 108,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "j_all_enemies_destroyed",
+  "addr": 49185,
+  "start": 115,
+  "end": 118,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C024",
+  "addr": 49188,
+  "start": 125,
+  "end": 128,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C027",
+  "addr": 49191,
+  "start": 135,
+  "end": 137,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C02A",
+  "addr": 49194,
+  "start": 144,
+  "end": 147,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "j_handle_pad_buttons",
+  "addr": 49197,
+  "start": 154,
+  "end": 156,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "j_apu_play",
+  "addr": 49200,
+  "start": 163,
+  "end": 166,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C033",
+  "addr": 49203,
+  "start": 173,
+  "end": 175,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "j_ppu_update_background",
+  "addr": 49206,
+  "start": 182,
+  "end": 184,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C039",
+  "addr": 49209,
+  "start": 191,
+  "end": 193,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C03C",
+  "addr": 49212,
+  "start": 200,
+  "end": 203,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C03F",
+  "addr": 49215,
+  "start": 210,
+  "end": 213,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C042",
+  "addr": 49218,
+  "start": 220,
+  "end": 222,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C045",
+  "addr": 49221,
+  "start": 229,
+  "end": 231,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C048",
+  "addr": 49224,
+  "start": 238,
+  "end": 241,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C04B",
+  "addr": 49227,
+  "start": 248,
+  "end": 251,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C04E",
+  "addr": 49230,
+  "start": 258,
+  "end": 260,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C051",
+  "addr": 49233,
+  "start": 267,
+  "end": 269,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C054",
+  "addr": 49236,
+  "start": 276,
+  "end": 278,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C057",
+  "addr": 49239,
+  "start": 285,
+  "end": 288,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "j_ppu_cram_load",
+  "addr": 49242,
+  "start": 295,
+  "end": 297,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C05D",
+  "addr": 49245,
+  "start": 304,
+  "end": 306,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "j_apu_reset",
+  "addr": 49248,
+  "start": 313,
+  "end": 315,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "j_apu_stop",
+  "addr": 49251,
+  "start": 322,
+  "end": 325,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "j_apu_play_0",
+  "addr": 49254,
+  "start": 332,
+  "end": 334,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "j_apu_update",
+  "addr": 49257,
+  "start": 341,
+  "end": 343,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C06C",
+  "addr": 49260,
+  "start": 350,
+  "end": 352,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C06F",
+  "addr": 49263,
+  "start": 359,
+  "end": 361,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C072",
+  "addr": 49266,
+  "start": 368,
+  "end": 370,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "j_switch_case",
+  "addr": 49269,
+  "start": 377,
+  "end": 380,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "j_get_random_enemy",
+  "addr": 49272,
+  "start": 387,
+  "end": 389,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C07B",
+  "addr": 49275,
+  "start": 396,
+  "end": 398,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "j_update_music_after_fortress_destroy",
+  "addr": 49278,
+  "start": 405,
+  "end": 408,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C081",
+  "addr": 49281,
+  "start": 415,
+  "end": 417,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C084",
+  "addr": 49284,
+  "start": 424,
+  "end": 426,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C087",
+  "addr": 49287,
+  "start": 433,
+  "end": 435,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C08A",
+  "addr": 49290,
+  "start": 442,
+  "end": 445,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C08D",
+  "addr": 49293,
+  "start": 452,
+  "end": 454,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C090",
+  "addr": 49296,
+  "start": 461,
+  "end": 464,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C6AB",
+  "addr": 50859,
+  "start": 1029,
+  "end": 1036,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C6B5",
+  "addr": 50869,
+  "start": 1042,
+  "end": 1056,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C6CA",
+  "addr": 50890,
+  "start": 1062,
+  "end": 1068,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "stack_call_return",
+  "addr": 50899,
+  "start": 1075,
+  "end": 1082,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "print_string",
+  "addr": 50906,
+  "start": 1089,
+  "end": 1101,
+  "inner": [
+   "loc_C6E0"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C6EA",
+  "addr": 50922,
+  "start": 1107,
+  "end": 1151,
+  "inner": [
+   "loc_C6F7",
+   "loc_C6F8",
+   "loc_C6FB",
+   "loc_C708",
+   "locret_C724"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C725",
+  "addr": 50981,
+  "start": 1157,
+  "end": 1195,
+  "inner": [
+   "loc_C756",
+   "loc_C75A"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "clear_screen",
+  "addr": 51048,
+  "start": 1202,
+  "end": 1241,
+  "inner": [
+   "loc_C77E",
+   "loc_C786",
+   "loc_C79B",
+   "locret_C7A2"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "ppu_update_scroll_regs",
+  "addr": 51107,
+  "start": 1247,
+  "end": 1256,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "mem_page_fill",
+  "addr": 51123,
+  "start": 1263,
+  "end": 1278,
+  "inner": [
+   "loc_C7B9"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "switch_case",
+  "addr": 51142,
+  "start": 1285,
+  "end": 1301,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C7D8",
+  "addr": 51160,
+  "start": 1307,
+  "end": 1326,
+  "inner": [
+   "loc_C7E9",
+   "locret_C7EA"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C7EB",
+  "addr": 51179,
+  "start": 1332,
+  "end": 1340,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C7F8",
+  "addr": 51192,
+  "start": 1346,
+  "end": 1357,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C807",
+  "addr": 51207,
+  "start": 1363,
+  "end": 1373,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "switch_bank",
+  "addr": 51221,
+  "start": 1380,
+  "end": 1391,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "switch_bank_0_unused",
+  "addr": 51236,
+  "start": 1397,
+  "end": 1405,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "switch_bank_1_unused",
+  "addr": 51249,
+  "start": 1411,
+  "end": 1419,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "switch_bank_2_unused",
+  "addr": 51262,
+  "start": 1425,
+  "end": 1433,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "switch_bank_3_unused",
+  "addr": 51275,
+  "start": 1439,
+  "end": 1447,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "switch_bank_4",
+  "addr": 51288,
+  "start": 1453,
+  "end": 1461,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "switch_bank_5",
+  "addr": 51301,
+  "start": 1467,
+  "end": 1476,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "switch_bank_6",
+  "addr": 51314,
+  "start": 1482,
+  "end": 1491,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "far_call",
+  "addr": 51327,
+  "start": 1498,
+  "end": 1519,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "far_call_prepare",
+  "addr": 51360,
+  "start": 1525,
+  "end": 1534,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "far_call_restore",
+  "addr": 51372,
+  "start": 1540,
+  "end": 1548,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C8BA",
+  "addr": 51386,
+  "start": 1554,
+  "end": 1579,
+  "inner": [
+   "loc_C8BC",
+   "loc_C8D4"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C8DF",
+  "addr": 51423,
+  "start": 1585,
+  "end": 1629,
+  "inner": [
+   "loc_C901"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "enemy_erase_2",
+  "addr": 51512,
+  "start": 1653,
+  "end": 1667,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C95C",
+  "addr": 51548,
+  "start": 1673,
+  "end": 1700,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C985",
+  "addr": 51589,
+  "start": 1706,
+  "end": 1785,
+  "inner": [
+   "loc_C9BB",
+   "loc_C9C3",
+   "loc_C9CB",
+   "loc_C9E8"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_CA0F",
+  "addr": 51727,
+  "start": 1791,
+  "end": 1794,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_CA12",
+  "addr": 51730,
+  "start": 1800,
+  "end": 1871,
+  "inner": [
+   "loc_CA56",
+   "loc_CA7C"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_CA97",
+  "addr": 51863,
+  "start": 1877,
+  "end": 1881,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "ppu_cram_load",
+  "addr": 51869,
+  "start": 1888,
+  "end": 1902,
+  "inner": [
+   "loc_CA9F"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "randomize",
+  "addr": 51890,
+  "start": 1909,
+  "end": 1926,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "ppu_disable_all",
+  "addr": 51917,
+  "start": 1932,
+  "end": 1938,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "ppu_set_control2",
+  "addr": 51927,
+  "start": 1945,
+  "end": 1950,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "ppu_enable_picture",
+  "addr": 51933,
+  "start": 1957,
+  "end": 1963,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "ppu_nmi_disable",
+  "addr": 51943,
+  "start": 1969,
+  "end": 1973,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "ppu_set_control1",
+  "addr": 51947,
+  "start": 1979,
+  "end": 1983,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "ppu_enable_all",
+  "addr": 51953,
+  "start": 1989,
+  "end": 1993,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "ppu_nmi_enable",
+  "addr": 51959,
+  "start": 1999,
+  "end": 2006,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "clear_oam_buffer",
+  "addr": 51969,
+  "start": 2012,
+  "end": 2018,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "pad_read",
+  "addr": 51978,
+  "start": 2025,
+  "end": 2060,
+  "inner": [
+   "loc_CB16",
+   "loc_CB2D"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_CB40",
+  "addr": 52032,
+  "start": 2067,
+  "end": 2077,
+  "inner": [
+   "loc_CB44"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "start_game_check",
+  "addr": 52043,
+  "start": 2083,
+  "end": 2221,
+  "inner": [
+   "loc_CB67",
+   "loc_CB76",
+   "loc_CC0A",
+   "locret_CC15",
+   "unk_CC16",
+   "unk_CC26"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "continue_level_check",
+  "addr": 52278,
+  "start": 2222,
+  "end": 2251,
+  "inner": [
+   "loc_CC4E",
+   "loc_CC50",
+   "loc_CC52"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_CC57",
+  "addr": 52311,
+  "start": 2252,
+  "end": 2289,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "clear_oam_buffer_unused",
+  "addr": 52436,
+  "start": 2335,
+  "end": 2338,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_CCD8",
+  "addr": 52440,
+  "start": 2344,
+  "end": 2353,
+  "inner": [
+   "loc_CCDA"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "vsync",
+  "addr": 52451,
+  "start": 2360,
+  "end": 2374,
+  "inner": [
+   "loc_CCED"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "handle_pad_buttons",
+  "addr": 52470,
+  "start": 2381,
+  "end": 2424,
+  "inner": [
+   "loc_CD07",
+   "loc_CD22",
+   "loc_CD2C"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_CD6B",
+  "addr": 52587,
+  "start": 2436,
+  "end": 2623,
+  "inner": [
+   "loc_CD7E",
+   "loc_CD86",
+   "loc_CD88",
+   "loc_CD8F",
+   "loc_CD92",
+   "loc_CDA7",
+   "loc_CDC6",
+   "loc_CDE3",
+   "loc_CDE7",
+   "loc_CE05",
+   "loc_CE14",
+   "loc_CE21",
+   "loc_CE23",
+   "loc_CE31",
+   "loc_CE3E",
+   "loc_CE40",
+   "loc_CE64",
+   "loc_CE6E"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_CE72",
+  "addr": 52850,
+  "start": 2629,
+  "end": 2647,
+  "inner": [
+   "locret_CE8C"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "nmi_handler",
+  "addr": 52877,
+  "start": 2653,
+  "end": 2683,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "dummy_irq_handler",
+  "addr": 52932,
+  "start": 2689,
+  "end": 2691,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "ppu_update_background",
+  "addr": 52933,
+  "start": 2698,
+  "end": 2890,
+  "inner": [
+   "loc_CECC",
+   "loc_CED3",
+   "loc_CF27",
+   "loc_CF37",
+   "loc_CF38",
+   "loc_CF70",
+   "loc_CF75",
+   "loc_CF79",
+   "loc_CF8C",
+   "loc_CFA2",
+   "loc_CFD2",
+   "loc_CFD7",
+   "loc_CFDE",
+   "loc_CFEC",
+   "loc_CFFE"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "ppu_cram_update",
+  "addr": 53297,
+  "start": 2897,
+  "end": 2955,
+  "inner": [
+   "loc_D04C",
+   "loc_D058",
+   "loc_D05A",
+   "loc_D05B",
+   "locret_D0A3"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D0A4",
+  "addr": 53412,
+  "start": 2961,
+  "end": 2985,
+  "inner": [
+   "locret_D0B9",
+   "loc_D0BA",
+   "locret_D0BE"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D0BF",
+  "addr": 53439,
+  "start": 2991,
+  "end": 3031,
+  "inner": [
+   "loc_D0D9",
+   "loc_D0E8",
+   "loc_D0FF"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "check_high_score_reached",
+  "addr": 53512,
+  "start": 3037,
+  "end": 3061,
+  "inner": [
+   "loc_D111",
+   "locret_D12B"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D12C",
+  "addr": 53548,
+  "start": 3067,
+  "end": 3130,
+  "inner": [
+   "loc_D133",
+   "loc_D15B",
+   "loc_D162",
+   "loc_D16D",
+   "loc_D177",
+   "loc_D17E",
+   "loc_D189"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D18C",
+  "addr": 53644,
+  "start": 3136,
+  "end": 3140,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D193",
+  "addr": 53651,
+  "start": 3146,
+  "end": 3155,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D1A6",
+  "addr": 53670,
+  "start": 3161,
+  "end": 3204,
+  "inner": [
+   "loc_D1B5",
+   "loc_D1C1",
+   "loc_D1D8",
+   "loc_D1DE",
+   "locret_D1E0"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D2C0",
+  "addr": 53952,
+  "start": 3434,
+  "end": 3437,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D2C4",
+  "addr": 53956,
+  "start": 3443,
+  "end": 3446,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "clear_first_last_sprites",
+  "addr": 53960,
+  "start": 3453,
+  "end": 3477,
+  "inner": [
+   "loc_D2D6",
+   "loc_D2E1",
+   "locret_D2E3"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "set_new_high_score",
+  "addr": 53988,
+  "start": 3483,
+  "end": 3503,
+  "inner": [
+   "loc_D2E6",
+   "loc_D2F3",
+   "locret_D2FC"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D2FD",
+  "addr": 54013,
+  "start": 3509,
+  "end": 3556,
+  "inner": [
+   "loc_D31E",
+   "loc_D32E",
+   "loc_D330",
+   "loc_D332",
+   "locret_D346"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D347",
+  "addr": 54087,
+  "start": 3562,
+  "end": 3619,
+  "inner": [
+   "loc_D35C",
+   "loc_D35E",
+   "loc_D366",
+   "loc_D37E"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D3A8",
+  "addr": 54184,
+  "start": 3625,
+  "end": 3678,
+  "inner": [
+   "loc_D3AF",
+   "loc_D3B9",
+   "loc_D3D2",
+   "loc_D3D5",
+   "loc_D3E0",
+   "locret_D3F3"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D3F4",
+  "addr": 54260,
+  "start": 3684,
+  "end": 3690,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D3FF",
+  "addr": 54271,
+  "start": 3696,
+  "end": 3763,
+  "inner": [
+   "loc_D40E",
+   "loc_D41F",
+   "loc_D427",
+   "loc_D436",
+   "loc_D43E",
+   "loc_D454",
+   "locret_D462"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D463",
+  "addr": 54371,
+  "start": 3769,
+  "end": 3779,
+  "inner": [
+   "locret_D471"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D472",
+  "addr": 54386,
+  "start": 3785,
+  "end": 3796,
+  "inner": [
+   "loc_D47D"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D480",
+  "addr": 54400,
+  "start": 3802,
+  "end": 3885,
+  "inner": [
+   "locret_D486",
+   "loc_D487",
+   "loc_D490",
+   "loc_D49C",
+   "loc_D4A3",
+   "loc_D4BD",
+   "loc_D4DC",
+   "loc_D4DE",
+   "locret_D4F0",
+   "loc_D4F1"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D4FA",
+  "addr": 54522,
+  "start": 3891,
+  "end": 3898,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D510",
+  "addr": 54544,
+  "start": 3910,
+  "end": 3916,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D51A",
+  "addr": 54554,
+  "start": 3922,
+  "end": 3930,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D528",
+  "addr": 54568,
+  "start": 3936,
+  "end": 3965,
+  "inner": [
+   "loc_D535",
+   "loc_D538",
+   "loc_D53F",
+   "loc_D541"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D54D",
+  "addr": 54605,
+  "start": 3971,
+  "end": 3978,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D559",
+  "addr": 54617,
+  "start": 3984,
+  "end": 3995,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D56B",
+  "addr": 54635,
+  "start": 4001,
+  "end": 4039,
+  "inner": [
+   "loc_D573",
+   "loc_D57C",
+   "loc_D595"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D5AB",
+  "addr": 54699,
+  "start": 4045,
+  "end": 4061,
+  "inner": [
+   "loc_D5B2"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D5C1",
+  "addr": 54721,
+  "start": 4067,
+  "end": 4086,
+  "inner": [
+   "loc_D5CE",
+   "locret_D5D6"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D5D7",
+  "addr": 54743,
+  "start": 4092,
+  "end": 4145,
+  "inner": [
+   "loc_D5E6",
+   "loc_D5F3",
+   "loc_D5FB",
+   "loc_D604",
+   "loc_D617"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "get_random_enemy",
+  "addr": 54939,
+  "start": 4219,
+  "end": 4222,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D69F",
+  "addr": 54943,
+  "start": 4228,
+  "end": 4238,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D6AF",
+  "addr": 54959,
+  "start": 4244,
+  "end": 4276,
+  "inner": [
+   "loc_D6DD"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D6DF",
+  "addr": 55007,
+  "start": 4282,
+  "end": 4341,
+  "inner": [
+   "loc_D706",
+   "loc_D714"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D753",
+  "addr": 55123,
+  "start": 4356,
+  "end": 4382,
+  "inner": [
+   "locret_D77A"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D77B",
+  "addr": 55163,
+  "start": 4388,
+  "end": 4401,
+  "inner": [
+   "loc_D789"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D78F",
+  "addr": 55183,
+  "start": 4407,
+  "end": 4420,
+  "inner": [
+   "locret_D7A4"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "set_nametable_addr_after_scroll",
+  "addr": 55205,
+  "start": 4427,
+  "end": 4441,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D7E3",
+  "addr": 55267,
+  "start": 4471,
+  "end": 4515,
+  "inner": [
+   "loc_D7F6",
+   "loc_D800",
+   "loc_D80A",
+   "loc_D818"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D824",
+  "addr": 55332,
+  "start": 4521,
+  "end": 4547,
+  "inner": [
+   "loc_D830",
+   "loc_D83D"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D84A",
+  "addr": 55370,
+  "start": 4553,
+  "end": 4557,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D84F",
+  "addr": 55375,
+  "start": 4563,
+  "end": 4590,
+  "inner": [
+   "loc_D85B",
+   "loc_D869",
+   "loc_D86C"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D886",
+  "addr": 55430,
+  "start": 4606,
+  "end": 4614,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D894",
+  "addr": 55444,
+  "start": 4620,
+  "end": 4627,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D8A1",
+  "addr": 55457,
+  "start": 4633,
+  "end": 4650,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D8BF",
+  "addr": 55487,
+  "start": 4656,
+  "end": 4671,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D8DC",
+  "addr": 55516,
+  "start": 4677,
+  "end": 4721,
+  "inner": [
+   "loc_D8FA",
+   "loc_D8FF",
+   "loc_D909"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D920",
+  "addr": 55584,
+  "start": 4727,
+  "end": 4742,
+  "inner": [
+   "loc_D934"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D938",
+  "addr": 55608,
+  "start": 4748,
+  "end": 4750,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D93A",
+  "addr": 55610,
+  "start": 4756,
+  "end": 4764,
+  "inner": [
+   "loc_D941"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D943",
+  "addr": 55619,
+  "start": 4770,
+  "end": 4866,
+  "inner": [
+   "loc_D957",
+   "loc_D966",
+   "loc_D971",
+   "loc_D974",
+   "loc_D981",
+   "loc_D984",
+   "loc_D9AD",
+   "loc_D9D6"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D9E0",
+  "addr": 55776,
+  "start": 4872,
+  "end": 4905,
+  "inner": [
+   "loc_DA0E"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_DA16",
+  "addr": 55830,
+  "start": 4911,
+  "end": 4924,
+  "inner": [
+   "loc_DA18"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_DA28",
+  "addr": 55848,
+  "start": 4930,
+  "end": 4940,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_DA36",
+  "addr": 55862,
+  "start": 4946,
+  "end": 5196,
+  "inner": [
+   "loc_DA58",
+   "loc_DA61",
+   "loc_DA70",
+   "loc_DA7A",
+   "loc_DA85",
+   "loc_DA9A",
+   "loc_DAA8",
+   "loc_DABB",
+   "loc_DAC0",
+   "loc_DADF",
+   "loc_DAE6",
+   "loc_DAF8",
+   "loc_DAFB",
+   "loc_DB06",
+   "loc_DB0A",
+   "loc_DB1F",
+   "loc_DB58",
+   "loc_DB85",
+   "loc_DBBC"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_DCC5",
+  "addr": 56517,
+  "start": 5459,
+  "end": 5462,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_DCCB",
+  "addr": 56523,
+  "start": 5468,
+  "end": 5476,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_DD26",
+  "addr": 56614,
+  "start": 5555,
+  "end": 5632,
+  "inner": [
+   "loc_DD41",
+   "loc_DD43",
+   "loc_DD46",
+   "loc_DD51",
+   "loc_DD5B",
+   "loc_DD99"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_DD9E",
+  "addr": 56734,
+  "start": 5638,
+  "end": 5703,
+  "inner": [
+   "loc_DDA0",
+   "loc_DDAA",
+   "loc_DDCC",
+   "loc_DDE1",
+   "loc_DDE6",
+   "loc_DDE8",
+   "loc_DDF1"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_DDF3",
+  "addr": 56819,
+  "start": 5709,
+  "end": 5713,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_DDF9",
+  "addr": 56825,
+  "start": 5719,
+  "end": 5735,
+  "inner": [
+   "loc_DE0E"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_DE14",
+  "addr": 56852,
+  "start": 5741,
+  "end": 5784,
+  "inner": [
+   "loc_DE23",
+   "loc_DE52"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_DE5F",
+  "addr": 56927,
+  "start": 5790,
+  "end": 5820,
+  "inner": [
+   "loc_DE6E"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_DE91",
+  "addr": 56977,
+  "start": 5826,
+  "end": 5878,
+  "inner": [
+   "loc_DECC"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_DEF3",
+  "addr": 57075,
+  "start": 5884,
+  "end": 5928,
+  "inner": [
+   "loc_DF1E"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_DF48",
+  "addr": 57160,
+  "start": 5934,
+  "end": 5956,
+  "inner": [
+   "loc_DF5C"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "reset_score",
+  "addr": 57192,
+  "start": 5963,
+  "end": 5994,
+  "inner": [
+   "loc_DF7A",
+   "loc_DF7C"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "show_main_menu",
+  "addr": 57279,
+  "start": 6034,
+  "end": 6347,
+  "inner": [
+   "loc_E020",
+   "loc_E080",
+   "loc_E0A9",
+   "loc_E0C8",
+   "loc_E0DA",
+   "loc_E0F4",
+   "loc_E100",
+   "loc_E10A",
+   "loc_E10D",
+   "loc_E129",
+   "loc_E145",
+   "aGameStart",
+   "aContinue",
+   "loc_E184",
+   "loc_E18D",
+   "loc_E190",
+   "loc_E1A2",
+   "loc_E1B6",
+   "loc_E1BC",
+   "loc_E1C5",
+   "loc_E1C9",
+   "loc_E1E6",
+   "loc_E1F2"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_E229",
+  "addr": 57897,
+  "start": 6393,
+  "end": 6416,
+  "inner": [
+   "locret_E253"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_E266",
+  "addr": 57958,
+  "start": 6441,
+  "end": 6470,
+  "inner": [
+   "loc_E26E",
+   "loc_E27D",
+   "loc_E282"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_E399",
+  "addr": 58265,
+  "start": 6597,
+  "end": 6617,
+  "inner": [
+   "loc_E3AA",
+   "locret_E3B7"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_E3F4",
+  "addr": 58356,
+  "start": 6631,
+  "end": 6679,
+  "inner": [
+   "loc_E3F6",
+   "loc_E40F",
+   "loc_E41A",
+   "locret_E438"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sound_test_menu",
+  "addr": 58425,
+  "start": 6685,
+  "end": 6705,
+  "inner": [
+   "aSoundTest"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_E462",
+  "addr": 58466,
+  "start": 6711,
+  "end": 6776,
+  "inner": [
+   "loc_E46F",
+   "loc_E487",
+   "loc_E48B",
+   "loc_E4A2",
+   "loc_E4BB"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "show_ending_screen",
+  "addr": 58575,
+  "start": 6782,
+  "end": 6961,
+  "inner": [
+   "aScore",
+   "loc_E556",
+   "loc_E55E",
+   "loc_E567",
+   "loc_E59D",
+   "loc_E5C5",
+   "loc_E5CF",
+   "loc_E5EA",
+   "loc_E606"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_E60F",
+  "addr": 58895,
+  "start": 6967,
+  "end": 7011,
+  "inner": [
+   "loc_E61E",
+   "loc_E637",
+   "loc_E64E"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_E653",
+  "addr": 58963,
+  "start": 7017,
+  "end": 7037,
+  "inner": [
+   "loc_E659",
+   "locret_E670"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_E767",
+  "addr": 59239,
+  "start": 7090,
+  "end": 7094,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_E76C",
+  "addr": 59244,
+  "start": 7100,
+  "end": 7157,
+  "inner": [
+   "loc_E77F",
+   "loc_E788",
+   "loc_E7A1",
+   "loc_E7BB"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "reset",
+  "addr": 59327,
+  "start": 7163,
+  "end": 7203,
+  "inner": [
+   "loc_E7DA",
+   "loc_E7F6"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "main_menu_loop",
+  "addr": 59398,
+  "start": 7209,
+  "end": 7220,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_E81E",
+  "addr": 59422,
+  "start": 7226,
+  "end": 7302,
+  "inner": [
+   "loc_E83B",
+   "loc_E84A",
+   "loc_E873",
+   "loc_E876",
+   "loc_E880",
+   "loc_E89E"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_E8AA",
+  "addr": 59562,
+  "start": 7308,
+  "end": 7329,
+  "inner": [
+   "loc_E8AE",
+   "loc_E8BA"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_E8C9",
+  "addr": 59593,
+  "start": 7335,
+  "end": 7395,
+  "inner": [
+   "loc_E8D6",
+   "loc_E8DA",
+   "byte_E907",
+   "loc_E917",
+   "loc_E92E",
+   "loc_E937"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "level_completed_sequence",
+  "addr": 59705,
+  "start": 7402,
+  "end": 7460,
+  "inner": [
+   "loc_E950",
+   "loc_E953",
+   "loc_E964",
+   "loc_E96D",
+   "loc_E98C"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_E995",
+  "addr": 59797,
+  "start": 7466,
+  "end": 7473,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "fade_palette_before_warp_another",
+  "addr": 59810,
+  "start": 7480,
+  "end": 7484,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "fade_palette_before_warp",
+  "addr": 59816,
+  "start": 7491,
+  "end": 7520,
+  "inner": [
+   "loc_E9AC",
+   "loc_E9B1",
+   "loc_E9BC",
+   "loc_E9C0"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "update_music_after_fortress_destroy",
+  "addr": 59872,
+  "start": 7543,
+  "end": 7566,
+  "inner": [
+   "loc_E9E5",
+   "loc_E9F9",
+   "loc_E9FB"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_EA0B",
+  "addr": 59915,
+  "start": 7586,
+  "end": 7618,
+  "inner": [
+   "loc_EA0D",
+   "loc_EA22",
+   "loc_EA25"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "all_enemies_destroyed",
+  "addr": 59958,
+  "start": 7625,
+  "end": 7631,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "j_apu_reset_0",
+  "addr": 59965,
+  "start": 7638,
+  "end": 7640,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "j_apu_stop_0",
+  "addr": 59968,
+  "start": 7647,
+  "end": 7649,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "j_apu_play_1",
+  "addr": 59971,
+  "start": 7656,
+  "end": 7658,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "j_apu_update_0",
+  "addr": 59974,
+  "start": 7665,
+  "end": 7667,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_EA49",
+  "addr": 59977,
+  "start": 7674,
+  "end": 7676,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_EA4C",
+  "addr": 59980,
+  "start": 7683,
+  "end": 7685,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_EA4F",
+  "addr": 59983,
+  "start": 7692,
+  "end": 7694,
+  "inner": [],
+  "thunk": true
+ },
+ {
+  "bank": 7,
+  "name": "apu_update",
+  "addr": 59986,
+  "start": 7701,
+  "end": 7855,
+  "inner": [
+   "loc_EA6D",
+   "loc_EA7A",
+   "loc_EA89",
+   "locret_EA90",
+   "loc_EA91",
+   "loc_EA9C",
+   "loc_EA9F",
+   "loc_EAAA",
+   "loc_EAC6",
+   "loc_EADF",
+   "loc_EB0C",
+   "loc_EB17",
+   "loc_EB25",
+   "loc_EB2D",
+   "loc_EB37",
+   "loc_EB40",
+   "loc_EB4A",
+   "loc_EB4D"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_EB58",
+  "addr": 60248,
+  "start": 7861,
+  "end": 7883,
+  "inner": [
+   "loc_EB71"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_EB7A",
+  "addr": 60282,
+  "start": 7889,
+  "end": 7923,
+  "inner": [
+   "loc_EB91",
+   "loc_EB98"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_0",
+  "addr": 60395,
+  "start": 7960,
+  "end": 7969,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_1",
+  "addr": 60406,
+  "start": 7975,
+  "end": 7985,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_6",
+  "addr": 60421,
+  "start": 7991,
+  "end": 7994,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_2",
+  "addr": 60427,
+  "start": 8000,
+  "end": 8003,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_5",
+  "addr": 60432,
+  "start": 8009,
+  "end": 8015,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_3",
+  "addr": 60439,
+  "start": 8021,
+  "end": 8024,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_8",
+  "addr": 60443,
+  "start": 8030,
+  "end": 8033,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_4",
+  "addr": 60447,
+  "start": 8039,
+  "end": 8044,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_29",
+  "addr": 60456,
+  "start": 8050,
+  "end": 8054,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_EC2F",
+  "addr": 60463,
+  "start": 8060,
+  "end": 8064,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_9",
+  "addr": 60469,
+  "start": 8070,
+  "end": 8078,
+  "inner": [
+   "loc_EC3B"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_13",
+  "addr": 60479,
+  "start": 8084,
+  "end": 8092,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_16",
+  "addr": 60491,
+  "start": 8098,
+  "end": 8101,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_10",
+  "addr": 60495,
+  "start": 8107,
+  "end": 8125,
+  "inner": [
+   "loc_EC63"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_EC6B",
+  "addr": 60523,
+  "start": 8131,
+  "end": 8137,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_7",
+  "addr": 60532,
+  "start": 8143,
+  "end": 8146,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_17",
+  "addr": 60536,
+  "start": 8152,
+  "end": 8156,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_19",
+  "addr": 60543,
+  "start": 8162,
+  "end": 8181,
+  "inner": [
+   "locret_ECA3"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_21",
+  "addr": 60580,
+  "start": 8187,
+  "end": 8193,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_ECB0",
+  "addr": 60592,
+  "start": 8199,
+  "end": 8202,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_18",
+  "addr": 60594,
+  "start": 8208,
+  "end": 8226,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_22",
+  "addr": 60631,
+  "start": 8232,
+  "end": 8247,
+  "inner": [
+   "locret_ECF4"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_14_15",
+  "addr": 60661,
+  "start": 8253,
+  "end": 8265,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_ED08",
+  "addr": 60680,
+  "start": 8271,
+  "end": 8274,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_ED0C",
+  "addr": 60684,
+  "start": 8280,
+  "end": 8283,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_ED10",
+  "addr": 60688,
+  "start": 8289,
+  "end": 8293,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_20",
+  "addr": 60693,
+  "start": 8299,
+  "end": 8307,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_ED25",
+  "addr": 60709,
+  "start": 8313,
+  "end": 8318,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_ED2F",
+  "addr": 60719,
+  "start": 8324,
+  "end": 8327,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_ED33",
+  "addr": 60723,
+  "start": 8333,
+  "end": 8338,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_23_24_25",
+  "addr": 60732,
+  "start": 8344,
+  "end": 8348,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_12",
+  "addr": 60740,
+  "start": 8354,
+  "end": 8357,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_28",
+  "addr": 60742,
+  "start": 8363,
+  "end": 8369,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_26_27",
+  "addr": 60752,
+  "start": 8375,
+  "end": 8440,
+  "inner": [
+   "loc_ED56",
+   "loc_ED5A",
+   "loc_ED69",
+   "loc_ED74",
+   "loc_ED7E",
+   "loc_ED7F",
+   "loc_EDAD",
+   "loc_EDB0"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_EDB9",
+  "addr": 60857,
+  "start": 8446,
+  "end": 8484,
+  "inner": [
+   "loc_EDC4",
+   "locret_EDDF",
+   "loc_EDE0"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_EDFC",
+  "addr": 60924,
+  "start": 8490,
+  "end": 8529,
+  "inner": [
+   "loc_EE38",
+   "loc_EE3C"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_EE43",
+  "addr": 60995,
+  "start": 8535,
+  "end": 8560,
+  "inner": [
+   "loc_EE69"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_EE71",
+  "addr": 61041,
+  "start": 8566,
+  "end": 8601,
+  "inner": [
+   "loc_EE76",
+   "loc_EE7E",
+   "loc_EE8B",
+   "locret_EE93"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_EE94",
+  "addr": 61076,
+  "start": 8607,
+  "end": 8619,
+  "inner": [
+   "locret_EEA9"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_EEAA",
+  "addr": 61098,
+  "start": 8625,
+  "end": 8703,
+  "inner": [
+   "loc_EEB1",
+   "loc_EEBA",
+   "loc_EEF9",
+   "loc_EF22",
+   "loc_EF2D",
+   "loc_EF39"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_EF4A",
+  "addr": 61258,
+  "start": 8718,
+  "end": 8737,
+  "inner": [
+   "locret_EF70"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_reset",
+  "addr": 61297,
+  "start": 8743,
+  "end": 8748,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_stop",
+  "addr": 61305,
+  "start": 8754,
+  "end": 8771,
+  "inner": [
+   "loc_EF7D"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_play",
+  "addr": 61328,
+  "start": 8778,
+  "end": 8794,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_EFA6",
+  "addr": 61350,
+  "start": 8800,
+  "end": 8873,
+  "inner": [
+   "loc_EFC2",
+   "loc_EFC6",
+   "loc_EFE2",
+   "loc_F012",
+   "loc_F016",
+   "locret_F01B"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_F0F4",
+  "addr": 61684,
+  "start": 8988,
+  "end": 8995,
+  "inner": [
+   "loc_F0F6"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_F0FA",
+  "addr": 61690,
+  "start": 9001,
+  "end": 9005,
+  "inner": [],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_F146",
+  "addr": 61766,
+  "start": 9048,
+  "end": 9068,
+  "inner": [
+   "loc_F14D"
+  ],
+  "thunk": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_FEE8",
+  "addr": 65256,
+  "start": 9478,
+  "end": 9508,
+  "inner": [
+   "loc_FEF8",
+   "locret_FEFD",
+   "loc_FEFE",
+   "loc_FF09"
+  ],
+  "thunk": false
+ }
+]

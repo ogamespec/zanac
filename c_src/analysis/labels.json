@@ -1,0 +1,11818 @@
+[
+ {
+  "bank": 6,
+  "name": "j_game_logic_processing",
+  "addr": 32768,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_18003",
+  "addr": 32771,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_18006",
+  "addr": 32774,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_18009",
+  "addr": 32777,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1800C",
+  "addr": 32780,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1800F",
+  "addr": 32783,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_18012",
+  "addr": 32786,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "j_set_default_weapon",
+  "addr": 32789,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "j_clear_main_menu_sprites",
+  "addr": 32792,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "j_update_score_onscreen",
+  "addr": 32795,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1801E",
+  "addr": 32798,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "j_check_enemy_overflow",
+  "addr": 32801,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "calculate_slope_and_speed",
+  "addr": 32804,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "calculate_slope",
+  "addr": 32810,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_18049",
+  "addr": 32841,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1804D",
+  "addr": 32845,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18066",
+  "addr": 32870,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1806A",
+  "addr": 32874,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1807C",
+  "addr": 32892,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18085",
+  "addr": 32901,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1808D",
+  "addr": 32909,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "set_speed_by_slope",
+  "addr": 32919,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_180CF",
+  "addr": 32975,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_180E3",
+  "addr": 32995,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_180F9",
+  "addr": 33017,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1811E",
+  "addr": 33054,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "tab_18121",
+  "addr": 33057,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "tab_18144",
+  "addr": 33092,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "slope_div",
+  "addr": 33164,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_18195",
+  "addr": 33173,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_181A0",
+  "addr": 33184,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_181A7",
+  "addr": 33191,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_181B6",
+  "addr": 33206,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_181C4",
+  "addr": 33220,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_181D2",
+  "addr": 33234,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_181E0",
+  "addr": 33248,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_181E4",
+  "addr": 33252,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_181ED",
+  "addr": 33261,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_181F6",
+  "addr": 33270,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "locret_18203",
+  "addr": 33283,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_18204",
+  "addr": 33284,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1820C",
+  "addr": 33292,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "collision_detect_special_shot_and_zanac",
+  "addr": 33328,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_18244",
+  "addr": 33348,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "collision_detect_all_shots",
+  "addr": 33360,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1825E",
+  "addr": 33374,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1826C",
+  "addr": 33388,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1827A",
+  "addr": 33402,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1828E",
+  "addr": 33422,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "locret_1828F",
+  "addr": 33423,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "collision_detect_single",
+  "addr": 33424,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "process_enemy_flags_sprites",
+  "addr": 33457,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_182BB",
+  "addr": 33467,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_182C5",
+  "addr": 33477,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_182CF",
+  "addr": 33487,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "add_enemy_meta_sprite",
+  "addr": 33497,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_182F2",
+  "addr": 33522,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "locret_182F9",
+  "addr": 33529,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_erase_and_continue",
+  "addr": 33530,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_erase",
+  "addr": 33534,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "process_y_speed",
+  "addr": 33570,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1833E",
+  "addr": 33598,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_18347",
+  "addr": 33607,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1835F",
+  "addr": 33631,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "locret_18367",
+  "addr": 33639,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_18368",
+  "addr": 33640,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "locret_18381",
+  "addr": 33665,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18382",
+  "addr": 33666,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "locret_18391",
+  "addr": 33681,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_18392",
+  "addr": 33682,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "locret_183AB",
+  "addr": 33707,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_183AC",
+  "addr": 33708,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "locret_183BB",
+  "addr": 33723,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_183BC",
+  "addr": 33724,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_183D8",
+  "addr": 33752,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_183DD",
+  "addr": 33757,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_183EF",
+  "addr": 33775,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_183FE",
+  "addr": 33790,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1840C",
+  "addr": 33804,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "add_next_sprite",
+  "addr": 33810,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1842E",
+  "addr": 33838,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18433",
+  "addr": 33843,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18435",
+  "addr": 33845,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1843A",
+  "addr": 33850,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18460",
+  "addr": 33888,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1846A",
+  "addr": 33898,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1846F",
+  "addr": 33903,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18477",
+  "addr": 33911,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18490",
+  "addr": 33936,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_184A4",
+  "addr": 33956,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_184A7",
+  "addr": 33959,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_184B8",
+  "addr": 33976,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_184C0",
+  "addr": 33984,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_184CD",
+  "addr": 33997,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_184D3",
+  "addr": 34003,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_184D9",
+  "addr": 34009,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_184DB",
+  "addr": 34011,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_184E8",
+  "addr": 34024,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_184EA",
+  "addr": 34026,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18501",
+  "addr": 34049,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1850E",
+  "addr": 34062,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18512",
+  "addr": 34066,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1851F",
+  "addr": 34079,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18523",
+  "addr": 34083,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "clear_main_menu_sprites",
+  "addr": 34090,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1852C",
+  "addr": 34092,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "update_score_onscreen",
+  "addr": 34107,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_18549",
+  "addr": 34121,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1854F",
+  "addr": 34127,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18555",
+  "addr": 34133,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18571",
+  "addr": 34161,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18578",
+  "addr": 34168,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "update_player_lives",
+  "addr": 34187,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_185AD",
+  "addr": 34221,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_185C1",
+  "addr": 34241,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "add_sprite_from_zeropage",
+  "addr": 34254,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "add_sprite",
+  "addr": 34264,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_185E3",
+  "addr": 34275,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "add_more_sprites",
+  "addr": 34303,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_18604",
+  "addr": 34308,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "add_next_sprite_from_zeropage",
+  "addr": 34316,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_18616",
+  "addr": 34326,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "tab_18619_lo",
+  "addr": 34329,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "tab_18674_hi",
+  "addr": 34420,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "tab_186CF",
+  "addr": 34511,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_prng",
+  "addr": 34603,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "spawn_top_random_x_position",
+  "addr": 34630,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1876A",
+  "addr": 34666,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_18779",
+  "addr": 34681,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_1877E",
+  "addr": 34686,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_18788",
+  "addr": 34696,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "locret_1878E",
+  "addr": 34702,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1878F",
+  "addr": 34703,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_18796",
+  "addr": 34710,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1879F",
+  "addr": 34719,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "locret_187A5",
+  "addr": 34725,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_187A6",
+  "addr": 34726,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "unk_187AD",
+  "addr": 34733,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "game_logic_processing",
+  "addr": 34759,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_187E2",
+  "addr": 34786,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_187E4",
+  "addr": 34788,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_187EE",
+  "addr": 34798,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "locret_18806",
+  "addr": 34822,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18807",
+  "addr": 34823,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18822",
+  "addr": 34850,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "check_enemy_overflow",
+  "addr": 34853,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_18827",
+  "addr": 34855,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18833",
+  "addr": 34867,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "locret_18834",
+  "addr": 34868,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_18835",
+  "addr": 34869,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_18852",
+  "addr": 34898,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18874",
+  "addr": 34932,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "locret_18888",
+  "addr": 34952,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18889",
+  "addr": 34953,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1889C",
+  "addr": 34972,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_188B8",
+  "addr": 35000,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_188CA",
+  "addr": 35018,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_188CF",
+  "addr": 35023,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_188E8",
+  "addr": 35048,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_188FC",
+  "addr": 35068,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1890C",
+  "addr": 35084,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1891D",
+  "addr": 35101,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18936",
+  "addr": 35126,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18941",
+  "addr": 35137,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "tab_8960",
+  "addr": 35168,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "tab_8971",
+  "addr": 35185,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "tab_8982",
+  "addr": 35202,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "tab_8993",
+  "addr": 35219,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "tab_89A4",
+  "addr": 35236,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_1_zanac",
+  "addr": 35944,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "zanac_main_handler",
+  "addr": 36004,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_18CAB",
+  "addr": 36011,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18CC3",
+  "addr": 36035,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18CC8",
+  "addr": 36040,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18CD6",
+  "addr": 36054,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18CDD",
+  "addr": 36061,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18D0A",
+  "addr": 36106,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18D12",
+  "addr": 36114,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18D30",
+  "addr": 36144,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18D38",
+  "addr": 36152,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18D3E",
+  "addr": 36158,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18D44",
+  "addr": 36164,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18D52",
+  "addr": 36178,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18D64",
+  "addr": 36196,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18D6A",
+  "addr": 36202,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18D75",
+  "addr": 36213,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18D80",
+  "addr": 36224,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18D8A",
+  "addr": 36234,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18D8E",
+  "addr": 36238,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18D99",
+  "addr": 36249,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18DAC",
+  "addr": 36268,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18DAE",
+  "addr": 36270,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18DD1",
+  "addr": 36305,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18DEB",
+  "addr": 36331,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "locret_18DF9",
+  "addr": 36345,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18DFA",
+  "addr": 36346,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18E08",
+  "addr": 36360,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18E10",
+  "addr": 36368,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18E17",
+  "addr": 36375,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_18E29",
+  "addr": 36393,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_18E3E",
+  "addr": 36414,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18E47",
+  "addr": 36423,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18E52",
+  "addr": 36434,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18E5C",
+  "addr": 36444,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "unk_18E74",
+  "addr": 36468,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "unk_18E7D",
+  "addr": 36477,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "unk_18E86",
+  "addr": 36486,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "unk_18E91",
+  "addr": 36497,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "set_default_weapon",
+  "addr": 36513,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "byte_18EB8",
+  "addr": 36536,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "warp_sequence",
+  "addr": 36554,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_18EDA",
+  "addr": 36570,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18EF7",
+  "addr": 36599,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18F10",
+  "addr": 36624,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18F16",
+  "addr": 36630,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18F45",
+  "addr": 36677,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "locret_18F77",
+  "addr": 36727,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_60",
+  "addr": 36728,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_18F8F",
+  "addr": 36751,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18F96",
+  "addr": 36758,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18FB5",
+  "addr": 36789,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_18FF6",
+  "addr": 36854,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19000",
+  "addr": 36864,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1900F",
+  "addr": 36879,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "unk_19021",
+  "addr": 36897,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "unk_1902D",
+  "addr": 36909,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_2_zanac_standard_shot",
+  "addr": 36921,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_19068",
+  "addr": 36968,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_1906E",
+  "addr": 36974,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "locret_1907E",
+  "addr": 36990,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_3",
+  "addr": 36991,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_19099",
+  "addr": 37017,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1909F",
+  "addr": 37023,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_190A2",
+  "addr": 37026,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "special_weapon_process",
+  "addr": 37085,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "byte_190F2",
+  "addr": 37106,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "unk_190F3",
+  "addr": 37107,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "unk_190F4",
+  "addr": 37108,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "unk_190F7",
+  "addr": 37111,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1913A",
+  "addr": 37178,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1914D",
+  "addr": 37197,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1915D",
+  "addr": 37213,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19164",
+  "addr": 37220,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "special_weapon_type_7",
+  "addr": 37226,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "special_weapon_type_1",
+  "addr": 37234,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1918C",
+  "addr": 37260,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1918F",
+  "addr": 37263,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "special_weapon_type_0",
+  "addr": 37275,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_191A1",
+  "addr": 37281,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_191B7",
+  "addr": 37303,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_191BD",
+  "addr": 37309,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_191CC",
+  "addr": 37324,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "unk_191DD",
+  "addr": 37341,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_191E6",
+  "addr": 37350,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "special_weapon_type_2",
+  "addr": 37355,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_191FE",
+  "addr": 37374,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1921E",
+  "addr": 37406,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1923C",
+  "addr": 37436,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "unk_19252",
+  "addr": 37458,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1925C",
+  "addr": 37468,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "special_weapon_type_3",
+  "addr": 37496,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_19280",
+  "addr": 37504,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19295",
+  "addr": 37525,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_192B3",
+  "addr": 37555,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_192B9",
+  "addr": 37561,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_192DE",
+  "addr": 37598,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_192E4",
+  "addr": 37604,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_192F1",
+  "addr": 37617,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1930B",
+  "addr": 37643,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19311",
+  "addr": 37649,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19326",
+  "addr": 37670,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "special_weapon_type_4",
+  "addr": 37679,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_19339",
+  "addr": 37689,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1934D",
+  "addr": 37709,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19356",
+  "addr": 37718,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_1935C",
+  "addr": 37724,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "special_weapon_type_5",
+  "addr": 37746,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_19384",
+  "addr": 37764,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19398",
+  "addr": 37784,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_193A6",
+  "addr": 37798,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_193C9",
+  "addr": 37833,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_193D4",
+  "addr": 37844,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_193DE",
+  "addr": 37854,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_193FB",
+  "addr": 37883,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1940D",
+  "addr": 37901,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_19410",
+  "addr": 37904,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1941B",
+  "addr": 37915,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "special_weapon_type_6",
+  "addr": 37935,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_19",
+  "addr": 37941,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1944F",
+  "addr": 37967,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1945E",
+  "addr": 37982,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19461",
+  "addr": 37985,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_19464",
+  "addr": 37988,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1946F",
+  "addr": 37999,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_19480",
+  "addr": 38016,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19483",
+  "addr": 38019,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_1948B",
+  "addr": 38027,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_19493",
+  "addr": 38035,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_194AE",
+  "addr": 38062,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_194BD",
+  "addr": 38077,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_194D2",
+  "addr": 38098,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_194DC",
+  "addr": 38108,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19507",
+  "addr": 38151,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19511",
+  "addr": 38161,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19515",
+  "addr": 38165,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1954B",
+  "addr": 38219,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1954E",
+  "addr": 38222,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19553",
+  "addr": 38227,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "locret_19557",
+  "addr": 38231,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19558",
+  "addr": 38232,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19574",
+  "addr": 38260,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "unk_19578",
+  "addr": 38264,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "unk_19580",
+  "addr": 38272,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "unk_19586",
+  "addr": 38278,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_68",
+  "addr": 38286,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_195AB",
+  "addr": 38315,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_195D6",
+  "addr": 38358,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "unk_195D9",
+  "addr": 38361,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "unk_195F7",
+  "addr": 38391,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_19615",
+  "addr": 38421,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_4_5_6_boxes",
+  "addr": 38427,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_19626",
+  "addr": 38438,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19644",
+  "addr": 38468,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1966C",
+  "addr": 38508,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19692",
+  "addr": 38546,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1969C",
+  "addr": 38556,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_196A2",
+  "addr": 38562,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_196C3",
+  "addr": 38595,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "locret_196DB",
+  "addr": 38619,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "tab_96DC",
+  "addr": 38620,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_63",
+  "addr": 38632,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_196F3",
+  "addr": 38643,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_19725",
+  "addr": 38693,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1972F",
+  "addr": 38703,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1973C",
+  "addr": 38716,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_7",
+  "addr": 38719,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_19744",
+  "addr": 38724,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19777",
+  "addr": 38775,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19787",
+  "addr": 38791,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1979F",
+  "addr": 38815,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_197B4",
+  "addr": 38836,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_8",
+  "addr": 38855,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_197CF",
+  "addr": 38863,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_197F3",
+  "addr": 38899,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_9",
+  "addr": 38909,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_19805",
+  "addr": 38917,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_1981D",
+  "addr": 38941,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_10_blue_duster",
+  "addr": 38953,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_19840",
+  "addr": 38976,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1985D",
+  "addr": 39005,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_69",
+  "addr": 39008,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_19892",
+  "addr": 39058,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_198BB",
+  "addr": 39099,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "locret_198C5",
+  "addr": 39109,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_11",
+  "addr": 39110,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "byte_198E7",
+  "addr": 39143,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "byte_198F7",
+  "addr": 39159,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_19918",
+  "addr": 39192,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "locret_1993B",
+  "addr": 39227,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_12_13",
+  "addr": 39228,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1998D",
+  "addr": 39309,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_199B2",
+  "addr": 39346,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_199B3",
+  "addr": 39347,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_199C0",
+  "addr": 39360,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_199CD",
+  "addr": 39373,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_14",
+  "addr": 39414,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_19A21",
+  "addr": 39457,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19A36",
+  "addr": 39478,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19A8C",
+  "addr": 39564,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19AC9",
+  "addr": 39625,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19AE6",
+  "addr": 39654,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "locret_19AF6",
+  "addr": 39670,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_15",
+  "addr": 39671,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_19B25",
+  "addr": 39717,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19B53",
+  "addr": 39763,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19B74",
+  "addr": 39796,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19B80",
+  "addr": 39808,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_48_maseru",
+  "addr": 39818,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_19BA1",
+  "addr": 39841,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19BCC",
+  "addr": 39884,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19BE1",
+  "addr": 39905,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19BE6",
+  "addr": 39910,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19C04",
+  "addr": 39940,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19C17",
+  "addr": 39959,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "locret_19C26",
+  "addr": 39974,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "byte_19C27",
+  "addr": 39975,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_51_girevu",
+  "addr": 39979,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_49_50_52",
+  "addr": 39991,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_19C56",
+  "addr": 40022,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19C65",
+  "addr": 40037,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19C73",
+  "addr": 40051,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19C85",
+  "addr": 40069,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "locret_19C96",
+  "addr": 40086,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "capital_ships_health_check",
+  "addr": 40087,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_19C9F",
+  "addr": 40095,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19CA7",
+  "addr": 40103,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_19CAB",
+  "addr": 40107,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_19CC4",
+  "addr": 40132,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19CD2",
+  "addr": 40146,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "set_capital_ship_parameters",
+  "addr": 40166,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "capital_ships_param1",
+  "addr": 40207,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "capital_ships_param_health",
+  "addr": 40212,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "capital_ships_param3",
+  "addr": 40217,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "capital_ships_param4",
+  "addr": 40222,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_19D23",
+  "addr": 40227,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_19D40",
+  "addr": 40256,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19D48",
+  "addr": 40264,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19D4A",
+  "addr": 40266,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19D5A",
+  "addr": 40282,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "locret_19D79",
+  "addr": 40313,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_24",
+  "addr": 40314,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_19D94",
+  "addr": 40340,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19D99",
+  "addr": 40345,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19D9D",
+  "addr": 40349,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_19DAF",
+  "addr": 40367,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_19DB5",
+  "addr": 40373,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19DCB",
+  "addr": 40395,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19DEB",
+  "addr": 40427,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19E08",
+  "addr": 40456,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "unk_19E26",
+  "addr": 40486,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_19E2A",
+  "addr": 40490,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "locret_19E37",
+  "addr": 40503,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_25_carla",
+  "addr": 40504,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_19E64",
+  "addr": 40548,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19E76",
+  "addr": 40566,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19E8E",
+  "addr": 40590,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "locret_19E98",
+  "addr": 40600,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_16",
+  "addr": 40601,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_19EB4",
+  "addr": 40628,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_19EBF",
+  "addr": 40639,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19EF0",
+  "addr": 40688,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19F02",
+  "addr": 40706,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19F05",
+  "addr": 40709,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19F2A",
+  "addr": 40746,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19F3E",
+  "addr": 40766,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19F41",
+  "addr": 40769,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_17",
+  "addr": 40777,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_18",
+  "addr": 40812,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_19F94",
+  "addr": 40852,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19FAD",
+  "addr": 40877,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19FB9",
+  "addr": 40889,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "unk_19FBC",
+  "addr": 40892,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "unk_19FC0",
+  "addr": 40896,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_22",
+  "addr": 40918,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_19FEA",
+  "addr": 40938,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_19FF9",
+  "addr": 40953,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A01B",
+  "addr": 40987,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A026",
+  "addr": 40998,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A033",
+  "addr": 41011,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A04C",
+  "addr": 41036,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A051",
+  "addr": 41041,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_1A05E",
+  "addr": 41054,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A077",
+  "addr": 41079,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A081",
+  "addr": 41089,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_23",
+  "addr": 41098,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A09E",
+  "addr": 41118,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_26",
+  "addr": 41147,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1A0F9",
+  "addr": 41209,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1A110",
+  "addr": 41232,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A139",
+  "addr": 41273,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A149",
+  "addr": 41289,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A14D",
+  "addr": 41293,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A15B",
+  "addr": 41307,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "unk_1A165",
+  "addr": 41317,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_27",
+  "addr": 41323,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A16E",
+  "addr": 41326,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A18F",
+  "addr": 41359,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_28",
+  "addr": 41376,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A1C4",
+  "addr": 41412,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_29_effine_T4",
+  "addr": 41417,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A201",
+  "addr": 41473,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A20F",
+  "addr": 41487,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A226",
+  "addr": 41510,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A25B",
+  "addr": 41563,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_1A264",
+  "addr": 41572,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A275",
+  "addr": 41589,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A283",
+  "addr": 41603,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A2A7",
+  "addr": 41639,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "locret_1A2B0",
+  "addr": 41648,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "decrease_enemy_health",
+  "addr": 41649,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "locret_1A2B8",
+  "addr": 41656,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A2B9",
+  "addr": 41657,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_1A2CB",
+  "addr": 41675,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_30_32",
+  "addr": 41691,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A2E3",
+  "addr": 41699,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A376",
+  "addr": 41846,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A379",
+  "addr": 41849,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A39A",
+  "addr": 41882,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A3C5",
+  "addr": 41925,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A3C8",
+  "addr": 41928,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_31_33",
+  "addr": 41931,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1A3D7",
+  "addr": 41943,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A3E5",
+  "addr": 41957,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_34_65_66",
+  "addr": 41964,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A423",
+  "addr": 42019,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A44A",
+  "addr": 42058,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A452",
+  "addr": 42066,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A470",
+  "addr": 42096,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A4A9",
+  "addr": 42153,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A4B5",
+  "addr": 42165,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A4CC",
+  "addr": 42188,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A4D5",
+  "addr": 42197,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_46_47",
+  "addr": 42249,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A56E",
+  "addr": 42350,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A593",
+  "addr": 42387,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A59A",
+  "addr": 42394,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A5AE",
+  "addr": 42414,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A5D6",
+  "addr": 42454,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A5E5",
+  "addr": 42469,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A5FE",
+  "addr": 42494,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "unk_1A601",
+  "addr": 42497,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_56",
+  "addr": 42505,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A613",
+  "addr": 42515,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A618",
+  "addr": 42520,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A638",
+  "addr": 42552,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A642",
+  "addr": 42562,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_57",
+  "addr": 42565,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A659",
+  "addr": 42585,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A66C",
+  "addr": 42604,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A66F",
+  "addr": 42607,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A698",
+  "addr": 42648,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_58",
+  "addr": 42661,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_59",
+  "addr": 42689,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_64_random",
+  "addr": 42703,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A6E3",
+  "addr": 42723,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A6ED",
+  "addr": 42733,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_36_giza",
+  "addr": 42737,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A70E",
+  "addr": 42766,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A720",
+  "addr": 42784,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A72A",
+  "addr": 42794,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A740",
+  "addr": 42816,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "unk_1A74A",
+  "addr": 42826,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_44_yellow_duster",
+  "addr": 42828,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A776",
+  "addr": 42870,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_61_sart",
+  "addr": 42873,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A78E",
+  "addr": 42894,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A7BE",
+  "addr": 42942,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A7C2",
+  "addr": 42946,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A7DB",
+  "addr": 42971,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A7FA",
+  "addr": 43002,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A803",
+  "addr": 43011,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A821",
+  "addr": 43041,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "locret_1A835",
+  "addr": 43061,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_67_valkyrie",
+  "addr": 43062,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A86F",
+  "addr": 43119,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A87C",
+  "addr": 43132,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A899",
+  "addr": 43161,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A8A1",
+  "addr": 43169,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A8C2",
+  "addr": 43202,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A8C8",
+  "addr": 43208,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A8CD",
+  "addr": 43213,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "update_chase_counters",
+  "addr": 43217,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "locret_1A8E9",
+  "addr": 43241,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_35_small_explosion",
+  "addr": 43242,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A900",
+  "addr": 43264,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A90A",
+  "addr": 43274,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A90B",
+  "addr": 43275,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A90E",
+  "addr": 43278,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A918",
+  "addr": 43288,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A928",
+  "addr": 43304,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A92A",
+  "addr": 43306,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A934",
+  "addr": 43316,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A93F",
+  "addr": 43327,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A96C",
+  "addr": 43372,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A97B",
+  "addr": 43387,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "unk_1A97E",
+  "addr": 43390,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_91_big_explosion",
+  "addr": 43397,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A9A0",
+  "addr": 43424,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A9B3",
+  "addr": 43443,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A9D7",
+  "addr": 43479,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A9DB",
+  "addr": 43483,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A9EA",
+  "addr": 43498,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1A9EE",
+  "addr": 43502,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AA04",
+  "addr": 43524,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AA07",
+  "addr": 43527,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "locret_1AA25",
+  "addr": 43557,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "byte_1AA26",
+  "addr": 43558,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "byte_1AA36",
+  "addr": 43574,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "byte_1AA46",
+  "addr": 43590,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "byte_1AA56",
+  "addr": 43606,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_37",
+  "addr": 43618,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1AA67",
+  "addr": 43623,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1AA6F",
+  "addr": 43631,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1AA86",
+  "addr": 43654,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_38_lead",
+  "addr": 43660,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1AA91",
+  "addr": 43665,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AA96",
+  "addr": 43670,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_39",
+  "addr": 43679,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AAA5",
+  "addr": 43685,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_41",
+  "addr": 43688,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AAF3",
+  "addr": 43763,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AB18",
+  "addr": 43800,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AB2E",
+  "addr": 43822,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AB31",
+  "addr": 43825,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AB5D",
+  "addr": 43869,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AB6A",
+  "addr": 43882,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AB7B",
+  "addr": 43899,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AB89",
+  "addr": 43913,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "byte_1AB90",
+  "addr": 43920,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_42",
+  "addr": 43938,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_43",
+  "addr": 43946,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1ABAF",
+  "addr": 43951,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "locret_1ABE7",
+  "addr": 44007,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_45",
+  "addr": 44008,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AC07",
+  "addr": 44039,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AC0C",
+  "addr": 44044,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AC11",
+  "addr": 44049,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AC2F",
+  "addr": 44079,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "unk_1AC44",
+  "addr": 44100,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "unk_1AC46",
+  "addr": 44102,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_21",
+  "addr": 44104,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AC6E",
+  "addr": 44142,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "unk_1AC83",
+  "addr": 44163,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_20",
+  "addr": 44195,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1ACD8",
+  "addr": 44248,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_53",
+  "addr": 44254,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1ACE8",
+  "addr": 44264,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AD05",
+  "addr": 44293,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AD13",
+  "addr": 44307,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AD20",
+  "addr": 44320,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_54",
+  "addr": 44325,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AD2F",
+  "addr": 44335,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_55_fairy",
+  "addr": 44342,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AD68",
+  "addr": 44392,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AD88",
+  "addr": 44424,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AD9D",
+  "addr": 44445,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1ADA7",
+  "addr": 44455,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1ADB7",
+  "addr": 44471,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1ADC6",
+  "addr": 44486,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1ADCD",
+  "addr": 44493,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1ADD4",
+  "addr": 44500,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1ADFF",
+  "addr": 44543,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AE07",
+  "addr": 44551,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AE16",
+  "addr": 44566,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_62",
+  "addr": 44570,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AE3D",
+  "addr": 44605,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AE6D",
+  "addr": 44653,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AE74",
+  "addr": 44660,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AE81",
+  "addr": 44673,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AE85",
+  "addr": 44677,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AE88",
+  "addr": 44680,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "locret_1AE98",
+  "addr": 44696,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_82_weapon_distro",
+  "addr": 44697,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_70_71_81_88_89",
+  "addr": 44737,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AEC6",
+  "addr": 44742,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AED8",
+  "addr": 44760,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AEE1",
+  "addr": 44769,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AEF3",
+  "addr": 44787,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AF21",
+  "addr": 44833,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AF28",
+  "addr": 44840,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AF37",
+  "addr": 44855,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AF49",
+  "addr": 44873,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AF5B",
+  "addr": 44891,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AF6B",
+  "addr": 44907,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AF79",
+  "addr": 44921,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AF83",
+  "addr": 44931,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1AF95",
+  "addr": 44949,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B09A",
+  "addr": 45210,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B0AA",
+  "addr": 45226,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B0B4",
+  "addr": 45236,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B0BF",
+  "addr": 45247,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B0CB",
+  "addr": 45259,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B0E5",
+  "addr": 45285,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B0F5",
+  "addr": 45301,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B10C",
+  "addr": 45324,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B11A",
+  "addr": 45338,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B138",
+  "addr": 45368,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B143",
+  "addr": 45379,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B146",
+  "addr": 45382,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B161",
+  "addr": 45409,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "locret_1B168",
+  "addr": 45416,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B169",
+  "addr": 45417,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B18F",
+  "addr": 45455,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B1A3",
+  "addr": 45475,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "locret_1B1AE",
+  "addr": 45486,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B1AF",
+  "addr": 45487,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B1CD",
+  "addr": 45517,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B1D0",
+  "addr": 45520,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B1E2",
+  "addr": 45538,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B1E8",
+  "addr": 45544,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B1EB",
+  "addr": 45547,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B1FA",
+  "addr": 45562,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B20E",
+  "addr": 45582,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B226",
+  "addr": 45606,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B23D",
+  "addr": 45629,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B24D",
+  "addr": 45645,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "unk_1B260",
+  "addr": 45664,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "unk_1B264",
+  "addr": 45668,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_72",
+  "addr": 45672,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B289",
+  "addr": 45705,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B2A2",
+  "addr": 45730,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B2C6",
+  "addr": 45766,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B2CF",
+  "addr": 45775,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B2E1",
+  "addr": 45793,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B2ED",
+  "addr": 45805,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B2EF",
+  "addr": 45807,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B303",
+  "addr": 45827,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B31A",
+  "addr": 45850,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B322",
+  "addr": 45858,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B32E",
+  "addr": 45870,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_79",
+  "addr": 45879,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_73_74_75_76_77_78",
+  "addr": 45890,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B352",
+  "addr": 45906,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "fortress_core_appears",
+  "addr": 45909,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B39E",
+  "addr": 45982,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B3A5",
+  "addr": 45989,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B3B0",
+  "addr": 46000,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B3BA",
+  "addr": 46010,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B3C4",
+  "addr": 46020,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B3DC",
+  "addr": 46044,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B3E3",
+  "addr": 46051,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B3FE",
+  "addr": 46078,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B411",
+  "addr": 46097,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B417",
+  "addr": 46103,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B41B",
+  "addr": 46107,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B42A",
+  "addr": 46122,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B434",
+  "addr": 46132,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B441",
+  "addr": 46145,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B44B",
+  "addr": 46155,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B462",
+  "addr": 46178,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B467",
+  "addr": 46183,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B478",
+  "addr": 46200,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B482",
+  "addr": 46210,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B48F",
+  "addr": 46223,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B491",
+  "addr": 46225,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B49F",
+  "addr": 46239,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "locret_1B4D4",
+  "addr": 46292,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B4D5",
+  "addr": 46293,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "locret_1B4DC",
+  "addr": 46300,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B4DD",
+  "addr": 46301,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B4F9",
+  "addr": 46329,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B507",
+  "addr": 46343,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B51C",
+  "addr": 46364,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B52B",
+  "addr": 46379,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B533",
+  "addr": 46387,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B54A",
+  "addr": 46410,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B54D",
+  "addr": 46413,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "locret_1B568",
+  "addr": 46440,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B569",
+  "addr": 46441,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B56E",
+  "addr": 46446,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B576",
+  "addr": 46454,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B592",
+  "addr": 46482,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B59A",
+  "addr": 46490,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B5B0",
+  "addr": 46512,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B5BE",
+  "addr": 46526,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B5CA",
+  "addr": 46538,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B5CF",
+  "addr": 46543,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B5D3",
+  "addr": 46547,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "locret_1B5E6",
+  "addr": 46566,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B5E7",
+  "addr": 46567,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "unk_1B5F5",
+  "addr": 46581,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B611",
+  "addr": 46609,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B61E",
+  "addr": 46622,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B62B",
+  "addr": 46635,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "spawn_projectile",
+  "addr": 46641,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "byte_1B646",
+  "addr": 46662,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B667",
+  "addr": 46695,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B692",
+  "addr": 46738,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B695",
+  "addr": 46741,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_80",
+  "addr": 46747,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B6B0",
+  "addr": 46768,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_83",
+  "addr": 46774,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B6D9",
+  "addr": 46809,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B6E9",
+  "addr": 46825,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B701",
+  "addr": 46849,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B71E",
+  "addr": 46878,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B720",
+  "addr": 46880,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_84_85_86_87",
+  "addr": 46892,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B73E",
+  "addr": 46910,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B770",
+  "addr": 46960,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B772",
+  "addr": 46962,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B775",
+  "addr": 46965,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B778",
+  "addr": 46968,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B790",
+  "addr": 46992,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B79F",
+  "addr": 47007,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B7A3",
+  "addr": 47011,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "enemy_type_90",
+  "addr": 47032,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B7D4",
+  "addr": 47060,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B7DE",
+  "addr": 47070,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B7FB",
+  "addr": 47099,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B84F",
+  "addr": 47183,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B860",
+  "addr": 47200,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B869",
+  "addr": 47209,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "unk_1B873",
+  "addr": 47219,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "unk_1B877",
+  "addr": 47223,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "unk_1B87B",
+  "addr": 47227,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B87F",
+  "addr": 47231,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B88C",
+  "addr": 47244,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B895",
+  "addr": 47253,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B89B",
+  "addr": 47259,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B8A3",
+  "addr": 47267,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "unk_1B8AD",
+  "addr": 47277,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "unk_1B8DD",
+  "addr": 47325,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1B8E5",
+  "addr": 47333,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B90F",
+  "addr": 47375,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B91E",
+  "addr": 47390,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "locret_1B924",
+  "addr": 47396,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B925",
+  "addr": 47397,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B940",
+  "addr": 47424,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B949",
+  "addr": 47433,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B95F",
+  "addr": 47455,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B96E",
+  "addr": 47470,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B988",
+  "addr": 47496,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B99C",
+  "addr": 47516,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B9AC",
+  "addr": 47532,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B9BF",
+  "addr": 47551,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B9D6",
+  "addr": 47574,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B9EB",
+  "addr": 47595,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B9F6",
+  "addr": 47606,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1B9FD",
+  "addr": 47613,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BA12",
+  "addr": 47634,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BA35",
+  "addr": 47669,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BA4E",
+  "addr": 47694,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BA58",
+  "addr": 47704,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BA5D",
+  "addr": 47709,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BA7A",
+  "addr": 47738,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BAA1",
+  "addr": 47777,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BAA5",
+  "addr": 47781,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BAB6",
+  "addr": 47798,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BACF",
+  "addr": 47823,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BADB",
+  "addr": 47835,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BAE8",
+  "addr": 47848,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BAFF",
+  "addr": 47871,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BB0F",
+  "addr": 47887,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BB18",
+  "addr": 47896,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BB29",
+  "addr": 47913,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "tab_BB2C",
+  "addr": 47916,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "byte_1BB53",
+  "addr": 47955,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "byte_1BB54",
+  "addr": 47956,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "byte_1BB55",
+  "addr": 47957,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1BB56",
+  "addr": 47958,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BB5B",
+  "addr": 47963,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BB62",
+  "addr": 47970,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BB88",
+  "addr": 48008,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BBA9",
+  "addr": 48041,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BBC0",
+  "addr": 48064,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BBD3",
+  "addr": 48083,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_1BC04",
+  "addr": 48132,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BC46",
+  "addr": 48198,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "sub_1BC4E",
+  "addr": 48206,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BC68",
+  "addr": 48232,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "byte_1BC77",
+  "addr": 48247,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1BCE0",
+  "addr": 48352,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BCE7",
+  "addr": 48359,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BCEB",
+  "addr": 48363,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BCF0",
+  "addr": 48368,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BCF4",
+  "addr": 48372,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BD61",
+  "addr": 48481,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "byte_1BDB9",
+  "addr": 48569,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1BDC9",
+  "addr": 48585,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BDD8",
+  "addr": 48600,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BDDF",
+  "addr": 48607,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "unk_1BDF5",
+  "addr": 48629,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "sub_1BE08",
+  "addr": 48648,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 6,
+  "name": "loc_1BE2C",
+  "addr": 48684,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 6,
+  "name": "locret_1BE40",
+  "addr": 48704,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "j_reset",
+  "addr": 49152,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "j_switch_bank",
+  "addr": 49155,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "j_far_call",
+  "addr": 49158,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "j_ppu_nmi_disable",
+  "addr": 49161,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "j_ppu_nmi_enable",
+  "addr": 49164,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "j_ppu_disable_all",
+  "addr": 49167,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "j_ppu_enable_all",
+  "addr": 49170,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "j_clear_oam_buffer",
+  "addr": 49173,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "j_clear_screen",
+  "addr": 49176,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C01B",
+  "addr": 49179,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "j_pad_read",
+  "addr": 49182,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "j_all_enemies_destroyed",
+  "addr": 49185,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C024",
+  "addr": 49188,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C027",
+  "addr": 49191,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C02A",
+  "addr": 49194,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "j_handle_pad_buttons",
+  "addr": 49197,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "j_apu_play",
+  "addr": 49200,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C033",
+  "addr": 49203,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "j_ppu_update_background",
+  "addr": 49206,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C039",
+  "addr": 49209,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C03C",
+  "addr": 49212,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C03F",
+  "addr": 49215,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C042",
+  "addr": 49218,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C045",
+  "addr": 49221,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C048",
+  "addr": 49224,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C04B",
+  "addr": 49227,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C04E",
+  "addr": 49230,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C051",
+  "addr": 49233,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C054",
+  "addr": 49236,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C057",
+  "addr": 49239,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "j_ppu_cram_load",
+  "addr": 49242,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C05D",
+  "addr": 49245,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "j_apu_reset",
+  "addr": 49248,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "j_apu_stop",
+  "addr": 49251,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "j_apu_play_0",
+  "addr": 49254,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "j_apu_update",
+  "addr": 49257,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C06C",
+  "addr": 49260,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C06F",
+  "addr": 49263,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C072",
+  "addr": 49266,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "j_switch_case",
+  "addr": 49269,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "j_get_random_enemy",
+  "addr": 49272,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C07B",
+  "addr": 49275,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "j_update_music_after_fortress_destroy",
+  "addr": 49278,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C081",
+  "addr": 49281,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C084",
+  "addr": 49284,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C087",
+  "addr": 49287,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C08A",
+  "addr": 49290,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C08D",
+  "addr": 49293,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C090",
+  "addr": 49296,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "bank_remap_table",
+  "addr": 49400,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "randomize_tab",
+  "addr": 49408,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "unk_C152",
+  "addr": 49490,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C1A6",
+  "addr": 49574,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C1F9",
+  "addr": 49657,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C24C",
+  "addr": 49740,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C251",
+  "addr": 49745,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C25A",
+  "addr": 49754,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C263",
+  "addr": 49763,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C270",
+  "addr": 49776,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C275",
+  "addr": 49781,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C27E",
+  "addr": 49790,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C287",
+  "addr": 49799,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C290",
+  "addr": 49808,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C299",
+  "addr": 49817,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C2A2",
+  "addr": 49826,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C2AB",
+  "addr": 49835,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C2B4",
+  "addr": 49844,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C2B9",
+  "addr": 49849,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C2BE",
+  "addr": 49854,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C2C7",
+  "addr": 49863,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C2D4",
+  "addr": 49876,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C2DD",
+  "addr": 49885,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C2E6",
+  "addr": 49894,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C2EB",
+  "addr": 49899,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C2F4",
+  "addr": 49908,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C2FD",
+  "addr": 49917,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C306",
+  "addr": 49926,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C30F",
+  "addr": 49935,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C318",
+  "addr": 49944,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C321",
+  "addr": 49953,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C32A",
+  "addr": 49962,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C333",
+  "addr": 49971,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C33C",
+  "addr": 49980,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C345",
+  "addr": 49989,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C34E",
+  "addr": 49998,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C357",
+  "addr": 50007,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C360",
+  "addr": 50016,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C369",
+  "addr": 50025,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C372",
+  "addr": 50034,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C377",
+  "addr": 50039,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C380",
+  "addr": 50048,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C389",
+  "addr": 50057,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C392",
+  "addr": 50066,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C39B",
+  "addr": 50075,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C3A8",
+  "addr": 50088,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C3B5",
+  "addr": 50101,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C3C2",
+  "addr": 50114,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C3CB",
+  "addr": 50123,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C3D4",
+  "addr": 50132,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C3DD",
+  "addr": 50141,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C3E6",
+  "addr": 50150,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C3EF",
+  "addr": 50159,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C3F8",
+  "addr": 50168,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C401",
+  "addr": 50177,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C40A",
+  "addr": 50186,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C413",
+  "addr": 50195,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C41C",
+  "addr": 50204,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C425",
+  "addr": 50213,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C42E",
+  "addr": 50222,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C437",
+  "addr": 50231,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C448",
+  "addr": 50248,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C459",
+  "addr": 50265,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C46A",
+  "addr": 50282,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C47B",
+  "addr": 50299,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C484",
+  "addr": 50308,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C48D",
+  "addr": 50317,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C4A6",
+  "addr": 50342,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C4C7",
+  "addr": 50375,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C4E8",
+  "addr": 50408,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C4F9",
+  "addr": 50425,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C50A",
+  "addr": 50442,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C513",
+  "addr": 50451,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C53C",
+  "addr": 50492,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C55D",
+  "addr": 50525,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C57E",
+  "addr": 50558,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C583",
+  "addr": 50563,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C5A4",
+  "addr": 50596,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C5C9",
+  "addr": 50633,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C60A",
+  "addr": 50698,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C613",
+  "addr": 50707,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C61C",
+  "addr": 50716,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C625",
+  "addr": 50725,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C62E",
+  "addr": 50734,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C637",
+  "addr": 50743,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C658",
+  "addr": 50776,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C679",
+  "addr": 50809,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_C69A",
+  "addr": 50842,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C6AB",
+  "addr": 50859,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C6B5",
+  "addr": 50869,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C6CA",
+  "addr": 50890,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "stack_call_return",
+  "addr": 50899,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "print_string",
+  "addr": 50906,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_C6E0",
+  "addr": 50912,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C6EA",
+  "addr": 50922,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_C6F7",
+  "addr": 50935,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_C6F8",
+  "addr": 50936,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_C6FB",
+  "addr": 50939,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_C708",
+  "addr": 50952,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "locret_C724",
+  "addr": 50980,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C725",
+  "addr": 50981,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_C756",
+  "addr": 51030,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_C75A",
+  "addr": 51034,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "clear_screen",
+  "addr": 51048,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_C77E",
+  "addr": 51070,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_C786",
+  "addr": 51078,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_C79B",
+  "addr": 51099,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "locret_C7A2",
+  "addr": 51106,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "ppu_update_scroll_regs",
+  "addr": 51107,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "mem_page_fill",
+  "addr": 51123,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_C7B9",
+  "addr": 51129,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "switch_case",
+  "addr": 51142,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C7D8",
+  "addr": 51160,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_C7E9",
+  "addr": 51177,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "locret_C7EA",
+  "addr": 51178,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C7EB",
+  "addr": 51179,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C7F8",
+  "addr": 51192,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C807",
+  "addr": 51207,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "switch_bank",
+  "addr": 51221,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "switch_bank_0_unused",
+  "addr": 51236,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "switch_bank_1_unused",
+  "addr": 51249,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "switch_bank_2_unused",
+  "addr": 51262,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "switch_bank_3_unused",
+  "addr": 51275,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "switch_bank_4",
+  "addr": 51288,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "switch_bank_5",
+  "addr": 51301,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "switch_bank_6",
+  "addr": 51314,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "far_call",
+  "addr": 51327,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "far_call_prepare",
+  "addr": 51360,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "far_call_restore",
+  "addr": 51372,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C8BA",
+  "addr": 51386,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_C8BC",
+  "addr": 51388,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_C8D4",
+  "addr": 51412,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_C8DF",
+  "addr": 51423,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_C901",
+  "addr": 51457,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "unk_C928",
+  "addr": 51496,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "unk_C930",
+  "addr": 51504,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "enemy_erase_2",
+  "addr": 51512,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C95C",
+  "addr": 51548,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_C985",
+  "addr": 51589,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_C9BB",
+  "addr": 51643,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_C9C3",
+  "addr": 51651,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_C9CB",
+  "addr": 51659,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_C9E8",
+  "addr": 51688,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_CA0F",
+  "addr": 51727,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_CA12",
+  "addr": 51730,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_CA56",
+  "addr": 51798,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CA7C",
+  "addr": 51836,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_CA97",
+  "addr": 51863,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "ppu_cram_load",
+  "addr": 51869,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_CA9F",
+  "addr": 51871,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "randomize",
+  "addr": 51890,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "ppu_disable_all",
+  "addr": 51917,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "ppu_set_control2",
+  "addr": 51927,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "ppu_enable_picture",
+  "addr": 51933,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "ppu_nmi_disable",
+  "addr": 51943,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "ppu_set_control1",
+  "addr": 51947,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "ppu_enable_all",
+  "addr": 51953,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "ppu_nmi_enable",
+  "addr": 51959,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "clear_oam_buffer",
+  "addr": 51969,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "pad_read",
+  "addr": 51978,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_CB16",
+  "addr": 51990,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CB2D",
+  "addr": 52013,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_CB40",
+  "addr": 52032,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_CB44",
+  "addr": 52036,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "start_game_check",
+  "addr": 52043,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_CB67",
+  "addr": 52071,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CB76",
+  "addr": 52086,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CC0A",
+  "addr": 52234,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "locret_CC15",
+  "addr": 52245,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "unk_CC16",
+  "addr": 52246,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "unk_CC26",
+  "addr": 52262,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "continue_level_check",
+  "addr": 52278,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_CC4E",
+  "addr": 52302,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CC50",
+  "addr": 52304,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CC52",
+  "addr": 52306,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_CC57",
+  "addr": 52311,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "unk_CCAD",
+  "addr": 52397,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "unk_CCBA",
+  "addr": 52410,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "unk_CCC7",
+  "addr": 52423,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "clear_oam_buffer_unused",
+  "addr": 52436,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_CCD8",
+  "addr": 52440,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_CCDA",
+  "addr": 52442,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "vsync",
+  "addr": 52451,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_CCED",
+  "addr": 52461,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "handle_pad_buttons",
+  "addr": 52470,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_CD07",
+  "addr": 52487,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CD22",
+  "addr": 52514,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CD2C",
+  "addr": 52524,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "pmove_direction_tab",
+  "addr": 52539,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "demo_buttons_tab",
+  "addr": 52555,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_CD6B",
+  "addr": 52587,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_CD7E",
+  "addr": 52606,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CD86",
+  "addr": 52614,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CD88",
+  "addr": 52616,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CD8F",
+  "addr": 52623,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CD92",
+  "addr": 52626,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CDA7",
+  "addr": 52647,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CDC6",
+  "addr": 52678,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CDE3",
+  "addr": 52707,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CDE7",
+  "addr": 52711,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CE05",
+  "addr": 52741,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CE14",
+  "addr": 52756,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CE21",
+  "addr": 52769,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CE23",
+  "addr": 52771,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CE31",
+  "addr": 52785,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CE3E",
+  "addr": 52798,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CE40",
+  "addr": 52800,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CE64",
+  "addr": 52836,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CE6E",
+  "addr": 52846,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_CE72",
+  "addr": 52850,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "locret_CE8C",
+  "addr": 52876,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "nmi_handler",
+  "addr": 52877,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "dummy_irq_handler",
+  "addr": 52932,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "ppu_update_background",
+  "addr": 52933,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_CECC",
+  "addr": 52940,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CED3",
+  "addr": 52947,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CF27",
+  "addr": 53031,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CF37",
+  "addr": 53047,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CF38",
+  "addr": 53048,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CF70",
+  "addr": 53104,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CF75",
+  "addr": 53109,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CF79",
+  "addr": 53113,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CF8C",
+  "addr": 53132,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CFA2",
+  "addr": 53154,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CFD2",
+  "addr": 53202,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CFD7",
+  "addr": 53207,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CFDE",
+  "addr": 53214,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CFEC",
+  "addr": 53228,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_CFFE",
+  "addr": 53246,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "ppu_cram_update",
+  "addr": 53297,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_D04C",
+  "addr": 53324,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D058",
+  "addr": 53336,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D05A",
+  "addr": 53338,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D05B",
+  "addr": 53339,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "locret_D0A3",
+  "addr": 53411,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_D0A4",
+  "addr": 53412,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "locret_D0B9",
+  "addr": 53433,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D0BA",
+  "addr": 53434,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "locret_D0BE",
+  "addr": 53438,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_D0BF",
+  "addr": 53439,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_D0D9",
+  "addr": 53465,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D0E8",
+  "addr": 53480,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D0FF",
+  "addr": 53503,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "check_high_score_reached",
+  "addr": 53512,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_D111",
+  "addr": 53521,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "locret_D12B",
+  "addr": 53547,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_D12C",
+  "addr": 53548,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_D133",
+  "addr": 53555,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D15B",
+  "addr": 53595,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D162",
+  "addr": 53602,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D16D",
+  "addr": 53613,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D177",
+  "addr": 53623,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D17E",
+  "addr": 53630,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D189",
+  "addr": 53641,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_D18C",
+  "addr": 53644,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D193",
+  "addr": 53651,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D1A6",
+  "addr": 53670,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_D1B5",
+  "addr": 53685,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D1C1",
+  "addr": 53697,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D1D8",
+  "addr": 53720,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D1DE",
+  "addr": 53726,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "locret_D1E0",
+  "addr": 53728,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "unk_D1E1",
+  "addr": 53729,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "unk_D200",
+  "addr": 53760,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "unk_D23B",
+  "addr": 53819,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "unk_D23C",
+  "addr": 53820,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D2C0",
+  "addr": 53952,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D2C4",
+  "addr": 53956,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "clear_first_last_sprites",
+  "addr": 53960,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_D2D6",
+  "addr": 53974,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D2E1",
+  "addr": 53985,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "locret_D2E3",
+  "addr": 53987,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "set_new_high_score",
+  "addr": 53988,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_D2E6",
+  "addr": 53990,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D2F3",
+  "addr": 54003,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "locret_D2FC",
+  "addr": 54012,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_D2FD",
+  "addr": 54013,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_D31E",
+  "addr": 54046,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D32E",
+  "addr": 54062,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D330",
+  "addr": 54064,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D332",
+  "addr": 54066,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "locret_D346",
+  "addr": 54086,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_D347",
+  "addr": 54087,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_D35C",
+  "addr": 54108,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D35E",
+  "addr": 54110,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D366",
+  "addr": 54118,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D37E",
+  "addr": 54142,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_D3A8",
+  "addr": 54184,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_D3AF",
+  "addr": 54191,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D3B9",
+  "addr": 54201,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D3D2",
+  "addr": 54226,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D3D5",
+  "addr": 54229,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D3E0",
+  "addr": 54240,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "locret_D3F3",
+  "addr": 54259,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_D3F4",
+  "addr": 54260,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D3FF",
+  "addr": 54271,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_D40E",
+  "addr": 54286,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D41F",
+  "addr": 54303,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D427",
+  "addr": 54311,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D436",
+  "addr": 54326,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D43E",
+  "addr": 54334,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D454",
+  "addr": 54356,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "locret_D462",
+  "addr": 54370,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_D463",
+  "addr": 54371,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "locret_D471",
+  "addr": 54385,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_D472",
+  "addr": 54386,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_D47D",
+  "addr": 54397,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_D480",
+  "addr": 54400,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "locret_D486",
+  "addr": 54406,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D487",
+  "addr": 54407,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D490",
+  "addr": 54416,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D49C",
+  "addr": 54428,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D4A3",
+  "addr": 54435,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D4BD",
+  "addr": 54461,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D4DC",
+  "addr": 54492,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D4DE",
+  "addr": 54494,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "locret_D4F0",
+  "addr": 54512,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D4F1",
+  "addr": 54513,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_D4FA",
+  "addr": 54522,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D510",
+  "addr": 54544,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D51A",
+  "addr": 54554,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D528",
+  "addr": 54568,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_D535",
+  "addr": 54581,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D538",
+  "addr": 54584,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D53F",
+  "addr": 54591,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D541",
+  "addr": 54593,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_D54D",
+  "addr": 54605,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D559",
+  "addr": 54617,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D56B",
+  "addr": 54635,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_D573",
+  "addr": 54643,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D57C",
+  "addr": 54652,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D595",
+  "addr": 54677,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_D5AB",
+  "addr": 54699,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_D5B2",
+  "addr": 54706,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_D5C1",
+  "addr": 54721,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_D5CE",
+  "addr": 54734,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "locret_D5D6",
+  "addr": 54742,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_D5D7",
+  "addr": 54743,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_D5E6",
+  "addr": 54758,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D5F3",
+  "addr": 54771,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D5FB",
+  "addr": 54779,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D604",
+  "addr": 54788,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D617",
+  "addr": 54807,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "unk_D61F",
+  "addr": 54815,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "unk_D63B",
+  "addr": 54843,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "unk_D64B",
+  "addr": 54859,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "random_enemy_tab",
+  "addr": 54875,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "get_random_enemy",
+  "addr": 54939,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D69F",
+  "addr": 54943,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D6AF",
+  "addr": 54959,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_D6DD",
+  "addr": 55005,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_D6DF",
+  "addr": 55007,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_D706",
+  "addr": 55046,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D714",
+  "addr": 55060,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "tab_D74B",
+  "addr": 55115,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D753",
+  "addr": 55123,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "locret_D77A",
+  "addr": 55162,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_D77B",
+  "addr": 55163,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_D789",
+  "addr": 55177,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_D78F",
+  "addr": 55183,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "locret_D7A4",
+  "addr": 55204,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "set_nametable_addr_after_scroll",
+  "addr": 55205,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "nt_address_tab",
+  "addr": 55229,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_D7DB",
+  "addr": 55259,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_D7DF",
+  "addr": 55263,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D7E3",
+  "addr": 55267,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_D7F6",
+  "addr": 55286,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D800",
+  "addr": 55296,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D80A",
+  "addr": 55306,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D818",
+  "addr": 55320,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_D824",
+  "addr": 55332,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_D830",
+  "addr": 55344,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D83D",
+  "addr": 55357,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_D84A",
+  "addr": 55370,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D84F",
+  "addr": 55375,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_D85B",
+  "addr": 55387,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D869",
+  "addr": 55401,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D86C",
+  "addr": 55404,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_D886",
+  "addr": 55430,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D894",
+  "addr": 55444,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D8A1",
+  "addr": 55457,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D8BF",
+  "addr": 55487,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D8DC",
+  "addr": 55516,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_D8FA",
+  "addr": 55546,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D8FF",
+  "addr": 55551,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D909",
+  "addr": 55561,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_D920",
+  "addr": 55584,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_D934",
+  "addr": 55604,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_D938",
+  "addr": 55608,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_D93A",
+  "addr": 55610,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_D941",
+  "addr": 55617,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_D943",
+  "addr": 55619,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_D957",
+  "addr": 55639,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D966",
+  "addr": 55654,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D971",
+  "addr": 55665,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D974",
+  "addr": 55668,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D981",
+  "addr": 55681,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D984",
+  "addr": 55684,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D9AD",
+  "addr": 55725,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_D9D6",
+  "addr": 55766,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_D9E0",
+  "addr": 55776,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_DA0E",
+  "addr": 55822,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_DA16",
+  "addr": 55830,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_DA18",
+  "addr": 55832,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_DA28",
+  "addr": 55848,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_DA36",
+  "addr": 55862,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_DA58",
+  "addr": 55896,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DA61",
+  "addr": 55905,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DA70",
+  "addr": 55920,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DA7A",
+  "addr": 55930,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DA85",
+  "addr": 55941,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DA9A",
+  "addr": 55962,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DAA8",
+  "addr": 55976,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DABB",
+  "addr": 55995,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DAC0",
+  "addr": 56000,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DADF",
+  "addr": 56031,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DAE6",
+  "addr": 56038,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DAF8",
+  "addr": 56056,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DAFB",
+  "addr": 56059,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DB06",
+  "addr": 56070,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DB0A",
+  "addr": 56074,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DB1F",
+  "addr": 56095,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DB58",
+  "addr": 56152,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DB85",
+  "addr": 56197,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DBBC",
+  "addr": 56252,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "unk_DBC5",
+  "addr": 56261,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "unk_DBD8",
+  "addr": 56280,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_DCC5",
+  "addr": 56517,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_DCCB",
+  "addr": 56523,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_DD26",
+  "addr": 56614,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_DD41",
+  "addr": 56641,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DD43",
+  "addr": 56643,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DD46",
+  "addr": 56646,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DD51",
+  "addr": 56657,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DD5B",
+  "addr": 56667,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DD99",
+  "addr": 56729,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_DD9E",
+  "addr": 56734,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_DDA0",
+  "addr": 56736,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DDAA",
+  "addr": 56746,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DDCC",
+  "addr": 56780,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DDE1",
+  "addr": 56801,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DDE6",
+  "addr": 56806,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DDE8",
+  "addr": 56808,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DDF1",
+  "addr": 56817,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_DDF3",
+  "addr": 56819,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_DDF9",
+  "addr": 56825,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_DE0E",
+  "addr": 56846,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_DE14",
+  "addr": 56852,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_DE23",
+  "addr": 56867,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DE52",
+  "addr": 56914,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_DE5F",
+  "addr": 56927,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_DE6E",
+  "addr": 56942,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_DE91",
+  "addr": 56977,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_DECC",
+  "addr": 57036,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_DEF3",
+  "addr": 57075,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_DF1E",
+  "addr": 57118,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_DF48",
+  "addr": 57160,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_DF5C",
+  "addr": 57180,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "reset_score",
+  "addr": 57192,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_DF7A",
+  "addr": 57210,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_DF7C",
+  "addr": 57212,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "unk_DF9F",
+  "addr": 57247,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "pal_DFA6",
+  "addr": 57254,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "show_main_menu",
+  "addr": 57279,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_E020",
+  "addr": 57376,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E080",
+  "addr": 57472,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E0A9",
+  "addr": 57513,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E0C8",
+  "addr": 57544,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E0DA",
+  "addr": 57562,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E0F4",
+  "addr": 57588,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E100",
+  "addr": 57600,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E10A",
+  "addr": 57610,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E10D",
+  "addr": 57613,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E129",
+  "addr": 57641,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E145",
+  "addr": 57669,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "aGameStart",
+  "addr": 57693,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "aContinue",
+  "addr": 57709,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_E184",
+  "addr": 57732,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E18D",
+  "addr": 57741,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E190",
+  "addr": 57744,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E1A2",
+  "addr": 57762,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E1B6",
+  "addr": 57782,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E1BC",
+  "addr": 57788,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E1C5",
+  "addr": 57797,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E1C9",
+  "addr": 57801,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E1E6",
+  "addr": 57830,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E1F2",
+  "addr": 57842,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "unk_E202",
+  "addr": 57858,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "unk_E20F",
+  "addr": 57871,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "unk_E21C",
+  "addr": 57884,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_E229",
+  "addr": 57897,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "locret_E253",
+  "addr": 57939,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "unk_E254",
+  "addr": 57940,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "unk_E25D",
+  "addr": 57949,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_E266",
+  "addr": 57958,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_E26E",
+  "addr": 57966,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E27D",
+  "addr": 57981,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E282",
+  "addr": 57986,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "aScoreTop",
+  "addr": 58005,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "aArea",
+  "addr": 58025,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "aAI",
+  "addr": 58105,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "aGameDesindedBy",
+  "addr": 58114,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "aProducedByAii",
+  "addr": 58141,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "aPresentedByPon",
+  "addr": 58164,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "aCopyright1986P",
+  "addr": 58193,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "aLicensedBy",
+  "addr": 58225,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "aNintendoOfAmer",
+  "addr": 58239,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_E399",
+  "addr": 58265,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_E3AA",
+  "addr": 58282,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "locret_E3B7",
+  "addr": 58295,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "byte_E3B8",
+  "addr": 58296,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "tab_E3D1",
+  "addr": 58321,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_E3F4",
+  "addr": 58356,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_E3F6",
+  "addr": 58358,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E40F",
+  "addr": 58383,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E41A",
+  "addr": 58394,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "locret_E438",
+  "addr": 58424,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sound_test_menu",
+  "addr": 58425,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "aSoundTest",
+  "addr": 58442,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_E462",
+  "addr": 58466,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_E46F",
+  "addr": 58479,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E487",
+  "addr": 58503,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E48B",
+  "addr": 58507,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E4A2",
+  "addr": 58530,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E4BB",
+  "addr": 58555,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "show_ending_screen",
+  "addr": 58575,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "aScore",
+  "addr": 58657,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_E556",
+  "addr": 58710,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E55E",
+  "addr": 58718,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E567",
+  "addr": 58727,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E59D",
+  "addr": 58781,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E5C5",
+  "addr": 58821,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E5CF",
+  "addr": 58831,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E5EA",
+  "addr": 58858,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E606",
+  "addr": 58886,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_E60F",
+  "addr": 58895,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_E61E",
+  "addr": 58910,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E637",
+  "addr": 58935,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E64E",
+  "addr": 58958,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_E653",
+  "addr": 58963,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_E659",
+  "addr": 58969,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "locret_E670",
+  "addr": 58992,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "congratulation_text",
+  "addr": 58993,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "aCongratulation",
+  "addr": 58994,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "aYouAreTheMessi",
+  "addr": 59013,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "aStaff",
+  "addr": 59045,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "aGameDesignJemi",
+  "addr": 59053,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "aProgram",
+  "addr": 59083,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "aJemini",
+  "addr": 59091,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "aMusicMiyamoto",
+  "addr": 59099,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "aGraphics",
+  "addr": 59115,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "aJanus",
+  "addr": 59124,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "aTestPlay",
+  "addr": 59131,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "aMncNui",
+  "addr": 59141,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "aWaoIsee",
+  "addr": 59150,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "aYoriki",
+  "addr": 59160,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "aProdusedByAii",
+  "addr": 59169,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "aCreatedByCompi",
+  "addr": 59187,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "aSeeYouAgainInG",
+  "addr": 59210,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_E767",
+  "addr": 59239,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_E76C",
+  "addr": 59244,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_E77F",
+  "addr": 59263,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E788",
+  "addr": 59272,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E7A1",
+  "addr": 59297,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E7BB",
+  "addr": 59323,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "reset",
+  "addr": 59327,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_E7DA",
+  "addr": 59354,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E7F6",
+  "addr": 59382,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "main_menu_loop",
+  "addr": 59398,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_E81E",
+  "addr": 59422,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_E83B",
+  "addr": 59451,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E84A",
+  "addr": 59466,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E873",
+  "addr": 59507,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E876",
+  "addr": 59510,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E880",
+  "addr": 59520,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E89E",
+  "addr": 59550,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_E8AA",
+  "addr": 59562,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_E8AE",
+  "addr": 59566,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E8BA",
+  "addr": 59578,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_E8C9",
+  "addr": 59593,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_E8D6",
+  "addr": 59606,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E8DA",
+  "addr": 59610,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "byte_E907",
+  "addr": 59655,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_E917",
+  "addr": 59671,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E92E",
+  "addr": 59694,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E937",
+  "addr": 59703,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "level_completed_sequence",
+  "addr": 59705,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_E950",
+  "addr": 59728,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E953",
+  "addr": 59731,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E964",
+  "addr": 59748,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E96D",
+  "addr": 59757,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E98C",
+  "addr": 59788,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_E995",
+  "addr": 59797,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "fade_palette_before_warp_another",
+  "addr": 59810,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "fade_palette_before_warp",
+  "addr": 59816,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_E9AC",
+  "addr": 59820,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E9B1",
+  "addr": 59825,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E9BC",
+  "addr": 59836,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E9C0",
+  "addr": 59840,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "unk_E9D0",
+  "addr": 59856,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "update_music_after_fortress_destroy",
+  "addr": 59872,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_E9E5",
+  "addr": 59877,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E9F9",
+  "addr": 59897,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_E9FB",
+  "addr": 59899,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "level_music_tab",
+  "addr": 59902,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_EA0B",
+  "addr": 59915,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_EA0D",
+  "addr": 59917,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EA22",
+  "addr": 59938,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EA25",
+  "addr": 59941,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "all_enemies_destroyed",
+  "addr": 59958,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "j_apu_reset_0",
+  "addr": 59965,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "j_apu_stop_0",
+  "addr": 59968,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "j_apu_play_1",
+  "addr": 59971,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "j_apu_update_0",
+  "addr": 59974,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_EA49",
+  "addr": 59977,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_EA4C",
+  "addr": 59980,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_EA4F",
+  "addr": 59983,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_update",
+  "addr": 59986,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_EA6D",
+  "addr": 60013,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EA7A",
+  "addr": 60026,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EA89",
+  "addr": 60041,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "locret_EA90",
+  "addr": 60048,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EA91",
+  "addr": 60049,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EA9C",
+  "addr": 60060,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EA9F",
+  "addr": 60063,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EAAA",
+  "addr": 60074,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EAC6",
+  "addr": 60102,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EADF",
+  "addr": 60127,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EB0C",
+  "addr": 60172,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EB17",
+  "addr": 60183,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EB25",
+  "addr": 60197,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EB2D",
+  "addr": 60205,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EB37",
+  "addr": 60215,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EB40",
+  "addr": 60224,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EB4A",
+  "addr": 60234,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EB4D",
+  "addr": 60237,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_EB58",
+  "addr": 60248,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_EB71",
+  "addr": 60273,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_EB7A",
+  "addr": 60282,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_EB91",
+  "addr": 60305,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EB98",
+  "addr": 60312,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "word_EBAF",
+  "addr": 60335,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_0",
+  "addr": 60395,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_1",
+  "addr": 60406,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_6",
+  "addr": 60421,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_2",
+  "addr": 60427,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_5",
+  "addr": 60432,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_3",
+  "addr": 60439,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_8",
+  "addr": 60443,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_4",
+  "addr": 60447,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_29",
+  "addr": 60456,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_EC2F",
+  "addr": 60463,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_9",
+  "addr": 60469,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_EC3B",
+  "addr": 60475,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_13",
+  "addr": 60479,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_16",
+  "addr": 60491,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_10",
+  "addr": 60495,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_EC63",
+  "addr": 60515,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_EC6B",
+  "addr": 60523,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_7",
+  "addr": 60532,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_17",
+  "addr": 60536,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_19",
+  "addr": 60543,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "locret_ECA3",
+  "addr": 60579,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_21",
+  "addr": 60580,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_ECB0",
+  "addr": 60592,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_18",
+  "addr": 60594,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_22",
+  "addr": 60631,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "locret_ECF4",
+  "addr": 60660,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_14_15",
+  "addr": 60661,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_ED08",
+  "addr": 60680,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_ED0C",
+  "addr": 60684,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_ED10",
+  "addr": 60688,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_20",
+  "addr": 60693,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_ED25",
+  "addr": 60709,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_ED2F",
+  "addr": 60719,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_ED33",
+  "addr": 60723,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_23_24_25",
+  "addr": 60732,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_12",
+  "addr": 60740,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_28",
+  "addr": 60742,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_fx_26_27",
+  "addr": 60752,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_ED56",
+  "addr": 60758,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_ED5A",
+  "addr": 60762,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_ED69",
+  "addr": 60777,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_ED74",
+  "addr": 60788,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_ED7E",
+  "addr": 60798,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_ED7F",
+  "addr": 60799,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EDAD",
+  "addr": 60845,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EDB0",
+  "addr": 60848,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_EDB9",
+  "addr": 60857,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_EDC4",
+  "addr": 60868,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "locret_EDDF",
+  "addr": 60895,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EDE0",
+  "addr": 60896,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_EDFC",
+  "addr": 60924,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_EE38",
+  "addr": 60984,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EE3C",
+  "addr": 60988,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_EE43",
+  "addr": 60995,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_EE69",
+  "addr": 61033,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_EE71",
+  "addr": 61041,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_EE76",
+  "addr": 61046,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EE7E",
+  "addr": 61054,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EE8B",
+  "addr": 61067,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "locret_EE93",
+  "addr": 61075,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_EE94",
+  "addr": 61076,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "locret_EEA9",
+  "addr": 61097,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_EEAA",
+  "addr": 61098,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_EEB1",
+  "addr": 61105,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EEBA",
+  "addr": 61114,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EEF9",
+  "addr": 61177,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EF22",
+  "addr": 61218,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EF2D",
+  "addr": 61229,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EF39",
+  "addr": 61241,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "unk_EF42",
+  "addr": 61250,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "unk_EF46",
+  "addr": 61254,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_EF4A",
+  "addr": 61258,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "locret_EF70",
+  "addr": 61296,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "apu_reset",
+  "addr": 61297,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_stop",
+  "addr": 61305,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_EF7D",
+  "addr": 61309,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "apu_play",
+  "addr": 61328,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_EFA6",
+  "addr": 61350,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_EFC2",
+  "addr": 61378,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EFC6",
+  "addr": 61382,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_EFE2",
+  "addr": 61410,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_F012",
+  "addr": 61458,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_F016",
+  "addr": 61462,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "locret_F01B",
+  "addr": 61467,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "apu_length_tab",
+  "addr": 61468,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_F0F4",
+  "addr": 61684,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_F0F6",
+  "addr": 61686,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "sub_F0FA",
+  "addr": 61690,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "apu_sound_tab",
+  "addr": 61694,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_F146",
+  "addr": 61766,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_F14D",
+  "addr": 61773,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "byte_F180",
+  "addr": 61824,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "word_F190",
+  "addr": 61840,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F1A2",
+  "addr": 61858,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F1AA",
+  "addr": 61866,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F1B2",
+  "addr": 61874,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F1BA",
+  "addr": 61882,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F1C7",
+  "addr": 61895,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F1DF",
+  "addr": 61919,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F1EB",
+  "addr": 61931,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F1F5",
+  "addr": 61941,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F209",
+  "addr": 61961,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F2FF",
+  "addr": 62207,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F372",
+  "addr": 62322,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F458",
+  "addr": 62552,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F4D8",
+  "addr": 62680,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F52B",
+  "addr": 62763,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F544",
+  "addr": 62788,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F5AB",
+  "addr": 62891,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F5D8",
+  "addr": 62936,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F60D",
+  "addr": 62989,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F6EF",
+  "addr": 63215,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F728",
+  "addr": 63272,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F765",
+  "addr": 63333,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F773",
+  "addr": 63347,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F783",
+  "addr": 63363,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F797",
+  "addr": 63383,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F7AA",
+  "addr": 63402,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F7BD",
+  "addr": 63421,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F7D8",
+  "addr": 63448,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F7ED",
+  "addr": 63469,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F7FD",
+  "addr": 63485,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F80E",
+  "addr": 63502,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F821",
+  "addr": 63521,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F837",
+  "addr": 63543,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F84C",
+  "addr": 63564,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F942",
+  "addr": 63810,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_F9D1",
+  "addr": 63953,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_FA2D",
+  "addr": 64045,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_FA50",
+  "addr": 64080,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_FB7A",
+  "addr": 64378,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_FBDB",
+  "addr": 64475,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_FC42",
+  "addr": 64578,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_FD75",
+  "addr": 64885,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_FE5C",
+  "addr": 65116,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "byte_FE71",
+  "addr": 65137,
+  "kind": "data",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "sub_FEE8",
+  "addr": 65256,
+  "kind": "code",
+  "inner": false
+ },
+ {
+  "bank": 7,
+  "name": "loc_FEF8",
+  "addr": 65272,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "locret_FEFD",
+  "addr": 65277,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_FEFE",
+  "addr": 65278,
+  "kind": "code",
+  "inner": true
+ },
+ {
+  "bank": 7,
+  "name": "loc_FF09",
+  "addr": 65289,
+  "kind": "code",
+  "inner": true
+ }
+]
