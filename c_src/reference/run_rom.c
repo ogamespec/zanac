@@ -45,6 +45,7 @@ int main(int argc, char **argv)
     static uint8_t prg[8 * ZANAC_BANK_SIZE];
     Nes *nes;
     long frames = 300;
+    long input_offset = 0;
     long i;
     const char *shot = NULL;
     const char *hashes = NULL;
@@ -58,12 +59,15 @@ int main(int argc, char **argv)
         else if (!strcmp(argv[i], "--shot") && i + 1 < argc) shot = argv[++i];
         else if (!strcmp(argv[i], "--hashes") && i + 1 < argc) hashes = argv[++i];
         else if (!strcmp(argv[i], "--input") && i + 1 < argc) input_script = argv[++i];
+        else if (!strcmp(argv[i], "--input-offset") && i + 1 < argc)
+            input_offset = strtol(argv[++i], NULL, 0);
         else if (!strcmp(argv[i], "--dump-ppu") && i + 1 < argc) dump = argv[++i];
         else if (!strcmp(argv[i], "--dump-ram") && i + 1 < argc) ramdump = argv[++i];
         else if (!strcmp(argv[i], "--verbose")) verbose = 1;
         else { fprintf(stderr, "usage: %s [--frames N] [--shot FILE] [--hashes FILE]\n", argv[0]); return 1; }
     }
 
+    input_script_set_offset(input_offset);
     if (input_script && input_script_load(input_script) != 0)
         return 1;
 

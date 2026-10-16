@@ -135,6 +135,22 @@ wrong. `compare_hashes.py` prints the alignment; `compare_ram.py` then reports
 the variables that really differ and separates the ones that only depend on
 where in the frame the dump was taken.
 
+**Feed both runs the same input at the same point in the game.** The script is
+keyed by frame number, so the ~21-frame head start of the port means a press
+lands on a different point of the level in the two runs, and the player's
+movement then differs for the rest of the comparison.  `--input-offset N`
+shifts a script for one of the runs:
+
+```
+./build/zanac     --frames 700 --input tests/play.txt                 --hashes /tmp/p.hashes
+./build/zanac_rom --frames 700 --input tests/play.txt --input-offset 21 --hashes /tmp/r.hashes
+```
+
+With the input matched this way (or with a script that only starts the game and
+then stands still, `/tmp/still.txt` above) the port and the ROM agree on **98
+consecutive screens** and 54% of all frames, and the differences that remain are
+isolated single frames rather than a drift.
+
 `tools/compare_hashes.py` reports both the frame-level match and the *screen
 sequence* (how each run's framebuffers collapse into a list of distinct
 screens). The screen sequence is the meaningful test: the port does not execute
@@ -147,11 +163,11 @@ another at 200, then movement):
 | what | result |
 |---|---|
 | boot screens | same screens, in the same order, each shown for the same number of frames except the shortened boot |
-| screen sequence | **35 consecutive screens** frame-identical to the ROM |
+| screen sequence | **74 consecutive screens** frame-identical with the standard script, **98** with the input matched (`--input-offset`) |
 | port frame 317 vs ROM frame 280 (identical screens) | RAM state **identical**; the only named difference is `vblank_wait_flag`, which depends on the dump point |
 | that frame's PPU memory | pattern tables (CHR) **byte-identical**, name tables within **7 bytes** |
 | first divergence | screen 36: same state, but the fine scroll is one pixel out of phase |
-| stalls | none: `make auto` runs 12000-60000 frames on levels 1, 3 and 5, at normal and 4x scroll speed |
+| stalls | none: `make auto` runs 12000-60000 frames on **all twelve levels**, at normal and 4x scroll speed, plus 4000 frames on the game-over path |
 | enemy and shot sprites | **byte-identical OAM** at the aligned frames up to ~frame 330 (e.g. port 320 == ROM 281/285 exactly), then a few bytes drift (2 bytes at port 350, 10 at port 500) |
 | first real divergence | port frame 323: two sprites' Y differs by 3 pixels, everything else matches |
 

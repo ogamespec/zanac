@@ -84,6 +84,8 @@ int main(int argc, char **argv)
             s_dump = argv[++i];
         else if (!strcmp(argv[i], "--dump-ram") && i + 1 < argc)
             s_ramdump = argv[++i];
+        else if (!strcmp(argv[i], "--input-offset") && i + 1 < argc)
+            input_script_set_offset(strtol(argv[++i], NULL, 0));
         else if (!strcmp(argv[i], "--input") && i + 1 < argc)
             s_script = argv[++i];
         else {

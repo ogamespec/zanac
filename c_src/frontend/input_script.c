@@ -26,6 +26,7 @@ typedef struct {
 
 static ScriptStep *g_steps;
 static int         g_count;
+static long        g_offset;
 
 /* Case-insensitive comparison of two ASCII strings (strcasecmp is POSIX and
  * does not exist on MSVC, where it is _stricmp). */
@@ -101,10 +102,17 @@ int input_script_load(const char *path)
     return 0;
 }
 
+void input_script_set_offset(long frames)
+{
+    g_offset = frames;
+}
+
 uint8_t input_script_buttons(long frame)
 {
     uint8_t mask = 0;
     int i;
+
+    frame -= g_offset;
     for (i = 0; i < g_count; i++) {
         if (g_steps[i].frame <= frame)
             mask = g_steps[i].buttons;

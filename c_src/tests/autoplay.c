@@ -9,6 +9,7 @@
  *   ./build/zanac_auto 4                   four pixels of scroll per frame
  *   ./build/zanac_auto 4 5                 ... starting at level 5
  *   ./build/zanac_auto 0 3 60000           level 3, invincible, 60000 frames
+ *   for i in $(seq 1 12); do ./build/zanac_auto 1 $i 20000 || echo "LEVEL $i STALLED"; done
  *
  * What it does every frame:
  *   - keeps the ship invincible ($5AA bit 7 is the flag enemy_type_60 tests
@@ -64,7 +65,9 @@ static void on_alarm(int sig)
 
 static void hook(void)
 {
-    if (level >= 0) {
+    /* Force the level only while the game is starting it: poking it forever
+     * would also override the level the game advances to on its own. */
+    if (level >= 0 && frames < 400) {
         MEMW(0x7D, (uint8_t)level);
         MEMW(0x91, (uint8_t)level);
     }
