@@ -51,6 +51,13 @@ static bool g_vblank_reached;
 static bool g_vblank_live;
 static NeslibVBlankHook g_vblank_hook;
 
+/* True while the VBlank callback runs.  The ported game does call back into the
+ * engine from there (the music engine reaches all_enemies_destroyed -> vsync),
+ * and a nested wait must not re-dispatch the callback or reset the flags the
+ * outer wait is spinning on: on the real 6502 an NMI cannot be taken again
+ * before its handler returns with RTI. */
+static bool g_in_vblank;
+
 /* Counters for the debug builds (see neslib_debug_counts). */
 static long g_pump_calls;
 static long g_vblank_dispatches;
@@ -73,7 +80,9 @@ static void dot_tick(Nes *nes, bool dispatch)
                 g_vblank_hook();
             if (dispatch && (nes->ppu->ctrl & 0x80) && g_cb.vblank) {
                 g_vblank_dispatches++;
+                g_in_vblank = true;
                 g_cb.vblank();
+                g_in_vblank = false;
             }
         }
     }
@@ -223,12 +232,30 @@ void neslib_set_button(int port, int button, bool pressed)
 
 /* -------------------------------------------------------------- frames --- */
 
+/* Advance to the end of the current frame without dispatching the callback
+ * again.  Used when the game asks for a frame from inside the VBlank handler:
+ * the 6502 cannot take a nested NMI, so the handler only resumes on the next
+ * real vblank. */
+static void finish_frame_quietly(Nes *nes)
+{
+    uint64_t frame = nes->frame_count;
+
+    while (nes->frame_count == frame)
+        cycle_tick(nes, false);
+    g_vblank_reached = false;
+    g_vblank_live = false;
+}
+
 void neslib_wait_vblank(void)
 {
     Nes *nes = g_nes;
     uint64_t frame;
 
     if (!nes) return;
+    if (g_in_vblank) {
+        finish_frame_quietly(nes);
+        return;
+    }
 
     /* Run the visible part of the frame up to the point where $2002 bit 7 is
      * set (line 241, dot 1); the VBlank callback runs there.  If the game is
@@ -271,9 +298,14 @@ void neslib_wait_vblank_flag(void)
 void neslib_pump(void)
 {
     Nes *nes = g_nes;
+    uint64_t frame;
 
     g_pump_calls++;
     if (!nes) return;
+    if (g_in_vblank) {
+        finish_frame_quietly(nes);
+        return;
+    }
 
     /* The port of "let the NMI handler run while the 6502 spins".  The caller
      * is inside the game's own frame (it has not asked for a new one), so the
@@ -285,13 +317,28 @@ void neslib_pump(void)
      *      for the same frame;
      *   2. run to the next rise; dot_tick() dispatches the callback there.
      */
-    g_vblank_reached = false;
-    while (nes->ppu->status & 0x80)
-        cycle_tick(nes, true);
-
-    g_vblank_reached = false;
+    /* Finish the frame the caller is in, then run to the next vblank rise.  The
+     * advance is done by the frame counter rather than by polling $2002: the
+     * game may be spinning with the flag already set, and polling it would wait
+     * for a level edge the PPU only produces once per frame. */
+    finish_frame_quietly(nes);
     while (!g_vblank_reached)
         cycle_tick(nes, true);
+
+    /* Finish the frame exactly as neslib_wait_vblank() does and report it to
+     * the host.  This matters: the loops that spin in the ported code often
+     * wait for a controller press (menus, "continue?", the sound test), and
+     * the host can only see a press if it is given the frame.  Without this the
+     * game spins forever waiting for input that can never arrive.  It also
+     * makes a pumped frame indistinguishable from a requested one, so a host
+     * that counts frames counts *emulated* frames. */
+    frame = nes->frame_count;
+    while (nes->frame_count == frame)
+        cycle_tick(nes, false);
+    g_vblank_reached = false;
+    g_vblank_live = false;
+    if (g_frame_hook)
+        g_frame_hook();
 }
 
 void neslib_debug_counts(long *pumps, long *dispatches, long *frames)

@@ -1,12 +1,25 @@
-# Start the game and play for a while with a simple input pattern:
-#   START on the title screen, START on the menu, then move and shoot.
-60   START
-66   -
-100  START
-106  -
-180  RIGHT
-300  RIGHT+A
-420  -
-500  LEFT+A
-600  RIGHT+B
-700  UP
+# Scripted controller input, one line per change: "<frame> <buttons>".
+#
+# Frame numbers are *emulated* frames in both runs (the port's engine reports
+# every frame it advances, including those the game reaches by spinning), so the
+# two runs can be compared directly.
+#
+# The title screen lasts ~30 frames in the ROM and ~110 in the port, because the
+# port's reset warm-up runs a few extra frames; the first START is therefore
+# placed late enough to be seen by both (each press is held for a few frames,
+# and both runs end up in a game).
+120 START
+126 -
+200 START
+206 -
+320 UP
+380 -
+440 DOWN
+500 -
+560 LEFT
+620 -
+680 RIGHT
+740 -
+800 UP
+860 -
+END

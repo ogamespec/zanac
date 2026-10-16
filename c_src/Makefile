@@ -14,6 +14,7 @@ PYTHON  ?= python3
 BUILD   := build
 BIN     := $(BUILD)/zanac
 ROMBIN  := $(BUILD)/zanac_rom
+AUTOBIN := $(BUILD)/zanac_auto
 
 CFLAGS  ?= -std=c11 -O2 -g -Wall -Wextra \
            -Wno-unused-parameter -Wno-unused-const-variable \
@@ -32,9 +33,18 @@ SRC := $(NESLIB_SRC) $(ZANAC_SRC) $(FRONT_SRC)
 OBJ := $(patsubst %.c,$(BUILD)/obj/%.o,$(SRC))
 DEP := $(OBJ:.o=.d)
 
-.PHONY: all run shot clean generated verify compare rom
+.PHONY: all run shot clean generated verify compare rom auto
 
 all: $(BIN) $(ROMBIN)
+
+# The long-run harness (tests/autoplay.c): plays a level with the ship kept
+# invincible, optionally at a forced scroll speed or from a chosen level, and
+# reports a stall (the port's spin loops used to hang near the fortress).
+auto: $(AUTOBIN)
+
+$(AUTOBIN): $(filter-out zanac/main.c,$(SRC)) tests/autoplay.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ $(filter-out zanac/main.c,$(SRC)) tests/autoplay.c $(LDLIBS)
 
 generated:
 	@$(PYTHON) tools/gen_zanac.py
@@ -88,8 +98,8 @@ verify: $(BIN)
 # The reproducible acceptance test: at matched frames the port's PPU memory must
 # equal the ROM's (CHR byte for byte, name tables within the invisible attribute
 # bytes).  See Readme.md - the sprites cannot match, the background must.
-BGPORT ?= 140 200 260 320 400
-BGRAM  ?= 120 130 140 150 160 180 200 220 240 260 280 300 320 340 360 380 400 420
+BGPORT ?= 200 300 400 500 600
+BGRAM  ?= $(shell seq 20 10 700)
 
 check-bg: $(BIN) $(ROMBIN)
 	@for f in $(BGPORT); do $(BIN) --frames $$f --input $(SCRIPT) --dump-ppu $(BUILD)/pbg_$$f >/dev/null; done
@@ -104,6 +114,7 @@ compare: $(BIN) $(ROMBIN)
 	$(PYTHON) tools/compare_hashes.py $(BUILD)/rom.hashes $(BUILD)/port.hashes
 
 clean:
+	rm -f $(AUTOBIN)
 	rm -rf $(BUILD)
 
 -include $(DEP)

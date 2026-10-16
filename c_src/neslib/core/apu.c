@@ -943,7 +943,6 @@ void apu_tick(Apu *apu)
     }
 
     apu->apu_cycles++;
-
     pulse_step(apu, 0);
     pulse_step(apu, 1);
     noise_step(apu);

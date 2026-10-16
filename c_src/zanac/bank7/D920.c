@@ -23,6 +23,8 @@
  *     the calls and the callback into sub_C8DF stay where the original has
  *     them.
  */
+#include <stdio.h>
+#include <stdlib.h>
 #include "zanac.h"
 
 /* ------------------------------------------------------------------------ *
@@ -500,6 +502,8 @@ loc_DB58:                                    /* $DB58 */
     AND(ABSY(0x016E));                       /* AND $16E,Y */
     ORA(byte_11);                            /* ORA byte_11 */
     STA(ABSX(0x0104));                       /* STA $104,X */
+    if (getenv("ZANAC_ATTR")) fprintf(stderr,"port X=%02X val=%02X A1=%02X 14=%02X 9D=%02X maskY=%02X\n",
+        X, A, MEM8(0xA1), MEM8(0x14), MEM8(0x9D), (MEM8(0x14)&1)+2*(MEM8(0xA1)&1));
     INC(byte_14);                            /* INC byte_14 */
     LDX(byte_14);                            /* LDX byte_14 */
     CPXI(0x10);                              /* CPX #$10 */
