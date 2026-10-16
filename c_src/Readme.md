@@ -146,6 +146,31 @@ shifts a script for one of the runs:
 ./build/zanac_rom --frames 700 --input tests/play.txt --input-offset 21 --hashes /tmp/r.hashes
 ```
 
+The cleanest comparison of all presses START once and then leaves the pad alone
+(`--level N` on both sides forces the level, so any level can be checked this
+way):
+
+```
+printf '100 START\n122 -\n' > /tmp/go1.txt
+./build/zanac     --frames 1800 --level 1 --input /tmp/go1.txt --hashes /tmp/p.hashes
+./build/zanac_rom --frames 1818 --level 1 --input /tmp/go1.txt --hashes /tmp/r.hashes
+python3 tools/compare_hashes.py /tmp/r.hashes /tmp/p.hashes
+```
+
+| level | frames identical | screen sequence |
+|---|---|---|
+| 1 | 1770/1800 = **98.3%** | identical |
+| 3 | 870/900 = 96.7% | identical |
+| 5 | 870/900 = 96.7% | identical |
+| 7, 9, 11 | 670/700 = 95.7% | identical |
+
+and at the aligned frames the *whole* PPU and RAM state matches: name table 0
+differing bytes, OAM 0 differing bytes at frames 250, 400, 600, 900 and 1200 of
+level 1.  The frames that do differ are one 30-frame window at the title/credits
+transition - the port's credits screen lasts one frame longer, after which the
+two runs are back in lockstep (the port's transition screens are the ROM's, just
+one frame later).
+
 With the input matched this way (or with a script that only starts the game and
 then stands still, `/tmp/still.txt` above) the port and the ROM agree on **98
 consecutive screens** and 54% of all frames, and the differences that remain are

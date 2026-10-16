@@ -46,6 +46,7 @@ int main(int argc, char **argv)
     Nes *nes;
     long frames = 300;
     long input_offset = 0;
+    long level = -1;
     long i;
     const char *shot = NULL;
     const char *hashes = NULL;
@@ -61,6 +62,8 @@ int main(int argc, char **argv)
         else if (!strcmp(argv[i], "--input") && i + 1 < argc) input_script = argv[++i];
         else if (!strcmp(argv[i], "--input-offset") && i + 1 < argc)
             input_offset = strtol(argv[++i], NULL, 0);
+        else if (!strcmp(argv[i], "--level") && i + 1 < argc)
+            level = strtol(argv[++i], NULL, 0);
         else if (!strcmp(argv[i], "--dump-ppu") && i + 1 < argc) dump = argv[++i];
         else if (!strcmp(argv[i], "--dump-ram") && i + 1 < argc) ramdump = argv[++i];
         else if (!strcmp(argv[i], "--verbose")) verbose = 1;
@@ -84,6 +87,13 @@ int main(int argc, char **argv)
                 int b;
                 for (b = 0; b < 8; b++)
                     input_set_button(&nes->input, 0, b, (mask & (1u << b)) != 0);
+            }
+            /* Force the starting level for the first frames, exactly as
+             * tests/autoplay.c does for the port, so both runs can be compared
+             * on the same level. */
+            if (level >= 0 && i < 400) {
+                nes->ram[0x7D] = (uint8_t)level;
+                nes->ram[0x91] = (uint8_t)level;
             }
             nes_run_frame(nes);
             if (hf) {

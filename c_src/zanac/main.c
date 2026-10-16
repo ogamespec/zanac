@@ -36,6 +36,7 @@ static NeslibCallbacks callbacks = { reset, nmi_handler };
 static jmp_buf  s_stop;
 static long     s_frames;
 static long     s_max_frames = -1;
+static long     s_level = -1;       /* forced starting level, or -1 */
 static FILE    *s_hash_file;
 static int      s_stopped_by_host;
 
@@ -51,6 +52,12 @@ static void frame_hook(void)
         int b;
         for (b = 0; b < 8; b++)
             neslib_set_button(0, b, (mask & (1u << b)) != 0);
+    }
+    /* --level N: force the starting level for the first frames, the same way
+     * the reference runner does, so the two can be compared on one level. */
+    if (s_level >= 0 && s_frames < 400) {
+        MEMW(0x7D, (uint8_t)s_level);
+        MEMW(0x91, (uint8_t)s_level);
     }
     if (s_hash_file)
         fprintf(s_hash_file, "%ld %08X\n", s_frames,
@@ -84,6 +91,8 @@ int main(int argc, char **argv)
             s_dump = argv[++i];
         else if (!strcmp(argv[i], "--dump-ram") && i + 1 < argc)
             s_ramdump = argv[++i];
+        else if (!strcmp(argv[i], "--level") && i + 1 < argc)
+            s_level = strtol(argv[++i], NULL, 0);
         else if (!strcmp(argv[i], "--input-offset") && i + 1 < argc)
             input_script_set_offset(strtol(argv[++i], NULL, 0));
         else if (!strcmp(argv[i], "--input") && i + 1 < argc)
