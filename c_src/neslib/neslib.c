@@ -51,6 +51,9 @@ static bool g_vblank_reached;
 static bool g_vblank_live;
 static NeslibVBlankHook g_vblank_hook;
 
+/* CPU cycles one neslib_pump() call advances (see neslib_pump). */
+#define ZANAC_PUMP_CYCLES 32
+
 /* True while the VBlank callback runs.  The ported game does call back into the
  * engine from there (the music engine reaches all_enemies_destroyed -> vsync),
  * and a nested wait must not re-dispatch the callback or reset the flags the
@@ -68,7 +71,18 @@ static long g_vblank_dispatches;
  * keeps them before the pre-render t->v scroll copy at (261, 280-304). */
 static void dot_tick(Nes *nes, bool dispatch)
 {
+    uint64_t before = nes->frame_count;
+
     ppu_tick(nes->ppu);
+
+    if (nes->frame_count != before) {
+        /* A whole emulated frame just ended.  The host is told here, in the
+         * single place every frame passes through, so that it sees one frame
+         * per emulated frame whether the game asked for it or reached it by
+         * spinning (neslib_pump). */
+        if (g_frame_hook)
+            g_frame_hook();
+    }
     if (nes->ppu->status & 0x80) {
         g_vblank_live = true;
         if (!g_vblank_reached) {
@@ -298,47 +312,36 @@ void neslib_wait_vblank_flag(void)
 void neslib_pump(void)
 {
     Nes *nes = g_nes;
-    uint64_t frame;
 
     g_pump_calls++;
     if (!nes) return;
-    if (g_in_vblank) {
-        finish_frame_quietly(nes);
-        return;
+
+    /* The port of "let the NMI handler run while the 6502 spins".
+     *
+     * The original's spin loops execute thousands of iterations per frame (each
+     * one a handful of cycles) and only see the NMI's update once per frame.
+     * Advancing a whole frame per *iteration* modelled that wrongly: the boot,
+     * the menus and the level intro burned several times as many frames as the
+     * ROM, so the level started late - and because the level's scroll speed
+     * ramps up by 2/256 per frame, a late start left the whole level scrolling
+     * at half speed with the background attributes accumulating differently.
+     * Advance the few cycles an iteration of the real loop takes and let the
+     * caller's loop spin, exactly as the 6502 did. */
+    /* Re-arm the rise detection once the PPU has left vblank: while the game
+     * spins, every new frame must dispatch the VBlank callback again, exactly
+     * as the 6502 sees a fresh NMI each frame.  Without this the callback runs
+     * only once and the loops that wait for the NMI's work (the VRAM upload
+     * buffer, the scanline state) never see it. */
+    if (g_vblank_reached && !(nes->ppu->status & 0x80)) {
+        g_vblank_reached = false;
+        g_vblank_live = false;
     }
 
-    /* The port of "let the NMI handler run while the 6502 spins".  The caller
-     * is inside the game's own frame (it has not asked for a new one), so the
-     * engine has to be advanced to the *next* vblank rise, which is where the
-     * VBlank callback runs:
-     *
-     *   1. if the PPU is still inside vblank, run to its end, so that the rise
-     *      we wait for below is a new one and the callback does not run twice
-     *      for the same frame;
-     *   2. run to the next rise; dot_tick() dispatches the callback there.
-     */
-    /* Finish the frame the caller is in, then run to the next vblank rise.  The
-     * advance is done by the frame counter rather than by polling $2002: the
-     * game may be spinning with the flag already set, and polling it would wait
-     * for a level edge the PPU only produces once per frame. */
-    finish_frame_quietly(nes);
-    while (!g_vblank_reached)
-        cycle_tick(nes, true);
-
-    /* Finish the frame exactly as neslib_wait_vblank() does and report it to
-     * the host.  This matters: the loops that spin in the ported code often
-     * wait for a controller press (menus, "continue?", the sound test), and
-     * the host can only see a press if it is given the frame.  Without this the
-     * game spins forever waiting for input that can never arrive.  It also
-     * makes a pumped frame indistinguishable from a requested one, so a host
-     * that counts frames counts *emulated* frames. */
-    frame = nes->frame_count;
-    while (nes->frame_count == frame)
-        cycle_tick(nes, false);
-    g_vblank_reached = false;
-    g_vblank_live = false;
-    if (g_frame_hook)
-        g_frame_hook();
+    {
+        int i;
+        for (i = 0; i < ZANAC_PUMP_CYCLES; i++)
+            cycle_tick(nes, true);
+    }
 }
 
 void neslib_debug_counts(long *pumps, long *dispatches, long *frames)

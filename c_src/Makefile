@@ -99,7 +99,7 @@ verify: $(BIN)
 # equal the ROM's (CHR byte for byte, name tables within the invisible attribute
 # bytes).  See Readme.md - the sprites cannot match, the background must.
 BGPORT ?= 200 300 400 500 600
-BGRAM  ?= $(shell seq 20 10 700)
+BGRAM  ?= $(shell seq 20 2 700)
 
 check-bg: $(BIN) $(ROMBIN)
 	@for f in $(BGPORT); do $(BIN) --frames $$f --input $(SCRIPT) --dump-ppu $(BUILD)/pbg_$$f >/dev/null; done
