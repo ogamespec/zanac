@@ -152,17 +152,24 @@ another at 200, then movement):
 | that frame's PPU memory | pattern tables (CHR) **byte-identical**, name tables within **7 bytes** |
 | first divergence | screen 36: same state, but the fine scroll is one pixel out of phase |
 | stalls | none: `make auto` runs 12000-60000 frames on levels 1, 3 and 5, at normal and 4x scroll speed |
-| enemy and shot sprites after ~frame 160 | diverge (see below) |
+| enemy and shot sprites | **byte-identical OAM** at the aligned frames up to ~frame 330 (e.g. port 320 == ROM 281/285 exactly), then a few bytes drift (2 bytes at port 350, 10 at port 500) |
+| first real divergence | port frame 323: two sprites' Y differs by 3 pixels, everything else matches |
 
-The sprite divergence is the known limit of the port: the game's random number
-generator mixes the 6502 stack pointer into *every* byte it returns
-(`enemy_prng`, $872B: `TSX / TXA / ADC last_randomize_result / ...`), and a
-ported C procedure has no 6502 stack to read.  Enemy spawning, their directions
-and the shots therefore drift away from the original after the first couple of
-seconds, while the score and the scripted progression stay in step. Everything that
-does not depend on that entropy - the level streaming, the tile decoder, the
-scrolling engine, the attribute/nametable updates, the CHR bank loader, the
-score and the menus - stays byte-identical to the original.
+The game's random number generator mixes the 6502 **stack pointer** into every
+byte it returns (`enemy_prng`, $872B: `TSX / TXA / ADC last_randomize_result`),
+and a ported C procedure has no 6502 stack to read.  The port therefore passes
+the value in: every call site uses `ENEMY_PRNG_SP(sp)` with the stack pointer
+measured on the real ROM at that JSR by `make stack-scan`
+(`tests/stack_scan.c`) - each spawner is called from a fixed depth, so one
+measurement per site is enough.  With that in place the sprite memory matches the
+ROM byte for byte over long stretches of level 1.
+
+What is left are two small, localized differences: the seven invisible attribute
+bytes of the last background row (a stale write from the level load, present in
+VRAM but not in the port's attribute buffer) and, from port frame 323, the Y
+coordinate of two sprites three pixels out.  The level streaming, the tile
+decoder, the scrolling engine, the attribute/nametable updates, the CHR bank
+loader, the score and the menus all stay byte-identical to the original.
 
 Two further differences are deliberate and documented in the code: `apu_fx_5`
 (a sound script that unwinds the 6502 stack with four `PLA`s; the port returns

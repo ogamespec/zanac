@@ -324,7 +324,7 @@ sub_197B4:                                   /* $97B4 - entry of sub_197B4 */
  * ------------------------------------------------------------------------ */
 void sub_1981D(void)                         /* $981D */
 {
-    enemy_prng();                            /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF3);                            /* JSR enemy_prng */
     ANDI(3);                                 /* AND #3 */
     SBCI(1);                                 /* SBC #1 */
     STA(byte_14);                            /* STA $14 */
@@ -495,7 +495,7 @@ void enemy_type_12_13(void)                  /* $993C */
     STA(ABSX(byte_528));                     /* STA $528,X */
     ANDI(0x7F);                              /* AND #$7F */
     PHA();                                   /* PHA */
-    enemy_prng();                            /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF4);                            /* JSR enemy_prng */
     STA(ABSX(byte_5AA));                     /* STA $5AA,X */
     PLA();                                   /* PLA */
     TAY();                                   /* TAY */
@@ -815,7 +815,7 @@ loc_19BA1:                                   /* $9BA1 */
     BNE(loc_19BCC);                          /* BNE loc_19BCC */
     DEC(ABSX(unk_67A));                      /* DEC $67A,X */
     spawn_top_random_x_position();           /* JSR spawn_top_random_x_position */
-    enemy_prng();                            /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                            /* JSR enemy_prng */
     ANDI(0x7F);                              /* AND #$7F */
     ADCI(0x10);                              /* ADC #$10 */
     STA(ABSX(byte_542));                     /* STA $542,X */
@@ -928,7 +928,7 @@ void enemy_type_49_50_52(void)               /* $9C37 */
 loc_19C56:                                   /* $9C56 */
     update_chase_counters();                 /* JSR update_chase_counters */
     BCC(loc_19C65);                          /* BCC loc_19C65 */
-    enemy_prng();                            /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                            /* JSR enemy_prng */
     ANDI(0x0F);                              /* AND #$F */
     ADCI(0x14);                              /* ADC #$14 */
     STA(ABSX(byte_6E2));                     /* STA $6E2,X */
@@ -1024,7 +1024,7 @@ void sub_19CAB(void)                         /* $9CAB */
 loc_19CC4:                                   /* $9CC4 */
     LDAI(0x5B);                              /* LDA #$5B */
     STA(ABSX(byte_528));                     /* STA $528,X */
-    enemy_prng();                            /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                            /* JSR enemy_prng */
     STA(byte_14);                            /* STA $14 */
     LDAI(8);                                 /* LDA #8 */
     STA(byte_15);                            /* STA $15 */
@@ -1125,7 +1125,7 @@ loc_19D5A:                                   /* $9D5A */
     STA(ABSY(byte_716));                     /* STA $716,Y */
     LDAI(0x42);                              /* LDA #$42 */
     STA(ABSY(0x074A));                       /* STA $74A,Y */
-    enemy_prng();                            /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                            /* JSR enemy_prng */
     STA(ABSY(byte_77E));                     /* STA $77E,Y */
     LDAI(0x00);                              /* LDA #0 */
     STA(ABSY(byte_5AA));                     /* STA $5AA,Y */
@@ -1203,7 +1203,7 @@ loc_19DCB:                                   /* $9DCB */
     STA(ABSY(byte_764));                     /* STA $764,Y */
     LDAI(3);                                 /* LDA #3 */
     STA(ABSY(byte_660));                     /* STA $660,Y */
-    enemy_prng();                            /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                            /* JSR enemy_prng */
     STA(byte_14);                            /* STA $14 */
     LDAI(0x24);                              /* LDA #$24 */
     STA(ABSY(byte_5AA));                     /* STA $5AA,Y */

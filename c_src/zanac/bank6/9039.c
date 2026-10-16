@@ -1187,7 +1187,7 @@ loc_19515:                                    /* $9515 */
     LDYI(0x18);                               /* LDY #$18 */
     CMP(byte_2);                              /* CMP 2 ($02) */
     BCC(loc_1954B);                           /* BCC loc_1954B */
-    enemy_prng();                             /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                             /* JSR enemy_prng */
     LDYI(0x1B);                               /* LDY #$1B */
     LSR_A();                                  /* LSR */
     BCS(loc_1954B);                           /* BCS loc_1954B */
@@ -1249,7 +1249,7 @@ loc_19574:                                    /* $9574 */
  * ------------------------------------------------------------------------ */
 void enemy_type_68(void)                      /* $958E */
 {
-    enemy_prng();                             /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                             /* JSR enemy_prng */
     ANDI(0x7F);                               /* AND #$7F */
     ADCI(0x20);                               /* ADC #$20 */
     STA(byte_14);                             /* STA $14 */

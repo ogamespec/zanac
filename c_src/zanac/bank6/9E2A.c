@@ -240,7 +240,7 @@ loc_19F41:                                   /* $9F41 */
 void sub_19EB4(void)                         /* $9EB4 */
 {
     STY(byte_14);                            /* STY $14 */
-    enemy_prng();                            /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                            /* JSR enemy_prng */
     ANDI(0x01);                              /* AND #1 */
     BEQ(loc_19EBF);                          /* BEQ loc_19EBF */
     INC(byte_14);                            /* INC $14 */
@@ -502,7 +502,7 @@ void enemy_type_22(void)                     /* $9FD6 */
     BMI(loc_1A01B);                          /* BMI loc_1A01B */
     ORAI(0x80);                              /* ORA #$80 */
     STA(ABSX(byte_528));                     /* STA $528,X */
-    enemy_prng();                            /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                            /* JSR enemy_prng */
     LDYI(0);                                 /* LDY #0 */
     LSR_A();                                 /* LSR */
     BCC(loc_19FEA);                          /* BCC loc_19FEA */
@@ -625,7 +625,7 @@ void enemy_type_23(void)                     /* $A08A */
     BMI(loc_1A01B);                          /* BMI loc_1A01B */
     ORAI(0x80);                              /* ORA #$80 */
     STA(ABSX(byte_528));                     /* STA $528,X */
-    enemy_prng();                            /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                            /* JSR enemy_prng */
     LDYI(4);                                 /* LDY #4 */
     LSR_A();                                 /* LSR */
     BCC(loc_1A09E);                          /* BCC loc_1A09E */
@@ -716,7 +716,7 @@ void enemy_type_26(void)                     /* $A0BB */
     ORAI(0x80);                              /* ORA #$80 */
     STA(ABSX(byte_528));                     /* STA $528,X */
     spawn_top_random_x_position();           /* JSR spawn_top_random_x_position */
-    enemy_prng();                            /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                            /* JSR enemy_prng */
     ANDI(0x7F);                              /* AND #$7F */
     ADCI(0x10);                              /* ADC #$10 */
     STA(ABSX(byte_542));                     /* STA $542,X */
@@ -867,7 +867,7 @@ void enemy_type_27(void)                     /* $A16B */
     STA(ABSX(byte_55C));                     /* STA $55C,X */
     LDAI(0x02);                              /* LDA #2 */
     STA(ABSX(byte_646));                     /* STA $646,X */
-    enemy_prng();                            /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                            /* JSR enemy_prng */
     LSR_A();                                 /* LSR */
     BCC(loc_1A18F);                          /* BCC loc_1A18F */
     LDAI(0xE0);                              /* LDA #$E0 */
@@ -937,7 +937,7 @@ loc_1A16E:                                   /* $A16E - shared, owned by enemy_t
     STA(ABSX(byte_55C));                     /* STA $55C,X */
     LDAI(0x02);                              /* LDA #2 */
     STA(ABSX(byte_646));                     /* STA $646,X */
-    enemy_prng();                            /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                            /* JSR enemy_prng */
     LSR_A();                                 /* LSR */
     BCC(loc_1A18F);                          /* BCC loc_1A18F */
     LDAI(0xE0);                              /* LDA #$E0 */
@@ -991,7 +991,7 @@ void enemy_type_29_effine_T4(void)           /* $A1C9 */
     BMI(loc_1A201);                          /* BMI loc_1A201 */
     ORAI(0x80);                              /* ORA #$80 */
     STA(ABSX(byte_528));                     /* STA $528,X */
-    enemy_prng();                            /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                            /* JSR enemy_prng */
     ANDI(0x7F);                              /* AND #$7F */
     ADCI(0x40);                              /* ADC #64 */
     STA(ABSX(byte_55C));                     /* STA $55C,X */
@@ -1433,7 +1433,7 @@ void enemy_type_34_65_66(void)               /* $A3EC */
     BMI(loc_1A44A);                          /* BMI loc_1A44A */
     ORAI(0x80);                              /* ORA #$80 */
     STA(ABSX(byte_528));                     /* STA $528,X */
-    enemy_prng();                            /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                            /* JSR enemy_prng */
     ANDI(0x06);                              /* AND #6 */
     TAY();                                   /* TAY */
     LDA(ABSY(0xA4DF));                       /* LDA $A4DF,Y */
@@ -1614,7 +1614,7 @@ void enemy_type_46_47(void)                  /* $A509 */
     STA(ABSX(byte_5F8));                     /* STA $5F8,X */
     LDAI(0xE0);                              /* LDA #$E0 */
     STA(ABSX(byte_55C));                     /* STA $55C,X */
-    enemy_prng();                            /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                            /* JSR enemy_prng */
     LSR_A();                                 /* LSR */
     BCS(loc_1A56E);                          /* BCS loc_1A56E */
     LDAI(0x20);                              /* LDA #$20 */

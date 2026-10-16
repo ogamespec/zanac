@@ -113,7 +113,7 @@ loc_1AD9D:                                   /* $AD9D */
 loc_1ADA7:                                   /* $ADA7 */
     update_chase_counters();                 /* JSR update_chase_counters */
     BCC(loc_1ADB7);                          /* BCC loc_1ADB7 */
-    enemy_prng();                            /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                            /* JSR enemy_prng */
     ANDI(0x0F);                              /* AND #$F */
     ADC(ABSX(byte_6E2));                     /* ADC $6E2,X */
     STA(ABSX(byte_6E2));                     /* STA $6E2,X */
@@ -413,7 +413,7 @@ loc_1AF83:                                   /* $AF83 */
     sub_C02A();                              /* JSR sub_C02A */
     LDAI(0x01);                              /* LDA #1 */
     STA(ABSX(byte_5AA));                     /* STA $5AA,X */
-    enemy_prng();                            /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                            /* JSR enemy_prng */
     ANDI(0x07);                              /* AND #7 */
     goto loc_1AF37;                          /* JMP loc_1AF37 */
 
@@ -555,7 +555,7 @@ loc_1AF83:                                   /* $AF83 */
     sub_C02A();                              /* JSR sub_C02A */
     LDAI(0x01);                              /* LDA #1 */
     STA(ABSX(byte_5AA));                     /* STA $5AA,X */
-    enemy_prng();                            /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                            /* JSR enemy_prng */
     ANDI(0x07);                              /* AND #7 */
     goto loc_1AF37;                          /* JMP loc_1AF37 */
 
@@ -653,7 +653,7 @@ loc_1B0E5:                                   /* $B0E5 */
     BEQ(loc_1B10C);                          /* BEQ loc_1B10C */
     CMPI(0x0F);                              /* CMP #$F */
     BNE(loc_1B0F5);                          /* BNE loc_1B0F5 */
-    enemy_prng();                            /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                            /* JSR enemy_prng */
     ANDI(0x03);                              /* AND #3 */
     CLC();                                   /* CLC */
     ADCI(0x0F);                              /* ADC #$F */

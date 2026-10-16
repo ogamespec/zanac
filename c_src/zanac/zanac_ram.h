@@ -176,6 +176,20 @@ void shl_m(uint16_t addr, int kind);
 #define SEI()       do { F_I = 1; } while (0)
 #define CLV()       do { F_V = 0; } while (0)
 
+/* The original's enemy_prng ($872B) mixes the 6502 *stack pointer* into every
+ * byte it returns:
+ *
+ *     $872B  STX $10 / LDX $7E / SEC / ROL / EOR tab_18619_lo,X / ADC $10,X
+ *     $8738  TSX / TXA / ...            <- the stack pointer is the entropy
+ *
+ * The port has no 6502 stack to read, so the caller supplies the value: every
+ * call site passes the stack pointer measured on the real ROM at that JSR (see
+ * tools/rom_stack.py).  Without it every enemy position, direction and shot
+ * comes out different from the original.  The port's own stack pointer is
+ * restored so that PHA/PLA elsewhere keep working. */
+#define ENEMY_PRNG_SP(sp_value) \
+    do { uint8_t zanac_sp_saved = SP; SP = (uint8_t)(sp_value); enemy_prng(); SP = zanac_sp_saved; } while (0)
+
 #define PHA()       do { RAM[0x0100 + SP] = A; SP--; } while (0)
 #define PLA()       do { SP++; A = RAM[0x0100 + SP]; set_nz(A); } while (0)
 #define PHP()       do { RAM[0x0100 + SP] = pack_status(); SP--; } while (0)

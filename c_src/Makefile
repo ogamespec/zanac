@@ -15,6 +15,7 @@ BUILD   := build
 BIN     := $(BUILD)/zanac
 ROMBIN  := $(BUILD)/zanac_rom
 AUTOBIN := $(BUILD)/zanac_auto
+SCANBIN := $(BUILD)/stack_scan
 
 CFLAGS  ?= -std=c11 -O2 -g -Wall -Wextra \
            -Wno-unused-parameter -Wno-unused-const-variable \
@@ -33,7 +34,7 @@ SRC := $(NESLIB_SRC) $(ZANAC_SRC) $(FRONT_SRC)
 OBJ := $(patsubst %.c,$(BUILD)/obj/%.o,$(SRC))
 DEP := $(OBJ:.o=.d)
 
-.PHONY: all run shot clean generated verify compare rom auto
+.PHONY: all run shot clean generated verify compare rom auto stack-scan
 
 all: $(BIN) $(ROMBIN)
 
@@ -45,6 +46,16 @@ auto: $(AUTOBIN)
 $(AUTOBIN): $(filter-out zanac/main.c,$(SRC)) tests/autoplay.c
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ $(filter-out zanac/main.c,$(SRC)) tests/autoplay.c $(LDLIBS)
+
+# The 6502 stack pointer the original's enemy_prng sees at each JSR (see
+# tests/stack_scan.c).  Its output is what ENEMY_PRNG_SP() calls in zanac/bank6
+# are filled with.
+stack-scan: $(SCANBIN)
+
+$(SCANBIN): tests/stack_scan.c $(ROMBIN)
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ tests/stack_scan.c zanac/rom/zanac_banks.c \
+	    $(NESLIB_SRC) frontend/image.c frontend/input_script.c $(LDLIBS)
 
 generated:
 	@$(PYTHON) tools/gen_zanac.py
@@ -114,7 +125,7 @@ compare: $(BIN) $(ROMBIN)
 	$(PYTHON) tools/compare_hashes.py $(BUILD)/rom.hashes $(BUILD)/port.hashes
 
 clean:
-	rm -f $(AUTOBIN)
+	rm -f $(AUTOBIN) $(SCANBIN)
 	rm -rf $(BUILD)
 
 -include $(DEP)

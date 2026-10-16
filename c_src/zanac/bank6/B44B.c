@@ -168,7 +168,7 @@ void sub_1B49F(void)                         /* $B49F */
     BCS(locret_1B4D4);                       /* BCS locret_1B4D4 */
     LDAI(0x23);                              /* LDA #$23 */
     STA(ABSY(byte_528));                     /* STA $528,Y */
-    enemy_prng();                            /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                            /* JSR enemy_prng */
     AND(byte_14);                            /* AND $14 */
     PHA();                                   /* PHA */
     LDA(byte_14);                            /* LDA $14 */
@@ -178,7 +178,7 @@ void sub_1B49F(void)                         /* $B49F */
     SBC(byte_10);                            /* SBC $10 */
     ADC(byte_18);                            /* ADC $18 */
     STA(ABSY(byte_542));                     /* STA $542,Y */
-    enemy_prng();                            /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                            /* JSR enemy_prng */
     AND(byte_15);                            /* AND $15 */
     PHA();                                   /* PHA */
     LDA(byte_15);                            /* LDA $15 */
@@ -1053,7 +1053,7 @@ loc_1AF83:                                   /* $AF83 */
     sub_C02A();                              /* JSR sub_C02A */
     LDAI(1);                                 /* LDA #1 */
     STA(ABSX(byte_5AA));                     /* STA $5AA,X */
-    enemy_prng();                            /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                            /* JSR enemy_prng */
     ANDI(0x07);                              /* AND #7 */
     goto loc_1AF37;                          /* JMP loc_1AF37 */
 

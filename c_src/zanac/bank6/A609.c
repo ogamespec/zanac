@@ -401,7 +401,7 @@ loc_1A698:                                        /* $A698 */
  * ------------------------------------------------------------------------ */
 void enemy_type_64_random(void)                   /* $A6CF */
 {
-    enemy_prng();                                 /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                                 /* JSR enemy_prng */
     ANDI(0x03);                                   /* AND #3 */
     STA(byte_10);                                 /* STA $10 */
     LDA(byte_49);                                 /* LDA $49 */
@@ -512,7 +512,7 @@ void enemy_type_44_yellow_duster(void)            /* $A74C */
     ORAI(0x80);                                   /* ORA #$80 */
     STA(ABSX(byte_528));                          /* STA $528,X */
     spawn_top_random_x_position();                /* JSR spawn_top_random_x_position */
-    enemy_prng();                                 /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                                 /* JSR enemy_prng */
     ANDI(0x03);                                   /* AND #3 */
     STA(ABSX(0x074A));                            /* STA $74A,X */
     INC(ABSX(0x074A));                            /* INC $74A,X */
@@ -1430,7 +1430,7 @@ void enemy_type_43(void)                          /* $ABAA */
 void sub_1ABAF(void)                              /* $ABAF */
 {
     STA(ABSX(byte_528));                          /* STA $528,X */
-    enemy_prng();                                 /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                                 /* JSR enemy_prng */
     ANDI(0x7F);                                   /* AND #$7F */
     ADC(ABSX(byte_62C));                          /* ADC $62C,X */
     STA(ABSX(byte_62C));                          /* STA $62C,X */
@@ -1482,7 +1482,7 @@ void enemy_type_45(void)                          /* $ABE8 */
 {
     LDA(ABSX(byte_528));                          /* LDA $528,X */
     BMI(loc_1AC11);                               /* BMI loc_1AC11 */
-    enemy_prng();                                 /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                                 /* JSR enemy_prng */
     ANDI(0x01);                                   /* AND #1 */
     CLC();                                        /* CLC */
     ADCI(2);                                      /* ADC #2 */
@@ -1511,7 +1511,7 @@ loc_1AC0C:                                        /* $AC0C */
 loc_1AC11:                                        /* $AC11 */
     DEC(ABSX(byte_6E2));                          /* DEC $6E2,X */
     BNE(loc_1AC2F);                               /* BNE loc_1AC2F */
-    enemy_prng();                                 /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                                 /* JSR enemy_prng */
     BPL(loc_1AC0C);                               /* BPL loc_1AC0C */
     ANDI(0x08);                                   /* AND #8 */
     CLC();                                        /* CLC */
@@ -1615,7 +1615,7 @@ void enemy_type_20(void)                          /* $ACA3 */
     STA(ABSX(byte_716));                          /* STA $716,X */
     LDA(ABSX(byte_77E));                          /* LDA $77E,X */
     STA(ABSX(byte_646));                          /* STA $646,X */
-    enemy_prng();                                 /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                                 /* JSR enemy_prng */
     STA(ABSX(byte_62C));                          /* STA $62C,X */
 
 loc_1ACD8:                                        /* $ACD8 */

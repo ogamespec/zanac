@@ -197,7 +197,7 @@ void enemy_prng(void)                          /* $872B */
  * ------------------------------------------------------------------------ */
 void spawn_top_random_x_position(void)         /* $8746 */
 {
-    enemy_prng();                              /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF3);                              /* JSR enemy_prng */
     STY(byte_10);                              /* STY $10 */
     ANDI(0x7F);                                /* AND #$7F */
     STA(ABSX(byte_55C));                       /* STA $55C,X */
@@ -1261,7 +1261,7 @@ loc_18F96:                                     /* $8F96 */
     sub_1A2CB();                               /* JSR sub_1A2CB */
     LDAI(0x10);                                /* LDA #$10 */
     STA(byte_16);                              /* STA $16 */
-    enemy_prng();                              /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                              /* JSR enemy_prng */
     STA(byte_17);                              /* STA $17 */
 
 loc_18FB5:                                     /* $8FB5 */
@@ -1281,7 +1281,7 @@ loc_18FB5:                                     /* $8FB5 */
     STA(ABSX(0x07E6));                         /* STA $7E6,X */
     LDA(byte_17);                              /* LDA $17 */
     set_speed_by_slope();                      /* JSR set_speed_by_slope */
-    enemy_prng();                              /* JSR enemy_prng */
+    ENEMY_PRNG_SP(0xF5);                              /* JSR enemy_prng */
     PHA();                                     /* PHA */
     ANDI(0x03);                                /* AND #3 */
     STA(ABSX(byte_590));                       /* STA $590,X */
