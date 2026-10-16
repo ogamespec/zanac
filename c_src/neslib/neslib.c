@@ -290,8 +290,8 @@ void neslib_wait_vblank(void)
         cycle_tick(nes, false);
     g_vblank_reached = false;
     g_vblank_live = false;
-    if (g_frame_hook)
-        g_frame_hook();
+    /* The host is told about the frame in dot_tick(), where the frame counter
+     * changes - telling it here as well doubled every frame the host saw. */
 }
 
 void neslib_set_frame_hook(NeslibFrameHook hook)

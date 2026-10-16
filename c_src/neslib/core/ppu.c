@@ -560,7 +560,7 @@ void ppu_write_register(Ppu *ppu, uint16_t addr, uint8_t value)
      * and the original ROM set the scroll registers identically. */
     {   static int traced;
         const char *t = getenv("PPU_TRACE");
-        if (t && (reg == 0 || reg == 5 || reg == 6) && traced < atoi(t)) {
+        if (t && (reg == 0 || reg == 5 || reg == 6 || reg == 7) && traced < atoi(t)) {
             traced++;
             fprintf(stderr, "PPUW f=%llu line=%3d dot=%3d reg=%d val=%02X  t=%04X v=%04X fine_x=%d\n",
                     (unsigned long long)ppu->nes->frame_count, ppu->line, ppu->dot, reg, value,
