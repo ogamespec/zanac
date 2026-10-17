@@ -10,6 +10,22 @@
 #include "savestate.h"
 
 /* ------------------------------------------------------------------------ *
+ * sub_E8C9 has no RTS: every path tail-jumps back into sub_E81E, either at
+ * loc_E89E (which is also where the JSR returns, when it returns), at
+ * loc_E880 (the next frame of the level loop) or at loc_E876 (restart the
+ * loop's two counter bytes).  In C the two jumps are reported to the caller
+ * through this variable so that it can `goto` the matching label.  Entering
+ * sub_E81E() here instead would run its setup again (see the comment at the
+ * $E8C9 label below), which reset the level while the fortress was alive.
+ * ------------------------------------------------------------------------ */
+static enum {
+    ZANAC_E8C9_RETURN = 0,                   /* no jump: the original's caller
+                                              * continues at loc_E89E */
+    ZANAC_E8C9_GOTO_E880,                    /* JMP loc_E880: next frame      */
+    ZANAC_E8C9_GOTO_E876                     /* JMP loc_E876: restart counters */
+} s_e8c9_jump;
+
+/* ------------------------------------------------------------------------ *
  *  $E229  sub_E229 - the "hold this many buttons" cheat check of the menu
  *
  *  Original: src/bank7.asm:6393-6415
@@ -886,7 +902,19 @@ loc_E880_after_ea0b:                         /* resume of a pause save */
 
 loc_E8C9_call:                               /* $E8C9: the branch target is a procedure */
     sub_E8C9();                              /* JSR sub_E8C9 */
-    RTS();
+    /* The original's sub_E8C9 never returns: it ends with a jump back into
+     * this loop.  Follow that jump here (and *not* by calling sub_E81E(),
+     * which would re-run the setup above - that reset the level every time
+     * the fortress was on screen). */
+    if (s_e8c9_jump == ZANAC_E8C9_GOTO_E880) {
+        s_e8c9_jump = ZANAC_E8C9_RETURN;
+        goto loc_E880;                       /* JMP loc_E880 */
+    }
+    if (s_e8c9_jump == ZANAC_E8C9_GOTO_E876) {
+        s_e8c9_jump = ZANAC_E8C9_RETURN;
+        goto loc_E876;                       /* JMP loc_E876 */
+    }
+    goto loc_E89E;                           /* the JSR's fall-through */
 
 loc_E89E:                                    /* $E89E (also jumped to from sub_E8C9) */
     LDA(game_mode);                          /* LDA game_mode */
@@ -951,6 +979,7 @@ loc_E8BA:                                    /* $E8BA */
  * ------------------------------------------------------------------------ */
 void sub_E8C9(void)                          /* $E8C9 */
 {
+    s_e8c9_jump = ZANAC_E8C9_RETURN;         /* no tail jump unless taken below */
     CMPI(0x10);                              /* CMP #$10 */
     BEQ(loc_E917);                           /* BEQ loc_E917 */
     LDA(byte_4B);                            /* LDA byte_4B */
@@ -1011,22 +1040,19 @@ loc_E937:                                    /* $E937 */
     RTS();
 
 loc_E89E:                                    /* $E89E (inside sub_E81E) */
-    /* The original jumps back into the level loop's frame code.  Reproduce
-     * the target block here, exactly as sub_E81E has it. */
+    /* $E8C9 ends with JMP loc_E89E, which is in the middle of sub_E81E.  The
+     * original never calls sub_E81E's prologue again from here: it continues
+     * with the next frame of the level loop, so report the target to the
+     * caller instead of entering sub_E81E() (see the top of this file). */
     LDA(game_mode);                          /* LDA game_mode */
     ANDI(0xBF);                              /* AND #$BF */
     CMP(game_mode);                          /* CMP game_mode */
-    BEQ(loc_E880_here);                      /* BEQ loc_E880 */
+    if (F_Z) {                               /* BEQ loc_E880 */
+        s_e8c9_jump = ZANAC_E8C9_GOTO_E880;
+        RTS();
+    }
     STA(game_mode);                          /* STA game_mode */
-    BNE(loc_E876_here);                      /* BNE loc_E876 */
-    RTS();
-
-loc_E880_here:                               /* $E880 */
-    sub_E81E();                              /* the level loop's next iteration */
-    RTS();
-
-loc_E876_here:                               /* $E876 */
-    sub_E81E();                              /* re-enter the level loop */
+    s_e8c9_jump = ZANAC_E8C9_GOTO_E876;      /* BNE loc_E876 (always taken) */
     RTS();
 
 loc_level_E937:                              /* $E937 (the LDY #$FF path) */

@@ -344,6 +344,17 @@ the difference drops to the player sprite alone (96 pixels, one sprite's X).
 `Nespeculator <rom.nes> --headless` with `NES_AUTOINPUT`/`NES_AUTOSHOTFILE`
 produces the reference framebuffer for exactly this comparison.
 
+A control-flow fix was needed for the fortress.  `sub_E8C9` has no `RTS`: when
+the fortress is on screen, its `loc_E89E` path tail-jumps into the middle of
+the level loop (`loc_E880`).  The port reproduced the two jumps by calling
+`sub_E81E()` recursively, which re-ran its setup (clear OAM, reload the level,
+redraw the "AREA n" intro).  With the fortress alive `byte_528` and `game_mode`
+keep that path taken, so every visit restarted the level: the "AREA 1 forever"
+loop of the fortress save state.  The two targets are now reported to the
+caller, which `goto`s the actual labels (`loc_E880`/`loc_E876`), so the fight
+continues in place; a state saved during the fight still reloads frame for
+frame (500/500 hashes).
+
 Two further differences are deliberate and documented in the code: `apu_fx_5`
 (a sound script that unwinds the 6502 stack with four `PLA`s; the port returns
 normally instead) and `sub_EFA6` (whose `RTS` would land one byte past the
