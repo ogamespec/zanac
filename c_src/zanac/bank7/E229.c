@@ -7,6 +7,7 @@
  * reset -> main_menu_loop -> sub_E81E is the game's outer loop.
  */
 #include "zanac.h"
+#include "savestate.h"
 
 /* ------------------------------------------------------------------------ *
  *  $E229  sub_E229 - the "hold this many buttons" cheat check of the menu
@@ -697,6 +698,9 @@ loc_E7BB:                                    /* $E7BB */
  * ------------------------------------------------------------------------ */
 void reset(void)                             /* $E7BF */
 {
+    /* A frame boundary inside the warm-up can be saved too; the menu loop is
+     * where such a state resumes (see zanac_ram.h and zanac/savestate.c). */
+    zanac_resume_kind = ZANAC_RESUME_MENU;
     LDAI(0);                                 /* LDA #0 */
     STA(byte_20);                            /* STA byte_20 */
     STA(cram_update_mode);                   /* STA cram_update_mode */
@@ -759,6 +763,10 @@ loc_E7F6:                                    /* $E7F6 */
  * ------------------------------------------------------------------------ */
 void main_menu_loop(void)                    /* $E806 */
 {
+    /* Save states restart here (see zanac_ram.h).  The function re-shows the
+     * menu from its first screen, which is exactly what the original does when
+     * this loop is entered. */
+    zanac_resume_kind = ZANAC_RESUME_MENU;
     LDXI(0xFF);                              /* LDX #$FF */
     TXS();                                   /* TXS */
     switch_bank_6();                         /* JSR switch_bank_6 */
@@ -781,6 +789,22 @@ void main_menu_loop(void)                    /* $E806 */
  * ------------------------------------------------------------------------ */
 void sub_E81E(void)                          /* $E81E */
 {
+    /* Pause save resume: sub_EA0B has just returned; continue the loop after
+     * its call. */
+    if (zanac_resume_level_after_ea0b) {
+        zanac_resume_level_after_ea0b = 0;
+        goto loc_E880_after_ea0b;
+    }
+    /* Resuming a save made inside the level loop: the setup below has already
+     * run in the state being restored, so enter the loop directly.  The same
+     * branch is used when the save was taken during the setup itself, in which
+     * case the flag is not set and the setup is re-run from its first
+     * instruction (all of its inputs are in the restored RAM). */
+    if (zanac_resume_skip_setup) {
+        zanac_resume_skip_setup = 0;
+        goto loc_E880;
+    }
+    zanac_resume_kind = ZANAC_RESUME_LEVEL_SETUP;
     switch_bank_6();                         /* JSR switch_bank_6 */
     ppu_disable_all();                       /* JSR ppu_disable_all */
     clear_oam_buffer();                      /* JSR clear_oam_buffer */
@@ -834,10 +858,22 @@ loc_E876:                                    /* $E876 */
     STA(byte_5AA);                           /* STA byte_5AA */
 
 loc_E880:                                    /* $E880 */
+    /* From here on the per-frame level loop is running: a save state resumes
+     * at loc_E880 (see zanac_ram.h).  Setting the kind here (and not once
+     * before the label) also covers a resume that rejoins the loop from the
+     * pause continuation. */
+    zanac_resume_kind = ZANAC_RESUME_LEVEL;
+    /* Hand-written save-state boundary (see zanac/savestate.h): the host
+     * captures a requested state here, where the whole program state is in
+     * RAM/registers and the room has no C call stack.  It is a no-op unless a
+     * save is pending. */
+    zanac_state_checkpoint();
     sub_D7E3();                              /* JSR sub_D7E3 */
     sub_1801E();                             /* JSR sub_1801E */
     LDYI(1);                                 /* LDY #1 */
     sub_EA0B();                              /* JSR sub_EA0B */
+
+loc_E880_after_ea0b:                         /* resume of a pause save */
     sub_D0BF();                              /* JSR sub_D0BF */
     sub_D480();                              /* JSR sub_D480 */
     LDA(byte_528);                           /* LDA byte_528 */
@@ -1227,6 +1263,13 @@ loc_E9FB:                                    /* $E9FB */
  * ------------------------------------------------------------------------ */
 void sub_EA0B(void)                          /* $EA0B */
 {
+    /* Pause save resume: the caller (zanac_state_resume) has already run
+     * sub_D3A8 at loc_D3B9; continue where sub_D3A8 returned (loc_EA25).  The
+     * emulated stack still holds this procedure's pushed X and Y. */
+    if (zanac_resume_ea0b_after_pause) {
+        zanac_resume_ea0b_after_pause = 0;
+        goto loc_EA25;
+    }
     TXA();                                   /* TXA */
     PHA();                                   /* PHA */
 

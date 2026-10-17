@@ -14,11 +14,28 @@
  * engine call it once per frame.  These are the two hook implementations.
  *
  * frontend_init() is called before the engine starts, frontend_frame() once
- * per frame; it returns non-zero when the run should stop (the caller then
- * leaves neslib_reset() with a longjmp).  frontend_shutdown() runs at exit. */
+ * per frame; it returns what the host should do next (the caller leaves the
+ * game loop with a longjmp when it is not FRONTEND_CONTINUE).
+ * frontend_shutdown() runs at exit.
+ *
+ * The SDL frontend reports a save/load key through the return value instead of
+ * calling the save-state code itself: the state belongs to the game
+ * (zanac/savestate.c), which the frontend does not link against directly.  The
+ * frame returned by frontend_frame() is a frame boundary, which is exactly the
+ * point a state may be captured or replaced. */
+enum {
+    FRONTEND_CONTINUE    = 0,
+    FRONTEND_QUIT        = 1,
+    FRONTEND_SAVE_STATE  = 2,   /* F5: main writes the state, then continues */
+    FRONTEND_LOAD_STATE  = 3    /* F7: main loads the state and resumes      */
+};
 int  frontend_init(void);
 int  frontend_frame(void);
 void frontend_shutdown(void);
+
+/* Called after a state was loaded (the SDL frontend drops the queued audio and
+ * re-synchronises the frame clock; the headless one has nothing to do). */
+void frontend_state_loaded(void);
 
 /* Write a framebuffer (256x240, 0x00RRGGBB) as a binary PPM (P6). */
 int frontend_write_ppm(const char *path, const uint32_t *framebuffer,

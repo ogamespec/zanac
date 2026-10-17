@@ -27,6 +27,9 @@ build-msvc/
 *.ppm
 *.wav
 
+# Save states written by F5 / --save-state.
+*.state
+
 # Python bytecode caches (tools/ and Scripts/).
 __pycache__/
 *.py[cod]

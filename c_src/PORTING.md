@@ -244,8 +244,8 @@ continue into the next procedure, and several entry points share one `RTS`.
 
 ## 7. Hand-written glue (not part of the ported assembly)
 
-`c_src/zanac/zanac_ram.c`, `thunks.c`, `stubs.c`, `zanac_dispatch.c` and
-`main.c` are hand-written or generated support code. They are the only places
+`c_src/zanac/zanac_ram.c`, `savestate.c/.h`, `thunks.c`, `stubs.c`,
+`zanac_dispatch.c` and `main.c` are hand-written or generated support code. They are the only places
 allowed to use plain C idioms; they must still document the 6502 address of
 anything they replace.
 
@@ -259,7 +259,30 @@ NeslibCallbacks cb = { reset, nmi_handler };
 
 ---
 
-## 8. Build and check
+## 8. Save-state glue
+
+Save states need a few hand-written statements inside otherwise literal ported
+procedures. They are deliberate and must be kept when re-porting a chunk:
+
+* `zanac_state_checkpoint()` at the top of the level loop (`sub_E81E`,
+  `loc_E880`), the pause loop (`sub_D3A8`, `loc_D3B9`) and both menu loops
+  (`show_main_menu`, `loc_E080` and `loc_E190`). It is a no-op unless the host has a pending
+  save; the host may `longjmp` out of it (that is how `--save-state` stops after
+  writing a canonical file).
+* The `zanac_resume_*` guards at `reset`, `main_menu_loop`, `sub_E81E`,
+  `sub_EA0B`, `sub_D3A8` and `show_main_menu`. They skip a prologue that has
+  already run in the restored state and `goto` the matching loop label. In a
+  normal run every flag is 0, so the instructions execute exactly as written in
+  the assembly.
+* `zanac_resume_kind = ...` before each loop, which records where a snapshot
+  belongs (`menu`, `menu-select`, `level`, `level-setup`, `pause`).
+
+The file format, the complete field lists and the resume chains are documented
+in `zanac/savestate.c`. Changing a field list requires a format-version bump.
+
+---
+
+## 9. Build and check
 
 ```
 python3 c_src/tools/gen_zanac.py      # regenerate vars.h/labels.h/bank images

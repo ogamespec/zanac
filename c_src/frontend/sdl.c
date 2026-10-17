@@ -18,7 +18,8 @@
  * Audio:  the APU's decimated samples are pushed into an SDL audio stream
  *         (48 kHz, mono, float) once per frame.
  * Input:  arrows/WASD, Z or J = B, X or K = A, Enter = Start,
- *         Space/Backspace = Select, Esc = quit.
+ *         Space/Backspace = Select, F5 = save state, F7 = load state,
+ *         F12 = PPM screenshot, Esc = quit.
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -165,6 +166,7 @@ int frontend_init(void)
 int frontend_frame(void)
 {
     SDL_Event event;
+    int action = FRONTEND_CONTINUE;
 
     /* ZANAC_AUDIO_LOG=1 prints how far the sound card is behind the emulation,
      * once a second - the diagnostic for the audio pacing. */
@@ -192,6 +194,17 @@ int frontend_frame(void)
             case SDLK_F2: s_scale = 2; SDL_SetWindowSize(s_window, 512, 480); break;
             case SDLK_F3: s_scale = 3; SDL_SetWindowSize(s_window, 768, 720); break;
             case SDLK_F4: s_scale = 4; SDL_SetWindowSize(s_window, 1024, 960); break;
+            case SDLK_F5:
+                /* Save/load are reported to main.c, which owns the game-side
+                 * state (see frontend.h).  Ignore auto-repeat: holding the key
+                 * must not write the file every keyboard repeat. */
+                if (!event.key.repeat)
+                    action = FRONTEND_SAVE_STATE;
+                break;
+            case SDLK_F7:
+                if (!event.key.repeat)
+                    action = FRONTEND_LOAD_STATE;
+                break;
             case SDLK_F12: {
                 /* F12 writes what is on screen right now; the file name is
                  * printed on stderr so a bug report can point at the frame. */
@@ -223,7 +236,20 @@ int frontend_frame(void)
         SDL_RenderPresent(s_renderer);
     }
 
-    return s_running ? 0 : 1;
+    if (!s_running)
+        return FRONTEND_QUIT;
+    return action;
+}
+
+void frontend_state_loaded(void)
+{
+    /* The state belongs to a different point in time: the samples already
+     * queued for the sound card are from the run that was left, and the next
+     * vblank is not due at the old schedule. */
+    if (s_audio)
+        SDL_ClearAudioStream(s_audio);
+    s_next_frame_ns = 0.0;
+    s_accumulator_ns = 0.0;
 }
 
 void frontend_shutdown(void)

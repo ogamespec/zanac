@@ -154,6 +154,13 @@ void    neslib_debug_counts(long *pumps, long *dispatches, long *frames);
 /* The engine handle, for the diagnostic dumps (frontend_dump_ppu). */
 void   *neslib_debug_nes(void);
 
+/* Called by the save-state loader once the PPU/APU/cartridge/RAM state has been
+ * put back.  Drops the engine's per-frame latches (the loaded state is resumed
+ * from a game loop, not from inside the wait that was interrupted) and empties
+ * the queued audio so the sound card does not play samples from the run that
+ * was abandoned. */
+void    neslib_state_after_load(void);
+
 uint8_t neslib_ppu_ctrl(void);
 uint8_t neslib_ppu_mask(void);
 bool    neslib_nmi_enabled(void);

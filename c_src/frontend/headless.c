@@ -30,6 +30,10 @@ int frontend_frame(void)
     return s_max && s_frames >= s_max;
 }
 
+void frontend_state_loaded(void)
+{
+}
+
 void frontend_shutdown(void)
 {
 }

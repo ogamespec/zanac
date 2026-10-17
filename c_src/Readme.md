@@ -32,6 +32,7 @@ c_src/
     rom/zanac_banks.c   the assembled PRG banks as C arrays       (generated)
     bank6/*.c           bank 6 ($8000-$BFFF): enemy & game logic
     bank7/*.c           bank 7 ($C000-$FFFF): engine, PPU/APU, menus
+    savestate.c/.h      save states: engine + ported 6502 state, versioned file
     main.c              entry point, installs Reset/NMI as engine callbacks
   frontend/             host side: SDL3 window, headless runner, PPM/WAV dumps
   reference/run_rom.c   the ORIGINAL ROM running in the same engine (verifier)
@@ -87,6 +88,85 @@ Screenshots of a run (and of the original ROM in the same engine) are in
 `shots/`: `07_port_vs_rom_start.png` is the port's frame 140 next to the ROM's
 frame 160, `04_port_vs_rom_level1.png` three later pairs.
 
+## Save states
+
+The SDL build has **F5 = save** and **F7 = load**.  A state file is a complete
+snapshot of the machine the port is modelling: the 2 KB work RAM, the ported
+6502 registers and flags, the UxROM bank latch, the PPU (registers, CIRAM,
+palette, OAM, framebuffer, per-dot pipelines), the APU (all channels, frame
+counter, DMC) and the cartridge's 8 KB CHR RAM.  F5 writes
+`zanac_quicksave.state` in the working directory; `ZANAC_STATE_FILE` (or the
+`--save-state` / `--load-state` paths) selects another file.
+
+**A reload continues the exact frame.**  The state cannot carry the C call
+stack, so a save is taken at one of the game's per-frame loop boundaries - all
+live state is in RAM/registers there and the loader re-enters the same loop:
+
+| loop | boundary | ported procedure |
+|---|---|---|
+| level | `loc_E880` (`$E880`) | `sub_E81E` (before `sub_D7E3`) |
+| pause | `loc_D3B9` (`$D3B9`) | `sub_D3A8` (the pause-screen loop) |
+| menu (title/demo) | `loc_E080` (`$E080`) | `show_main_menu` |
+| menu (GAME START/CONTINUE) | `loc_E190` (`$E190`) | `show_main_menu` |
+
+F5 therefore writes at the next such boundary (a fraction of a second later),
+and `--save-state` waits for one before the run stops.  Loading rebuilds the
+outer C frames for that boundary (`zanac_state_resume`): a level save enters
+`sub_E81E` at `loc_E880`, a pause save re-enters `sub_D3A8` at `loc_D3B9` and
+then continues through `sub_EA0B`/`sub_E81E`, a menu save re-enters
+`show_main_menu` at `loc_E080` (title/demo) or `loc_E190` (the GAME
+START/CONTINUE selector) and runs the rest of `main_menu_loop`.  A loop
+that reaches none of these (the sound-test screen, a long spin) falls back after
+about ten seconds to an immediate snapshot; `--state-info` reports whether a
+file was captured at a canonical boundary (`level`, `level-setup`, `pause`,
+`menu`, `menu-select`) or not.
+
+The same mechanism works off-line, which is what makes a save useful in a bug
+report:
+
+```
+# play, then capture
+./build/zanac --frames 1200 --input tests/play.txt --save-state /tmp/level1.state
+
+# inspect without running anything
+./build/zanac --state-info /tmp/level1.state
+
+# reproduce: N frames *after loading*, same input timeline, screenshots/dumps
+./build/zanac --load-state /tmp/level1.state --frames 300 \
+              --input tests/play.txt --hashes /tmp/reload.hashes
+./build/zanac --load-state /tmp/level1.state --frames 10 --shot bug.ppm
+```
+
+`--save-at N` and `--load-at N` are the scripted equivalents of F5 and F7: they
+run the same action at frame N, which is how the mid-run save/load path is
+tested without a window.  `--save-at` uses the `--save-state` path (or the
+quick-state path), `--load-at` the `--load-state` path (or the quick-state
+path).
+
+The hashes of the reloaded run match the direct run exactly after the saved
+frame (measured: 500/500 and 800/800 frames on level 1, 400/400 on level 5,
+500/500 on level 11, 300/300 on the menu, 150/150 on the pause screen,
+600/600 across the GAME START/CONTINUE selector into a level, and a mid-run F7
+load after 1000 frames, all with the scripted input).  `make state-check`
+reproduces the level case (save at frame 1000, reload in a fresh process, compare the next 500
+frame hashes).  `--frames N` together with `--load-state` means N frames
+of the reloaded run; without a load it keeps its old meaning (N frames from the
+reset vector).
+
+The file format is documented at the top of `zanac/savestate.c`.  It is
+little-endian, holds a magic, a container/payload version, the payload size and
+a CRC-32, and writes every field explicitly (not a memory dump), so it does not
+depend on struct padding or compiler layout.  A file from another board or a
+different format version is rejected before the live state is touched; a state
+is only meaningful for the same source revision (rebuild the commit recorded in
+the bug report before loading it).  The APU's
+decimated audio queue and the C stack are deliberately not saved: the queue is
+dropped on load and the outer loop is restarted.
+
+For a bug report, send the `.state` file together with the command line and the
+commit; `--state-info` prints the host frame, emulated frame, level, bank and
+whether the file was captured at a canonical frame boundary.
+
 ## Audio pacing
 
 The ported game does not only ask for frames: the loops that wait for state the
@@ -120,6 +200,7 @@ make compare FRAMES=900 SCRIPT=tests/play.txt   # port vs ROM, per-frame hashes
 make verify                                     # against tests/rom_play_900.hashes
 make check-bg                                   # PPU memory (CHR/nametables) at matched frames
 make auto                                       # long run with a stall watchdog (tests/autoplay.c)
+make state-check                                # save at frame 1000, reload, 500 frames identical
 ./build/zanac     --frames 317 --input tests/play.txt --dump-ppu /tmp/p --dump-ram /tmp/p.ram
 ./build/zanac_rom --frames 280 --input tests/play.txt --dump-ppu /tmp/r --dump-ram /tmp/r.ram
 python3 tools/compare_ram.py /tmp/p.ram /tmp/r.ram   # RAM, byte by byte, by variable name

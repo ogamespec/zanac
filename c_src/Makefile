@@ -34,7 +34,7 @@ SRC := $(NESLIB_SRC) $(ZANAC_SRC) $(FRONT_SRC)
 OBJ := $(patsubst %.c,$(BUILD)/obj/%.o,$(SRC))
 DEP := $(OBJ:.o=.d)
 
-.PHONY: all run shot clean generated verify compare rom auto stack-scan
+.PHONY: all run shot clean generated verify compare rom auto stack-scan state-check
 
 all: $(BIN) $(ROMBIN)
 
@@ -96,6 +96,8 @@ shot: $(BIN)
 #                 stored in tests/ (tests/rom_play_900.hashes)
 #   make compare  re-run BOTH the original ROM and the port, then compare them
 #                 (slower, but it regenerates the reference)
+#   make state-check  save at frame 1000, reload in a fresh process and check
+#                 that the next 500 frames are identical
 #
 # The hashes are FNV-1a of the whole 256x240 framebuffer, one line per frame.
 FRAMES ?= 900
@@ -105,6 +107,18 @@ REFHASH ?= tests/rom_play_900.hashes
 verify: $(BIN)
 	$(BIN) --frames $(FRAMES) --input $(SCRIPT) --hashes $(BUILD)/port.hashes
 	$(PYTHON) tools/compare_hashes.py $(REFHASH) $(BUILD)/port.hashes
+
+# Save states: the reloaded run must continue the direct run frame for frame.
+# tests/play.txt is in level 1 at frame 1000, so the snapshot is taken at the
+# canonical level boundary (loc_E880) at exactly that frame.
+state-check: $(BIN)
+	@$(BIN) --frames 1000 --input $(SCRIPT) --save-state $(BUILD)/state_check.state >/dev/null
+	@$(BIN) --frames 1500 --input $(SCRIPT) --hashes $(BUILD)/state_direct.hashes >/dev/null
+	@$(BIN) --load-state $(BUILD)/state_check.state --frames 500 --input $(SCRIPT) \
+	    --hashes $(BUILD)/state_reload.hashes >/dev/null
+	@tail -n +1001 $(BUILD)/state_direct.hashes > $(BUILD)/state_expected.hashes
+	@cmp $(BUILD)/state_expected.hashes $(BUILD)/state_reload.hashes
+	@echo "save state: 500/500 frames identical after reload"
 
 # The reproducible acceptance test: at matched frames the port's PPU memory must
 # equal the ROM's (CHR byte for byte, name tables within the invisible attribute

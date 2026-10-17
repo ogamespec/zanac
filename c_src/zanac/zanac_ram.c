@@ -41,6 +41,13 @@ uint8_t zanac_bank(void)
     return s_bank;
 }
 
+/* Load path only: put the latch back without recording a mapper-write in the
+ * diagnostic history (a load is not a bank switch the game executed). */
+void zanac_bank_restore(uint8_t bank)
+{
+    s_bank = (uint8_t)(bank & 0x0F);
+}
+
 /* Diagnostic ring of the most recent bank selections (see zanac_call_at_missing
  * in the generated zanac_dispatch.c): the port's banking is transparent, so a
  * wrong selection shows up as a bogus computed call a lot later. */
@@ -235,6 +242,18 @@ uint16_t zanac_inline_table;
 jmp_buf zanac_unwind_env;
 int     zanac_unwind_armed;
 int     zanac_unwind_pending;
+
+/* Save-state resume point (see zanac_ram.h): the per-frame loop the ported
+ * code is in at a checkpoint.  E229.c, D2FD.c and D920.c set it on entry to the
+ * level, pause and both menu loops; the loader restores it and then calls
+ * zanac_state_resume(). */
+uint8_t zanac_resume_kind = ZANAC_RESUME_MENU;
+uint8_t zanac_resume_skip_setup;
+uint8_t zanac_resume_pause;
+uint8_t zanac_resume_ea0b_after_pause;
+uint8_t zanac_resume_level_after_ea0b;
+uint8_t zanac_resume_menu;
+uint8_t zanac_resume_menu_select;
 
 /* RTS to a computed address: pop the two bytes the original pushed and call
  * the ported procedure that lives there (RTS adds one to the popped address). */

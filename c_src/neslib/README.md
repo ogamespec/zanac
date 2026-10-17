@@ -18,7 +18,10 @@ neslib/
     bus.c/.h      CPU address space
     cpu.c/.h      the 6502 core (kept so the original ROM can also be run —
     cpu_ops.c     c_src/reference/run_rom.c does exactly that)
-    state.c/.h    save states (unused by the port, kept with the core)
+    state.c/.h    save states of the emulator core (kept with the core; the
+                  port's own save states are in ../zanac/savestate.c, because
+                  they also contain the ported 6502 registers and the game's
+                  resume point)
 ```
 
 ## The API

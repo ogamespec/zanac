@@ -74,11 +74,45 @@ void    zanac_mem_write(uint16_t addr, uint8_t value);
 
 uint8_t zanac_bank(void);                              /* current bank number */
 
+/* Restore the bank latch from a save state (zanac/savestate.c).  Unlike
+ * zanac_switch_bank() this is not a mapper write and is not recorded in the
+ * diagnostic history. */
+void    zanac_bank_restore(uint8_t bank);
+
 /* The last 16 bank selections, oldest first (a debugging aid). */
 extern uint8_t zanac_bank_history[16];
 extern int     zanac_bank_history_pos;
 void    zanac_switch_bank(uint8_t bank);               /* mapper write */
 uint8_t zanac_bank_read(uint8_t bank, uint16_t addr);  /* addr is $8000-$FFFF */
+
+/* ------------------------------------------------- save-state resume ---- */
+/* Where the ported code is at a frame boundary.  A save state cannot carry the
+ * C call stack, so it records the game's outer loop instead (the ported 6502
+ * has no state outside RAM/registers, so the outer loops are restartable).  The
+ * game sets this at the entry of every loop a save can be resumed in; see
+ * zanac/savestate.c and E229.c. */
+enum {
+    ZANAC_RESUME_MENU        = 0,  /* main_menu_loop                       */
+    ZANAC_RESUME_LEVEL       = 1,  /* sub_E81E's per-frame loop (loc_E880) */
+    ZANAC_RESUME_LEVEL_SETUP = 2,  /* sub_E81E setup, before the loop      */
+    ZANAC_RESUME_PAUSE       = 3,  /* sub_D3A8's pause loop (loc_D3B9)      */
+    ZANAC_RESUME_MENU_SELECT = 4   /* show_main_menu's selection loop       */
+                                   /* (loc_E190, after GAME START appears)  */
+};
+extern uint8_t zanac_resume_kind;
+/* Set by the loader: sub_E81E() skips its setup and enters loc_E880. */
+extern uint8_t zanac_resume_skip_setup;
+/* Pause resume: sub_D3A8() starts at loc_D3B9 (its prologue already ran and
+ * pushed byte_83/byte_17A in the restored state); sub_EA0B() then continues at
+ * loc_EA25 (the code after its sub_D3A8 call); sub_E81E() continues at
+ * loc_E880_after_ea0b (the code after its sub_EA0B call). */
+extern uint8_t zanac_resume_pause;
+extern uint8_t zanac_resume_ea0b_after_pause;
+extern uint8_t zanac_resume_level_after_ea0b;
+/* Menu resume: show_main_menu() starts at its loc_E080 demo loop or, for
+ * ZANAC_RESUME_MENU_SELECT, at its loc_E190 GAME START/CONTINUE loop. */
+extern uint8_t zanac_resume_menu;
+extern uint8_t zanac_resume_menu_select;
 
 /* ------------------------------------------------- addressing modes ----- */
 #define ABSX(base)  ((uint16_t)((uint16_t)(base) + X))          /* abs,X */

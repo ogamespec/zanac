@@ -24,6 +24,7 @@
  *     them.
  */
 #include "zanac.h"
+#include "savestate.h"
 
 /* ------------------------------------------------------------------------ *
  *  $D920  sub_D920 - start a level: remember it in byte_92 and mark $10
@@ -1098,6 +1099,16 @@ loc_DF7C:                                    /* $DF7C */
  * ------------------------------------------------------------------------ */
 void show_main_menu(void)                    /* $DFBF */
 {
+    /* Menu save resume: the title/menu setup above loc_E080 already ran in the
+     * saved state, and its VRAM/OAM/palette are restored with it. */
+    if (zanac_resume_menu) {
+        zanac_resume_menu = 0;
+        goto loc_E080;
+    }
+    if (zanac_resume_menu_select) {
+        zanac_resume_menu_select = 0;
+        goto loc_E190;
+    }
     apu_stop();                              /* JSR apu_stop */
     ppu_disable_all();                       /* JSR ppu_disable_all */
     LDAI(0x00);                              /* LDA #0 */
@@ -1187,6 +1198,9 @@ loc_E020:                                    /* $E020 */
     STA(byte_6F);                            /* STA byte_6F */
 
 loc_E080:                                    /* $E080 */
+    /* The menu loop is restartable too (see zanac_ram.h/savestate.h). */
+    zanac_resume_kind = ZANAC_RESUME_MENU;
+    zanac_state_checkpoint();
     LDYI(1);                                 /* LDY #1 */
     all_enemies_destroyed();                 /* JSR all_enemies_destroyed */
     sub_E229();                              /* JSR sub_E229 */
@@ -1323,6 +1337,10 @@ loc_E18D:                                    /* $E18D */
     STA(byte_200);                           /* STA byte_200 */
 
 loc_E190:                                    /* $E190 */
+    /* The GAME START/CONTINUE selector is a second restartable menu loop (it
+     * waits for a button, so it can last indefinitely). */
+    zanac_resume_kind = ZANAC_RESUME_MENU_SELECT;
+    zanac_state_checkpoint();
     LDYI(1);                                 /* LDY #1 */
     all_enemies_destroyed();                 /* JSR all_enemies_destroyed */
     pad_read();                              /* JSR pad_read */

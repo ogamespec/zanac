@@ -403,6 +403,31 @@ void *neslib_debug_nes(void)
     return g_nes;
 }
 
+void neslib_state_after_load(void)
+{
+    /* The state was saved at a frame boundary, i.e. in the middle of a wait
+     * inside the game's C call stack.  The loader resumes at an outer game
+     * loop, so the wait bookkeeping of the abandoned call chain must not leak
+     * into it: the next neslib_wait_vblank() has to look for a fresh vblank. */
+    g_vblank_reached = false;
+    g_vblank_live = false;
+    g_in_vblank = false;
+
+    /* Samples queued by the run that is being replaced would be played after
+     * the load.  The APU channel state itself is part of the save; only the
+     * capture side (resampler phase and ring buffer) restarts. */
+    if (g_nes && g_nes->apu) {
+        Apu *apu = g_nes->apu;
+        apu->audio_head = 0;
+        apu->audio_tail = 0;
+        apu->audio_accum = 0.0;
+        apu->audio_sum = 0.0;
+        apu->audio_cycles = 0;
+        apu->audio_hp_x = 0.0;
+        apu->audio_hp_y = 0.0;
+    }
+}
+
 uint8_t *neslib_ram(void)
 {
     return g_nes ? g_nes->ram : NULL;

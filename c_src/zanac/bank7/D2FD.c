@@ -34,6 +34,7 @@
  *    (sub_D8BF's tail call is sub_D84A, defined here).
  */
 #include "zanac.h"
+#include "savestate.h"
 
 /* ------------------------------------------------------------------------ *
  *  $D2FD  sub_D2FD - print a zero-suppressed 6-digit string from the ($16)
@@ -196,6 +197,12 @@ loc_D37E:                                    /* $D37E */
  * ------------------------------------------------------------------------ */
 void sub_D3A8(void)                          /* $D3A8 */
 {
+    /* Pause save resume: the prologue above loc_D3B9 already ran in the saved
+     * state (sound paused, byte_83/byte_17A on the emulated stack). */
+    if (zanac_resume_pause) {
+        zanac_resume_pause = 0;
+        goto loc_D3B9;
+    }
     LDA(pad_test1);                          /* LDA pad_test1 */
     ANDI(0x10);                              /* AND #$10 */
     BNE(loc_D3AF);                           /* BNE loc_D3AF */
@@ -209,6 +216,10 @@ loc_D3AF:                                    /* $D3AF */
     PHA();                                   /* PHA */
 
 loc_D3B9:                                    /* $D3B9 */
+    /* The pause loop is the third restartable boundary: a state saved here is
+     * resumed by sub_D3A8 at this label (see zanac_ram.h/savestate.h). */
+    zanac_resume_kind = ZANAC_RESUME_PAUSE;
+    zanac_state_checkpoint();
     sub_D3F4();                              /* JSR sub_D3F4 */
     LDA(byte_19B);                           /* LDA byte_19B */
     BEQ(loc_D3D5);                           /* BEQ loc_D3D5 */
