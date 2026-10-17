@@ -1,0 +1,10 @@
+// zanac.rc.in - Windows resources of the Zanac C port.
+//
+// CMake substitutes @ZANAC_ICON_PATH@ with the absolute path of zanac.ico:
+// rc.exe looks for INCLUDE files relative to its working directory, not to the
+// .rc file, so a relative name would depend on how the build was started.
+//
+// The first icon in the executable is the one Explorer, the taskbar and Alt-Tab
+// show.  The SDL window icon is set separately at run time from
+// frontend/icon.h (same picture, rendered as RGBA).
+1 ICON "@ZANAC_ICON_PATH@"

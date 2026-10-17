@@ -119,6 +119,22 @@ add_executable(zanac ${NESLIB_SRC} ${ZANAC_GAME_SRC} ${FRONTEND_COMMON} ${FRONTE
 add_dependencies(zanac zanac_generated)
 target_include_directories(zanac PRIVATE "${ZANAC_ROOT}" "${ZANAC_ROOT}/zanac"
                           "${ZANAC_ROOT}/neslib" "${ZANAC_ROOT}/frontend")
+
+# Windows: embed zanac.ico into the executable.  rc.exe resolves the INCLUDE
+# against its working directory, so the path is substituted into a generated
+# .rc instead of being written relative to the source.  The SDL window/taskbar
+# icon is set at run time from frontend/icon.h (the same picture).
+if(WIN32)
+    set(ZANAC_ICON_PATH "${ZANAC_ROOT}/zanac.ico")
+    configure_file("${ZANAC_ROOT}/zanac.rc.in"
+                   "${CMAKE_CURRENT_BINARY_DIR}/zanac.rc" @ONLY)
+    target_sources(zanac PRIVATE "${CMAKE_CURRENT_BINARY_DIR}/zanac.rc")
+    # Re-run rc.exe when the icon itself is regenerated (the .rc only names it,
+    # so its text does not change).
+    set_property(SOURCE "${CMAKE_CURRENT_BINARY_DIR}/zanac.rc"
+                 APPEND PROPERTY OBJECT_DEPENDS "${ZANAC_ICON_PATH}")
+endif()
+
 if(SDL3_USED)
     target_include_directories(zanac PRIVATE "${SDL3_INCLUDE_DIR}")
     target_link_libraries(zanac PRIVATE "${SDL3_LIBRARY}")

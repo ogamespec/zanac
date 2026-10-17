@@ -14,7 +14,8 @@
  *      frontend_shutdown()  release everything
  *
  * Video:  the neslib framebuffer (256x240, 0x00RRGGBB) is streamed into a
- *         texture; F1..F4 select the scale, F11 toggles fullscreen.
+ *         texture; F1..F4 select the scale, F11 toggles fullscreen.  The
+ *         window icon comes from icon.h (generated from the artwork).
  * Audio:  the APU's decimated samples are pushed into an SDL audio stream
  *         (48 kHz, mono, float) once per frame.
  * Input:  arrows/WASD, Z or J = B, X or K = A, Enter = Start,
@@ -28,12 +29,14 @@
 #include <SDL3/SDL.h>
 
 #include "frontend.h"
+#include "icon.h"                 /* generated from assets/app_icon_source.png */
 #include "neslib/neslib.h"
 
 static SDL_Window      *s_window;
 static SDL_Renderer    *s_renderer;
 static SDL_Texture     *s_texture;
 static SDL_AudioStream *s_audio;
+static SDL_Surface     *s_icon;
 static bool             s_running;
 static int              s_scale = 3;
 static Uint64           s_last_counter;
@@ -134,6 +137,14 @@ int frontend_init(void)
         fprintf(stderr, "zanac: SDL_CreateWindow failed: %s\n", SDL_GetError());
         return 1;
     }
+    /* The window/taskbar icon.  On Windows the executable carries the same
+     * picture as a resource (zanac.rc.in), which is what Explorer shows.  The
+     * surface is kept alive until frontend_shutdown(). */
+    s_icon = SDL_CreateSurfaceFrom(ZANAC_ICON_W, ZANAC_ICON_H,
+                                   SDL_PIXELFORMAT_RGBA32,
+                                   (void *)zanac_icon_rgba, ZANAC_ICON_W * 4);
+    if (s_icon)
+        SDL_SetWindowIcon(s_window, s_icon);
     s_renderer = SDL_CreateRenderer(s_window, NULL);
     s_texture = SDL_CreateTexture(s_renderer, SDL_PIXELFORMAT_XRGB8888,
                                   SDL_TEXTUREACCESS_STREAMING, 256, 240);
@@ -264,5 +275,9 @@ void frontend_shutdown(void)
     if (s_texture) SDL_DestroyTexture(s_texture);
     if (s_renderer) SDL_DestroyRenderer(s_renderer);
     if (s_window) SDL_DestroyWindow(s_window);
+    if (s_icon) {
+        SDL_DestroySurface(s_icon);
+        s_icon = NULL;
+    }
     SDL_Quit();
 }

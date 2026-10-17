@@ -37,6 +37,8 @@ c_src/
   frontend/             host side: SDL3 window, headless runner, PPM/WAV dumps
   reference/run_rom.c   the ORIGINAL ROM running in the same engine (verifier)
   tools/                generators and the frame comparison script
+  assets/               the application-icon artwork and its 256 px preview
+  zanac.ico             Windows icon, embedded into zanac.exe (zanac.rc.in)
   analysis/             structural reports of the original banks, the plan
 ```
 
@@ -87,6 +89,27 @@ cmake --build c_src/build-cmake --config Release
 Screenshots of a run (and of the original ROM in the same engine) are in
 `shots/`: `07_port_vs_rom_start.png` is the port's frame 140 next to the ROM's
 frame 160, `04_port_vs_rom_level1.png` three later pairs.
+
+## Application icon
+
+`assets/app_icon_source.png` is the player-ship artwork the icon is made from.
+`tools/make_icon.py` puts it on a dark rounded badge with a blue glow and a
+starfield and writes the generated files, which are committed so that building
+does not need Python imaging:
+
+![Zanac application icon](assets/zanac_256.png)
+
+```
+python3 tools/make_icon.py          # after changing the artwork
+```
+
+* `assets/zanac_256.png` - the 256 px preview shown in this document.
+* `zanac.ico` - 16, 24, 32, 48, 64, 128 and 256 px.  On Windows, CMake
+  substitutes its path into `zanac.rc.in` and compiles that resource, so
+  `zanac.exe` carries the icon in Explorer, the taskbar and Alt-Tab.
+* `frontend/icon.h` - a 64x64 RGBA copy that `frontend/sdl.c` passes to
+  `SDL_SetWindowIcon()`, so the window icon is also right on the other
+  platforms and in the taskbar while the game runs.
 
 ## Save states
 

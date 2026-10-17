@@ -116,14 +116,16 @@ if not exist "%BUILD%\CMakeCache.txt" (
     set "EXTRA="
     if defined NOSDL set "EXTRA=-DZANAC_NO_SDL=ON"
     "%CMAKE%" -S "%ROOT%." -B "%BUILD%" -G Ninja -DCMAKE_BUILD_TYPE=Release !EXTRA!
-    if errorlevel 1 (
+    rem A failed link can come back as 0xFFFFFFFF (-1); "if errorlevel 1"
+    rem does not catch that, so compare the value instead.
+    if not "!errorlevel!"=="0" (
         echo CONFIGURE_FAIL
         exit /b 1
     )
 )
 
 "%CMAKE%" --build "%BUILD%"
-if errorlevel 1 (
+if not "%errorlevel%"=="0" (
     echo BUILD_FAIL
     exit /b 1
 )
