@@ -84,15 +84,15 @@ void cart_free(Cart *cart);
 /* neslib addition: build a board from an in-memory description instead of an
  * iNES file.  No PRG image is installed (the ported game code reads the
  * extracted banks itself), only the CHR-RAM the pattern tables live in and the
- * mirroring the PPU needs. */
+ * nametable mirroring the board is wired for. */
 void cart_init_chr_ram(Cart *cart, struct Nes *nes, uint8_t mapper,
-                       uint32_t chr_ram_size, bool vertical_mirroring);
+                       uint32_t chr_ram_size, Mirroring mirroring);
 
 /* The same board with a real PRG image, for the reference runner that executes
  * the original 6502 ROM (c_src/reference/run_rom.c). */
 void cart_init_image(Cart *cart, struct Nes *nes, const uint8_t *prg,
                      uint32_t prg_size, uint8_t mapper, uint32_t chr_ram_size,
-                     bool vertical_mirroring);
+                     Mirroring mirroring);
 
 /* CPU bus $4020-$FFFF */
 uint8_t cart_cpu_read(Cart *cart, uint16_t addr);

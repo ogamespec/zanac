@@ -42,7 +42,7 @@ typedef struct NeslibCallbacks {
     void (*vblank)(void);           /* NMI handler: runs at vblank      */
 } NeslibCallbacks;
 
-neslib_power_on(&board, &callbacks);
+neslib_power_on(&board, MIRROR_HORIZONTAL, &callbacks);
 neslib_wait_vblank();               /* the port of the game's `JSR vsync` */
 const uint32_t *fb = neslib_framebuffer();   /* 256x240, 0x00RRGGBB */
 neslib_audio_enable(48000.0);
@@ -77,7 +77,7 @@ The core is taken over unchanged except for four additions, each marked with a
 | change | why |
 |---|---|
 | `ppu_flush_write_queues()` (ppu.c/ppu.h) | the `$2001`/`$2006` PCLK write-latency queues must be drained, because the ported code issues register writes back-to-back from C instead of four or more cycles apart |
-| `cart_init_chr_ram()` (cart.c/cart.h) | build the board from an in-memory description: UxROM, no PRG image (the port reads the extracted banks itself), 8 KB CHR RAM, vertical mirroring |
+| `cart_init_chr_ram()` (cart.c/cart.h) | build the board from an in-memory description: UxROM, no PRG image (the port reads the extracted banks itself), 8 KB CHR RAM, and the nametable `Mirroring` the caller passes in |
 | `cart_init_image()` (cart.c/cart.h) | the same board *with* a PRG image, used by the reference runner |
 | `apu_reset()` renamed to `neslib_apu_reset()` (apu.c/apu.h/nes.c) | the port has its own procedure called `apu_reset` (bank 7, `$EF71`), and C has one global namespace |
 

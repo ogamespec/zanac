@@ -234,6 +234,35 @@ the original draws it.  With the RAM left alone the port's attribute buffer
 matches the ROM's exactly (0 differing bytes where it used to be 7) and the
 "holes at the bottom" of the map are gone.
 
+The second engine-level fix is the nametable mirroring.  The port used to hand
+the engine a board with `vertical_mirroring = true`, but the iNES header of
+Zanac (USA) is `flags6 = $20`: bit 0 is **0**, so the cartridge is
+**horizontal**-mirrored (`Build/nes_header.bin` / the first 16 bytes of
+`Build/zanac.nes`).  Zanac is a vertical scroller, and a vertical scroller needs
+the two nametables stacked: with horizontal mirroring CIRAM A10 follows PPU A11,
+so `$2000` and `$2800` are the two distinct nametables and the game's page
+toggle (PPU_CTRL bit 1, from `byte_99`) really switches banks.  With the wrong
+(vertical) mirroring `$2800` lands on the *same* CIRAM bank as `$2000`, so the
+bottom rows of the screen - the rows that should come from the second nametable
+- showed the top rows of the first one instead: several rows of the upper
+background repeated at the bottom of the map.
+
+The engine's board description no longer hard-codes that choice: `neslib` stays
+game-agnostic and takes the arrangement as a `Mirroring` parameter of
+`neslib_power_on()` (`cart_init_chr_ram()`/`cart_init_image()` in the core take
+it the same way).  The port passes `MIRROR_HORIZONTAL` from `zanac/main.c`,
+where the Zanac-specific reasoning above is written down.
+
+It was invisible in the port-vs-ROM comparison because *both* sides run in the
+same engine and shared the wrong mirroring.  Comparing against the real
+emulator (Nespeculator, which loads the ROM and therefore the correct mirroring
+from the header) shows it immediately: at matched frames the port and the
+emulator differ in the bottom ~87 rows, and the emulator shows continuous
+terrain where the port showed the repeated lattice.  With the board corrected
+the difference drops to the player sprite alone (96 pixels, one sprite's X).
+`Nespeculator <rom.nes> --headless` with `NES_AUTOINPUT`/`NES_AUTOSHOTFILE`
+produces the reference framebuffer for exactly this comparison.
+
 Two further differences are deliberate and documented in the code: `apu_fx_5`
 (a sound script that unwinds the 6502 stack with four `PLA`s; the port returns
 normally instead) and `sub_EFA6` (whose `RTS` would land one byte past the

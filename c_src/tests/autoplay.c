@@ -100,7 +100,9 @@ int main(int argc, char **argv)
     if (input_script_load("tests/play.txt") != 0)
         return 1;
     frontend_init();
-    neslib_power_on(NULL, &callbacks);
+    /* Same board as the port: horizontal mirroring, matching the iNES header of
+     * Zanac (flags6 = $20). */
+    neslib_power_on(NULL, MIRROR_HORIZONTAL, &callbacks);
     zanac_init();
     neslib_audio_enable(FRONTEND_SAMPLE_RATE);
     neslib_set_frame_hook(hook);

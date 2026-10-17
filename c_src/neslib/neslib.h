@@ -23,6 +23,8 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+#include "core/cart.h"   /* Mirroring: the board's nametable arrangement */
+
 /* ------------------------------------------------------------------------ *
  *  Callbacks
  * ------------------------------------------------------------------------ */
@@ -31,20 +33,24 @@ typedef struct NeslibCallbacks {
     void (*vblank)(void);   /* NMI handler: runs at the start of every vblank */
 } NeslibCallbacks;
 
-/* Board description of the cartridge the game was written for:
- * Zanac (USA) is UxROM: 128 KB PRG, 8 KB CHR RAM, vertical mirroring. */
+/* Board description of the cartridge the game was written for.  The nametable
+ * arrangement is not part of it: it is passed to neslib_power_on() as a
+ * Mirroring value (see core/cart.h), because it is board wiring the caller
+ * knows from the cartridge header. */
 typedef struct NeslibBoard {
-    uint32_t prg_size;          /* PRG ROM size in bytes (128 KB) */
-    uint32_t chr_ram_size;      /* CHR RAM size in bytes (8 KB) */
-    uint8_t  mapper;            /* UxROM = 2 */
-    bool     vertical_mirroring;
+    uint32_t prg_size;          /* PRG ROM size in bytes */
+    uint32_t chr_ram_size;      /* CHR RAM size in bytes (0: CHR ROM) */
+    uint8_t  mapper;            /* iNES mapper number */
 } NeslibBoard;
 
 /* Power on the engine (PPU, APU, controller, cartridge) and install the
- * callbacks.  The Reset callback is *not* run here: the game's own machine
- * model must be initialised first, so the host calls neslib_reset() once
- * everything is in place (that is the console's reset vector). */
-void neslib_power_on(const NeslibBoard *board, const NeslibCallbacks *callbacks);
+ * callbacks.  `board` may be NULL for the default board; `mirroring` is the
+ * nametable arrangement of the cartridge (MIRROR_HORIZONTAL, MIRROR_VERTICAL,
+ * ...).  The Reset callback is *not* run here: the game's own machine model must
+ * be initialised first, so the host calls neslib_reset() once everything is in
+ * place (that is the console's reset vector). */
+void neslib_power_on(const NeslibBoard *board, Mirroring mirroring,
+                     const NeslibCallbacks *callbacks);
 
 /* Run the Reset callback - the port of the console's reset vector.  The ported
  * Reset handler never returns: it is the game's outer loop (reset ->

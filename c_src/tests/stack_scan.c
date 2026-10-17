@@ -71,7 +71,9 @@ int main(int argc, char **argv)
 
     build_prg(prg);
     nes = nes_create(NES_REGION_NTSC);
-    cart_init_image(nes->cart, nes, prg, sizeof(prg), 2, 8192, true);
+    /* Same board as the port and the reference runner: horizontal mirroring,
+     * matching the iNES header of Zanac (flags6 = $20). */
+    cart_init_image(nes->cart, nes, prg, sizeof(prg), 2, 8192, MIRROR_HORIZONTAL);
     nes_power_on(nes);
 
     for (long i = 0; i < frames; i++) {

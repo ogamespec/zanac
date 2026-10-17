@@ -120,7 +120,13 @@ int main(int argc, char **argv)
     if (frontend_init() != 0)
         return 1;
 
-    neslib_power_on(NULL, &callbacks);
+    /* Zanac (USA) is UxROM with horizontal mirroring: its iNES header carries
+     * flags6 = $20 (bit 0 = 0).  The game is a vertical scroller, so the two
+     * nametables must be stacked ($2000 and $2800 distinct, CIRAM A10 = PPU
+     * A11) and the scroll's page toggle (PPU_CTRL bit 1) really switches banks;
+     * with vertical mirroring the bottom rows of the screen would repeat the
+     * top of the first nametable. */
+    neslib_power_on(NULL, MIRROR_HORIZONTAL, &callbacks);
     zanac_init();                     /* the port's RAM pointer and registers */
     neslib_audio_enable(FRONTEND_SAMPLE_RATE);
     neslib_set_frame_hook(frame_hook);

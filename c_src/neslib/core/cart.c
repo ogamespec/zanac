@@ -217,12 +217,12 @@ void cart_free(Cart *cart)
  * is installed; the PPU still needs the pattern-table memory and the board
  * mirroring. */
 void cart_init_chr_ram(Cart *cart, struct Nes *nes, uint8_t mapper,
-                       uint32_t chr_ram_size, bool vertical_mirroring)
+                       uint32_t chr_ram_size, Mirroring mirroring)
 {
     memset(cart, 0, sizeof(*cart));
     cart->nes = nes;
     cart->mapper = mapper;
-    cart->mirroring = vertical_mirroring ? MIRROR_VERTICAL : MIRROR_HORIZONTAL;
+    cart->mirroring = mirroring;
     /* No PRG image is installed, so bus conflicts cannot be resolved against
      * the ROM byte; the port does not write the mapper register anyway (it
      * switches banks itself, see zanac_ram.c). */
@@ -243,9 +243,9 @@ void cart_init_chr_ram(Cart *cart, struct Nes *nes, uint8_t mapper,
  * it frame by frame. */
 void cart_init_image(Cart *cart, struct Nes *nes, const uint8_t *prg,
                      uint32_t prg_size, uint8_t mapper, uint32_t chr_ram_size,
-                     bool vertical_mirroring)
+                     Mirroring mirroring)
 {
-    cart_init_chr_ram(cart, nes, mapper, chr_ram_size, vertical_mirroring);
+    cart_init_chr_ram(cart, nes, mapper, chr_ram_size, mirroring);
     free(cart->prg);
     cart->prg = (uint8_t *)malloc(prg_size ? prg_size : 1);
     memcpy(cart->prg, prg, prg_size);

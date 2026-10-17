@@ -130,9 +130,10 @@ static void cycle_tick(Nes *nes, bool dispatch)
 
 /* ------------------------------------------------------------- set-up ---- */
 
-void neslib_power_on(const NeslibBoard *board, const NeslibCallbacks *callbacks)
+void neslib_power_on(const NeslibBoard *board, Mirroring mirroring,
+                     const NeslibCallbacks *callbacks)
 {
-    NeslibBoard defaults = { 128u * 1024u, 8192u, 2, true };
+    NeslibBoard defaults = { 128u * 1024u, 8192u, 2 };
     static const NeslibCallbacks none = { NULL, NULL };
 
     if (!board) board = &defaults;
@@ -141,12 +142,12 @@ void neslib_power_on(const NeslibBoard *board, const NeslibCallbacks *callbacks)
     g_nes = nes_create(NES_REGION_NTSC);
     if (!g_nes) return;
 
-    /* The cartridge supplies the 8 KB of writable CHR RAM the game uploads its
-     * pattern tables into.  No PRG image is needed: the ported code reads the
-     * extracted banks directly (see zanac_banks.c), so the mapper is not
-     * emulated at all. */
+    /* The cartridge supplies the writable CHR RAM the game uploads its pattern
+     * tables into.  No PRG image is needed: the ported code reads the extracted
+     * banks directly (see zanac_banks.c), so the mapper is not emulated at
+     * all. */
     cart_init_chr_ram(g_nes->cart, g_nes, board->mapper, board->chr_ram_size,
-                      board->vertical_mirroring);
+                      mirroring);
     nes_power_on(g_nes);
 
     /* The work RAM is left with the deterministic power-on pattern that
